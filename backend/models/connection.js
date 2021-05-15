@@ -1,11 +1,12 @@
 require("dotenv").config();
+const path = require('path');
 const url = process.env.databaseUrl;
 const dbName = process.env.dbName;
 
 const mongoose = require('mongoose');
-mongoose.connect(url,{useNewUrlParser:true,useUnifiedTopology:true});
+mongoose.connect(path.join(url,dbName),{useNewUrlParser:true,useUnifiedTopology:true});
 
-const db = mongoose.connection;
+db = mongoose.connection;
 db.on('error',console.error.bind(console,'connection error'));
 db.once('open',function(){
   console.log('connected');
