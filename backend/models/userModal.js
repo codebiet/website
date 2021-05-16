@@ -17,9 +17,15 @@ const githubUserNameValidator = (username) => {
     return re.test(username);
 }
 const githubUserNameValidatorWithMsg = [githubUserNameValidator,'Invalid `{PATH}! Got `{VALUE}``']
+
+const passwordValidator = (password) => {
+    return password.length >= 8;
+}
+const passwordValidatorWithMsg = [passwordValidator,"Error! Password length should be >=8! Got `{PATH}` = `{VALUE}`"];
 const userSchema = new mongoose.Schema({
     name:{type:String,required:true},
     email:{type:String,required:true,unique:true,validate:emailValidatorWithMsg},
+    password:{type:String,required:true,validate:passwordValidatorWithMsg},
     callingPhoneNumber: {type:String,unique:true,validate:phoneNumberValidatorWithMsg},
     whatsAppPhoneNumber:{type:String, unique:true, validate: phoneNumberValidatorWithMsg},
     year:{type:Number,required:true},
@@ -88,13 +94,13 @@ const userSchema = new mongoose.Schema({
     cloudHostingPlatforms:[String],
     otherSkills:String,
     interest:{
-        preference1:{type:String,required:true},
-        preference2:{type:String,required:true},
-        preference3:{type:String,required:true}
+        preference1:{type:String,required:true,enum:["Artificial Intelligence","Robotics","Web Development","Mobile Application Development","Cloud Computing","Cyber Security and Ethical Hacking","Data Science and Data Analysis","Computer Software","Game development"]},
+        preference2:{type:String,required:true,enum:["Artificial Intelligence","Robotics","Web Development","Mobile Application Development","Cloud Computing","Cyber Security and Ethical Hacking","Data Science and Data Analysis","Computer Software","Game development"]},
+        preference3:{type:String,required:true,enum:["Artificial Intelligence","Robotics","Web Development","Mobile Application Development","Cloud Computing","Cyber Security and Ethical Hacking","Data Science and Data Analysis","Computer Software","Game development"]}
     },
     internshipsOrProjects:String,
     trainings:String,
-    resume:{type:String,required:true}
+    resume:{type:String}
 });
 
 userSchema.query.findByEmail = function(email){

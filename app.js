@@ -6,15 +6,20 @@ const cors = require("cors");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const upload = require('express-fileupload');
 const getRoutes = require("./backend/routes/getRoutes");
 const postRoutes = require("./backend/routes/postRoutes");
 const app = express();
+const multer = require('multer');
+const multerUpload = multer();
 
 dotenv.config();
 app.use(cors());
+app.use(upload({createParentPath:true}));
 app.use(compression());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.static(__dirname + "/client"));
 app.use(logger("dev"));
 // app.set("views", __dirname + "/client/views");
@@ -31,8 +36,8 @@ app.use(
   })
 );
 
-// app.use("/post", postRoutes);
-// app.use("/*", getRoutes);
+app.use("/post", postRoutes);
+app.use("/*", getRoutes);
 
 
 app.set("port", process.env.PORT || 4000);
