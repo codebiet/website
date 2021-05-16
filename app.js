@@ -36,9 +36,8 @@ app.use(
   })
 );
 
-app.use("/post", postRoutes);
-app.use("/*", getRoutes);
-
+app.use("/post", postRoutes)
+app.use("/", getRoutes);
 
 app.set("port", process.env.PORT || 4000);
 app.listen(app.get("port"), () => {
