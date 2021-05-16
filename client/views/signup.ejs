@@ -1,0 +1,1030 @@
+<html>
+  <head>
+    <title>Signup</title>
+    <%-include('./partials/head') %>
+  </head>
+
+  <body>
+    <!-- <header><%-include('./partials/nav') %></header> -->
+
+    <div class="container mt-4 text-center">
+      <h1>Code Registration Form</h1>
+    </div>
+
+    <div class="container mt-5">
+      <form method="POST" action="">
+        <!-- Name -->
+        <div class="form-group row">
+          <label for="name" class="col-sm-2 col-form-label">Name</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="staticEmail"
+              name="name"
+            />
+          </div>
+        </div>
+        <!-- email -->
+        <div class="form-group row">
+          <label for="email" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="staticEmail"
+              value="email@example.com"
+              name="email"
+            />
+          </div>
+        </div>
+        <!-- password -->
+        <div class="form-group row">
+          <label for="password" class="col-sm-2 col-form-label">Password</label>
+          <div class="col-sm-10">
+            <input
+              type="password"
+              class="form-control"
+              id="inputPassword"
+              placeholder="Password"
+              name="password"
+            />
+          </div>
+        </div>
+        <!-- mobile no -->
+        <div class="form-group row">
+          <label for="callingPhoneNumber" class="col-sm-2 col-form-label"
+            >Mobile No.</label
+          >
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="staticEmail"
+              name="callingPhoneNumber"
+            />
+          </div>
+        </div>
+        <!-- whatsapp no. -->
+        <div class="form-group row">
+          <label for="whatsAppPhoneNumber" class="col-sm-2 col-form-label"
+            >Whatsapp No.</label
+          >
+          <div class="col-sm-10">
+            <input
+              type="number"
+              class="form-control"
+              id="staticEmail"
+              name="whatsAppPhoneNumber"
+            />
+          </div>
+        </div>
+        <!-- year -->
+        <div class="form-group row">
+          <label for="year" class="col-sm-2 col-form-label">Year</label>
+          <div class="col-sm-10">
+            <select name="year" class="form-control">
+              <option selected>Choose Year</option>
+              <option>1st</option>
+              <option>2nd</option>
+              <option>3rd</option>
+              <option>4th</option>
+            </select>
+          </div>
+        </div>
+        <!-- branch -->
+        <div class="form-group row">
+          <label for="branch" class="col-sm-2 col-form-label">Branch</label>
+          <div class="col-sm-10">
+            <select name="branch" class="form-control">
+              <option selected>Branch</option>
+              <option value="Electrical Engineering">
+                Electrical Engineering
+              </option>
+              <option value="Electronics and Communication">
+                Electronics and Communication
+              </option>
+              <option value="Computer Science and Engineering">
+                Computer Science and Engineering
+              </option>
+              <option value="Infomation Technology">
+                Infomation Technology
+              </option>
+              <option value="Civil Engineering">Civil Engineering</option>
+              <option value="Mechanical Engineering">
+                Mechanical Engineering
+              </option>
+              <option value="Chemical Technology">Chemical Technology</option>
+            </select>
+          </div>
+        </div>
+        <!-- github username -->
+        <div class="form-group row">
+          <label for="githubUserName" class="col-sm-2 col-form-label"
+            >GitHub Username</label
+          >
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="staticEmail"
+              name="githubUserName"
+            />
+          </div>
+        </div>
+        <!-- programming language known -->
+        <br />
+        <hr />
+        <div class="form-group row">
+          <label for="githubUserName" class="col-sm-2 col-form-label"
+            >Programming Languages</label
+          >
+          <div class="col-sm-10">
+            <div class="row">
+              <label for="c++" class="col-md-2 col-form-label">C++</label>
+
+              <div class="col-md-10">
+                <select name="c++" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="java" class="col-md-2 col-form-label">Java</label>
+
+              <div class="col-md-10">
+                <select name="java" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="c" class="col-md-2 col-form-label">C</label>
+
+              <div class="col-md-10">
+                <select name="c" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="python" class="col-md-2 col-form-label">Python</label>
+
+              <div class="col-md-10">
+                <select name="python" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="javascript" class="col-md-2 col-form-label"
+                >Javascript</label
+              >
+
+              <div class="col-md-10">
+                <select name="javascript" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="c#" class="col-md-2 col-form-label">C#</label>
+
+              <div class="col-md-10">
+                <select name="c#" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="ruby" class="col-md-2 col-form-label">Ruby</label>
+
+              <div class="col-md-10">
+                <select name="ruby" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <hr />
+        <!-- web Technologies -->
+        <div class="form-group row">
+          <label for="githubUserName" class="col-sm-2 col-form-label"
+            >Web Technologies</label
+          >
+          <div class="col-sm-10">
+            <div class="row">
+              <label for="html/css" class="col-md-2 col-form-label"
+                >HTML/CSS</label
+              >
+
+              <div class="col-md-10">
+                <select name="html/css" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="javascript" class="col-md-2 col-form-label"
+                >Javascript</label
+              >
+
+              <div class="col-md-10">
+                <select name="javascript" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="nodejs" class="col-md-2 col-form-label">Nodejs</label>
+
+              <div class="col-md-10">
+                <select name="nodejs" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="php" class="col-md-2 col-form-label">Php</label>
+
+              <div class="col-md-10">
+                <select name="php" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="expres" class="col-md-2 col-form-label"
+                >Express</label
+              >
+
+              <div class="col-md-10">
+                <select name="express" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="java" class="col-md-2 col-form-label">Java</label>
+
+              <div class="col-md-10">
+                <select name="java" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="ruby" class="col-md-2 col-form-label">Ruby</label>
+
+              <div class="col-md-10">
+                <select name="ruby" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <hr />
+        <!-- webFrameworks -->
+        <div class="form-group row">
+          <label for="webFrameworks" class="col-sm-2 col-form-label"
+            >Web Frameworks</label
+          >
+          <div class="col-sm-10">
+            <div class="row">
+              <label for="django" class="col-md-2 col-form-label">Django</label>
+
+              <div class="col-md-10">
+                <select name="django" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="angular" class="col-md-2 col-form-label"
+                >Angular</label
+              >
+
+              <div class="col-md-10">
+                <select name="angular" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="asp.net" class="col-md-2 col-form-label"
+                >Asp.net</label
+              >
+
+              <div class="col-md-10">
+                <select name="asp.net" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="laravel" class="col-md-2 col-form-label"
+                >Laravel</label
+              >
+
+              <div class="col-md-10">
+                <select name="laravel" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="spring" class="col-md-2 col-form-label">Spring</label>
+
+              <div class="col-md-10">
+                <select name="spring" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="rails" class="col-md-2 col-form-label">Rails</label>
+
+              <div class="col-md-10">
+                <select name="rails" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="react" class="col-md-2 col-form-label">React</label>
+
+              <div class="col-md-10">
+                <select name="react" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="vue.js" class="col-md-2 col-form-label">Vue.js</label>
+
+              <div class="col-md-10">
+                <select name="vue.js" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="ember" class="col-md-2 col-form-label">Ember</label>
+
+              <div class="col-md-10">
+                <select name="ember" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <hr />
+        <!-- database -->
+        <div class="form-group row">
+          <label for="webFrameworks" class="col-sm-2 col-form-label"
+            >Database</label
+          >
+          <div class="col-sm-10">
+            <div class="row">
+              <label for="oracle" class="col-md-2 col-form-label">Oracle</label>
+
+              <div class="col-md-10">
+                <select name="oracle" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="mysql" class="col-md-2 col-form-label">MySql</label>
+
+              <div class="col-md-10">
+                <select name="mysql" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="microsoftsql" class="col-md-2 col-form-label"
+                >Microsoft Sql</label
+              >
+
+              <div class="col-md-10">
+                <select name="microsoftsql" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="postgresql" class="col-md-2 col-form-label"
+                >Postgresql</label
+              >
+
+              <div class="col-md-10">
+                <select name="postgresql" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="mongodb" class="col-md-2 col-form-label"
+                >MongoDb</label
+              >
+
+              <div class="col-md-10">
+                <select name="mongodb" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="microsoft access" class="col-md-2 col-form-label"
+                >Microsoft Access</label
+              >
+
+              <div class="col-md-10">
+                <select name="rails" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="react" class="col-md-2 col-form-label">React</label>
+
+              <div class="col-md-10">
+                <select name="react" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="vue.js" class="col-md-2 col-form-label">Vue.js</label>
+
+              <div class="col-md-10">
+                <select name="vue.js" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="ember" class="col-md-2 col-form-label">Ember</label>
+
+              <div class="col-md-10">
+                <select name="ember" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <hr />
+        <!-- operating system -->
+        <div class="form-group row">
+          <label for="operatingSystem" class="col-sm-2 col-form-label"
+            >Operating System</label
+          >
+          <div class="col-sm-10">
+            <div class="row">
+              <label for="windows" class="col-md-2 col-form-label"
+                >Microsoft Windows</label
+              >
+
+              <div class="col-md-10">
+                <select name="windows" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="linux" class="col-md-2 col-form-label">Linux</label>
+
+              <div class="col-md-10">
+                <select name="linux" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="unix" class="col-md-2 col-form-label">Unix</label>
+
+              <div class="col-md-10">
+                <select name="unix" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="macos" class="col-md-2 col-form-label">macOs</label>
+
+              <div class="col-md-10">
+                <select name="macos" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="android" class="col-md-2 col-form-label"
+                >Android</label
+              >
+
+              <div class="col-md-10">
+                <select name="android" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="ios" class="col-md-2 col-form-label">Ios</label>
+
+              <div class="col-md-10">
+                <select name="ios" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="ubantu" class="col-md-2 col-form-label">Ubantu</label>
+
+              <div class="col-md-10">
+                <select name="ubantu" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="vue.js" class="col-md-2 col-form-label">Vue.js</label>
+
+              <div class="col-md-10">
+                <select name="vue.js" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <hr />
+        <!-- technologies -->
+        <div class="form-group row">
+          <label for="technologies" class="col-sm-2 col-form-label"
+            >Other Technologies</label
+          >
+          <div class="col-sm-10">
+            <div class="row">
+              <label for="aws" class="col-md-2 col-form-label">Aws</label>
+
+              <div class="col-md-10">
+                <select name="aws" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="ai" class="col-md-2 col-form-label"
+                >Artificial Intelligence</label
+              >
+
+              <div class="col-md-10">
+                <select name="ai" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="ml" class="col-md-2 col-form-label"
+                >Machine Learning</label
+              >
+
+              <div class="col-md-10">
+                <select name="ml" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="firebase" class="col-md-2 col-form-label"
+                >Firebase</label
+              >
+
+              <div class="col-md-10">
+                <select name="firebase" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="deeplearning" class="col-md-2 col-form-label"
+                >Deep Learning</label
+              >
+
+              <div class="col-md-10">
+                <select name="deeplearning" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="blockchain" class="col-md-2 col-form-label"
+                >Block Chain</label
+              >
+
+              <div class="col-md-10">
+                <select name="blockchain" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="datascience" class="col-md-2 col-form-label"
+                >Data Science</label
+              >
+
+              <div class="col-md-10">
+                <select name="datascience" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <label for="ar" class="col-md-2 col-form-label"
+                >Augmented Reality</label
+              >
+
+              <div class="col-md-10">
+                <select name="ar" class="form-control">
+                  <option value="" selected>Select</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Expert">Expert</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <hr />
+        <!-- hosting platforms -->
+        <div class="form-group row">
+          <label for="cloudHostingPlatforms" class="col-sm-2 col-form-label"
+            >Hosting Platforms</label
+          >
+          <div class="col-sm-10">
+            <div class="row">
+              <div class="col-sm-3">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  name="firebase"
+                />
+                <label class="form-check-label" for="flexCheckDefault"
+                  >Firebase
+                </label>
+              </div>
+              <div class="col-sm-3">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  name="heroku"
+                />
+                <label class="form-check-label" for="flexCheckDefault"
+                  >Heroku</label
+                >
+              </div>
+              <div class="col-sm-3">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  name="aws"
+                />
+                <label class="form-check-label" for="flexCheckDefault"
+                  >Aws
+                </label>
+              </div>
+              <div class="col-sm-3">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  name="digitalocean"
+                />
+                <label class="form-check-label" for="flexCheckDefault"
+                  >Digital Ocean
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <hr />
+        <!-- other skills -->
+        <div class="form-group row">
+          <label for="otherSkills" class="col-sm-2 col-form-label"
+            >Other Skills</label
+          >
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="staticEmail"
+              name="otherskills"
+            />
+          </div>
+        </div>
+
+        <br />
+        <hr />
+        <!-- interest -->
+        <div class="form-group row">
+          <label for="interest" class="col-sm-2 col-form-label">Interest</label>
+          <div class="col-sm-10">
+            <div class="row">
+              <div class="col-sm-4">
+                <select name="preference1" class="form-control">
+                  <option value="" selected>Preference 1</option>
+                  <option value="Artificial Intelligence">
+                    Artificial Intelligence
+                  </option>
+                  <option value="Robotics">Robotics</option>
+                  <option value="Web Development">Web Development</option>
+                  <option value="Mobile Application Development">
+                    Mobile Application Development
+                  </option>
+                  <option value="Cloud Computing">Cloud Computing</option>
+                  <option value="Cyber Security and Ethical Hacking">
+                    Cyber Security and Ethical Hacking
+                  </option>
+                  <option value="Data Science and Data Analysis">
+                    Data Science and Data Analysis
+                  </option>
+                  <option value="Computer Software">Computer Software</option>
+                  <option value="Game development">Game development</option>
+                </select>
+              </div>
+              <div class="col-sm-4">
+                <select name="preference2" class="form-control">
+                  <option value="" selected>Preference 2</option>
+                  <option value="Artificial Intelligence">
+                    Artificial Intelligence
+                  </option>
+                  <option value="Robotics">Robotics</option>
+                  <option value="Web Development">Web Development</option>
+                  <option value="Mobile Application Development">
+                    Mobile Application Development
+                  </option>
+                  <option value="Cloud Computing">Cloud Computing</option>
+                  <option value="Cyber Security and Ethical Hacking">
+                    Cyber Security and Ethical Hacking
+                  </option>
+                  <option value="Data Science and Data Analysis">
+                    Data Science and Data Analysis
+                  </option>
+                  <option value="Computer Software">Computer Software</option>
+                  <option value="Game development">Game development</option>
+                </select>
+              </div>
+              <div class="col-sm-4">
+                <select name="preference3" class="form-control">
+                  <option value="" selected>Preference 3</option>
+                  <option value="Artificial Intelligence">
+                    Artificial Intelligence
+                  </option>
+                  <option value="Robotics">Robotics</option>
+                  <option value="Web Development">Web Development</option>
+                  <option value="Mobile Application Development">
+                    Mobile Application Development
+                  </option>
+                  <option value="Cloud Computing">Cloud Computing</option>
+                  <option value="Cyber Security and Ethical Hacking">
+                    Cyber Security and Ethical Hacking
+                  </option>
+                  <option value="Data Science and Data Analysis">
+                    Data Science and Data Analysis
+                  </option>
+                  <option value="Computer Software">Computer Software</option>
+                  <option value="Game development">Game development</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br />
+        <hr />
+        <!-- internship or project -->
+        <div class="form-group row">
+          <label for="internshipsOrProjects" class="col-sm-2 col-form-label"
+            >Internship or Project</label
+          >
+          <div class="col-sm-10">
+            <div class="row">
+              <div class="col-sm-3">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  name="internship"
+                />
+                <label class="form-check-label" for="flexCheckDefault"
+                  >Internship</label
+                >
+              </div>
+              <div class="col-sm-3">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  name="Projects"
+                />
+                <label class="form-check-label" for="flexCheckDefault"
+                  >Projects</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br />
+        <hr />
+        <!-- trainings -->
+        <div class="form-group row">
+          <label for="trainings" class="col-sm-2 col-form-label"
+            >Trainings</label
+          >
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="staticEmail"
+              name="trainings"
+            />
+          </div>
+        </div>
+
+        <div class="form-group row mb-3">
+          <label for="resume" class="col-sm-2 col-form-label">Resume</label>
+          <div class="col-sm-10">
+            <input type="file" class="form-control-file" name="resume" />
+          </div>
+        </div>
+        <br />
+        <hr />
+
+        <!-- submit button     -->
+        <div class="container text-center">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="reset" class="btn btn-danger">Reset</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
