@@ -24,6 +24,7 @@ const login = async (req, res) => {
       });
       req.session.userId = user._id;
       console.log("req.session.userId : ",user._id);
+      req.session.mobileNumber = user.callingPhoneNumber;
       return res.redirect('/home');
     });
   });

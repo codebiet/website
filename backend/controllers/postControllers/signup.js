@@ -71,6 +71,7 @@ module.exports = async (req, res) => {
                       httpOnly: true,
                     });
                     req.session.userId = savedUser._id;//logged in
+                    req.session.mobileNumber = savedUser.callingPhoneNumber;
                     return res.redirect('/home')
                   }
                 );
@@ -122,6 +123,7 @@ module.exports = async (req, res) => {
               httpOnly: true,
             });
             req.session.userId = savedUser._id;
+            req.session.mobileNumber = savedUser.callingPhoneNumber;
             return res.redirect('/home')
           }
         );

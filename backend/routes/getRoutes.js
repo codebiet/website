@@ -4,6 +4,13 @@ const authLogin = require("../middlewares/authLogin");
 const authActiveUser = require("../middlewares/authActiveUser");
 
 router
+  .route("/")
+  .get(
+    authLogin,
+    authActiveUser,
+    require("../controllers/getControllers/home")
+  );
+router
   .route("/home")
   .get(
     authLogin,
@@ -12,6 +19,10 @@ router
   );
 router.route("/login").get(require("../controllers/getControllers/login"));
 router.route("/signup").get(require("../controllers/getControllers/signup"));
+router.route("/sendOtp").get(require("../controllers/getControllers/sendOtp"));
+router
+  .route("/enterOtp")
+  .get(require("../controllers/getControllers/enterOtp"));
 router
   .route("/verifyEmailAndPhone")
   .get(authLogin, require("../controllers/getControllers/verifyEmailAndPhone"));
