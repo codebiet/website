@@ -1,28 +1,35 @@
 <!-- <html>
     <head>
         <title>profile</title>
-        <%-include('../common/head') %>
     </head>
     <body> 
               -->
-
+              <%-include('./partials/head') %>
               <div class="container">
                 <div class="row mt-3">
-                    <label for="" class="col-md-3">Verify you email</label>
+                    <!-- <label for="" class="col-md-3">Verify your email</label> -->
                     <div class="col-md-9">
-                        <button type="button" class="btn btn-secondary">Email</button>
+                        <form method="GET" action="/sendVerificationEmail">
+                            <% if(!emailVerified) {%>
+                                <button type="submit" class="btn btn-primary">Verify your Email</button>
+                            <% } else { %>
+                                <button type="submit" class="btn btn-primary" disabled>Your email has been verified!</button>
+                            <% } %>
+                        </form>
                     </div>
                 
                 </div>
                 <div class="row mt-3">
-                    <label for="" class="col-md-3">Verify you Mobile No.</label>
                     <div class="col-md-9">
-                        <button type="button" class="btn btn-secondary">Mobile</button>
+                        <form method="GET" action="/sendOtp">
+                            <% if(!phoneNumberVerified) {%>
+                                <button type="submit" class="btn btn-primary">Verify your Mobile</button>
+                            <% } else { %>
+                                <button type="submit" class="btn btn-primary" disabled>Your mobile number has been verified!</button>
+                            <% } %>
+                        </form>
                     </div>
                 
-                </div>
-                <div  >
-                     <button type="button" class="bton btn-primary">Login</button>
                 </div>
                   
                </div>
