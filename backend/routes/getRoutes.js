@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const authLogin = require("../middlewares/authLogin");
 const authActiveUser = require("../middlewares/authActiveUser");
-
+const redirectHome = require('../middlewares/redirectHome');
 router
   .route("/")
   .get(

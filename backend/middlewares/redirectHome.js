@@ -1,4 +1,4 @@
-const redirectHome = (req, res, next) => {
+const redirectHome = async (req, res, next) => {
     if(req.session.userId) res.redirect('/');
     else next();
 };
