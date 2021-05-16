@@ -70,6 +70,7 @@ module.exports = async (req, res) => {
                       maxAge: 60 * 60,
                       httpOnly: true,
                     });
+                    req.session.userId = savedUser._id;//logged in
                     return res.status(200).send({
                       msg: "A verification link has been sent to your registered email address. Click on the link to verify your email address",
                     });
