@@ -106,10 +106,10 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.query.findByEmail = function(email){
-    return this.find({email: new RegExp(email,'i')});
+    return this.findOne({email: new RegExp(email,'i')});
 }
 userSchema.query.findByPhoneNumber = function(number){
-    return this.find({whatsAppPhoneNumber:new RegExp(number,'i')});
+    return this.findOne({whatsAppPhoneNumber:new RegExp(number,'i')});
 }
 
 const User = mongoose.model("User",userSchema);
