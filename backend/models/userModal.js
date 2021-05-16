@@ -4,24 +4,24 @@ const emailValidator = (email) => {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email); 
 }
-const emailValidatorWithMsg = [emailValidator,"Invalid `{PATH}`! Got `{VALUE}`"];
+const emailValidatorWithMsg = [emailValidator,"Invalid {PATH}! Please check your email."];
 
 
 const phoneNumberValidator = (phoneNumber) => {
     return phoneNumber.length == 12;
 }
-const phoneNumberValidatorWithMsg = [phoneNumberValidator,'Invalid `{PATH}`! Got `{VALUE}`'];
+const phoneNumberValidatorWithMsg = [phoneNumberValidator,'Invalid `{PATH}`! Please check your phone Number.'];
 
 const githubUserNameValidator = (username) => {
     const re = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i;
     return re.test(username);
 }
-const githubUserNameValidatorWithMsg = [githubUserNameValidator,'Invalid `{PATH}! Got `{VALUE}``']
+const githubUserNameValidatorWithMsg = [githubUserNameValidator,'Invalid `{PATH}`! Please check your username'];
 
 const passwordValidator = (password) => {
     return password.length >= 8;
 }
-const passwordValidatorWithMsg = [passwordValidator,"Error! Password length should be >=8! Got `{PATH}` = `{VALUE}`"];
+const passwordValidatorWithMsg = [passwordValidator,"Error! Password length should be >=8!"];
 const userSchema = new mongoose.Schema({
     name:{type:String,required:true},
     email:{type:String,required:true,unique:true,validate:emailValidatorWithMsg},
