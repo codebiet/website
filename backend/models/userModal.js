@@ -100,7 +100,9 @@ const userSchema = new mongoose.Schema({
     },
     internshipsOrProjects:String,
     trainings:String,
-    resume:{type:String}
+    resume:{type:String},
+    emailVerified:{type:Boolean,default:false},
+    phoneNumberVerified:{type:Boolean,default:false}
 });
 
 userSchema.query.findByEmail = function(email){
