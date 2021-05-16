@@ -27,6 +27,8 @@ const sendOtp = (mobileNumber) => {
           console.log("Error while sending otp");
           reject(err);
         } else {
+          console.log("otp sent successfully!");
+          console.log(result);
           resolve(result.request_id); // for verifyRequestId
         }
       }
