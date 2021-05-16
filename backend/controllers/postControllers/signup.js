@@ -71,9 +71,7 @@ module.exports = async (req, res) => {
                       httpOnly: true,
                     });
                     req.session.userId = savedUser._id;//logged in
-                    return res.status(200).send({
-                      msg: "A verification link has been sent to your registered email address. Click on the link to verify your email address",
-                    });
+                    return res.redirect('/home')
                   }
                 );
               } catch (err) {
@@ -98,7 +96,7 @@ module.exports = async (req, res) => {
                     .replace("ValidationError: ", "")
                     .split(",");
                   console.log(msg);
-                }
+                }else console.log(err.message);
                 return res.status(400).send({ error: "Invalid data" });
               }
             }
@@ -123,9 +121,8 @@ module.exports = async (req, res) => {
               maxAge: 60 * 60,
               httpOnly: true,
             });
-            return res.status(200).send({
-              msg: "A verification link has been sent to your registered email address. Click on the link to verify your email address",
-            });
+            req.session.userId = savedUser._id;
+            return res.redirect('/home')
           }
         );
       }
