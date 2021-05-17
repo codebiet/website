@@ -9,20 +9,30 @@ const s3 = new AWS.S3({
   secretAccessKey: process.env.AWS_SECRET,
 });
 const parseJSON = (data) => {
-  const interest = data.interest;
-  data.interest = JSON.parse(interest);
   const programmingLanguages = data.programmingLanguages;
-  const programmingLanguagesObj = [];
-  for (var i = 0; i < programmingLanguages.length; i++) {
-    programmingLanguagesObj.push(JSON.parse(programmingLanguages[i]));
-  }
-  data.programmingLanguages = programmingLanguagesObj;
+  const webTechnologies = data.webTechnologies;
+  const webFrameworks = data.webFrameworks;
+  const dbms = data.dbms;
+  const operatingSystem = data.operatingSystem;
+  const technologies = data.technologies;
+  const cloudHostingPlatforms = data.cloudHostingPlatforms;
+  const interest = data.interest;
+  data.programmingLanguages = JSON.parse(programmingLanguages);
+  data.webTechnologies = JSON.parse(webTechnologies);
+  data.webFrameworks = JSON.parse(webFrameworks);
+  data.dbms = JSON.parse(dbms);
+  data.operatingSystem = JSON.parse(operatingSystem);
+  data.technologies = JSON.parse(technologies);
+  data.cloudHostingPlatforms = JSON.parse(cloudHostingPlatforms);
+  data.interest = JSON.parse(interest);
   return data;
 };
 module.exports = async (req, res) => {
   let userData = req.body;
   //   console.log("data found : ", userData);
+  // console.log(userData);
   userData = parseJSON(userData);
+  // console.log(userData);
   //   console.log('data after parsing : ',userData);
   if (!userData.password)
     return res.status(400).send({ error: "Password Required" });

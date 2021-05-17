@@ -19,7 +19,7 @@ router
   );
 router.route("/login").get(redirectHome,require("../controllers/getControllers/login"));
 router.route("/signup").get(redirectHome,require("../controllers/getControllers/signup"));
-router.route("/sendOtp").get(redirectHome, require("../controllers/getControllers/sendOtp"));
+router.route("/sendOtp").get(require("../controllers/getControllers/sendOtp"));
 router
   .route("/enterOtp")
   .get(require("../controllers/getControllers/enterOtp"));

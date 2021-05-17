@@ -17,7 +17,7 @@ const sendVerificationEmail = async (req, res) => {
     return res.status(400).send({ error: "Your email is already verified" });
   //encrypt the id and current time
   var encryptedID = encrypt(id);
-  var encryptedTime = encrypt(date.now());
+  var encryptedTime = encrypt((Date.now()).toString());
   //construct link with the encrypted ID and current time
   //a = id && b = time, used bad naming so that verification link do not get very obivious to user or third party
   const link = `${process.env.PROTOCOL}://${process.env.HOST}/verifyEmail?a=${encryptedID}&b=${encryptedTime}`;
