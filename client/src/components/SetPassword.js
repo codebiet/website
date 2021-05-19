@@ -52,7 +52,7 @@ const SetPassword = (props) => {
         setLoading(true);
         axios
           .post(
-            `http://localhost:3000/post/setPassword?a=${params.id}`,
+            `http://localhost:3000/post/setPassword?id=${params.id}`,
             { password, confirmPassword }
           )
           .then((res) => {
@@ -73,8 +73,6 @@ const SetPassword = (props) => {
             else {
               if (err.response.data && err.response.data.errorMsg) {
                 info.dispatch(generateError(err.response.data.errorMsg));
-              } else if (err.response.data && err.response.data.error) {
-                info.dispatch(generateError(err.response.data.error));
               } else {
                 info.dispatch(generateError("Something went wrong!"));
               }
