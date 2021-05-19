@@ -35,25 +35,27 @@ module.exports = async (req, res) => {
   // console.log(userData);
   //   console.log('data after parsing : ',userData);
   if (!userData.email)
-    return res.status(400).send({ errorMsg: "Invalid Email!" });
+    return res.status(400).send({ errorMsg: "Email is required!" });
   const existingUser = await User.findOne().findByEmail(userData.email).exec();
   if (existingUser)
     return res
       .status(400)
       .send({ errorMsg: "This email is already registered!" });
-  if (!userData.password)
-    return res.status(400).send({ errorMsg: "Password Required!" });
-  if (userData.password != userData.confirmPassword)
-    return res.status(400).send({ errorMsg: "Passwords don't matched!" });
+  //commented the following lines, since password will be set after the email is verified!
+  // if (!userData.password)
+  //   return res.status(400).send({ errorMsg: "Password Required!" });
+  // if (userData.password != userData.confirmPassword)
+  //   return res.status(400).send({ errorMsg: "Passwords don't matched!" });
+  //here we'll set random password for the user
   userData = {
     name: userData.name,
     email: userData.email,
-    password: userData.password,
+    password: "kslfklk123o2#$lkwr1231",
     role: userData.role,
   };
   bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(userData.password, salt, async (err, hash) => {
-      if (err) res.status(500).send({ errorMsg: "Something went wrong!" });
+      if (err) res.status(500).send({ errorMsg: "Status-Code: 500, Internal Server Error!" });
       userData.password = hash;
       // if (req.files) {
       //   const resume = req.files.resume;
@@ -134,10 +136,14 @@ module.exports = async (req, res) => {
       //   }
       // } else {
       //resume not uploaded
-      console.log("userData with Hash", userData);
       const user = new User(userData);
-      const savedUser = await user.save();
-      console.log("saved User:", savedUser);
+      let savedUser;
+      try{
+        savedUser = await user.save();
+      }catch(err){
+        console.log(err);
+        return res.status(500).send({errorMsg:"Status-Code: 500, Internal Server Error!"})
+      }
       jwt.sign(
         { id: savedUser._id },
         config.get("jwtSecret"),
@@ -145,7 +151,7 @@ module.exports = async (req, res) => {
         (err, token) => {
           if (err) {
             console.log(err);
-            return res.status(500).send({ errorMsg: "Something went wrong!" });
+            return res.status(500).send({ errorMsg: "Status-Code: 500, Internal Server Error!" });
           }
           res.cookie("token", token, {
             expires: new Date(Date.now() + 1000 * 60 * 60 * 5),
@@ -167,7 +173,6 @@ module.exports = async (req, res) => {
             expires: new Date(Date.now() + 1000 * 60 * 60 * 5),
             httpOnly: false,
           });
-          req.session.userId = savedUser._id;
           // req.session.mobileNumber = savedUser.callingPhoneNumber;
           return res
             .status(200)

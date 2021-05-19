@@ -34,14 +34,6 @@ const Register = (props) => {
   //form values
   const [name, nameInput] = useInput({ type: "text", placeholder: "Name" });
   const [email, emailInput] = useInput({ type: "email", placeholder: "Email" });
-  const [password, passwordInput] = useInput({
-    type: "password",
-    placeholder: "Password",
-  });
-  const [confirmPassword, confirmPasswordInput] = useInput({
-    type: "password",
-    placeholder: "Confirm Password",
-  });
   const [role, setRole] = useState("Student");
   //used to get to know when component updates due to user writing in different fields
   //===============================================================================
@@ -57,7 +49,7 @@ const Register = (props) => {
       clearLogs(); //when this components mounts their should not be any messages show, may be buffered due to previous actions
       mounted.current = true;
     } else clearLogs(); //when user writes in form fields, messages shown due to user errors are now not visible
-  }, [name, email, password, confirmPassword]);
+  }, [name, email]);
   //when there is an info from backend, so it to user
   //==============================================================================
   useEffect(() => {
@@ -68,20 +60,18 @@ const Register = (props) => {
   //handles form submit
   //===============================================================================
   const handleSubmit = (e) => {
-    if (name && email && password && confirmPassword && role) {
-      if (password == confirmPassword)
+    if (name && email && role) {
+      // if (password == confirmPassword)
         signupUser(auth.dispatch, {
           name,
           email,
-          password,
-          confirmPassword,
           role,
         });
-      else {
-        info.dispatch(generateError("Passwords do not match!"));
-      }
-    } else if (!name || !email || !password || !confirmPassword || role) {
-      info.dispatch(generateError("Please fill in all the fields"));
+      // else {
+        // info.dispatch(generateError("Passwords do not match!"));
+      // }
+    } else if (!name || !email || !role) {
+      info.dispatch(generateError("Please fill in all the fields!"));
     }
     e.preventDefault();
   };
@@ -142,14 +132,14 @@ const Register = (props) => {
                   {emailInput}
                   <img src={mail} alt="" />
                 </div>
-                <div className="input-container">
+                {/* <div className="input-container">
                   {passwordInput}
                   <img src={lock} alt="" />
                 </div>
                 <div className="input-container">
                   {confirmPasswordInput}
                   <img src={lock} alt="" />
-                </div>
+                </div> */}
                 <div className="button-container">
                   <button type="submit">REGISTER</button>
                 </div>
