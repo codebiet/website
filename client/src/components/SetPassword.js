@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useRef, useState } from "react";
 import axios from "axios";
-import { InfoContext } from "../state/Store";
+import { InfoContext, AuthContext } from "../state/Store";
 import "regenerator-runtime/runtime";
 import {
   generateError,
@@ -18,6 +18,7 @@ import { useInput } from "./Register";
 const SetPassword = (props) => {
   const params = queryString.parse(props.location.search);
   const info = useContext(InfoContext);
+  const auth = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const [redirectTo, setRedirectTo] = useState("");
   //form values, useInput is the custom hook imported from register component
@@ -90,6 +91,7 @@ const SetPassword = (props) => {
   //================================================================================
   return (
     <React.Fragment>
+      {auth.state.userLoggedIn && props.history.goBack()}
       {loading && <Loader />}
       {redirectTo && <Redirect to={redirectTo} />}
       {!loading && !redirectTo && (
@@ -115,7 +117,7 @@ const SetPassword = (props) => {
                   <img src={lock} alt="" />
                 </div>
                 <div className="button-container">
-                  <button type="submit">CHANGE PASSWORD</button>
+                  <button type="submit">SET PASSWORD</button>
                 </div>
               </form>
             </div>

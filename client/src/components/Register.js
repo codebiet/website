@@ -62,13 +62,13 @@ const Register = (props) => {
   const handleSubmit = (e) => {
     if (name && email && role) {
       // if (password == confirmPassword)
-        signupUser(auth.dispatch, {
-          name,
-          email,
-          role,
-        });
+      signupUser(auth.dispatch, {
+        name,
+        email,
+        role,
+      });
       // else {
-        // info.dispatch(generateError("Passwords do not match!"));
+      // info.dispatch(generateError("Passwords do not match!"));
       // }
     } else if (!name || !email || !role) {
       info.dispatch(generateError("Please fill in all the fields!"));
@@ -82,26 +82,9 @@ const Register = (props) => {
       {auth.state.userLoggedIn ? (
         <React.Fragment>
           {auth.state.emailVerified ? (
-            <Redirect
-              to={
-                (props.location.state && props.location.state.from) ||
-                props.history.goBack() ||
-                "/"
-              }
-            />
+            <Redirect to="/dashboard" />
           ) : (
-            <React.Fragment>
-              {props.location.state ? (
-                <Redirect
-                  to={{
-                    pathname: "/sentVerifyEmail",
-                    state: { from: props.location.state.from },
-                  }}
-                />
-              ) : (
-                <Redirect to="/sentVerifyEmail" />
-              )}
-            </React.Fragment>
+            <Redirect to="/sentVerifyEmail" />
           )}
         </React.Fragment>
       ) : (
