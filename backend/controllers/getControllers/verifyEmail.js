@@ -27,6 +27,7 @@ const verifyEmail = async (req, res) => {
     if (!user) return res.status(400).send({ errorMsg: "Invalid Request!" });
     // console.log("user verified");
     // if (user) {
+    if(user.emailVerified) return res.redirect('/login');
     const timeElapsed = process.env.EMAIL_LINK_VALIDITY;
     //if you want to verify time duration then uncomment the below line, and comment the above line;
     // const timeElapsed = (Date.now() - decryptedTime) / (1000 * 60); //in minutes;
