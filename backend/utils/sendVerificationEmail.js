@@ -26,7 +26,6 @@ const getHTML = (link) => {
               <div aria-label="verification-link">
                 <a style="font-size:1.1rem;text-decoration:none;color:#1f3c88;margin:2rem 0;color:orange;" href=${link}>Click here to verify your Email!</a>
               </div>
-              <p style="font-size:1rem;margin:1rem 0;">This link will be active for ${process.env.EMAIL_LINK_VALIDITY} minutes. If it has expired you can request a new link from the verification page.</p>
             </td>
           </tr>
         <tr>
@@ -67,13 +66,13 @@ const getHTML = (link) => {
     </div>
   `;
 };
-// `<br><br>Hello,<br> Please Click on the link to verify your email.<br><a href=${link}>Click here to verify</a><br>The above link is valid for ${process.env.EMAIL_LINK_VALIDITY} minutes only`,
 module.exports = (id, email) => {
   //encrypt the id and current time
   var encryptedID = encrypt(id);
   var encryptedTime = encrypt(Date.now().toString());
   //construct link with the encrypted ID and current time
   //a = id && b = time, used bad naming so that verification link do not get very obivious to user or third party
+  //time is given so that we can verify the link depending upon the duration when we mailed the link to the user, if required;
   const link = `${process.env.PROTOCOL}://${process.env.HOST}/api/verifyEmail?a=${encryptedID}&b=${encryptedTime}`;
   //create the email
   const mailOptions = {
