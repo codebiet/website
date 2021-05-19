@@ -37,7 +37,7 @@ const Login = (props) => {
     };
     if (!mounted.current) {
       mounted.current = true;
-      clearLogs(); //when this components mounts their should not be any messages show, may be buffered due to previous actions
+      auth.dispatch(clearMsgs()); //when this components mounts their should not be any messages related to login/register, may be buffered due to previous actions
     } else clearLogs(); //when user writes in form fields, messages shown due to user errors are now not visible
   }, [email, password]);
   //when there is an info from backend, so it to user
