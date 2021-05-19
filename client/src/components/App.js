@@ -12,6 +12,7 @@ import SentVerifyEmail from "./SentVerifyEmail";
 import Dashboard from "./Dashboard";
 import ForgotPassword from "./ForgotPassword";
 import Toaster from "./Toaster";
+import SetPassword from "./SetPassword";
 const Logout = () => {
   const auth = useContext(AuthContext);
   useEffect(() => {
@@ -72,6 +73,11 @@ function App() {
             exact={true}
             path="/internalServerError"
             render={() => <h1>Status-Code 500: Internal Server Error!</h1>}
+          />
+          <Route
+            exact={true}
+            path="/setPassword"
+            render={(props) => <SetPassword {...props} />}
           />
         </Switch>
       </Router>
