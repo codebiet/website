@@ -9,7 +9,7 @@ const decrypt = (cipher) => {
     decipher.update(cipher, "hex", "utf8") + decipher.final("utf8");
   return decrypted;
 };
-const verifyEmail = async (req, res) => {
+const verifyResetPasswordLink = async (req, res) => {
   const host = req.get("host");
   if (
     `${req.protocol}://${host}` ==
@@ -18,37 +18,36 @@ const verifyEmail = async (req, res) => {
     //domain matched
     const encryptedID = req.query.a; //since a = id
     const encryptedTime = req.query.b; //since b = time
-    console.log(encryptedID);
-    console.log(encryptedTime);
     //decrypt ID and Time
     const decryptedID = decrypt(encryptedID);
     const decryptedTime = decrypt(encryptedTime);
     console.log("decryptedID : ",decryptedID," decryptedTime : ",decryptedTime);
-    const user = await User.findById(decryptedID).exec();
+    let user;
+    try{
+        user = await User.findById(decryptedID).exec();
+    }catch(err){
+        return res.status(500).send({errorMsg:"Internal Server Error"})
+    }
     if (user) {
       const timeElapsed = (Date.now() - decryptedTime) / (1000 * 60); //in minutes;
       console.log(user);
       if (timeElapsed < process.env.EMAIL_LINK_VALIDITY) {
         //email link is clicked in valid time duration
-        user.emailVerified = true;
-        await user.save();
-        console.log("email verified");
-        res.cookie("emailVerified", user.emailVerified, {
-          expires: new Date(Date.now() + 1000 * 60 * 60 * 5),
-          httpOnly: false,
-        });
-        res.redirect("/dashboard");
+        res.send({msg:"success"});
       } else {
         //link not clicked in valid time duration
+        console.log("the link is click after it gets disabled");
         res.status(400).send({errorMsg:"Invalid Link"});
         // res.render("sentEmailLinkAgain");
       }
     } else {
+        console.log("invalid userId while verify reset password link");
       res.status(400).send({ errorMsg: "Invalid request!" });
     }
   } else {
     //domain didn't matched
+    console.log("domain didn't matched");
     res.status(400).send({ errorMsg: "Invalid request!" });
   }
 };
-module.exports = verifyEmail;
+module.exports = verifyResetPasswordLink;

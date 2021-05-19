@@ -1,0 +1,126 @@
+.register-main-container {
+  margin: 0;
+  padding: 1rem 3rem;
+  width: 100vw;
+  height: calc(100vh - 10rem);
+  overflow: hidden;
+  display: flex;
+  font-family: "Nunito", sans-serif;
+  @media (max-width: 500px) {
+    padding: 1rem 0.5rem;
+    height: calc(100vh - 8rem);
+  }
+  @media (min-width: 1200px) {
+    padding: 1rem 6rem;
+  }
+  .img-container {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 599px) {
+      display: none;
+    }
+    @media (min-width: 600px) and (max-width: 1000px) {
+      justify-content: flex-start;
+    }
+    img {
+      width: 75%;
+      @media (min-width: 600px) and (max-width: 1000px) {
+        width: 90%;
+      }
+    }
+  }
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    @media (max-width: 599px) {
+      width: 100%;
+    }
+    h1 {
+      margin-bottom: 4rem;
+      @media (max-width: 599px) {
+        margin-bottom:2rem;
+      }
+      font-size: 1.3rem;
+      text-decoration: underline;
+      font-weight: 700;
+      color: #ff9b21;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 75%;
+      @media (max-width: 599px) {
+        width: 95%;
+      }
+      @media (min-width: 600px) and (max-width: 1000px) {
+        width: 100%;
+      }
+      .input-container {
+        width: 100%;
+        position: relative;
+        img {
+          position: absolute;
+          z-index: 1;
+          top: 30%;
+          left: 0.1rem;
+          height: 1.3rem;
+        }
+      }
+      select,
+      input {
+        border: none;
+        border-bottom: 1.5px solid grey;
+        background: none;
+        padding-bottom: 0.2rem;
+        padding-left: 2rem;
+        font-size: 1rem;
+        outline: none;
+        width: 100%;
+        margin: 1.2rem 0;
+      }
+      select {
+        cursor: pointer;
+      }
+      input:focus {
+        border-bottom: 1.5px solid black;
+      }
+      .button-container {
+        margin-top: 1.2rem;
+        button {
+          background: #ff9b21;
+          border: none;
+          outline: none;
+          padding: 0.5rem 1.5rem;
+          width: fit-content;
+          border-radius: 1rem;
+          color: white;
+          font-size: 1.1rem;
+          font-weight: 600;
+          letter-spacing: 0.1rem;
+          @media (max-width:599px){
+            width:100%;
+          }
+        }
+        @media (max-width: 599px) {
+          text-align: center;
+        }
+      }
+      .forget-password-container{
+        div{
+          outline:none;
+          border:none;
+          background:white;
+          color:#ff9b21;
+          font-size: 1.1rem;
+          font-weight: 600;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

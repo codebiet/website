@@ -1,24 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const authLogin = require("../middlewares/authLogin");
-const authActiveUser = require("../middlewares/authActiveUser");
-const redirectHome = require('../middlewares/redirectHome');
+const redirectHome = require("../middlewares/redirectHome");
 router
-  .route("/")
-  .get(
-    authLogin,
-    authActiveUser,
-    require("../controllers/getControllers/home")
-  );
+  .route("/loadUser")
+  .get(require("../controllers/getControllers/loadUser"));
 router
-  .route("/home")
-  .get(
-    authLogin,
-    authActiveUser,
-    require("../controllers/getControllers/home")
-  );
-router.route("/login").get(redirectHome,require("../controllers/getControllers/login"));
-router.route("/signup").get(redirectHome,require("../controllers/getControllers/signup"));
+  .route("/login")
+  .get(redirectHome, require("../controllers/getControllers/login"));
+router
+  .route("/signup")
+  .get(redirectHome, require("../controllers/getControllers/signup"));
 router.route("/sendOtp").get(require("../controllers/getControllers/sendOtp"));
 router
   .route("/enterOtp")
@@ -35,5 +27,6 @@ router
 router
   .route("/verifyEmail")
   .get(authLogin, require("../controllers/getControllers/verifyEmail"));
-
+router.route("/logout").get(require("../controllers/getControllers/logout"));
+router.route('/verifyResetPasswordLink').get(require("../controllers/getControllers/verifyResetPasswordLink"));
 module.exports = router;

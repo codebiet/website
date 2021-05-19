@@ -1,10 +1,11 @@
 const User = require('../models/userModal');
-
+const jwt = require('jsonwebtoken');
 const authActiveUser = async (req,res,next) => {
-    if(req.session.userId){//logged in
-        const user = await User.findById(req.session.userId).exec();
-        if(user.emailVerified && user.phoneNumberVerified) next();
-        else res.redirect('/verifyEmailAndPhone');
+    if(req.cookies['token']){//logged in
+        const decoded = jwt.verify(token,config.get('jwtSecret'));
+        let user = await User.findById(decoded.id).exec();
+        if(user.emailVerified) next();
+        else res.redirect('/sentVerifyEmail');
     }
     else res.redirect('/login');
 }

@@ -1,0 +1,138 @@
+$theme-colors: (
+  "primary": #ff9b21,
+  "danger": #ff4136,
+  "info": #a639e3,
+);
+@import "~bootstrap/scss/bootstrap.scss";
+.toaster-container {
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.6rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+  .toaster-body {
+    display: flex;
+    .icon-container {
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+    .text-container {
+      font-size: 1.1rem;
+      margin-left: 0.2rem;
+    }
+  }
+  .remover {
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin-right: 0.2rem;
+    cursor: pointer;
+  }
+  -webkit-animation: getInFromTop 0.3s cubic-bezier(0.3, 0.15, 0.15, 0.2)
+    forwards;
+  animation: getInFromTop 0.3s cubic-bezier(0.3, 0.15, 0.15, 0.2) forwards;
+}
+@keyframes getInFromTop {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.loader-container {
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  top: 0;
+  left: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100vw;
+
+  .loader {
+    border: .5rem solid rgb(129, 129, 129);
+    border-radius: 100%;
+    // background: #ff9b21;
+    border-top: .5rem solid #fc9211;
+    // border:none;
+    width: 5rem;
+    height: 5rem;
+    -webkit-animation: spin 1s linear infinite;
+    /* Safari */
+    animation: spin 1s linear infinite;
+    // -webkit-animation: scale-up-center .3s cubic-bezier(0.39, 0.575, 0.565, 1)
+      // infinite alternate;
+    // animation: scale-up-center .3s cubic-bezier(0.39, 0.575, 0.565, 1) infinite
+      // alternate;
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+// @-webkit-keyframes scale-up-center {
+//   0% {
+//     -webkit-transform: scale(0.5);
+//     transform: scale(0.5);
+//   }
+//   100% {
+//     -webkit-transform: scale(1);
+//     transform: scale(1);
+//   }
+// }
+// @keyframes scale-up-center {
+//   0% {
+//     -webkit-transform: scale(0.5);
+//     transform: scale(0.5);
+//   }
+//   100% {
+//     -webkit-transform: scale(1);
+//     transform: scale(1);
+//   }
+// }
+
+.link,
+.link:active,
+.link:visited {
+  color: #ff9b21;
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.05rem;
+}
+.main-container {
+  margin: 0;
+  padding: 1rem 3rem;
+  width: 100vw;
+  overflow: hidden;
+  font-family: "Nunito", sans-serif;
+  @media (max-width: 500px) {
+    padding: 1rem 0.5rem;
+  }
+  @media (min-width: 1200px) {
+    padding: 1rem 6rem;
+  }
+}

@@ -4,17 +4,23 @@
   "description": "Code Authentication backend",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "cd client && parcel watch index.html",
+    "start": "cd client && parcel index.html",
+    "build": "cd client && parcel build index.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.907.0",
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.6.0",
     "compression": "^1.7.4",
     "config": "^3.3.6",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "crypto-js": "^4.0.0",
@@ -23,15 +29,33 @@
     "express": "^4.17.1",
     "express-fileupload": "^1.2.1",
     "express-session": "^1.17.1",
+    "js-cookie": "^2.2.1",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.6",
     "mongoose": "^5.12.9",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
     "nexmo": "^2.9.1",
+    "node-sass": "^6.0.0",
     "nodemailer": "^6.6.0",
     "nodemon": "^2.0.7",
+    "query-string": "^7.0.0",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.6.0",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
     "shortid": "^2.2.16",
+    "universal-cookie": "^4.0.4",
     "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.2",
+    "@babel/preset-react": "^7.13.13",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "parcel-bundler": "^1.12.5"
   }
 }

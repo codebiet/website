@@ -30,114 +30,157 @@ const parseJSON = (data) => {
 module.exports = async (req, res) => {
   let userData = req.body;
   //   console.log("data found : ", userData);
-  // console.log(userData);
-  userData = parseJSON(userData);
+  console.log(userData);
+  // userData = parseJSON(userData);
   // console.log(userData);
   //   console.log('data after parsing : ',userData);
+  if (!userData.email)
+    return res.status(400).send({ errorMsg: "Invalid Email!" });
+  const existingUser = await User.findOne().findByEmail(userData.email).exec();
+  if (existingUser)
+    return res
+      .status(400)
+      .send({ errorMsg: "This email is already registered!" });
   if (!userData.password)
-    return res.status(400).send({ error: "Password Required" });
+    return res.status(400).send({ errorMsg: "Password Required!" });
+  if (userData.password != userData.confirmPassword)
+    return res.status(400).send({ errorMsg: "Passwords don't matched!" });
+  userData = {
+    name: userData.name,
+    email: userData.email,
+    password: userData.password,
+    role: userData.role,
+  };
   bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(userData.password, salt, async (err, hash) => {
-      if (err) res.status(500).send(err);
+      if (err) res.status(500).send({ errorMsg: "Something went wrong!" });
       userData.password = hash;
-      if (req.files) {
-        const resume = req.files.resume;
-        const mimetype = resume.mimetype;
-        console.log(mimetype);
-        if (mimetype == "application/pdf") {
-          const fileExt = resume.name.split(".").pop();
-          const filename = uuid();
-          const params = {
-            Bucket: process.env.AWS_BUCKET_NAME,
-            Key: `${filename}.${fileExt}`,
-            Body: resume.data,
-          };
+      // if (req.files) {
+      //   const resume = req.files.resume;
+      //   const mimetype = resume.mimetype;
+      //   console.log(mimetype);
+      //   if (mimetype == "application/pdf") {
+      //     const fileExt = resume.name.split(".").pop();
+      //     const filename = uuid();
+      //     const params = {
+      //       Bucket: process.env.AWS_BUCKET_NAME,
+      //       Key: `${filename}.${fileExt}`,
+      //       Body: resume.data,
+      //     };
 
-          s3.upload(params, async (err, data) => {
-            if (err) {
-              console.log("aws bucket name : ", process.env.AWS_BUCKET_NAME);
-              console.log("error in saving: ", err);
-              return res.status(500).send(err);
-            } else {
-              //resume uploaded to s3
-              console.log("resume uploaded");
-              console.log("going to add resume:", userData);
-              userData.resume = `https://s3.ap-south-1.amazonaws.com/soorajarsn.warehouse/${filename}.${fileExt}`; //file url
-              console.log("going to create user doc:", userData);
-              try {
-                const user = new User(userData);
-                console.log("user doc created");
-                const savedUser = await user.save(); //upload user to database
-                console.log("saved User:", savedUser);
-                //generating jwt_token
-                jwt.sign(
-                  { id: savedUser._id },
-                  config.get("jwtSecret"),
-                  { expiresIn: 60 * 60 },
-                  (err, token) => {
-                    if (err) return res.send(500).send(err);
-                    res.cookie("token", token, {
-                      maxAge: 60 * 60,
-                      httpOnly: true,
-                    });
-                    req.session.userId = savedUser._id;//logged in
-                    req.session.mobileNumber = savedUser.callingPhoneNumber;
-                    return res.redirect('/home')
-                  }
-                );
-              } catch (err) {
-                if (err.name == "ValidationError") {
-                  var msgArray = [];
-                  if (err.errors) {
-                    // validation errors
-                    for (field in err.errors) {
-                      console.log(err.errors[field].message);
-                    }
-                  } else if (err.message) {
-                    // should be execution error without err.errors
-                    errLogr.log(err); // log execution errors
-                    msgArray.push(err.message);
-                  } else {
-                    msgArray.push("Unknown error");
-                  }
-                  console.log(msgArray);
-                  //   console.log(err.errors);
-                  let msg = err
-                    .toString()
-                    .replace("ValidationError: ", "")
-                    .split(",");
-                  console.log(msg);
-                }else console.log(err.message);
-                return res.status(400).send({ error: "Invalid data" });
-              }
-            }
-          });
-        } else {
-          return res.status(400).send({
-            error: "Invalid resume type! Please upload your resume in pdf.",
-          });
-        }
-      } else {
-        //resume not uploaded
-        const user = new User(userData);
-        const savedUser = await user.save();
-        console.log("saved User:", savedUser);
-        jwt.sign(
-          { id: savedUser._id },
-          config.get("jwtSecret"),
-          { expiresIn: 60 * 60 },
-          (err, token) => {
-            if (err) return res.send(500).send(err);
-            res.cookie("token", token, {
-              maxAge: 60 * 60,
-              httpOnly: true,
-            });
-            req.session.userId = savedUser._id;
-            req.session.mobileNumber = savedUser.callingPhoneNumber;
-            return res.redirect('/home')
+      //     s3.upload(params, async (err, data) => {
+      //       if (err) {
+      //         console.log("aws bucket name : ", process.env.AWS_BUCKET_NAME);
+      //         console.log("error in saving: ", err);
+      //         return res.status(500).send(err);
+      //       } else {
+      //         //resume uploaded to s3
+      //         console.log("resume uploaded");
+      //         console.log("going to add resume:", userData);
+      //         userData.resume = `https://s3.ap-south-1.amazonaws.com/soorajarsn.warehouse/${filename}.${fileExt}`; //file url
+      //         console.log("going to create user doc:", userData);
+      //         try {
+      //           const user = new User(userData);
+      //           console.log("user doc created");
+      //           const savedUser = await user.save(); //upload user to database
+      //           console.log("saved User:", savedUser);
+      //           //generating jwt_token
+      //           jwt.sign(
+      //             { id: savedUser._id },
+      //             config.get("jwtSecret"),
+      //             { expiresIn: 60 * 60 },
+      //             (err, token) => {
+      //               if (err) return res.send(500).send(err);
+      //               res.cookie("token", token, {
+      //                 maxAge: 60 * 60,
+      //                 httpOnly: true,
+      //               });
+      //               req.session.userId = savedUser._id;//logged in
+      //               req.session.mobileNumber = savedUser.callingPhoneNumber;
+      //               return res.redirect('/home')
+      //             }
+      //           );
+      //         } catch (err) {
+      //           if (err.name == "ValidationError") {
+      //             var msgArray = [];
+      //             if (err.errors) {
+      //               // validation errors
+      //               for (field in err.errors) {
+      //                 console.log(err.errors[field].message);
+      //               }
+      //             } else if (err.message) {
+      //               // should be execution error without err.errors
+      //               errLogr.log(err); // log execution errors
+      //               msgArray.push(err.message);
+      //             } else {
+      //               msgArray.push("Unknown error");
+      //             }
+      //             console.log(msgArray);
+      //             //   console.log(err.errors);
+      //             let msg = err
+      //               .toString()
+      //               .replace("ValidationError: ", "")
+      //               .split(",");
+      //             console.log(msg);
+      //           }else console.log(err.message);
+      //           return res.status(400).send({ error: "Invalid data" });
+      //         }
+      //       }
+      //     });
+      //   } else {
+      //     return res.status(400).send({
+      //       error: "Invalid resume type! Please upload your resume in pdf.",
+      //     });
+      //   }
+      // } else {
+      //resume not uploaded
+      console.log("userData with Hash", userData);
+      const user = new User(userData);
+      const savedUser = await user.save();
+      console.log("saved User:", savedUser);
+      jwt.sign(
+        { id: savedUser._id },
+        config.get("jwtSecret"),
+        { expiresIn: "6h" },
+        (err, token) => {
+          if (err) {
+            console.log(err);
+            return res.status(500).send({ errorMsg: "Something went wrong!" });
           }
-        );
-      }
+          res.cookie("token", token, {
+            expires: new Date(Date.now() + 1000 * 60 * 60 * 5),
+            httpOnly: false,
+          });
+          res.cookie("userName", user.name, {
+            expires: new Date(Date.now() + 1000 * 60 * 60 * 5),
+            httpOnly: false,
+          });
+          res.cookie("userId", user._id, {
+            expires: new Date(Date.now() + 1000 * 60 * 60 * 5),
+            httpOnly: false,
+          });
+          res.cookie("emailVerified", user.emailVerified, {
+            expires: new Date(Date.now() + 1000 * 60 * 60 * 5),
+            httpOnly: false,
+          });
+          res.cookie("phoneNumberVerified", user.phoneNumberVeried, {
+            expires: new Date(Date.now() + 1000 * 60 * 60 * 5),
+            httpOnly: false,
+          });
+          req.session.userId = savedUser._id;
+          // req.session.mobileNumber = savedUser.callingPhoneNumber;
+          return res
+            .status(200)
+            .send({
+              token,
+              emailVerified: false,
+              phoneNumberVerified: false,
+              userName: savedUser.name,
+              userId: savedUser._id,
+            });
+        }
+      );
+      // }
     });
   });
 };

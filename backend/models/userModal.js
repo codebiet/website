@@ -8,11 +8,12 @@ const emailValidatorWithMsg = [emailValidator,"Invalid {PATH}! Please check your
 
 
 const phoneNumberValidator = (phoneNumber) => {
-    return phoneNumber.length == 12;
+    return phoneNumber.length == 12 || phoneNumber.length == 0;
 }
 const phoneNumberValidatorWithMsg = [phoneNumberValidator,'Invalid `{PATH}`! Please check your phone Number.'];
 
 const githubUserNameValidator = (username) => {
+    if(!username) return true;
     const re = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i;
     return re.test(username);
 }
@@ -26,11 +27,11 @@ const userSchema = new mongoose.Schema({
     name:{type:String,required:true},
     email:{type:String,required:true,unique:true,validate:emailValidatorWithMsg},
     password:{type:String,required:true,validate:passwordValidatorWithMsg},
-    callingPhoneNumber: {type:String,unique:true,validate:phoneNumberValidatorWithMsg},
-    whatsAppPhoneNumber:{type:String, unique:true, validate: phoneNumberValidatorWithMsg},
-    year:{type:Number,required:true},
-    branch:{type:String,required:true},
-    githubUserName:{type:String,required:true,validate:githubUserNameValidatorWithMsg},
+    callingPhoneNumber: {type:String,validate:phoneNumberValidatorWithMsg},
+    whatsAppPhoneNumber:{type:String, validate: phoneNumberValidatorWithMsg},
+    year:{type:Number,},
+    branch:{type:String},
+    githubUserName:{type:String,validate:githubUserNameValidatorWithMsg},
     programmingLanguages:[
         {
             name:{type:String,required:true},
@@ -94,19 +95,20 @@ const userSchema = new mongoose.Schema({
     cloudHostingPlatforms:[String],
     otherSkills:String,
     interest:{
-        preference1:{type:String,required:true,enum:["Artificial Intelligence","Robotics","Web Development","Mobile Application Development","Cloud Computing","Cyber Security and Ethical Hacking","Data Science and Data Analysis","Computer Software","Game development"]},
-        preference2:{type:String,required:true,enum:["Artificial Intelligence","Robotics","Web Development","Mobile Application Development","Cloud Computing","Cyber Security and Ethical Hacking","Data Science and Data Analysis","Computer Software","Game development"]},
-        preference3:{type:String,required:true,enum:["Artificial Intelligence","Robotics","Web Development","Mobile Application Development","Cloud Computing","Cyber Security and Ethical Hacking","Data Science and Data Analysis","Computer Software","Game development"]}
+        preference1:{type:String,enum:["Artificial Intelligence","Robotics","Web Development","Mobile Application Development","Cloud Computing","Cyber Security and Ethical Hacking","Data Science and Data Analysis","Computer Software","Game development"]},
+        preference2:{type:String,enum:["Artificial Intelligence","Robotics","Web Development","Mobile Application Development","Cloud Computing","Cyber Security and Ethical Hacking","Data Science and Data Analysis","Computer Software","Game development"]},
+        preference3:{type:String,enum:["Artificial Intelligence","Robotics","Web Development","Mobile Application Development","Cloud Computing","Cyber Security and Ethical Hacking","Data Science and Data Analysis","Computer Software","Game development"]}
     },
     internshipsOrProjects:String,
     trainings:String,
     resume:{type:String},
     emailVerified:{type:Boolean,default:false},
-    phoneNumberVerified:{type:Boolean,default:false}
+    phoneNumberVerified:{type:Boolean,default:false},
+    role:{type:String,enum:["Student","Professional"],default:"Student"}
 });
 
 userSchema.query.findByEmail = function(email){
-    return this.findOne({email: new RegExp(email,'i')});
+    return this.findOne({email: email});
 }
 userSchema.query.findByPhoneNumber = function(number){
     return this.findOne({whatsAppPhoneNumber:new RegExp(number,'i')});
