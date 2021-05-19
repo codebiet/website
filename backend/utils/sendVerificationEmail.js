@@ -1,13 +1,5 @@
 const sendEmail = require("./smtpTransport");
-const crypto = require("crypto");
-const encrypt = (text) => {
-  var cipher = crypto.createCipher(
-    process.env.ENCRYPTION_ALGO,
-    process.env.CRYPTOJS_SECRET
-  );
-  var encrypted = cipher.update(text, "utf8", "hex") + cipher.final("hex");
-  return encrypted;
-};
+const encrypt = require('./encrypt');
 const getHTML = (link) => {
   return `
     <div style="margin:0;padding:2rem 0;min-width:100%;background-color:#0f2b3c">

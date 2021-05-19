@@ -19,7 +19,7 @@ import Cookies from "js-cookie";
 
 const initialState = {
   token: Cookies.get("token"),
-  userLoggedIn: !!Cookies.get("token"),
+  userLoggedIn: Cookies.get("userLoggedIn") == "true",
   emailVerified: Cookies.get("emailVerified") == "true",
   phoneNumberVerified: Cookies.get("phoneNumberVerified") == "true",
   userLoggingIn: false,

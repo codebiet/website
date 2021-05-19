@@ -173,6 +173,10 @@ module.exports = async (req, res) => {
             expires: new Date(Date.now() + 1000 * 60 * 60 * 5),
             httpOnly: false,
           });
+          res.cookie("userLoggedIn", false, {
+            expires: new Date(Date.now() + 1000 * 60 * 60 * 5),
+            httpOnly: false,
+          });
           // req.session.mobileNumber = savedUser.callingPhoneNumber;
           return res
             .status(200)

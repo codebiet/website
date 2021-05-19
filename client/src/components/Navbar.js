@@ -8,7 +8,6 @@ const Navbar = () => {
   const auth = useContext(AuthContext);
   const location = useLocation();
   const [showExtraInfoInNavbar, setShowExtraInfoInNavbar] = useState(false);
-  console.log(location.pathname, showExtraInfoInNavbar);
   useEffect(() => {
     if (
       location.pathname != "/login" &&

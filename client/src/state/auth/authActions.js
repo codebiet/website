@@ -64,6 +64,7 @@ export const logOutUser = (dispatch) => {
   Cookies.remove("emailVerified");
   Cookies.remove("phoneNumberVerified");
   Cookies.remove("userName");
+  Cookies.remove("userLoggedIn");
 };
 
 // export const loadUser = (dispatch, state) => {

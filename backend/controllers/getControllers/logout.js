@@ -22,6 +22,10 @@ module.exports = (req, res) => {
         expires: new Date(0),
         httpOnly: false,
       });
+      res.cookie("userLoggedIn", false, {
+        expires: new Date(0),
+        httpOnly: false,
+      });
       res.set("Cache-Control","no-store");
       res.status(200).send({ msg: "Logout success" });
     }

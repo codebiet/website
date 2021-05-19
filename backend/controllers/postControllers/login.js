@@ -47,6 +47,10 @@ const login = async (req, res) => {
           expires: new Date(Date.now() + 1000 * 60 * 60 * 5),
           httpOnly: false,
         });
+        res.cookie("userLoggedIn", false, {
+          expires: new Date(Date.now() + 1000 * 60 * 60 * 5),
+          httpOnly: false,
+        });
         return res.status(200).send({
           token,
           emailVerified: user.emailVerified,

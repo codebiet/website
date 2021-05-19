@@ -26,7 +26,7 @@ router
   );
 router
   .route("/verifyEmail")
-  .get(authLogin, require("../controllers/getControllers/verifyEmail"));
+  .get(require("../controllers/getControllers/verifyEmail"));
 router.route("/logout").get(require("../controllers/getControllers/logout"));
 router.route('/verifyResetPasswordLink').get(require("../controllers/getControllers/verifyResetPasswordLink"));
 module.exports = router;

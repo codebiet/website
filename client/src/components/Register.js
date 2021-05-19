@@ -79,7 +79,7 @@ const Register = (props) => {
   //==================================================================================
   return (
     <React.Fragment>
-      {auth.state.userLoggedIn ? (
+      {auth.state.token ? (
         <React.Fragment>
           {auth.state.emailVerified ? (
             <Redirect to="/dashboard" />

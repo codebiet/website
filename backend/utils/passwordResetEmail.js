@@ -1,13 +1,5 @@
 const sendEmail = require("./smtpTransport");
-const crypto = require("crypto");
-const encrypt = (text) => {
-  var cipher = crypto.createCipher(
-    process.env.ENCRYPTION_ALGO,
-    process.env.CRYPTOJS_SECRET
-  );
-  var encrypted = cipher.update(text, "utf8", "hex") + cipher.final("hex");
-  return encrypted;
-};
+const encrypt = require('./encrypt');
 module.exports = (id,email) => {
   //encrypt the id and current time
   console.log('id ',id);

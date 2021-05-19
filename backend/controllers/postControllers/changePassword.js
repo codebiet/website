@@ -1,15 +1,7 @@
 const crypto = require("crypto");
 const User = require("../../models/userModal");
 const bcrypt = require("bcryptjs");
-const decrypt = (cipher) => {
-  const decipher = crypto.createDecipher(
-    process.env.ENCRYPTION_ALGO,
-    process.env.CRYPTOJS_SECRET
-  );
-  var decrypted =
-    decipher.update(cipher, "hex", "utf8") + decipher.final("utf8");
-  return decrypted;
-};
+const decrypt = require("../../utils/decrypt");
 const changePassword = async (req, res) => {
   const { password, confirmPassword } = req.body;
   if (!password || !confirmPassword)

@@ -1,14 +1,5 @@
-const crypto = require("crypto");
 const User = require("../../models/userModal");
-const decrypt = (cipher) => {
-  const decipher = crypto.createDecipher(
-    process.env.ENCRYPTION_ALGO,
-    process.env.CRYPTOJS_SECRET
-  );
-  var decrypted =
-    decipher.update(cipher, "hex", "utf8") + decipher.final("utf8");
-  return decrypted;
-};
+const decrypt = require('../../utils/decrypt');
 const verifyEmail = async (req, res) => {
   const host = req.get("host");
   if (
@@ -18,24 +9,28 @@ const verifyEmail = async (req, res) => {
     //domain matched
     const encryptedID = req.query.a; //since a = id
     const encryptedTime = req.query.b; //since b = time
-    console.log(encryptedID);
-    console.log(encryptedTime);
+    // console.log(encryptedID);
+    // console.log(encryptedTime);
     //decrypt ID and Time
     const decryptedID = decrypt(encryptedID);
     const decryptedTime = decrypt(encryptedTime);
+    // console.log("decryptedId is : ",decryptedID);
     let user;
     try {
       user = await User.findById(decryptedID).exec();
+      // console.log("got user : ",user);
     } catch (err) {
       console.log(err);
       res.status(500).send({ errorMsg: "Internal Server Error, Try Again!" });
     }
+    // console.log("verifying user");
     if (!user) return res.status(400).send({ errorMsg: "Invalid Request!" });
+    // console.log("user verified");
     // if (user) {
     const timeElapsed = process.env.EMAIL_LINK_VALIDITY;
     //if you want to verify time duration then uncomment the below line, and comment the above line;
     // const timeElapsed = (Date.now() - decryptedTime) / (1000 * 60); //in minutes;
-    console.log(user);
+    // console.log(user);
     if (timeElapsed > process.env.EMAIL_LINK_VALIDITY)
       return res
         .status(400)
@@ -55,7 +50,7 @@ const verifyEmail = async (req, res) => {
       expires: new Date(Date.now() + 1000 * 60 * 60 * 5),
       httpOnly: false,
     });
-    return res.redirect("/setPassword?id="+user._id);
+    return res.redirect("/setPassword?id=" + encryptedID);
   } else {
     //domain didn't matched
     res.status(400).send({ errorMsg: "Invalid request!" });

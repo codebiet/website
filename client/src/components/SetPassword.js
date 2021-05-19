@@ -52,31 +52,33 @@ const SetPassword = (props) => {
       if (password == confirmPassword) {
         setLoading(true);
         axios
-          .post(
-            `http://localhost:3000/post/setPassword?id=${params.id}`,
-            { password, confirmPassword }
-          )
+          .post(`http://localhost:3000/post/setPassword?id=${params.id}`, {
+            password,
+            confirmPassword,
+          })
           .then((res) => {
             setLoading(false);
             if (res.data && res.data.msg == "success") {
               info.dispatch(
-                generateSuccess(
-                  "Password set successfully! You can login now."
-                )
+                generateSuccess("Password set successfully! You can login now.")
               );
               setRedirectTo("/login");
             } else info.dispatch(generateError("Something went wrong!"));
           })
           .catch((err) => {
             setLoading(false);
-            if (err.response.status == 500)
-              setRedirectTo("/internalServerError");
-            else {
-              if (err.response.data && err.response.data.errorMsg) {
-                info.dispatch(generateError(err.response.data.errorMsg));
-              } else {
-                info.dispatch(generateError("Something went wrong!"));
+            if (err.response) {
+              if (err.response.status == 500)
+                setRedirectTo("/internalServerError");
+              else {
+                if (err.response.data && err.response.data.errorMsg) {
+                  info.dispatch(generateError(err.response.data.errorMsg));
+                } else {
+                  info.dispatch(generateError("Something went wrong!"));
+                }
               }
+            }else{
+              info.dispatch(generateError("Something went wrong, Please try again!"))
             }
           });
       } else {
@@ -99,11 +101,7 @@ const SetPassword = (props) => {
           <Navbar />
           <div className="register-main-container">
             <div className="img-container">
-              <img
-                className="register-image"
-                src={setPasswordImage}
-                alt=""
-              />
+              <img className="register-image" src={setPasswordImage} alt="" />
             </div>
             <div className="form-container">
               <h1>SET YOUR PASSWORD</h1>
