@@ -10,27 +10,27 @@ const encrypt = (text) => {
 };
 const getHTML = (link) => {
   return `
-    <div style="margin:0;padding:0;min-width:100%;background-color:#ffffff">
+    <div style="margin:0;padding:2rem 0;min-width:100%;background-color:#0f2b3c">
     <center style="width:100%;table-layout:fixed">
       <div style="max-width:500px">
         <table border="0" cellpadding="0" cellspacing="0" align="center" style="margin:0 auto;width:100%" role="presentation">
           <tr>
-            <td>
-              <img src="https://s3.ap-south-1.amazonaws.com/soorajarsn.warehouse/codeLogo.png" style="width:100%" />
+            <td style="text-align:center">
+              <img src="https://s3.ap-south-1.amazonaws.com/soorajarsn.warehouse/codeLogo.png" style="width:50%" class="CToWUd"/>
             </td>
           </tr>
           <tr>
-            <td style="padding:15px 59px 21px;color:#232f3e;font-family:Arial,sans-serif;font-size:12px;line-height:22px;text-align:left"> 
+            <td style="padding:15px 20px 21px;color:#232f3e;font-family:Arial,sans-serif;font-size:12px;line-height:22px;text-align:left;color:white;"> 
               <h1 style="margin:30px 0;font-weight:bold;font-size:18px;line-height:24px;text-align:center">Verification Link to Join Code</h1>
               <p style="font-size:1rem;margin:1rem 0;">Please click on the link given below to verify your Email:</p>
               <div aria-label="verification-link">
-                <a style="font-size:1.1rem;text-decoration:none;color:#1f3c88;margin:2rem 0;" href=${link}>Click here to verify your Email!</a>
+                <a style="font-size:1.1rem;text-decoration:none;color:#1f3c88;margin:2rem 0;color:orange;" href=${link}>Click here to verify your Email!</a>
               </div>
               <p style="font-size:1rem;margin:1rem 0;">This link will be active for ${process.env.EMAIL_LINK_VALIDITY} minutes. If it has expired you can request a new link from the verification page.</p>
             </td>
           </tr>
         <tr>
-          <td bgcolor="#0f2b3c" style="padding:18px 59px 17px;font-size:0">
+          <td bgcolor="#0f2b3c" style="padding:18px 20px 17px;font-size:0">
               <table border="0" cellpadding="0" cellspacing="0" style="width:100%">
                   <tbody>
                     <tr>
@@ -39,12 +39,12 @@ const getHTML = (link) => {
                           <tbody> 
                             <tr> 
                               <td style="padding:0 10px 0 0;font-size:0">
-                                <a href="" target="_blank">
-                                  <img src="https://s3-us-west-2.amazonaws.com/notification-images-store/linkedin.png" alt="Facebook" width="26" height="26" border="0" class="CToWUd">
+                                <a href="https://www.facebook.com/groups/codebiet/" target="_blank">
+                                  <img src="https://s3-us-west-2.amazonaws.com/notification-images-store/facebook.png" alt="Facebook" width="26" height="26" border="0" class="CToWUd">
                                 </a>
                               </td>
                               <td style="padding:0 10px 0 0;font-size:0">
-                                <a href="" target="_blank">
+                                <a href="https://www.linkedin.com/company/codebietjhs/" target="_blank">
                                   <img src="https://s3-us-west-2.amazonaws.com/notification-images-store/linkedin.png" alt="LinkedIn" width="26" height="26" border="0" class="CToWUd">
                                 </a>
                               </td> 
@@ -54,9 +54,6 @@ const getHTML = (link) => {
                       </td>  
                       <td style="font-size:0;text-align:right">
                         <p style="margin:1px 0 0 20px">
-                          <a href="http://localhost:3000" target="_blank">
-                            <img src="https://s3.ap-south-1.amazonaws.com/soorajarsn.warehouse/codeLogo.png" alt="Code" width="80" height="19" border="0" class="CToWUd">
-                          </a>
                         </p>
                       </td>
                     </tr>
