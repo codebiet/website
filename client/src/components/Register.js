@@ -9,7 +9,7 @@ import mail from "./assets/mail.svg";
 import user from "./assets/user.svg";
 import briefcase from "./assets/briefcase.svg";
 import Navbar from "./Navbar";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Loader from "./Loader";
 import "./styles/register.scss";
 //custom hook to use Input for different form fields
@@ -152,6 +152,22 @@ const Register = (props) => {
                 </div>
                 <div className="button-container">
                   <button type="submit">REGISTER</button>
+                </div>
+                <div>
+                  <span
+                    style={{
+                      fontSize: "1.1rem",
+                      fontWeight: "600",
+                      display: "inline-block",
+                      marginRight: ".5rem",
+                      marginTop: "1rem",
+                    }}
+                  >
+                    Already Registered?
+                  </span>
+                  <Link className="link" to="/login">
+                    Login here
+                  </Link>
                 </div>
               </form>
             </div>
