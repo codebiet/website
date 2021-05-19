@@ -55,7 +55,7 @@ const verifyEmail = async (req, res) => {
       expires: new Date(Date.now() + 1000 * 60 * 60 * 5),
       httpOnly: false,
     });
-    return res.redirect("/setPassword");
+    return res.redirect("/setPassword?id="+user._id);
   } else {
     //domain didn't matched
     res.status(400).send({ errorMsg: "Invalid request!" });
