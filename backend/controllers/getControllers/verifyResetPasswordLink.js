@@ -1,4 +1,3 @@
-const crypto = require("crypto");
 const User = require("../../models/userModal");
 const decrypt = require('../../utils/decrypt');
 const verifyResetPasswordLink = async (req, res) => {

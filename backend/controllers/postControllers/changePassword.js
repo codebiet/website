@@ -1,4 +1,3 @@
-const crypto = require("crypto");
 const User = require("../../models/userModal");
 const bcrypt = require("bcryptjs");
 const decrypt = require("../../utils/decrypt");
