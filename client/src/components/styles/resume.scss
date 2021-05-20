@@ -1,0 +1,133 @@
+.resume-container {
+  background-color: white;
+  width: 210mm;
+  min-height: 297mm;
+  padding: 1rem 2rem;
+  border: 1px solid grey;
+  font-family: "Nunito", sans-serif;
+  .full-width {
+    width: 100%;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    h1 {
+      margin: 0;
+    }
+    p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    .email {
+      color: rgb(25, 0, 252);
+    }
+  }
+  .heading-container {
+    background-color: #cfcfcfe5;
+    margin: .5rem 0 .2rem;
+    h2 {
+      font-size: 1.2rem;
+      padding: 0.5rem 0;
+      margin-left: 0.5rem;
+      font-weight: 700;
+    }
+  }
+  .academic-details {
+    table,
+    th,
+    td {
+      border: 1px solid rgb(110, 110, 110);
+    }
+    td,
+    th {
+      padding: 0.5rem 0.2rem;
+      text-align: center;
+    }
+    tr .year {
+      width: 55px;
+    }
+  }
+  .projects {
+    td {
+      padding: 0 0.5rem;
+      ul {
+        // list-style-type: disc;
+        margin-left: 0.3rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0;
+        li {
+          background: url("https://upload.wikimedia.org/wikipedia/commons/8/8c/Bullet_%28typography%29.svg")
+            no-repeat left 5px;
+          padding-left: 1em;
+          background-size: 0.4rem;
+          background-position: 0 8px;
+          &:nth-child(2){
+              background-position: 0 5px;
+          }
+        }
+      }
+      .name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin: 0.2rem 0;
+      }
+      .type {
+        span {
+          font-size: 0.2rem;
+          font-weight: 500;
+          letter-spacing: 0.04rem;
+          margin: 0.2rem 0;
+        }
+      }
+      .technologies {
+        margin: 0.2rem 0;
+        font-size: 0.8rem;
+        div{
+            position: relative;
+            left:.23rem;
+        }
+        span {
+          line-height: 1rem;
+          letter-spacing: .03rem;
+        }
+        span:nth-child(1) {
+          font-weight: 700;
+        }
+      }
+      .credentials {
+        margin: 0.1rem 0;
+        margin-top: -0.1rem;
+        a {
+          color: rgb(25, 0, 252);
+          font-size: 0.9rem;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .technical-skills {
+    table {
+      ul {
+        list-style-type: disc;
+        margin-left: 1.5rem;
+        margin-bottom:.5rem;
+        font-size: 0.8rem;
+        line-height: 1.2rem;
+        .header {
+          font-weight: 700;
+        }
+        .name{
+          font-weight: 300;
+          margin-left:.2rem;
+        }
+      }
+    }
+  }
+  .achievements{
+      ul{
+          list-style-type: disc;
+          margin-left:2rem;
+      }
+  }
+}

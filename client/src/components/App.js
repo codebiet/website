@@ -13,6 +13,7 @@ import Dashboard from "./Dashboard";
 import ForgotPassword from "./ForgotPassword";
 import Toaster from "./Toaster";
 import SetPassword from "./SetPassword";
+import Resume from "./Resume";
 const Logout = () => {
   const auth = useContext(AuthContext);
   useEffect(() => {
@@ -79,6 +80,7 @@ function App() {
             path="/setPassword"
             render={(props) => <SetPassword {...props} />}
           />
+          <Route exact={true} path="/resume" render={() => <Resume />} />
         </Switch>
       </Router>
       {info.state.error &&
