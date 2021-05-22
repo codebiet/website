@@ -1,6 +1,6 @@
 import React from "react";
-import "./styles/resumeTemplate2.scss";
-import avatar from "./assets/avatar.jpg";
+import "./resumeTemplate2.scss";
+import avatar from "../assets/avatar.jpg";
 const Skills = (skills) => {
   const ul1 = [];
   const ul2 = [];

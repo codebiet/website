@@ -1,20 +1,20 @@
 import React, { useEffect, useContext } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Store, { AuthContext, InfoContext } from "../state/Store";
-import { logOutUser } from "../state/auth/authActions";
+import Store, { AuthContext, InfoContext } from "../../state/Store";
+import { logOutUser } from "../../state/auth/authActions";
 import { Redirect } from "react-router-dom";
-import Register from "./Authentication/Register";
-import Login from "./Authentication/Login";
-import Home from "./Home";
-import "./styles/theme.scss";
-import SentVerifyEmail from "./Authentication/SentVerifyEmail";
-import Dashboard from "./Dashboard";
-import ForgotPassword from "./Authentication/ForgotPassword";
-import Toaster from "./Toaster/Toaster";
-import SetPassword from "./Authentication/SetPassword";
-import Resume from "./Resume";
-import CertificateVerification from "./CertificateVerification/CertificateVerification";
+import Register from "../Authentication/Register";
+import Login from "../Authentication/Login";
+import Home from "../Home/Home";
+import "./theme.scss";
+import SentVerifyEmail from "../Authentication/SentVerifyEmail";
+import Dashboard from "../Dashboard/Dashboard";
+import ForgotPassword from "../Authentication/ForgotPassword";
+import Toaster from "../Toaster/Toaster";
+import SetPassword from "../Authentication/SetPassword";
+import Resume from "../Resume/Resume";
+import CertificateVerification from "../CertificateVerification/CertificateVerification";
 const Logout = () => {
   const auth = useContext(AuthContext);
   useEffect(() => {

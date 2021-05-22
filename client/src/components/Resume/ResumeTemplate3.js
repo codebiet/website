@@ -1,6 +1,6 @@
 import React from "react";
-import avatar from "./assets/avatar.jpg";
-import "./styles/resumeTemplate3.css";
+import avatar from "../assets/avatar.jpg";
+import "./resumeTemplate3.css";
 const getFirstHalfSkills = (skills) => {
   const length = skills.length;
   if (length % 2 == 0) {

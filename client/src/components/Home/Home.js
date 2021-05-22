@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../state/Store";
+import { AuthContext } from "../../state/Store";
 import { Redirect } from "react-router-dom";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar/Navbar";
 const Home = (props) => {
   const auth = useContext(AuthContext);
   return (

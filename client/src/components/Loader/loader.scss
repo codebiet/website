@@ -1,0 +1,49 @@
+
+.loader-container {
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    top: 0;
+    left: 0;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100vw;
+  
+    .loader {
+      border: .5rem solid rgb(129, 129, 129);
+      border-radius: 100%;
+      // background: #ff9b21;
+      border-top: .5rem solid #fc9211;
+      // border:none;
+      width: 5rem;
+      height: 5rem;
+      -webkit-animation: spin 1s linear infinite;
+      /* Safari */
+      animation: spin 1s linear infinite;
+      // -webkit-animation: scale-up-center .3s cubic-bezier(0.39, 0.575, 0.565, 1)
+        // infinite alternate;
+      // animation: scale-up-center .3s cubic-bezier(0.39, 0.575, 0.565, 1) infinite
+        // alternate;
+    }
+  }
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+  
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }

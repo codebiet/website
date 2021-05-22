@@ -11,7 +11,7 @@ import loginImage from "../assets/login.svg";
 import lock from "../assets/lock.svg";
 import mail from "../assets/mail.svg";
 import { Link } from "react-router-dom";
-import Navbar from "../Navbar";
+import Navbar from "../Navbar/Navbar";
 import Loader from "../Loader/Loader";
 import { Redirect } from "react-router-dom";
 const Login = (props) => {

@@ -12,7 +12,7 @@ import queryString from "query-string";
 import Loader from "../Loader/Loader";
 import forgotPasswordImage from "../assets/forgotPassword.png";
 import lock from "../assets/lock.svg";
-import Navbar from "../Navbar";
+import Navbar from "../Navbar/Navbar";
 import { useInput } from "./Register";
 
 const forgotPassword = (props) => {

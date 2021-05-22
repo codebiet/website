@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/resumeTemplate1.scss";
+import "./resumeTemplate1.scss";
 const ResumeTemplate1 = React.forwardRef(({resumeData}, ref) => (
   <div className="resume-container" ref={ref}>
     <header>

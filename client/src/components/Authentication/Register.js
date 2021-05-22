@@ -8,7 +8,7 @@ import registerImage from "../assets/register.svg";
 import mail from "../assets/mail.svg";
 import user from "../assets/user.svg";
 import briefcase from "../assets/briefcase.svg";
-import Navbar from "../Navbar";
+import Navbar from "../Navbar/Navbar";
 import { Link, Redirect } from "react-router-dom";
 import Loader from "../Loader/Loader";
 import "./register.scss";

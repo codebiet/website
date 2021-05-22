@@ -1,0 +1,33 @@
+$theme-colors: (
+  "primary": #ff9b21,
+  "danger": #ff4136,
+  "info": #a639e3,
+);
+@import "~bootstrap/scss/bootstrap.scss";
+#app{
+  width:100vw;
+  overflow: hidden;
+}
+
+.link,
+.link:active,
+.link:visited {
+  color: #ff9b21;
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.05rem;
+}
+.main-container {
+  margin: 0;
+  padding: 1rem 3rem;
+  width: 100vw;
+  overflow: hidden;
+  font-family: "Nunito", sans-serif;
+  @media (max-width: 500px) {
+    padding: 1rem 0.5rem;
+  }
+  @media (min-width: 1200px) {
+    padding: 1rem 6rem;
+  }
+}

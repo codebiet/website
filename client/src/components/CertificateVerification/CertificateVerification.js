@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import Navbar from "../Navbar";
+import Navbar from "../Navbar/Navbar";
 import { InfoContext } from "../../state/Store";
 import {
   generateError,

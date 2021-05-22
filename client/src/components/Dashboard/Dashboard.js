@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Redirect } from "react-router-dom";
-import { AuthContext } from "../state/Store";
-import Navbar from "./Navbar";
+import { AuthContext } from "../../state/Store";
+import Navbar from "../Navbar/Navbar";
 const Dashboard = (props) => {
   const auth = useContext(AuthContext);
   console.log(auth.state);

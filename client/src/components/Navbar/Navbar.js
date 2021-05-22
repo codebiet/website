@@ -1,9 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { AuthContext } from "../state/Store";
-import codeImage from "./assets/codeLogo.png";
-import { logOutUser } from "../state/auth/authActions";
-import "./styles/Navbar.scss";
+import { AuthContext } from "../../state/Store";
+import codeImage from "../assets/codeLogo.png";
+import { logOutUser } from "../../state/auth/authActions";
+import "./Navbar.scss";
 const Navbar = () => {
   const auth = useContext(AuthContext);
   const location = useLocation();
