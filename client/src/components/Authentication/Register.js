@@ -3,7 +3,7 @@ import { AuthContext, InfoContext } from "../../state/Store";
 import { clearMsgs } from "../../state/auth/authActions";
 import { clearEverything, generateError } from "../../state/info/infoActions";
 import { signupUser } from "../../state/auth/authActions";
-import registerImage from "./assets/register.svg";
+import registerImage from "../assets/register.svg";
 // import lock from "../assets/lock.svg";
 import mail from "../assets/mail.svg";
 import user from "../assets/user.svg";
