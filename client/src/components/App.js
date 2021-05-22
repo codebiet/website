@@ -14,6 +14,7 @@ import ForgotPassword from "./ForgotPassword";
 import Toaster from "./Toaster";
 import SetPassword from "./SetPassword";
 import Resume from "./Resume";
+import CertificateVerification from "./CertificateVerification";
 const Logout = () => {
   const auth = useContext(AuthContext);
   useEffect(() => {
@@ -81,6 +82,7 @@ function App() {
             render={(props) => <SetPassword {...props} />}
           />
           <Route exact={true} path="/resume" render={() => <Resume />} />
+          <Route exact={true} path="/verifyCertificate" render={(props) => <CertificateVerification {...props} />} />
         </Switch>
       </Router>
       {info.state.error &&

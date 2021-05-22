@@ -4,6 +4,10 @@ $theme-colors: (
   "info": #a639e3,
 );
 @import "~bootstrap/scss/bootstrap.scss";
+#app{
+  width:100vw;
+  overflow: hidden;
+}
 .toaster-container {
   width: 100vw;
   position: absolute;
