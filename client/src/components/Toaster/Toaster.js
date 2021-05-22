@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
-import { InfoContext } from "../state/Store";
+import { InfoContext } from "../../state/Store";
 import {
   clearError,
   clearWarning,
   clearSuccess,
-} from "../state/info/infoActions";
+} from "../../state/info/infoActions";
 const getIcon = (props) => {
   if (props.success) return <i className="fas fa-check-circle" />;
   else if (props.failure) return <i className="fas fa-times-circle" />;

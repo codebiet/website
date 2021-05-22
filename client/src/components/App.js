@@ -11,7 +11,7 @@ import "./styles/theme.scss";
 import SentVerifyEmail from "./SentVerifyEmail";
 import Dashboard from "./Dashboard";
 import ForgotPassword from "./ForgotPassword";
-import Toaster from "./Toaster";
+import Toaster from "./Toaster/Toaster";
 import SetPassword from "./SetPassword";
 import Resume from "./Resume";
 import CertificateVerification from "./CertificateVerification/CertificateVerification";
