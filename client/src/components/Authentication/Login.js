@@ -1,18 +1,18 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { AuthContext, InfoContext } from "../state/Store";
-import { loginUser, clearMsgs, recoverUser } from "../state/auth/authActions";
+import { AuthContext, InfoContext } from "../../state/Store";
+import { loginUser, clearMsgs, recoverUser } from "../../state/auth/authActions";
 import {
   generateError,
   clearEverything,
   generateWarning,
-} from "../state/info/infoActions";
+} from "../../state/info/infoActions";
 import { useInput } from "./Register";
-import loginImage from "./assets/login.svg";
-import lock from "./assets/lock.svg";
-import mail from "./assets/mail.svg";
+import loginImage from "../assets/login.svg";
+import lock from "../assets/lock.svg";
+import mail from "../assets/mail.svg";
 import { Link } from "react-router-dom";
-import Navbar from "./Navbar";
-import Loader from "./Loader";
+import Navbar from "../Navbar";
+import Loader from "../Loader/Loader";
 import { Redirect } from "react-router-dom";
 const Login = (props) => {
   //Context

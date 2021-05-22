@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
-import { AuthContext } from "../state/Store";
+import { AuthContext } from "../../state/Store";
 import { Redirect } from "react-router-dom";
-import Navbar from "./Navbar";
-import otpSvg from "./assets/otp.svg";
-import Loader from "./Loader";
-import { sendVerificationEmail } from "../state/auth/authActions";
+import Navbar from "../Navbar";
+import otpSvg from "../assets/otp.svg";
+import Loader from "../Loader/Loader";
+import { sendVerificationEmail } from "../../state/auth/authActions";
 const SentVerifyEmail = (props) => {
   const auth = useContext(AuthContext);
   const [seconds, setSeconds] = useState(59);

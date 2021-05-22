@@ -1,17 +1,17 @@
 import React, { useContext, useState, useRef, useEffect } from "react";
-import { AuthContext, InfoContext } from "../state/Store";
-import { clearMsgs } from "../state/auth/authActions";
-import { clearEverything, generateError } from "../state/info/infoActions";
-import { signupUser } from "../state/auth/authActions";
+import { AuthContext, InfoContext } from "../../state/Store";
+import { clearMsgs } from "../../state/auth/authActions";
+import { clearEverything, generateError } from "../../state/info/infoActions";
+import { signupUser } from "../../state/auth/authActions";
 import registerImage from "./assets/register.svg";
-import lock from "./assets/lock.svg";
-import mail from "./assets/mail.svg";
-import user from "./assets/user.svg";
-import briefcase from "./assets/briefcase.svg";
-import Navbar from "./Navbar";
+// import lock from "../assets/lock.svg";
+import mail from "../assets/mail.svg";
+import user from "../assets/user.svg";
+import briefcase from "../assets/briefcase.svg";
+import Navbar from "../Navbar";
 import { Link, Redirect } from "react-router-dom";
-import Loader from "./Loader";
-import "./styles/register.scss";
+import Loader from "../Loader/Loader";
+import "./register.scss";
 //custom hook to use Input for different form fields
 //================================================================================
 export const useInput = ({ type, placeholder }) => {

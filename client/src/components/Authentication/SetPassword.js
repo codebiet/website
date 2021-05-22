@@ -1,18 +1,18 @@
 import React, { useEffect, useContext, useRef, useState } from "react";
 import axios from "axios";
-import { InfoContext, AuthContext } from "../state/Store";
+import { InfoContext, AuthContext } from "../../state/Store";
 import "regenerator-runtime/runtime";
 import {
   generateError,
   generateSuccess,
   clearEverything,
-} from "../state/info/infoActions";
-import { Redirect, Link } from "react-router-dom";
+} from "../../state/info/infoActions";
+import { Redirect } from "react-router-dom";
 import queryString from "query-string";
-import Loader from "./Loader";
-import setPasswordImage from "./assets/setPassword.jpg";
-import lock from "./assets/lock.svg";
-import Navbar from "./Navbar";
+import Loader from "../Loader/Loader";
+import setPasswordImage from "../assets/setPassword.jpg";
+import lock from "../assets/lock.svg";
+import Navbar from "../Navbar";
 import { useInput } from "./Register";
 
 const SetPassword = (props) => {

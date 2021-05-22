@@ -7,7 +7,7 @@ import {
   generateWarning,
   clearEverything,
 } from "../../state/info/infoActions";
-import Loader from "../Loader";
+import Loader from "../Loader/Loader";
 import CertificateFoundComponent from "./CertificateFound";
 import CertificateNotFoundComponent from "./CertificateNotFound";
 import GetCertificateNumber from "./GetCertificateNumber";
