@@ -1,5 +1,5 @@
 import React from "react";
-import certificateFound from "./assets/certificateFound.jpg";
+import certificateFound from "../assets/certificateFound.jpg";
 import ReactToPdf from "react-to-pdf";
 const CertificateFound = React.forwardRef((props, ref) => {
   const getDate = (date) => {

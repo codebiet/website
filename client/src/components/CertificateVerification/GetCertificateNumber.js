@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { InfoContext } from "../state/Store";
-import { clearEverything } from "../state/info/infoActions";
+import { InfoContext } from "../../state/Store";
+import { clearEverything } from "../../state/info/infoActions";
 const GetCertificateNumber = (props) => {
   const info = useContext(InfoContext);
   const handleInputChange = (event) => {

@@ -1,18 +1,18 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import Navbar from "./Navbar";
-import { InfoContext } from "../state/Store";
+import Navbar from "../Navbar";
+import { InfoContext } from "../../state/Store";
 import {
   generateError,
   generateWarning,
   clearEverything,
-} from "../state/info/infoActions";
-import Loader from "./Loader";
+} from "../../state/info/infoActions";
+import Loader from "../Loader";
 import CertificateFoundComponent from "./CertificateFound";
 import CertificateNotFoundComponent from "./CertificateNotFound";
 import GetCertificateNumber from "./GetCertificateNumber";
 import CertificateVerificationReport from "./CertificateVerificationReport";
-import "./styles/certificateVerification.scss";
+import "../styles/certificateVerification.scss";
 const CertificateVerification = (props) => {
   const [loading, setLoading] = useState(false);
   const [certificateNumber, setCertificateNumber] = useState("");

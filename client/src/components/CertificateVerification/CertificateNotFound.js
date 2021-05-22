@@ -1,5 +1,5 @@
 import React from "react";
-import certificateNotFound from "./assets/certificateNotFound.jpg";
+import certificateNotFound from "../assets/certificateNotFound.jpg";
 
 const CertificateNotFound = (props) => {
   const handleCheckAgain = () => {

@@ -14,7 +14,7 @@ import ForgotPassword from "./ForgotPassword";
 import Toaster from "./Toaster";
 import SetPassword from "./SetPassword";
 import Resume from "./Resume";
-import CertificateVerification from "./CertificateVerification";
+import CertificateVerification from "./CertificateVerification/CertificateVerification";
 const Logout = () => {
   const auth = useContext(AuthContext);
   useEffect(() => {
