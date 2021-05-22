@@ -79,17 +79,13 @@
       font-size: 5rem;
       font-weight: 600;
       margin-bottom: 4rem;
-      @media (max-width: 500px) {
-        font-size: 2.5rem;
-        margin-bottom: 2rem;
-      }
     }
     p {
-      font-size: 1.5rem;
+      font-size: 1.1rem;
       font-weight: 500;
-      line-height: 3rem;
+      line-height: 2rem;
       margin: 0;
-      padding:0;
+      padding: 0;
     }
     @media (max-width: 1450px) {
       h1 {
@@ -119,6 +115,12 @@
       p {
         font-size: 1.2rem;
         line-height: 1.9rem;
+      }
+    }
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
       }
     }
   }
@@ -242,79 +244,79 @@
 //   width:0;
 //   height:0;
 // }
-.report-page{
-  width:calc(220mm - 2.4rem);
-  height:297mm;
+.report-page {
+  width: calc(220mm - 2.4rem);
+  height: 297mm;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 5px solid #ff9b21;
-  padding:2rem;
-  margin-top:50rem;
+  padding: 2rem;
+  margin-top: 50rem;
   position: relative;
-  .logo-container{
-    width:100%;
+  .logo-container {
+    width: 100%;
     text-align: center;
-    margin:5rem 0;
-    img{
-      width:10rem;
+    margin: 5rem 0;
+    img {
+      width: 10rem;
     }
   }
-  .report-body{
+  .report-body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width:100%;
-    h1{
-      font-size:2rem;
-      margin-top:2rem;
+    width: 100%;
+    h1 {
+      font-size: 2rem;
+      margin-top: 2rem;
       text-align: center;
-      color:#ff9b21;
+      color: #ff9b21;
       font-weight: 600;
       margin-bottom: 5rem;
       text-decoration: underline;
-      strong{
-        color:#ff9b21;
+      strong {
+        color: #ff9b21;
       }
     }
-    table{
-      width:50%;
-      td{
-        padding:1rem;
-        &:first-child{
+    table {
+      width: 50%;
+      td {
+        padding: 1rem;
+        &:first-child {
           font-weight: 600;
-          min-width:180px;
+          min-width: 180px;
         }
       }
     }
   }
-  .pioneers-container{
+  .pioneers-container {
     position: absolute;
-    bottom:2rem;
-    width:100%;
-    .CEOs,.executives{
-      display:flex;
-      margin:2rem 0;
-      div{
+    bottom: 2rem;
+    width: 100%;
+    .CEOs,
+    .executives {
+      display: flex;
+      margin: 2rem 0;
+      div {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        width:33%;
-        h2{
-          font-size:1.1rem;
+        width: 33%;
+        h2 {
+          font-size: 1.1rem;
           font-weight: 800;
-          color:black;
-          margin:0;
+          color: black;
+          margin: 0;
         }
-        span{
-          font-size:.9rem;
+        span {
+          font-size: 0.9rem;
           font-weight: 800;
           color: gray;
         }
       }
     }
-
   }
 }
