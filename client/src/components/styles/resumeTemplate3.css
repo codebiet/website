@@ -65,6 +65,9 @@ hr {
 hr:not([size]) {
   height: 1px;
 }
+.resume-template3{
+  max-width:220mm;
+}
 .resume-template3 .h1,
 .resume-template3 .h2,
 .resume-template3 .h3,

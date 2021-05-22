@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ResumeTemplate1 from "./ResumeTemplate1";
 import ResumeTemplate2 from "./ResumeTemplate2";
 import ResumeTemplate3 from "./ResumeTemplate3";
+import SelectTemplate from "./SelectResumeTemplate";
+import "./styles/resume.scss";
 import ReactToPdf from "react-to-pdf";
-import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
 const resumeData = {
-  name: "Sooraj Shukla",
+  name: "Your Name",
   year: "Third",
   degree: "B.Tech",
   phoneNumber: "95111xxxxx",
@@ -115,24 +117,51 @@ const resumeData = {
 };
 const Resume = () => {
   const ref = React.createRef();
+  const [template, setTemplate] = useState(0);
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  },[template])
   return (
     <React.Fragment>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "100vw",
-          padding: "2rem 0",
-          background: "#0b3846",
-        }}
-      >
-        <ResumeTemplate1 resumeData={resumeData} ref={ref} />
-        <ReactToPdf targetRef={ref} filename="userName_resume.pdf">
-          {({ toPdf }) => <button className="generate-pdf" onClick={toPdf}>GENERATE PDF</button>}
-        </ReactToPdf>
-        
-      </div>
+      {template != 0 && (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100vw",
+            padding: "2rem 0",
+            background: "rgba(0,0,0,.1)",
+            flexDirection:"column"
+          }}
+        >
+        <div className="download-reset-button-container">
+          <ReactToPdf targetRef={ref} filename="userName_resume.pdf">
+            {({ toPdf }) => (
+              <button className="generate-pdf" onClick={toPdf}>
+                GENERATE PDF
+              </button>
+            )}
+          </ReactToPdf>
+          <button
+            className="generate-pdf reset-template"
+            onClick={() => setTemplate(0)}
+          >
+            RESET TEMPLATE
+          </button>
+        </div>
+          {template == 1 && (
+            <ResumeTemplate1 resumeData={resumeData} ref={ref} />
+          )}
+          {template == 2 && (
+            <ResumeTemplate2 resumeData={resumeData} ref={ref} />
+          )}
+          {template == 3 && (
+            <ResumeTemplate3 resumeData={resumeData} ref={ref} />
+          )}
+        </div>
+      )}
+      {!template && <SelectTemplate setTemplate={setTemplate} />}
     </React.Fragment>
   );
 };

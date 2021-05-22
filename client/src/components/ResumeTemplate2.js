@@ -36,7 +36,7 @@ const Skills = (skills) => {
 };
 const Template2 = React.forwardRef(({ resumeData }, ref) => (
   <React.Fragment>
-    <div id="doc2" className="yui-t7" ref={ref}>
+    <div className="resume-container template-2" ref={ref}>
       <div id="inner">
         <div id="hd">
           <div className="yui-gc header">
