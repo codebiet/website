@@ -36,11 +36,11 @@ const EmailForPasswordResetLink = ({ handleSubmit, setForgotPassword }) => {
             alt=""
           />
         </div>
-        <div className="form-container" style={{ minWidth: "380px" }}>
+        <div className="form-container">
           <h1>ENTER YOUR EMAIL</h1>
           <form
             onSubmit={(e) => handleSubmit(e, email)}
-            style={{ minWidth: "380px" }}
+            className="login-form"
           >
             <div className="input-container">
               <label for="forgotPassword-email">
@@ -209,11 +209,10 @@ const Login = (props) => {
                 <div className="img-container">
                   <img className="register-image" src={loginImage} alt="" />
                 </div>
-                <div className="form-container" style={{ minWidth: "380px" }}>
+                <div className="form-container">
                   <h1>LOGIN TO CODE</h1>
                   <form
                     onSubmit={(e) => handleSubmit(e)}
-                    style={{ minWidth: "380px" }}
                   >
                     <div className="input-container">
                       <label for="login-email">

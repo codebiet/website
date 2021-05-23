@@ -50,6 +50,12 @@
     justify-content: center;
     align-items: center;
     width: 50%;
+    @media (min-width:600px){
+      min-width:380px;
+      .login-form{
+        min-width: 380px;
+      }
+    }
     @media (max-width: 599px) {
       width: 100%;
     }
