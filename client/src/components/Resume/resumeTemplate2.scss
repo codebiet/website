@@ -23,21 +23,21 @@
   color: #444;
   // width: 250mm;
 }
-.resume-container.template-2{
-  padding:0;
-  height:unset;
-  @media (max-width:700px){
-    margin-top:-21rem;
+.resume-container.template-2 {
+  padding: 0;
+  height: unset;
+  @media (max-width: 700px) {
+    margin-top: -21rem;
   }
 }
 #inner {
   padding: 10px 40px;
   // margin: 80px auto;
-  margin:0;
+  margin: 0;
   background: #f5f5f5;
   border: solid #666;
   border-width: 8px 0 2px 0;
-  width:100%;
+  width: 100%;
 }
 .yui-gf {
   margin-bottom: 2em;
@@ -154,13 +154,13 @@ a#pdf:hover {
 }
 .job p {
   margin: 0.75em 0 1em 0;
-  letter-spacing: .05rem;
+  letter-spacing: 0.05rem;
 }
 
 .last {
   border: none;
   margin-bottom: 0;
-  padding-bottom:.2rem;
+  padding-bottom: 0.2rem;
 }
 /* .skills-list {  } */
 .skills-list ul {
@@ -199,23 +199,133 @@ a#pdf:hover {
 .yui-gf div.first {
   width: 12.3%;
 }
-.yui-u.title{
-    width: 100%;
-    h1{
-        font-size:2rem!important;
-    }
-    h2{
-        font-size:1rem;
-        font-weight: 400;
-    }
+.yui-u.title {
+  width: 100%;
+  h1 {
+    font-size: 2rem !important;
+  }
+  h2 {
+    font-size: 1rem;
+    font-weight: 400;
+  }
 }
-.header{
-    display:flex;
-    justify-content: space-between;
-    .avatar-img{
-        margin-left:0;
-        img{
-            width:15rem;
-        }
+.header {
+  display: flex;
+  justify-content: space-between;
+  .avatar-img {
+    margin-left: 0;
+    img {
+      width: 15rem;
     }
+  }
+}
+// --------
+// --------
+// --------
+// --------
+// --------
+// --------
+// --------
+div,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,p{
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  border: 0;
+}
+li {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+.yui-b {
+  position: relative;
+}
+#yui-main .yui-b {
+  position: static;
+}
+#yui-main {
+  width: 100%;
+}
+#yui-main .yui-b {
+  float: none;
+  width: auto;
+}
+.yui-gc .yui-u,
+.yui-gc .yui-g{
+  float: left;
+}
+
+.yui-gc .yui-u,
+.yui-gf .yui-g,
+.yui-gf .yui-u {
+  float: right;
+}
+.yui-gc div.first,
+.yui-gf div.first,
+.yui-gc div.first div.first {
+  float: left;
+}
+.yui-gc .yui-u,
+.yui-gc .yui-g {
+  width: 32%;
+  margin-left: 1.99%;
+}
+.yui-gc div.first{
+  width: 66%;
+}
+.yui-gf .yui-u {
+  width: 74.2%;
+}
+.yui-ge .yui-u,
+.yui-gf div.first {
+  width: 24%;
+}
+.yui-gc div.first{
+  margin-left: 0;
+}
+.yui-gc .yui-g .yui-u,
+.yui-gf .yui-g .yui-u {
+  width: 49%;
+  *width: 48.1%;
+  *margin-left: 0;
+}
+.yui-gc .yui-g .yui-u{
+  *width: 48.1%;
+  *margin-left: 0;
+}
+#hd:after,
+#bd:after,
+#ft:after,
+.yui-gc:after,
+.yui-gf:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+#hd,
+#bd,
+#ft,
+.yui-gc,
+.yui-gf {
+  zoom: 1;
 }
