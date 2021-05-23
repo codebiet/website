@@ -9,6 +9,7 @@ const CertificateFound = React.forwardRef((props, ref) => {
     <React.Fragment>
       <div className="certificate-found">
         <div className="data-container">
+        <i className="fas fa-check-circle"></i>
           <h1>Congratulations!</h1>
           <p>Your Certificate Number : </p>
           <p>{props.certificateData._id}</p>
@@ -23,7 +24,7 @@ const CertificateFound = React.forwardRef((props, ref) => {
         >
           {({ toPdf }) => (
             <div className="button-container" onClick={toPdf}>
-              <button>Download</button>
+              <button>Download<i className="fas fa-arrow-circle-down"></i></button>
             </div>
           )}
         </ReactToPdf>
