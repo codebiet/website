@@ -341,27 +341,6 @@ progress {
 .mb-4 {
   margin-bottom: 3rem !important;
 }
-.ms-0 {
-  margin-left: 0 !important;
-}
-.ms-1 {
-  margin-left: 0.5rem !important;
-}
-.ms-2 {
-  margin-left: 1rem !important;
-}
-.ms-3 {
-  margin-left: 2rem !important;
-}
-.ms-4 {
-  margin-left: 3rem !important;
-}
-.ms-5 {
-  margin-left: 6rem !important;
-}
-.ms-auto {
-  margin-left: auto !important;
-}
 .p-1 {
   padding: 0.5rem !important;
 }
@@ -416,38 +395,6 @@ progress {
     padding-left: 3rem !important;
   }
 }
-/* @media print {
-  .d-print-inline {
-    display: inline !important;
-  }
-  .d-print-inline-block {
-    display: inline-block !important;
-  }
-  .d-print-block {
-    display: block !important;
-  }
-  .d-print-grid {
-    display: grid !important;
-  }
-  .d-print-table {
-    display: table !important;
-  }
-  .d-print-table-row {
-    display: table-row !important;
-  }
-  .d-print-table-cell {
-    display: table-cell !important;
-  }
-  .d-print-flex {
-    display: flex !important;
-  }
-  .d-print-inline-flex {
-    display: inline-flex !important;
-  }
-  .d-print-none {
-    display: none !important;
-  } */
-/* } */
 hr {
   border-color: #e6e9ed;
 }
@@ -517,32 +464,6 @@ hr {
   background-color: #37bc9b;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-.site-title {
-  font-size: 1.25rem;
-  line-height: 2.5rem;
-}
-
-.nav-link {
-  padding: 0;
-  font-size: 1.25rem;
-  line-height: 2.5rem;
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.nav-link:hover,
-.nav-link:focus,
-.active .nav-link {
-  color: rgba(0, 0, 0, 0.8);
-}
-
-.nav-item + .nav-item {
-  margin-left: 1rem;
-}
-
 .cover {
   border-radius: 10px;
 }
@@ -567,26 +488,45 @@ html {
   filter: grayscale(100%);
 }
 
-footer a:not(.nav-link) {
-  color: inherit;
-  border-bottom: 1px dashed;
-  text-decoration: none;
-  cursor: pointer;
-}
-
 @media (min-width: 48em) {
-  .site-title {
-    float: left;
-  }
-  .site-nav {
-    float: right;
-  }
   .avatar {
     margin-bottom: -80px;
     margin-left: 0;
   }
 }
-/* 
+/* @media print {
+  .d-print-inline {
+    display: inline !important;
+  }
+  .d-print-inline-block {
+    display: inline-block !important;
+  }
+  .d-print-block {
+    display: block !important;
+  }
+  .d-print-grid {
+    display: grid !important;
+  }
+  .d-print-table {
+    display: table !important;
+  }
+  .d-print-table-row {
+    display: table-row !important;
+  }
+  .d-print-table-cell {
+    display: table-cell !important;
+  }
+  .d-print-flex {
+    display: flex !important;
+  }
+  .d-print-inline-flex {
+    display: inline-flex !important;
+  }
+  .d-print-none {
+    display: none !important;
+  }
+}
+
 @media print {
   body {
     background-color: #fff;
