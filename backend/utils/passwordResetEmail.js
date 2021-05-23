@@ -16,7 +16,7 @@ const getHTML = (link) => {
               <h1 style="margin:30px 0;font-weight:bold;font-size:18px;line-height:24px;text-align:center">Verification Link to Join Code</h1>
               <p style="font-size:1rem;margin:1rem 0;">Please click on the link given below to reset your password:</p>
               <div aria-label="verification-link">
-                <a style="font-size:1.1rem;text-decoration:none;color:#1f3c88;margin:2rem 0;color:orange;" href=${link}>Click here to verify your Email!</a>
+                <a style="font-size:1.1rem;text-decoration:none;color:#1f3c88;margin:2rem 0;color:orange;" href=${link}>Click here to reset your Password!</a>
               </div>
             </td>
           </tr>

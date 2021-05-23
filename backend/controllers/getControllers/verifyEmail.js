@@ -5,11 +5,11 @@ const verifyEmail = async (req, res) => {
   console.log("req.get('host') : ",host," req.protocol : ", req.protocol);
   console.log(`${req.protocol}://${host}`);
   console.log(`${process.env.PROTOCOL}://${process.env.HOST}`);
-  if (
-    `${req.protocol}://${host}` ==
-    `${process.env.PROTOCOL}://${process.env.HOST}`
-  ) {
-    //domain matched
+  // if (
+  //   `${req.protocol}://${host}` ==
+  //   `${process.env.PROTOCOL}://${process.env.HOST}`
+  // ) {
+    //domain not matching for now matched
     const encryptedID = req.query.a; //since a = id
     const encryptedTime = req.query.b; //since b = time
     // console.log(encryptedID);
@@ -55,9 +55,10 @@ const verifyEmail = async (req, res) => {
       httpOnly: false,
     });
     return res.redirect("/setPassword?id=" + encryptedID);
-  } else {
-    //domain didn't matched
-    res.status(400).send({ errorMsg: "Invalid request!" });
-  }
+  // } else {
+  //   //domain didn't matched
+  //   //domain not matching for now
+  //   res.status(400).send({ errorMsg: "Invalid request!" });
+  // }
 };
 module.exports = verifyEmail;
