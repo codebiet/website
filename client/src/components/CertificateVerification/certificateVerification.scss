@@ -146,12 +146,13 @@
       font-size: 2.35rem;
       margin-left: 0.9rem;
       position: absolute;
-      right: 0.5rem;
+      right: 0.2rem;
+      top:calc(50% - 1.1rem);
     }
     @media (min-width: 750px) and (max-width: 999px) {
       i {
         font-size: 2.1rem;
-        right: 0.3rem;
+        right: 0.1rem;
         top: calc(50% - 1rem);
       }
     }

@@ -7,6 +7,12 @@ $theme-colors: (
   width:100vw;
   overflow: hidden;
 }
+a{
+  text-decoration: none;
+}
+body{
+  font-family: "Nunito", sans-serif;
+}
 
 .link,
 .link:active,
