@@ -31,7 +31,7 @@ const CertificateVerification = (props) => {
     } else {
       setLoading(true);
       axios
-        .post("http://localhost:3000/post/verifyCertificate", {
+        .post("https://codebiet.herokuapp.com/post/verifyCertificate", {
           certificateNumber,
         })
         .then((res) => {

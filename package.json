@@ -4,7 +4,6 @@
   "description": "Code Authentication backend",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "cd client && parcel watch index.html",
     "start": "cd client && parcel index.html",
     "build": "cd client && parcel build index.html"
@@ -59,5 +58,8 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "parcel-bundler": "^1.12.5"
+  },
+  "engines":{
+    "node":"10.19.0"
   }
 }

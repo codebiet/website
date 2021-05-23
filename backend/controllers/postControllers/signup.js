@@ -1,7 +1,6 @@
 const User = require("../../models/userModal");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const config = require("config");
 const uuid = require("uuid/v4");
 const AWS = require("aws-sdk");
 const s3 = new AWS.S3({
@@ -95,7 +94,7 @@ module.exports = async (req, res) => {
       //           //generating jwt_token
       //           jwt.sign(
       //             { id: savedUser._id },
-      //             config.get("jwtSecret"),
+      //             process.env.JWT_SECRET,
       //             { expiresIn: 60 * 60 },
       //             (err, token) => {
       //               if (err) return res.send(500).send(err);
@@ -152,7 +151,7 @@ module.exports = async (req, res) => {
       }
       jwt.sign(
         { id: savedUser._id },
-        config.get("jwtSecret"),
+        process.env.JWT_SECRET,
         { expiresIn: "6h" },
         (err, token) => {
           if (err) {

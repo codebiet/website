@@ -1,5 +1,4 @@
 const User = require("../../models/userModal");
-const config = require("config");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const login = async (req, res) => {
@@ -26,7 +25,7 @@ const login = async (req, res) => {
     if (!isMatch) return res.status(401).send({ errorMsg: "Please Check your Password!" });
     jwt.sign(
       { id: user._id },
-      config.get("jwtSecret"),
+      process.env.JWT_SECRET,
       { expiresIn: "6h" },
       (err, token) => {
         if (err)

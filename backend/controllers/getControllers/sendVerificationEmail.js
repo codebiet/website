@@ -1,11 +1,10 @@
 const User = require("../../models/userModal");
 const sendEmail = require("../../utils/sendVerificationEmail");
 const jwt = require("jsonwebtoken");
-const config = require("config");
 const sendVerificationEmail = async (req, res) => {
   const token = req.cookies["token"];
   if (!token) return res.redirect("/pageNotFound");
-  const decoded = jwt.verify(token, config.get("jwtSecret"));
+  const decoded = jwt.verify(token, process.env.JWT_SECRET);
   const id = decoded.id;
   let user;
   try {

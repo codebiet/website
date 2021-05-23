@@ -52,7 +52,7 @@ const SetPassword = (props) => {
       if (password == confirmPassword) {
         setLoading(true);
         axios
-          .post(`http://localhost:3000/post/setPassword?id=${params.id}`, {
+          .post(`https://codebiet.herokuapp.com/post/setPassword?id=${params.id}`, {
             password,
             confirmPassword,
           })

@@ -1,11 +1,10 @@
-const config = require('config');
 const User = require('../../models/userModal');
 const jwt = require('jsonwebtoken');
 module.exports = async (req,res) => {
     const token = req.cookies['token'];
     if(!token)return res.status(401).send({errorMsg:'Unauthorized!'});
     try{
-        const decoded = jwt.verify(token,config.get('jwtSecret'));
+        const decoded = jwt.verify(token,process.env.JWT_SECRET);
         let user = await User.findById(decoded.id).exec();
         let userData = {
             userName:user.name,
