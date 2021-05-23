@@ -25,10 +25,12 @@ const forgotPassword = (props) => {
   const [password, passwordInput] = useInput({
     type: "password",
     placeholder: "Password",
+    id: "forgotPassword-password",
   });
   const [confirmPassword, confirmPasswordInput] = useInput({
     type: "password",
     placeholder: "Confirm Password",
+    id: "forgotPassword-confirmPassword",
   });
   //used to get to know when component updates due to user writing in different fields
   //===============================================================================
@@ -143,10 +145,22 @@ const forgotPassword = (props) => {
               <h1>RESET YOUR PASSWORD</h1>
               <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="input-container">
+                  <lable
+                    for="forgotPassword-password"
+                    style={{ display: "none" }}
+                  >
+                    Password:
+                  </lable>
                   {passwordInput}
                   <img src={lock} alt="" />
                 </div>
                 <div className="input-container">
+                  <lable
+                    for="forgotPassword-confirmPassword"
+                    style={{ display: "none" }}
+                  >
+                    Confirm Password:
+                  </lable>
                   {confirmPasswordInput}
                   <img src={lock} alt="" />
                 </div>

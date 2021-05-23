@@ -20,7 +20,11 @@ import Loader from "../Loader/Loader";
 import { Redirect } from "react-router-dom";
 import getPasswordResetLinkImage from "../assets/getPasswordResetLink.jpg";
 const EmailForPasswordResetLink = ({ handleSubmit, setForgotPassword }) => {
-  const [email, emailInput] = useInput({ type: "email", placeholder: "Email" });
+  const [email, emailInput] = useInput({
+    type: "email",
+    placeholder: "Email",
+    id: "forgotPassword-email",
+  });
   return (
     <React.Fragment>
       <Navbar />
@@ -39,6 +43,9 @@ const EmailForPasswordResetLink = ({ handleSubmit, setForgotPassword }) => {
             style={{ minWidth: "380px" }}
           >
             <div className="input-container">
+              <lable for="forgotPassword-email" style={{ display: "none" }}>
+                Email:
+              </lable>
               {emailInput}
               <img src={mail} alt="" />
             </div>
@@ -84,10 +91,15 @@ const Login = (props) => {
   const info = useContext(InfoContext);
   console.log(auth.state);
   //form values, useInput is the custom hook imported from register component
-  const [email, emailInput] = useInput({ type: "email", placeholder: "Email" });
+  const [email, emailInput] = useInput({
+    type: "email",
+    placeholder: "Email",
+    id: "login-email",
+  });
   const [password, passwordInput] = useInput({
     type: "password",
     placeholder: "Password",
+    id: "login-password",
   });
   //used to clear warning and info logs when the component is unmounted;
   useEffect(() => {
@@ -204,10 +216,16 @@ const Login = (props) => {
                     style={{ minWidth: "380px" }}
                   >
                     <div className="input-container">
+                      <lable for="login-email" style={{ display: "none" }}>
+                        Email:
+                      </lable>
                       {emailInput}
                       <img src={mail} alt="" />
                     </div>
                     <div className="input-container">
+                      <lable for="login-password" style={{ display: "none" }}>
+                        Password:
+                      </lable>
                       {passwordInput}
                       <img src={lock} alt="" />
                     </div>

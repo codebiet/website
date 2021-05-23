@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import codeLogo from "../assets/codeLogo.png";
+import codeLogo from "../assets/codeLogo.jpg";
 const CertificateVerificationReport = React.forwardRef(({certificateData}, ref) => {
   useEffect(() => {
     const clipBodyHeight = () => {

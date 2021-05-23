@@ -14,7 +14,7 @@ import Loader from "../Loader/Loader";
 import "./register.scss";
 //custom hook to use Input for different form fields
 //================================================================================
-export const useInput = ({ type, placeholder }) => {
+export const useInput = ({ type, placeholder, id }) => {
   const [value, setValue] = useState("");
   const input = (
     <input
@@ -22,6 +22,7 @@ export const useInput = ({ type, placeholder }) => {
       onChange={(e) => setValue(e.target.value)}
       type={type}
       placeholder={placeholder}
+      id={id}
     />
   );
   return [value, input];
@@ -32,8 +33,16 @@ const Register = (props) => {
   const auth = useContext(AuthContext);
   const info = useContext(InfoContext);
   //form values
-  const [name, nameInput] = useInput({ type: "text", placeholder: "Name" });
-  const [email, emailInput] = useInput({ type: "email", placeholder: "Email" });
+  const [name, nameInput] = useInput({
+    type: "text",
+    placeholder: "Name",
+    id: "register-name",
+  });
+  const [email, emailInput] = useInput({
+    type: "email",
+    placeholder: "Email",
+    id: "register-email",
+  });
   const [role, setRole] = useState("Student");
   //used to get to know when component updates due to user writing in different fields
   //===============================================================================
@@ -106,7 +115,11 @@ const Register = (props) => {
               <h1>REGISTRATION FORM</h1>
               <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="input-container">
+                  <lable for="register-role" style={{ display: "none" }}>
+                    Role:
+                  </lable>
                   <select
+                    id="register-role"
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
                   >
@@ -116,10 +129,12 @@ const Register = (props) => {
                   <img src={briefcase} alt="" />
                 </div>
                 <div className="input-container">
+                  <lable for="register-name" style={{display:"none"}}>Name:</lable>
                   {nameInput}
                   <img src={user} alt="" />
                 </div>
                 <div className="input-container">
+                  <lable for="register-email" style={{display:"none"}}>Email:</lable>
                   {emailInput}
                   <img src={mail} alt="" />
                 </div>

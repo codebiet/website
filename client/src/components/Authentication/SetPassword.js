@@ -25,10 +25,12 @@ const SetPassword = (props) => {
   const [password, passwordInput] = useInput({
     type: "password",
     placeholder: "Password",
+    id: "setPassword-password",
   });
   const [confirmPassword, confirmPasswordInput] = useInput({
     type: "password",
     placeholder: "Confirm Password",
+    id: "setPassword-confirmPassword",
   });
   //used to get to know when component updates due to user writing in different fields
   //===============================================================================
@@ -52,10 +54,13 @@ const SetPassword = (props) => {
       if (password == confirmPassword) {
         setLoading(true);
         axios
-          .post(`https://codebiet.herokuapp.com/post/setPassword?id=${params.id}`, {
-            password,
-            confirmPassword,
-          })
+          .post(
+            `https://codebiet.herokuapp.com/post/setPassword?id=${params.id}`,
+            {
+              password,
+              confirmPassword,
+            }
+          )
           .then((res) => {
             setLoading(false);
             if (res.data && res.data.msg == "success") {
@@ -77,8 +82,10 @@ const SetPassword = (props) => {
                   info.dispatch(generateError("Something went wrong!"));
                 }
               }
-            }else{
-              info.dispatch(generateError("Something went wrong, Please try again!"))
+            } else {
+              info.dispatch(
+                generateError("Something went wrong, Please try again!")
+              );
             }
           });
       } else {
@@ -107,10 +114,19 @@ const SetPassword = (props) => {
               <h1>SET YOUR PASSWORD</h1>
               <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="input-container">
+                  <lable for="setPassword-password" style={{ display: "none" }}>
+                    Password:
+                  </lable>
                   {passwordInput}
                   <img src={lock} alt="" />
                 </div>
                 <div className="input-container">
+                  <lable
+                    for="setPassword-confirmPassword"
+                    style={{ display: "none" }}
+                  >
+                    ConfirmPassword:
+                  </lable>
                   {confirmPasswordInput}
                   <img src={lock} alt="" />
                 </div>
