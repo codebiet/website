@@ -10,7 +10,13 @@ const login = async (req, res) => {
       .status(400)
       .send({ errorMsg: "Email and password are required!" });
   }
-  const user = await User.findOne().findByEmail(email).exec();
+  let user;
+  try{
+    user = await User.findOne().findByEmail(email).exec();
+  }catch(err){
+    console.log(err);
+    return res.status(500).send({errorMsg:"Status Code:500, Internal Server Error!"})
+  }
   if (!user) {
     console.log("Invalid email!");
     return res.status(400).send({ errorMsg: "This email is not registered!" });

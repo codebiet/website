@@ -36,7 +36,13 @@ module.exports = async (req, res) => {
   //   console.log('data after parsing : ',userData);
   if (!userData.email)
     return res.status(400).send({ errorMsg: "Email is required!" });
-  const existingUser = await User.findOne().findByEmail(userData.email).exec();
+  let existingUser;
+  try{
+    existingUser = await User.findOne().findByEmail(userData.email).exec();
+  }catch(err){
+    console.log(err);
+    return res.status(500).send("Status-Code: 500, Internal Server Error")
+  }
   if (existingUser)
     return res
       .status(400)

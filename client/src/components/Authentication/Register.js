@@ -50,7 +50,15 @@ const Register = (props) => {
       mounted.current = true;
     } else clearLogs(); //when user writes in form fields, messages shown due to user errors are now not visible
   }, [name, email]);
-  //when there is an info from backend, so it to user
+  //used to clear warning and info logs when the component is unmounted;
+  useEffect(() => {
+    const clearLogs = () => {
+      auth.dispatch(clearMsgs);
+      if (!info.state.success) info.dispatch(clearEverything());
+    };
+    return () => clearLogs();
+  }, []);
+  //when there is an info from backend, show it to user
   //==============================================================================
   useEffect(() => {
     if (auth.state.signupError) {

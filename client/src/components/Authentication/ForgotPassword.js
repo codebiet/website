@@ -97,6 +97,7 @@ const forgotPassword = (props) => {
                   "Password Change successfully! You can Login now."
                 )
               );
+              props.history.push("/login");
             } else info.dispatch(generateError("Something went wrong!"));
           })
           .catch((err) => {

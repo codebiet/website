@@ -31,6 +31,14 @@
       }
     }
   }
+  .forgot-password-img{
+    @media (min-width:1400px){
+      margin-top:-5%;
+    }
+    @media (min-width:1800px){
+      margin-top:-10%;
+    }
+  }
   .form-container {
     display: flex;
     flex-direction: column;

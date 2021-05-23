@@ -1,6 +1,10 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { AuthContext, InfoContext } from "../../state/Store";
-import { loginUser, clearMsgs, recoverUser } from "../../state/auth/authActions";
+import {
+  loginUser,
+  clearMsgs,
+  recoverUser,
+} from "../../state/auth/authActions";
 import {
   generateError,
   clearEverything,
@@ -14,6 +18,66 @@ import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Loader from "../Loader/Loader";
 import { Redirect } from "react-router-dom";
+import getPasswordResetLinkImage from "../assets/getPasswordResetLink.jpg";
+const EmailForPasswordResetLink = ({ handleSubmit, setForgotPassword }) => {
+  const [email, emailInput] = useInput({ type: "email", placeholder: "Email" });
+  return (
+    <React.Fragment>
+      <Navbar />
+      <div className="register-main-container">
+        <div className="img-container">
+          <img
+            className="register-image forgot-password-img"
+            src={getPasswordResetLinkImage}
+            alt=""
+          />
+        </div>
+        <div className="form-container" style={{ minWidth: "380px" }}>
+          <h1>ENTER YOUR EMAIL</h1>
+          <form
+            onSubmit={(e) => handleSubmit(e, email)}
+            style={{ minWidth: "380px" }}
+          >
+            <div className="input-container">
+              {emailInput}
+              <img src={mail} alt="" />
+            </div>
+            <div className="button-container">
+              <button type="submit">GET THE LINK</button>
+            </div>
+            <div
+              style={{
+                marginTop: "1rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              <div>
+                <span
+                  style={{
+                    fontSize: "1.1rem",
+                    fontWeight: "600",
+                    display: "inline-block",
+                    marginRight: ".5rem",
+                  }}
+                >
+                  Not Registered?
+                </span>
+                <Link className="link" to="/register">
+                  Join Us
+                </Link>
+              </div>
+              <div className="forget-password-container">
+                <div onClick={(e) => setForgotPassword(false)}>Login Here</div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </React.Fragment>
+  );
+};
 const Login = (props) => {
   //Context
   const auth = useContext(AuthContext);
@@ -25,6 +89,16 @@ const Login = (props) => {
     type: "password",
     placeholder: "Password",
   });
+  //used to clear warning and info logs when the component is unmounted;
+  useEffect(() => {
+    const clearLogs = () => {
+      auth.dispatch(clearMsgs);
+      if (!info.state.success) info.dispatch(clearEverything());
+    };
+    return () => clearLogs();
+  }, []);
+  //used to get to know when user forgot the password and render component to get the user email to send reset link
+  const [forgotPassword, setForgotPassword] = useState(false);
   //used to get to know when component updates due to user writing in different fields
   //===============================================================================
   const mounted = useRef();
@@ -60,20 +134,20 @@ const Login = (props) => {
     e.preventDefault();
   };
   //handles forgot password click
-  const handleForgotPassword = (e) => {
-    console.log("handle Forgot Password is also run");
+  const handleForgotPassword = (e, emailValue) => {
+    console.log("Is handle Forgot Password also run");
     const re =
       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (!email)
+    if (!emailValue)
       info.dispatch(
         generateWarning(
           "Please enter your registered Email to get the verification link."
         )
       );
-    else if (!re.test(email))
+    else if (!re.test(emailValue))
       info.dispatch(generateError("Please Enter a valid Email address"));
     else {
-      recoverUser(auth.dispatch, { email });
+      recoverUser(auth.dispatch, { email: emailValue });
     }
     e.preventDefault();
   };
@@ -116,57 +190,70 @@ const Login = (props) => {
       ) : (
         // the above logic is for redirection, due to authentication parameters
         <React.Fragment>
-          <Navbar />
-          <div className="register-main-container">
-            <div className="img-container">
-              <img className="register-image" src={loginImage} alt="" />
-            </div>
-            <div className="form-container">
-              <h1>LOGIN TO CODE</h1>
-              <form onSubmit={(e) => handleSubmit(e)}>
-                <div className="input-container">
-                  {emailInput}
-                  <img src={mail} alt="" />
+          {!forgotPassword && (
+            <React.Fragment>
+              <Navbar />
+              <div className="register-main-container">
+                <div className="img-container">
+                  <img className="register-image" src={loginImage} alt="" />
                 </div>
-                <div className="input-container">
-                  {passwordInput}
-                  <img src={lock} alt="" />
-                </div>
-                <div className="button-container">
-                  <button type="submit">LOGIN</button>
-                </div>
-                <div
-                  style={{
-                    marginTop: "1rem",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <div>
-                    <span
+                <div className="form-container" style={{ minWidth: "380px" }}>
+                  <h1>LOGIN TO CODE</h1>
+                  <form
+                    onSubmit={(e) => handleSubmit(e)}
+                    style={{ minWidth: "380px" }}
+                  >
+                    <div className="input-container">
+                      {emailInput}
+                      <img src={mail} alt="" />
+                    </div>
+                    <div className="input-container">
+                      {passwordInput}
+                      <img src={lock} alt="" />
+                    </div>
+                    <div className="button-container">
+                      <button type="submit">LOGIN</button>
+                    </div>
+                    <div
                       style={{
-                        fontSize: "1.1rem",
-                        fontWeight: "600",
-                        display: "inline-block",
-                        marginRight: ".5rem",
+                        marginTop: "1rem",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
                       }}
                     >
-                      Not Registered?
-                    </span>
-                    <Link className="link" to="/register">
-                      Join Us
-                    </Link>
-                  </div>
-                  <div className="forget-password-container">
-                    <div onClick={(e) => handleForgotPassword(e)}>
-                      Forgot Password?
+                      <div>
+                        <span
+                          style={{
+                            fontSize: "1.1rem",
+                            fontWeight: "600",
+                            display: "inline-block",
+                            marginRight: ".5rem",
+                          }}
+                        >
+                          Not Registered?
+                        </span>
+                        <Link className="link" to="/register">
+                          Join Us
+                        </Link>
+                      </div>
+                      <div className="forget-password-container">
+                        <div onClick={(e) => setForgotPassword(true)}>
+                          Forgot Password?
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  </form>
                 </div>
-              </form>
-            </div>
-          </div>
+              </div>
+            </React.Fragment>
+          )}
+          {forgotPassword && (
+            <EmailForPasswordResetLink
+              handleSubmit={handleForgotPassword}
+              setForgotPassword={setForgotPassword}
+            />
+          )}
         </React.Fragment>
       )}
       {auth.state.userLoggingIn && <Loader />}
