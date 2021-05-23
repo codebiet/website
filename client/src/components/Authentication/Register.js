@@ -115,9 +115,9 @@ const Register = (props) => {
               <h1>REGISTRATION FORM</h1>
               <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="input-container">
-                  <lable for="register-role" style={{ display: "none" }}>
+                  <label for="register-role">
                     Role:
-                  </lable>
+                  </label>
                   <select
                     id="register-role"
                     value={role}
@@ -129,12 +129,12 @@ const Register = (props) => {
                   <img src={briefcase} alt="" />
                 </div>
                 <div className="input-container">
-                  <lable for="register-name" style={{display:"none"}}>Name:</lable>
+                  <label for="register-name">Name:</label>
                   {nameInput}
                   <img src={user} alt="" />
                 </div>
                 <div className="input-container">
-                  <lable for="register-email" style={{display:"none"}}>Email:</lable>
+                  <label for="register-email">Email:</label>
                   {emailInput}
                   <img src={mail} alt="" />
                 </div>

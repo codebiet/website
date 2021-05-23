@@ -19,12 +19,11 @@ const GetCertificateNumber = (props) => {
         >
           <div className="input-container">
             <h2>Enter Certificate Number to Verify</h2>
-            <lable
+            <label
               for="getCertificateNumber-certificateNumber"
-              style={{ display: "none" }}
             >
               Certificate Number:
-            </lable>
+            </label>
             <input
               id="getCertificateNumber-certificateNumber"
               type="text"
@@ -34,9 +33,9 @@ const GetCertificateNumber = (props) => {
             />
           </div>
 
-          <lable for="get-certi-no-submit" style={{ display: "none" }}>
+          <label for="get-certi-no-submit">
             Let's Check:
-          </lable>
+          </label>
           <input
             id="get-certi-no-submit"
             type="submit"

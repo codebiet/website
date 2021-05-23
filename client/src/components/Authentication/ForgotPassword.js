@@ -145,22 +145,20 @@ const forgotPassword = (props) => {
               <h1>RESET YOUR PASSWORD</h1>
               <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="input-container">
-                  <lable
+                  <label
                     for="forgotPassword-password"
-                    style={{ display: "none" }}
                   >
                     Password:
-                  </lable>
+                  </label>
                   {passwordInput}
                   <img src={lock} alt="" />
                 </div>
                 <div className="input-container">
-                  <lable
+                  <label
                     for="forgotPassword-confirmPassword"
-                    style={{ display: "none" }}
                   >
                     Confirm Password:
-                  </lable>
+                  </label>
                   {confirmPasswordInput}
                   <img src={lock} alt="" />
                 </div>

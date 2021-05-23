@@ -114,19 +114,18 @@ const SetPassword = (props) => {
               <h1>SET YOUR PASSWORD</h1>
               <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="input-container">
-                  <lable for="setPassword-password" style={{ display: "none" }}>
+                  <label for="setPassword-password">
                     Password:
-                  </lable>
+                  </label>
                   {passwordInput}
                   <img src={lock} alt="" />
                 </div>
                 <div className="input-container">
-                  <lable
+                  <label
                     for="setPassword-confirmPassword"
-                    style={{ display: "none" }}
                   >
                     ConfirmPassword:
-                  </lable>
+                  </label>
                   {confirmPasswordInput}
                   <img src={lock} alt="" />
                 </div>
