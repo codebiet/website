@@ -42,7 +42,7 @@ const Competitions = (props) => {
           </div>
         </React.Fragment>
       ) : (
-        <Redirect to={{ pathname: "/login", state: { from: "/competitions" } }} />
+        <Redirect to={{ pathname: "/login", state: { from: "/projects" } }} />
       )}
     </React.Fragment>
   );

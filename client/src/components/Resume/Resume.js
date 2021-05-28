@@ -9,26 +9,21 @@ import Sidebar from "../Dashboard/DashboardSidebar";
 import Loader from "../Loader/Loader";
 import Footer from "../Dashboard/DashboardFooter";
 import { AuthContext, InfoContext } from "../../state/Store";
+import {Redirect} from "react-router-dom";
 import {
   clearEverything,
   generateWarning,
   generateError,
 } from "../../state/info/infoActions";
-// import "./resume.scss";
 import {
   Button,
   Card,
   CardHeader,
   CardBody,
-  CardFooter,
   CardTitle,
   FormGroup,
-  Form,
-  Input,
   Row,
-  Col,
-  Collapse,
-  Container,
+  Col
 } from "reactstrap";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -68,7 +63,6 @@ const TakeData = ({ setLoading, setProfileImg, setDataTaken }) => {
   ]);
   const [achievements, setAchievements] = useState([""]);
   const addMore = () => {
-    console.log("add more called");
     setAchievements((prev) => [...prev, ""]);
   };
   const isdisabled = () => {
@@ -77,7 +71,6 @@ const TakeData = ({ setLoading, setProfileImg, setDataTaken }) => {
     else return false;
   };
   const setDefaultValues = (data) => {
-    console.log(data);
     setProfileImg(data.profilePhoto || "");
     setDegree(data.degree || "");
     setCollege(data.college || "");
@@ -122,7 +115,6 @@ const TakeData = ({ setLoading, setProfileImg, setDataTaken }) => {
     let error = false;
     let reformedAcademics = [];
     if (!degree || !college || !collegeCity || !objective) {
-      console.log("error occured: ", degree, college, collegeCity, objective);
       error = true;
     }
     for (var i = 0; i < 3; i++) {
@@ -131,9 +123,7 @@ const TakeData = ({ setLoading, setProfileImg, setDataTaken }) => {
       let clg = academics[i].college;
       let reslt = academics[i].result;
       let type = academics[i].type;
-      console.log(passingYear, deg, clg, reslt);
       if (!passingYear || !deg || !reslt || !clg) {
-        console.log("error occured: breaking");
         error = true;
         break;
       } else {
@@ -508,70 +498,75 @@ const Resume = (props) => {
   const [profileImg, setProfileImg] = useState("");
   const [loading, setLoading] = useState(false);
   const [dataTaken, setDataTaken] = useState(false);
+  const auth = useContext(AuthContext);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [template]);
   return (
-    <div className="wrapper dashboard-main-wrapper">
-      <Sidebar bgColor="white" activeColor="info" profileImg={profileImg} />
-      <div className="main-panel dashboard-main-panel">
-        <DemoNavbar {...props} />
-        <div className="content">
-          <React.Fragment>
-            {dataTaken && template != 0 && (
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "100%",
-                  padding: "0",
-                  background: "transparent",
-                  flexDirection: "column",
-                }}
-              >
-                <div className="download-reset-button-container">
-                  <ReactToPdf targetRef={ref} filename="userName_resume.pdf">
-                    {({ toPdf }) => (
-                      <button className="generate-pdf" onClick={toPdf}>
-                        GENERATE PDF
-                      </button>
-                    )}
-                  </ReactToPdf>
-                  <button
-                    className="generate-pdf reset-template"
-                    onClick={() => setTemplate(0)}
+    <>
+      {auth.state.userLoggedIn && (
+        <div className="wrapper dashboard-main-wrapper">
+          <Sidebar bgColor="white" activeColor="info" profileImg={profileImg} />
+          <div className="main-panel dashboard-main-panel">
+            <DemoNavbar {...props} />
+            <div className="content">
+              <React.Fragment>
+                {dataTaken && template != 0 && (
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "100%",
+                      padding: "0",
+                      background: "transparent",
+                      flexDirection: "column",
+                    }}
                   >
-                    RESET TEMPLATE
-                  </button>
-                </div>
-                {template == 1 && (
-                  <ResumeTemplate1 ref={ref} />
+                    <div className="download-reset-button-container">
+                      <ReactToPdf
+                        targetRef={ref}
+                        filename="userName_resume.pdf"
+                      >
+                        {({ toPdf }) => (
+                          <button className="generate-pdf" onClick={toPdf}>
+                            GENERATE PDF
+                          </button>
+                        )}
+                      </ReactToPdf>
+                      <button
+                        className="generate-pdf reset-template"
+                        onClick={() => setTemplate(0)}
+                      >
+                        RESET TEMPLATE
+                      </button>
+                    </div>
+                    {template == 1 && <ResumeTemplate1 ref={ref} />}
+                    {template == 2 && <ResumeTemplate2 ref={ref} />}
+                    {template == 3 && <ResumeTemplate3 ref={ref} />}
+                  </div>
                 )}
-                {template == 2 && (
-                  <ResumeTemplate2 ref={ref} />
+                {dataTaken && !template && (
+                  <SelectTemplate setTemplate={setTemplate} />
                 )}
-                {template == 3 && (
-                  <ResumeTemplate3 ref={ref} />
+                {!dataTaken && (
+                  <TakeData
+                    setLoading={setLoading}
+                    setDataTaken={setDataTaken}
+                    setProfileImg={setProfileImg}
+                  />
                 )}
-              </div>
-            )}
-            {dataTaken && !template && (
-              <SelectTemplate setTemplate={setTemplate} />
-            )}
-            {!dataTaken && (
-              <TakeData
-                setLoading={setLoading}
-                setDataTaken={setDataTaken}
-                setProfileImg={setProfileImg}
-              />
-            )}
-            <Footer fluid />
-            {loading && <Loader />}
-          </React.Fragment>
+                <Footer fluid />
+                {loading && <Loader />}
+              </React.Fragment>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+      {!auth.state.userLoggedIn && (
+        <Redirect to={{ pathname: "/login", state: { from: "/resume" } }} />
+      )}
+    </>
   );
 };
 

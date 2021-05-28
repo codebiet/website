@@ -4,12 +4,10 @@ import { AuthContext } from "../../state/Store";
 import { InfoContext } from "../../state/Store";
 import {
   generateError,
-  clearEverything,
-  generateSuccess,
+  clearEverything
 } from "../../state/info/infoActions";
 import axios from "axios";
 import Loader from "../Loader/Loader";
-import profilePhoto from "../assets/avatar.jpg";
 // import AutoSuggest from "react-autosuggest";
 
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
@@ -30,15 +28,10 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter,
   CardTitle,
   FormGroup,
-  Form,
-  Input,
   Row,
-  Col,
-  Collapse,
-  Container,
+  Col
 } from "reactstrap";
 
 const useStyles = makeStyles((theme) => ({
@@ -546,7 +539,6 @@ const Dashboard = (props) => {
   };
   const [loading, setLoading] = useState(false);
   const setDefaultValues = (data) => {
-    console.log(data);
     setProfileImg(data.profilePhoto);
     setResumeUrl(data.resume);
     setName(data.name);
@@ -731,12 +723,6 @@ const Dashboard = (props) => {
         cloudPlatforms.push(hostingPlatforms[key].name);
       }
     }
-    console.log("sliced web tech ", slicedWebTechs);
-    // data.append("callingPhoneNumber", JSON.stringify(callingPhoneNum));
-    // data.append("whatsAppPhoneNumber", JSON.stringify(whatsAppPhoneNum));
-    // data.append("year", JSON.stringify(year));
-    // data.append("branch", JSON.stringify(branch));
-    // data.append("githubUserName", JSON.stringify(githubUserName));
     data.append("callingPhoneNumber", callingPhoneNum);
     data.append("whatsAppPhoneNumber", whatsAppPhoneNum);
     data.append("year", year);
