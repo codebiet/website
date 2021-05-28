@@ -12,7 +12,7 @@ import CertificateFoundComponent from "./CertificateFound";
 import CertificateNotFoundComponent from "./CertificateNotFound";
 import GetCertificateNumber from "./GetCertificateNumber";
 import CertificateVerificationReport from "./CertificateVerificationReport";
-import "./certificateVerification.scss";
+// import "./certificateVerification.scss";
 const CertificateVerification = (props) => {
   const [loading, setLoading] = useState(false);
   const [certificateNumber, setCertificateNumber] = useState("");
@@ -31,7 +31,7 @@ const CertificateVerification = (props) => {
     } else {
       setLoading(true);
       axios
-        .post("https://codebiet.herokuapp.com/post/verifyCertificate", {
+        .post("/post/verifyCertificate", {
           certificateNumber,
         })
         .then((res) => {

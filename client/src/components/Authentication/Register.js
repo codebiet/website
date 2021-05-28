@@ -11,7 +11,7 @@ import briefcase from "../assets/briefcase.svg";
 import Navbar from "../Navbar/Navbar";
 import { Link, Redirect } from "react-router-dom";
 import Loader from "../Loader/Loader";
-import "./register.scss";
+// import "./register.scss";
 //custom hook to use Input for different form fields
 //================================================================================
 export const useInput = ({ type, placeholder, id }) => {

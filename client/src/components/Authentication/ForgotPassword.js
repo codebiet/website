@@ -49,7 +49,7 @@ const forgotPassword = (props) => {
   //utility to verify the link
   //==============================================================================
   const verifyResetLink = () => {
-    const verificationLink = `https://codebiet.herokuapp.com/api/verifyResetPasswordLink?a=${params.a}&b=${params.b}`;
+    const verificationLink = `/api/verifyResetPasswordLink?a=${params.a}&b=${params.b}`;
     return new Promise((resolve, reject) => {
       axios
         .get(verificationLink)
@@ -88,7 +88,7 @@ const forgotPassword = (props) => {
         setLoading(true);
         axios
           .post(
-            `https://codebiet.herokuapp.com/post/changePassword?a=${params.a}&b=${params.b}`,
+            `/post/changePassword?a=${params.a}&b=${params.b}`,
             { password, confirmPassword }
           )
           .then((res) => {

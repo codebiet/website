@@ -194,6 +194,10 @@
   }
 
   /* --// override to force 1/8th width grids -- */
+  .yui-u.first h2{
+    font-size: 120%;
+    font-weight: 700;
+  }
   .yui-gf .yui-u {
     width: 80.2%;
   }

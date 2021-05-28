@@ -17,7 +17,7 @@ import {
   SEND_VERIFICATION_EMAIL_SUCCESS,
 } from "./authConsts";
 import Cookies from "js-cookie";
-const END_POINT = "https://codebiet.herokuapp.com";
+const END_POINT = "";
 
 export const loginRequest = () => ({ type: LOGIN_REQUEST });
 export const loginError = (err) => ({ type: LOGIN_ERROR, payload: err });

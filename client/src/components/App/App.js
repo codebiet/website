@@ -7,7 +7,9 @@ import { Redirect } from "react-router-dom";
 import Register from "../Authentication/Register";
 import Login from "../Authentication/Login";
 import Home from "../Home/Home";
-import "./theme.scss";
+import Articles from "../Articles/Articles";
+import Competitions from "../Competitions/Competitions";
+import Projects from "../Projects/Projects";
 import SentVerifyEmail from "../Authentication/SentVerifyEmail";
 import Dashboard from "../Dashboard/Dashboard";
 import ForgotPassword from "../Authentication/ForgotPassword";
@@ -15,6 +17,7 @@ import Toaster from "../Toaster/Toaster";
 import SetPassword from "../Authentication/SetPassword";
 import Resume from "../Resume/Resume";
 import CertificateVerification from "../CertificateVerification/CertificateVerification";
+import "./all.scss";
 const Logout = () => {
   const auth = useContext(AuthContext);
   useEffect(() => {
@@ -25,10 +28,6 @@ const Logout = () => {
 function App() {
   const auth = useContext(AuthContext);
   const info = useContext(InfoContext);
-  // useEffect(() => {
-  //   loadUser(auth.dispatch, auth.state);
-  // }, [auth.state.userLoggedIn, loadUser]);
-
   return (
     // <Store>
     <React.Fragment>
@@ -82,7 +81,31 @@ function App() {
             render={(props) => <SetPassword {...props} />}
           />
           <Route exact={true} path="/resume" render={() => <Resume />} />
-          <Route exact={true} path="/verifyCertificate" render={(props) => <CertificateVerification {...props} />} />
+          <Route
+            exact={true}
+            path="/verifyCertificate"
+            render={(props) => <CertificateVerification {...props} />}
+          />
+          <Route
+            exact={true}
+            path="/articles"
+            render={(props) => <Articles {...props} />}
+          />
+          <Route
+            exact={true}
+            path="/projects"
+            render={(props) => <Projects {...props} />}
+          />
+          <Route
+            exact={true}
+            path="/competitions"
+            render={(props) => <Competitions {...props} />}
+          />
+          <Route
+            exact={true}
+            path="/logout"
+            render={(props) => <Logout {...props} />}
+          />
         </Switch>
       </Router>
       {info.state.error &&

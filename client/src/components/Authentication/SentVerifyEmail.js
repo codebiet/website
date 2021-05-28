@@ -22,7 +22,7 @@ const SentVerifyEmail = (props) => {
   }, [seconds]);
   useEffect(() => {
     axios
-      .get("https://codebiet.herokuapp.com/api/sendVerificationEmail")
+      .get("/api/sendVerificationEmail")
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   }, []);

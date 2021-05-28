@@ -8,4 +8,5 @@ router.route('/recoverPassword').post(require("../controllers/postControllers/re
 router.route('/setPassword').post(require("../controllers/postControllers/setPassword"));
 router.route('/changePassword').post(require("../controllers/postControllers/changePassword"));
 router.route("/verifyCertificate").post(require('../controllers/postControllers/verifyCertificate'));
+router.route('/updateProfile').post(require('../controllers/postControllers/updateProfile'));
 module.exports = router;

@@ -1,6 +1,10 @@
-import React from "react";
-import "./resumeTemplate2.scss";
-import avatar from "../assets/avatar.jpg";
+import React,{useState,useEffect,useContext} from "react";
+// import "./resumeTemplate2.scss";
+import axios from "axios";
+import { clearEverything, generateError } from "../../state/info/infoActions";
+import { InfoContext } from "../../state/Store";
+import Loader from "../Loader/Loader";
+import dummyResumeData from "./dummyResumeData";
 const Skills = (skills) => {
   const ul1 = [];
   const ul2 = [];
@@ -34,18 +38,40 @@ const Skills = (skills) => {
     </React.Fragment>
   );
 };
-const Template2 = React.forwardRef(({ resumeData }, ref) => (
-  <React.Fragment>
-    <div className="resume-container template-2" ref={ref}>
-      <div id="inner">
+const Template2 = React.forwardRef(({ }, ref) => {
+  const [resumeData, setResumeData] = useState(dummyResumeData);
+  const [loading, setLoading] = useState(false);
+  const info = useContext(InfoContext);
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get("/api/resumeData")
+      .then((res) => {
+        setResumeData(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        if (err.response && err.response.data && err.response.data.errorMsg)
+          info.dispatch(generateError(err.response.data.errorMsg));
+        setLoading(false);
+      });
+      return () => info.dispatch(clearEverything());
+  }, []);
+  return <React.Fragment>
+    {!loading && <div className="resume-container template-2" ref={ref}>
+      <div id="inner" style={{fontFamily:"serif",minHeight:"297mm"}}>
         <div id="hd">
-          <div className="yui-gc header">
-            <div className="yui-u avatar-img">
-              <img src={avatar} alt="" />
-            </div>
-            <div className="yui-u title">
-              <h1>{resumeData.name}</h1>
-              <h2>{resumeData.degree + " " + resumeData.year} year Student</h2>
+          <div className="yui-gc header" style={{marginBottom:0}}>
+            <div style={{display:"flex",justifyContent:"flex-start"}}>
+              <div className="yui-u avatar-img" style={{marginLeft:0,width:"30%"}}>
+                <img src={resumeData.img} alt="" />
+              </div>
+              <div className="yui-u title" style={{width:"65%"}}>
+                <h1>{resumeData.name}</h1>
+                <h2>
+                  {resumeData.degree + " " + resumeData.year} year Student
+                </h2>
+              </div>
             </div>
 
             <div className="yui-u">
@@ -112,8 +138,7 @@ const Template2 = React.forwardRef(({ resumeData }, ref) => (
                     resumeData.skills.programmingLanguages.concat(
                       resumeData.skills.technologies,
                       resumeData.skills.dbms,
-                      resumeData.skills.platforms,
-                      resumeData.skills.other
+                      resumeData.skills.platforms
                     )
                   )}
                   {/* <ul className="talent">
@@ -136,7 +161,7 @@ const Template2 = React.forwardRef(({ resumeData }, ref) => (
                 </div>
               </div>
 
-              <div className="yui-gf">
+              {resumeData.projects.length > 0 && <div className="yui-gf">
                 <div className="yui-u first">
                   <h2>Projects</h2>
                 </div>
@@ -212,7 +237,7 @@ const Template2 = React.forwardRef(({ resumeData }, ref) => (
                     </div> */}
                 </div>
               </div>
-
+}
               <div className="yui-gf last">
                 <div className="yui-u first">
                   <h2>Education</h2>
@@ -247,6 +272,8 @@ const Template2 = React.forwardRef(({ resumeData }, ref) => (
         </div>
       </div>
     </div>
+  }
+  {loading && <Loader />}
   </React.Fragment>
-));
+});
 export default Template2;
