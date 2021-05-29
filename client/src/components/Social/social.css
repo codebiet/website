@@ -1,0 +1,37 @@
+.social {
+  text-align: center;
+  margin: 0 auto;
+}
+.socialMediaDiv {
+  padding: 20px;
+
+  flex-wrap: wrap;
+  text-align: center;
+}
+.socialMediaDiv > ul {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.social a:hover,.social a:active{
+    text-decoration: none;
+}
+.fa-youtube{
+    font-size:2rem;
+    color:red;
+}
+.fa-facebook-square{
+    font-size:1.7rem;
+    color:#4267B2;
+}
+.fa-linkedin{
+    font-size:1.7rem;
+    color:#0077b5;
+}
+.fa-telegram{
+    font-size:1.7rem;
+    color: #0088cc;
+}

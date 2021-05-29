@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { AuthContext, InfoContext } from "../../state/Store";
+import { AuthContext } from "../../state/Store";
 import Loader from "../Loader/Loader";
 import axios from 'axios';
-import DemoNavbar from "../Dashboard/DashboardHeaderNav";
-import Sidebar from "../Dashboard/DashboardSidebar";
-import Footer from "../Dashboard/DashboardFooter";
-const Articles = (props) => {
+import DemoNavbar from "../Dashboard_Profile/DashboardHeaderNav";
+import Sidebar from "../Dashboard_Profile/DashboardSidebar";
+import Footer from "../Dashboard_Profile/DashboardFooter";
+const Competitions = (props) => {
   const [loading, setLoading] = useState(false);
   const [profileImg,setProfileImg] = useState('');
   const auth = useContext(AuthContext);
@@ -33,7 +33,7 @@ const Articles = (props) => {
               <DemoNavbar {...props} />
               <div className="content">
                 <div className="articles-container">
-                    <h1 className="text-muted">Nothing to Show</h1>
+                    <h1 className="text-muted">You haven't done any projects with us yet.</h1>
                 </div>
               </div>
               <Footer fluid />
@@ -42,9 +42,9 @@ const Articles = (props) => {
           </div>
         </React.Fragment>
       ) : (
-        <Redirect to={{ pathname: "/login", state: { from: "/articles" } }} />
+        <Redirect to={{ pathname: "/login", state: { from: "/user-projects" } }} />
       )}
     </React.Fragment>
   );
 };
-export default Articles;
+export default Competitions;

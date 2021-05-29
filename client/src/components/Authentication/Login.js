@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
+import React, { useContext, useEffect, useState, useRef, lazy } from "react";
 import { AuthContext, InfoContext } from "../../state/Store";
 import {
   loginUser,
@@ -10,15 +10,28 @@ import {
   clearEverything,
   generateWarning,
 } from "../../state/info/infoActions";
-import { useInput } from "./Register";
 import loginImage from "../assets/login.svg";
 import lock from "../assets/lock.svg";
 import mail from "../assets/mail.svg";
 import { Link } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
 import Loader from "../Loader/Loader";
 import { Redirect } from "react-router-dom";
 import getPasswordResetLinkImage from "../assets/getPasswordResetLink.jpg";
+// const Navbar = lazy(()=>import('../Navbar/Navbar'));
+import Navbar from "../Navbar/Navbar";
+export const useInput = ({ type, placeholder, id }) => {
+  const [value, setValue] = useState("");
+  const input = (
+    <input
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      type={type}
+      placeholder={placeholder}
+      id={id}
+    />
+  );
+  return [value, input];
+};
 const EmailForPasswordResetLink = ({ handleSubmit, setForgotPassword }) => {
   const [email, emailInput] = useInput({
     type: "email",
@@ -38,14 +51,9 @@ const EmailForPasswordResetLink = ({ handleSubmit, setForgotPassword }) => {
         </div>
         <div className="form-container">
           <h1>ENTER YOUR EMAIL</h1>
-          <form
-            onSubmit={(e) => handleSubmit(e, email)}
-            className="login-form"
-          >
+          <form onSubmit={(e) => handleSubmit(e, email)} className="login-form">
             <div className="input-container">
-              <label for="forgotPassword-email">
-                Email:
-              </label>
+              <label htmlFor="forgotPassword-email">Email:</label>
               {emailInput}
               <img src={mail} alt="" />
             </div>
@@ -211,20 +219,14 @@ const Login = (props) => {
                 </div>
                 <div className="form-container">
                   <h1>LOGIN TO CODE</h1>
-                  <form
-                    onSubmit={(e) => handleSubmit(e)}
-                  >
+                  <form onSubmit={(e) => handleSubmit(e)}>
                     <div className="input-container">
-                      <label for="login-email">
-                        Email:
-                      </label>
+                      <label htmlFor="login-email">Email:</label>
                       {emailInput}
                       <img src={mail} alt="" />
                     </div>
                     <div className="input-container">
-                      <label for="login-password">
-                        Password:
-                      </label>
+                      <label htmlFor="login-password">Password:</label>
                       {passwordInput}
                       <img src={lock} alt="" />
                     </div>
@@ -240,16 +242,7 @@ const Login = (props) => {
                       }}
                     >
                       <div>
-                        <span
-                          style={{
-                            fontSize: "1.1rem",
-                            fontWeight: "600",
-                            display: "inline-block",
-                            marginRight: ".5rem",
-                          }}
-                        >
-                          Not Registered?
-                        </span>
+                        <span>Not Registered?</span>
                         <Link className="link" to="/register">
                           Join Us
                         </Link>

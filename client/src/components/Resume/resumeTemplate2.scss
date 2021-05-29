@@ -217,6 +217,13 @@
   .header {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+    background:transparent;
+    color:unset;
+    height:unset;
+    width:unset;
+    box-shadow: none;
+    margin-bottom: 0;
     .avatar-img {
       margin-left: 0;
       img {

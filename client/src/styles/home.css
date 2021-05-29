@@ -1,0 +1,232 @@
+  
+ .introDiv{
+    box-sizing: content-box;
+    margin: 0 auto;
+    max-width: 960px;
+    overflow: visible;
+    padding: 60px 24px 72px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+     
+ }
+ .divContent
+ {
+     margin:0;
+     padding:0;
+     max-width:400px;
+     text-align: center;
+ }
+ .divContent 
+ {
+    font: 400 18px/1.7777777778 Segoe UI,system-ui,-apple-system,sans-serif;
+    margin-top: 36px;
+    margin-bottom: 36px;
+ 
+ }
+ .loginButtonDiv
+ {
+     display: block;
+     flex-direction: column;
+ }
+.getStarted{
+    align-items: center; 
+    background: 0 0;
+    border: 0;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+     
+    font: 500 .875rem/2.25rem Segoe UI,system-ui,-apple-system,sans-serif;
+    height: 56px;
+    justify-content: center;
+    letter-spacing: 1px;
+    outline: 0;
+    padding: 0 16px;
+    text-decoration: none;
+    background-color:rgb(246,141,13);;
+    margin: 0 16px 0 0;
+}
+.getProjects
+{
+    align-items: center; 
+    background: 0 0;
+    
+    border-radius: 5px;
+     
+    cursor: pointer;
+    display: inline-flex;
+    font: 500 .875rem/2.25rem Segoe UI,system-ui,-apple-system,sans-serif;
+    height: 56px;
+    justify-content: center;
+    letter-spacing: 1px;
+    outline: 0;
+    padding: 0 16px;
+    text-decoration: none;
+    border:none;
+    background:rgb(236, 229, 219);
+}
+.getProjects:hover
+{
+    background-color:rgb(246,141,13);;
+    border:none;
+    color:white;
+}
+.introSVG
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+}
+.svg{
+    max-width:500px;
+    margin-top:5%;
+     
+    padding:20px;
+    padding-left:30px;
+}
+.finalSVG
+{
+    height:auto;
+    width:100%;
+}
+.vision{
+    padding:32px;
+    box-sizing: content-box;
+    margin: 0 auto;
+    max-width: 960px;
+    overflow: visible;
+     
+    padding: 72px 24px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center ;
+    align-items: center;
+    padding-top:0;
+    font-weight:600;
+}
+.vision h2{
+    color:grey;
+}
+section p{
+    font: 400 24px/1.3333333333 "Google Sans",sans-serif;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+    margin-bottom: 32px; 
+}
+section h2
+ {
+    padding:32px;
+    margin-bottom:0;
+    margin-top:0;
+    color:white;
+}
+.exploreButton
+{
+    text-align: center;
+}
+.WhatweDo
+{
+    padding:32px;
+    box-sizing: content-box;
+    margin: 0 auto;
+    background-color:#f68f4a;
+    overflow: visible;
+    padding: 176px 24px 72px;
+    padding: 72px 24px;
+     
+    flex-wrap: wrap;
+    text-align: center ;
+    align-items: center;
+    padding-top:0;
+    display:block;
+}
+
+.cards-WhatweDo-div
+{
+    margin-top:4%;
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap:wrap;
+    margin :0 auto;
+    padding:20px;
+    
+}
+ 
+
+.cards{
+   
+    box-sizing: border-box;
+    width: 332px;
+    min-height: 322px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 12px;
+    padding: 24px;
+    background-color: #fff;
+    border-radius: 18px;
+    margin-top:5%;
+   margin-left:5%;
+   margin-right:5%;
+     
+    box-shadow: 0px 10px 16px -8px rgba(0,0,0,20%);
+}
+.cardsImage
+{
+    display: block;
+    width: auto;
+    margin: 20px 20px 32px; 
+    max-height: 100px;
+}
+.cardsTitle
+{
+    margin-bottom: 6px;
+    font-size: 21px;
+    line-height: 27px;
+    color: inherit;
+    width: 100%;
+    font-weight:800;
+}
+.cardsDesc
+{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: normal;
+    color: inherit;
+    width: 100%;
+    color:rgb(105, 102, 102);
+}
+.upcomingEvents
+{
+    background: #f8f9fa;
+}
+section h3 
+{margin-top:0;
+    color:#6a6d72;
+    padding:30px;
+    text-align:center;   
+}
+   .cardEvents
+   {
+      box-sizing: border-box;
+      width: 332px;
+      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 12px;
+      padding: 24px;
+      background-color: #fff;
+      border-radius: 18px;
+      margin-top:3%;
+      box-shadow: 0px 10px 16px -8px rgba(0,0,0,.2);
+      margin-bottom:3%;
+   }
+   
+ 
+hr{
+    margin:0
+} 
+ 

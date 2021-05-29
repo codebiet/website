@@ -17,3 +17,20 @@
 .submitBorder {
   border-radius: 4px;
 }
+
+.sidebar{
+  li{
+    font-size: unset;
+    padding:0;
+  }
+  ul{
+    padding:0;
+      a{
+        margin:0;
+        padding:0;
+        p{
+          padding:0;
+        }
+      }
+  }
+}

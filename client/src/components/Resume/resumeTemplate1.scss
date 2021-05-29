@@ -29,13 +29,14 @@
   }
   .heading-container {
     background-color: #cfcfcfe5;
-    margin: 0.5rem 0 0.2rem;
+    margin: 0.8rem 0 0.5rem;
     h2 {
       font-size: 1.2rem;
       padding: 0.5rem 0;
       margin-left: 0.5rem;
       font-weight: 700;
       margin-bottom: 0;
+      color:black;
     }
   }
   hr {
@@ -119,6 +120,8 @@
     li {
       border-bottom: none;
       list-style: disc;
+      display: list-item;
+      font-size:unset;
     }
     table {
       ul {
@@ -127,9 +130,17 @@
         margin-bottom: 0.5rem;
         font-size: 0.8rem;
         line-height: 1.2rem;
+        span{
+          width:unset;
+          font-size:unset;
+        }
         .header {
           font-weight: 700;
           display: inline-block;
+          box-shadow: none;
+          margin-bottom: 0;
+          background: transparent;
+          height: unset;
           margin-bottom:0;
         }
         .name {
@@ -143,10 +154,12 @@
     li {
       border-bottom: none;
       list-style: disc;
+      display: list-item;
+      font-size:unset;
     }
     ul {
       list-style-type: disc;
-      margin-left: 2rem;
+      margin-left: 1.5rem;
     }
   }
 }

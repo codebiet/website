@@ -276,6 +276,7 @@
       font-weight: 400;
       color: black;
       border: none;
+      border-radius:0;
       border-bottom: 1px solid black;
       outline: none;
     }
@@ -356,6 +357,9 @@
           font-size: 0.9rem;
           font-weight: 800;
           color: gray;
+          padding:0;
+          margin:0;
+          width:unset;
         }
       }
     }

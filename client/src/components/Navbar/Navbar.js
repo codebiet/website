@@ -1,9 +1,9 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect,lazy } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../state/Store";
-import codeImage from "../assets/codeLogo.jpg";
 import { logOutUser } from "../../state/auth/authActions";
-// import "./Navbar.scss";
+// const codeImage = lazy(()=>import("../assets/codeLogo.jpg"));
+import codeImage from "../assets/code.jpeg";
 const Navbar = () => {
   const auth = useContext(AuthContext);
   const location = useLocation();

@@ -1,0 +1,87 @@
+.newsletterSection {
+  box-sizing: content-box;
+  margin: 0 auto;
+  overflow: visible;
+}
+.newsletterSection {
+  text-align: center;
+  margin-top: 5%;
+}
+.userDetailsNewsletter {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.emailOuterDiv > input {
+  max-width: 500px;
+}
+p {
+  padding: 20px;
+}
+.newLetterInputDiv {
+  padding: 20px;
+  overflow: hidden;
+}
+
+.newslettterForm {
+  margin: 0 auto;
+  padding: 0;
+  padding: 20px;
+  text-align: center;
+}
+form {
+  margin: 0;
+  padding: 0;
+  max-width: 600px;
+  padding: 20px;
+  text-align: center;
+}
+input[type="number"] {
+  -webkit-appearance: none;
+}
+
+.emailOuterDiv {
+  display: block;
+}
+input {
+  border: 1px solid #dadce0;
+  font: inherit;
+  font-size: 16px;
+  padding: 14px;
+  width: 100%;
+  outline: none;
+  margin-top: 3%;
+  color: rgb(246, 14, 13);
+  border-radius: 4px;
+}
+
+span {
+  color: #5f6368;
+  font: inherit;
+  font-size: 14px;
+  margin: 8px auto 56px;
+  width: 100%;
+  padding: 20px;
+  margin-top: 10%;
+}
+.buttonNewsletter {
+  align-items: center;
+  background: 0 0;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font: 500 0.875rem/2.25rem Segoe UI, system-ui, -apple-system, sans-serif;
+  height: 56px;
+  justify-content: center;
+  letter-spacing: 1px;
+  outline: 0;
+  padding: 0 16px;
+  margin-top: 5%;
+  float: right;
+  background-color: rgb(246,141,13);
+}
+.contact {
+  padding: 6 0px;
+}

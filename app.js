@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(cookieParser());
 // app.use(express.static(__dirname + "/client"));
-app.use(express.static(path.join(__dirname, "client/dist")));
+app.use(express.static(path.join(__dirname, "client/public/dist")));
 app.use(logger("dev"));
 app.set("views", __dirname + "/client/views");
 app.set("view engine", "ejs");
@@ -47,7 +47,7 @@ app.get("/robots.txt", function (req, res) {
 });
 //frontend routes
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/dist/index.html"));
+  res.sendFile(path.join(__dirname, "client/public/dist/index.html"));
 });
 app.set("port", process.env.PORT || 4000);
 app.listen(app.get("port"), () => {

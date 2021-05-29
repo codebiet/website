@@ -36,7 +36,6 @@
 ::before {
   box-sizing: border-box;
 }
-
 .container{
   width: 100%;
   padding-right: var(--bs-gutter-x, 0.75rem);
@@ -102,6 +101,11 @@ hr:not([size]) {
   font-weight: 600;
   line-height: 1.2;
 }
+.name {
+  margin-top: 1rem!important;
+  color:rgb(35,35,80);
+  margin-bottom:0;
+}
 .resume-template3 .h1,
 .resume-template3 h1 {
   font-size: calc(1.375rem + 1.5vw);
@@ -153,6 +157,7 @@ hr:not([size]) {
 .resume-template3 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  padding:0;
 }
 b,
 strong {

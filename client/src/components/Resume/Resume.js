@@ -1,13 +1,13 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext,lazy } from "react";
 import ResumeTemplate1 from "./ResumeTemplate1";
 import ResumeTemplate2 from "./ResumeTemplate2";
 import ResumeTemplate3 from "./ResumeTemplate3";
 import SelectTemplate from "./SelectResumeTemplate";
 import axios from "axios";
-import DemoNavbar from "../Dashboard/DashboardHeaderNav";
-import Sidebar from "../Dashboard/DashboardSidebar";
+import DemoNavbar from "../Dashboard_Profile/DashboardHeaderNav";
+import Sidebar from "../Dashboard_Profile/DashboardSidebar";
 import Loader from "../Loader/Loader";
-import Footer from "../Dashboard/DashboardFooter";
+import Footer from "../Dashboard_Profile/DashboardFooter";
 import { AuthContext, InfoContext } from "../../state/Store";
 import {Redirect} from "react-router-dom";
 import {

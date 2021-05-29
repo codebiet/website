@@ -155,8 +155,9 @@ const Register = (props) => {
                       fontSize: "1.1rem",
                       fontWeight: "600",
                       display: "inline-block",
-                      marginRight: ".5rem",
-                      marginTop: "1rem",
+                      margin:"1rem .5rem 0 0",
+                      width:"unset",
+                      padding:0
                     }}
                   >
                     Already Registered?

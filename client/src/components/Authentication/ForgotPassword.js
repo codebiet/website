@@ -87,10 +87,10 @@ const forgotPassword = (props) => {
       if (password == confirmPassword) {
         setLoading(true);
         axios
-          .post(
-            `/post/changePassword?a=${params.a}&b=${params.b}`,
-            { password, confirmPassword }
-          )
+          .post(`/post/changePassword?a=${params.a}&b=${params.b}`, {
+            password,
+            confirmPassword,
+          })
           .then((res) => {
             setLoading(false);
             if (res.data && res.data.msg == "success") {
@@ -145,18 +145,12 @@ const forgotPassword = (props) => {
               <h1>RESET YOUR PASSWORD</h1>
               <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="input-container">
-                  <label
-                    for="forgotPassword-password"
-                  >
-                    Password:
-                  </label>
+                  <label for="forgotPassword-password">Password:</label>
                   {passwordInput}
                   <img src={lock} alt="" />
                 </div>
                 <div className="input-container">
-                  <label
-                    for="forgotPassword-confirmPassword"
-                  >
+                  <label for="forgotPassword-confirmPassword">
                     Confirm Password:
                   </label>
                   {confirmPasswordInput}
@@ -175,16 +169,7 @@ const forgotPassword = (props) => {
                     }}
                   >
                     <div>
-                      <span
-                        style={{
-                          fontSize: "1.1rem",
-                          fontWeight: "600",
-                          display: "inline-block",
-                          marginRight: ".5rem",
-                        }}
-                      >
-                        Not Registered?
-                      </span>
+                      <span>Not Registered?</span>
                       <Link className="link" to="/register">
                         Join Us
                       </Link>

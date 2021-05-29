@@ -59,7 +59,7 @@ const SentVerifyEmail = (props) => {
                   {msg}
                 </h1>
                 <form
-                  style={{ width: "100%" }}
+                  style={{ width: "100%",maxWidth:"unset",padding:0 }}
                   onSubmit={(e) => e.preventDefault()}
                 >
                   <div className="button-container">

@@ -56,7 +56,7 @@ const Template3 = React.forwardRef(({ }, ref) => {
                     </div>
                   </div>
                   <div className="col-lg-8 col-md-7 text-center text-md-start">
-                    <h2 className="h1 mt-2">{resumeData.name}</h2>
+                    <h2 className="h1 name">{resumeData.name}</h2>
                     <p>{resumeData.degree + " " + resumeData.year} Student</p>
                   </div>
                 </div>
@@ -68,7 +68,7 @@ const Template3 = React.forwardRef(({ }, ref) => {
                     <p>{resumeData.objective}</p>
                   </div>
                   <div className="col-md-5 offset-md-1">
-                    <div className="row mt-2">
+                    <div className="row">
                       {/* <div className="col-sm-4">
                       <div className="pb-1">Age</div>
                     </div>

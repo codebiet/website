@@ -796,7 +796,7 @@ const Dashboard = (props) => {
                         <form onSubmit={(e) => handleSubmit(e)}>
                           <Row>
                             <Col md="2" className="pt-2 pb-0 pr-4 pl-4">
-                              <FormGroup style={{ marginBottom: 0 }}>
+                              <FormGroup style={{ marginBottom:".5rem",width:"250px",marginLeft:"-.75rem" }}>
                                 <input
                                   type="file"
                                   className="form-control-file"

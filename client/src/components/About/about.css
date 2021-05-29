@@ -1,0 +1,36 @@
+
+.mission
+{
+    margin:0 auto;
+    padding:20px;
+    max-width:1020px;
+    
+}
+.mission h1{
+   
+    padding-left: 0;
+    color:rgb(97, 93, 93);
+}
+.mission p{
+    padding-left: 0;
+    color:grey;
+    font-size:20px;
+   margin-bottom:0;
+   padding-bottom: 0    ;
+}
+ .aboutImg{
+ 
+    width:100%;
+   
+}
+.aboutImage
+{
+     padding:10px;
+}
+ 
+.founderrDivConainer
+{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

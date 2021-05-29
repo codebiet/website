@@ -4,9 +4,9 @@
   "description": "Code Authentication backend",
   "main": "app.js",
   "scripts": {
-    "watch": "cd client && parcel watch index.html",
-    "start": "cd client && parcel index.html",
-    "build": "cd client && parcel build index.html"
+    "watch": "cd client/public && parcel watch index.html",
+    "start": "cd client/public && parcel index.html",
+    "build": "cd client/public && parcel build index.html"
   },
   "keywords": [],
   "author": "",

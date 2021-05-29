@@ -17,7 +17,7 @@ const routes = [
     icon: "nc-icon nc-diamond",
   },
   {
-    path: "/projects",
+    path: "/user-projects",
     name: "PROJECTS",
     icon: "nc-icon nc-pin-3",
   },

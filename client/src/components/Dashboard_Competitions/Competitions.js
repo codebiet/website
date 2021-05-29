@@ -2,9 +2,9 @@ import React, { useState, useEffect, useContext } from "react";
 import { AuthContext, InfoContext } from "../../state/Store";
 import Loader from "../Loader/Loader";
 import axios from 'axios';
-import DemoNavbar from "../Dashboard/DashboardHeaderNav";
-import Sidebar from "../Dashboard/DashboardSidebar";
-import Footer from "../Dashboard/DashboardFooter";
+import DemoNavbar from "../Dashboard_Profile/DashboardHeaderNav";
+import Sidebar from "../Dashboard_Profile/DashboardSidebar";
+import Footer from "../Dashboard_Profile/DashboardFooter";
 const Competitions = (props) => {
   const [loading, setLoading] = useState(false);
   const [profileImg,setProfileImg] = useState('');

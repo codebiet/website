@@ -1,19 +1,36 @@
 @import "~bootstrap/scss/bootstrap";
 @import url("perfect-scrollbar/css/perfect-scrollbar.css");
+
+// merged css files -- start
+@import "../About/about";
+@import "../Footer/footer";
+@import "../Founder/founder";
+@import "../Newsletter/newsletter";
+@import "../Social/social";
+@import "../Testimonials/testimonials";
+@import "../../styles/contact";
+@import "../../styles/events";
+@import "../../styles/home";
+@import "../../styles/projects";
+// merged css files -- end
 @import "./theme.scss";
+@import "../Dashboard_Profile/paper-dashboard.scss";
+@import "../Resume/resumeTemplate2.scss";
+//merged css files -- start
+@import "../Navbar/nav";
+@import "../Footer/footer";
+//merged css files --end
 @import "../Authentication/register.scss";
 @import "../CertificateVerification/certificateVerification.scss";
-@import "../Dashboard/paper-dashboard.scss";
-@import "../Dashboard/demo.scss";
-@import "../Dashboard/dashboardSidebar.scss";
-@import "../Dashboard/dashboard.scss";
+@import "../Dashboard_Profile/demo.scss";
+@import "../Dashboard_Profile/dashboardSidebar.scss";
+@import "../Dashboard_Profile/dashboard.scss";
 @import "../Loader/loader.scss";
 @import "../Navbar/Navbar.scss";
 @import "../Resume/resume.scss";
 @import "../Resume/resumeTemplate1.scss";
-@import "../Resume/resumeTemplate2.scss";
 @import "../Resume/resumeTemplate3";
 @import "../Toaster/toaster.scss";
-@import "../Articles/articles.scss";
-@import "../Competitions/competitions.scss";
-@import "../Projects/projects.scss";
+@import "../Dashboard_Articles/articles.scss";
+@import "../Dashboard_Competitions/competitions.scss";
+@import "../Dashboard_Projects/projects.scss";
