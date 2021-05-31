@@ -96,49 +96,45 @@ const Register = (props) => {
   //==================================================================================
   return (
     <React.Fragment>
-      {auth.state.token ? (
-        <React.Fragment>
-          {auth.state.emailVerified ? (
-            <Redirect to="/dashboard" />
-          ) : (
-            <Redirect to="/sentVerifyEmail" />
-          )}
-        </React.Fragment>
+      {auth.state.token && auth.state.emailVerified ? (
+        <Redirect to="/dashboard" />
       ) : (
-        <React.Fragment>
-          <Navbar />
-          <div className="register-main-container">
-            <div className="img-container">
-              <img className="register-image" src={registerImage} alt="" />
-            </div>
-            <div className="form-container">
-              <h1>REGISTRATION FORM</h1>
-              <form onSubmit={(e) => handleSubmit(e)}>
-                <div className="input-container">
-                  <label for="register-role">
-                    Role:
-                  </label>
-                  <select
-                    id="register-role"
-                    value={role}
-                    onChange={(e) => setRole(e.target.value)}
-                  >
-                    <option value="Professional">Professional</option>
-                    <option value="Student">Student</option>
-                  </select>
-                  <img src={briefcase} alt="" />
+        <>
+          {auth.state.redirectToVerifyEmail ? (
+            <Redirect to="/sentVerifyEmail" />
+          ) : (
+            <React.Fragment>
+              <Navbar />
+              <div className="register-main-container">
+                <div className="img-container">
+                  <img className="register-image" src={registerImage} alt="" />
                 </div>
-                <div className="input-container">
-                  <label for="register-name">Name:</label>
-                  {nameInput}
-                  <img src={user} alt="" />
-                </div>
-                <div className="input-container">
-                  <label for="register-email">Email:</label>
-                  {emailInput}
-                  <img src={mail} alt="" />
-                </div>
-                {/* <div className="input-container">
+                <div className="form-container">
+                  <h1>REGISTRATION FORM</h1>
+                  <form onSubmit={(e) => handleSubmit(e)}>
+                    <div className="input-container">
+                      <label for="register-role">Role:</label>
+                      <select
+                        id="register-role"
+                        value={role}
+                        onChange={(e) => setRole(e.target.value)}
+                      >
+                        <option value="Professional">Professional</option>
+                        <option value="Student">Student</option>
+                      </select>
+                      <img src={briefcase} alt="" />
+                    </div>
+                    <div className="input-container">
+                      <label for="register-name">Name:</label>
+                      {nameInput}
+                      <img src={user} alt="" />
+                    </div>
+                    <div className="input-container">
+                      <label for="register-email">Email:</label>
+                      {emailInput}
+                      <img src={mail} alt="" />
+                    </div>
+                    {/* <div className="input-container">
                   {passwordInput}
                   <img src={lock} alt="" />
                 </div>
@@ -146,32 +142,34 @@ const Register = (props) => {
                   {confirmPasswordInput}
                   <img src={lock} alt="" />
                 </div> */}
-                <div className="button-container">
-                  <button type="submit">REGISTER</button>
+                    <div className="button-container">
+                      <button type="submit">REGISTER</button>
+                    </div>
+                    <div>
+                      <span
+                        style={{
+                          fontSize: "1.1rem",
+                          fontWeight: "600",
+                          display: "inline-block",
+                          margin: "1rem .5rem 0 0",
+                          width: "unset",
+                          padding: 0,
+                        }}
+                      >
+                        Already Registered?
+                      </span>
+                      <Link className="link" to="/login">
+                        Login here
+                      </Link>
+                    </div>
+                  </form>
                 </div>
-                <div>
-                  <span
-                    style={{
-                      fontSize: "1.1rem",
-                      fontWeight: "600",
-                      display: "inline-block",
-                      margin:"1rem .5rem 0 0",
-                      width:"unset",
-                      padding:0
-                    }}
-                  >
-                    Already Registered?
-                  </span>
-                  <Link className="link" to="/login">
-                    Login here
-                  </Link>
-                </div>
-              </form>
-            </div>
-          </div>
-        </React.Fragment>
+              </div>
+            </React.Fragment>
+          )}
+        </>
       )}
-      {auth.state.userLogginIn && <Loader />}
+      {auth.state.userLoggingIn && <Loader />}
     </React.Fragment>
   );
 };

@@ -31,6 +31,7 @@ const initialState = {
   recoverError: "",
   isAdmin: false,
   sendingVerificationEmail: false,
+  redirectToVerifyEmail:false
 };
 
 const authReducer = (state = initialState, action) => {
@@ -57,9 +58,10 @@ const authReducer = (state = initialState, action) => {
         ...state,
         token: action.payload.token,
         userLoggedIn: false,
-        emailVerified: action.payload.emailVerified,
-        mobileVerified: action.payload.mobileVerified,
+        emailVerified: false,
+        mobileVerified: false,
         userLoggingIn: false,
+        redirectToVerifyEmail:true,
         loginError: "",
         signupError: "",
         recoverError: "",

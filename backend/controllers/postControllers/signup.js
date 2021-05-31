@@ -181,8 +181,6 @@ module.exports = async (req, res) => {
             .status(200)
             .send({
               token,
-              emailVerified: false,
-              phoneNumberVerified: false,
               userName: savedUser.name,
               userId: savedUser._id,
             });
