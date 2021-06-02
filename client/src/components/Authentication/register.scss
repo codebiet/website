@@ -74,6 +74,8 @@
       flex-direction: column;
       text-align: left;
       width: 75%;
+      max-width: unset;
+      padding:0;
       @media (max-width: 599px) {
         width: 95%;
       }

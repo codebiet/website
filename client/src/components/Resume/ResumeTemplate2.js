@@ -1,4 +1,4 @@
-import React,{useState,useEffect,useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 // import "./resumeTemplate2.scss";
 import axios from "axios";
 import { clearEverything, generateError } from "../../state/info/infoActions";
@@ -38,7 +38,7 @@ const Skills = (skills) => {
     </React.Fragment>
   );
 };
-const Template2 = React.forwardRef(({ }, ref) => {
+const Template2 = React.forwardRef(({}, ref) => {
   const [resumeData, setResumeData] = useState(dummyResumeData);
   const [loading, setLoading] = useState(false);
   const info = useContext(InfoContext);
@@ -55,49 +55,65 @@ const Template2 = React.forwardRef(({ }, ref) => {
           info.dispatch(generateError(err.response.data.errorMsg));
         setLoading(false);
       });
-      return () => info.dispatch(clearEverything());
+    return () => info.dispatch(clearEverything());
   }, []);
-  return <React.Fragment>
-    {!loading && <div className="resume-container template-2" ref={ref}>
-      <div id="inner" style={{fontFamily:"serif",minHeight:"297mm"}}>
-        <div id="hd">
-          <div className="yui-gc header" style={{marginBottom:0}}>
-            <div style={{display:"flex",justifyContent:"flex-start"}}>
-              <div className="yui-u avatar-img" style={{marginLeft:0,width:"30%"}}>
-                <img src={resumeData.img} alt="" />
-              </div>
-              <div className="yui-u title" style={{width:"65%"}}>
-                <h1>{resumeData.name}</h1>
-                <h2>
-                  {resumeData.degree + " " + resumeData.year} year Student
-                </h2>
-              </div>
-            </div>
-
-            <div className="yui-u">
-              <div className="contact-info">
-                <h3>
-                  <a href="mailto:name@yourdomain.com">{resumeData.email}</a>
-                </h3>
-                <h3>+91 {resumeData.phoneNumber}</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="bd">
-          <div id="yui-main">
-            <div className="yui-b">
-              <div className="yui-gf">
-                <div className="yui-u first">
-                  <h2>Profile</h2>
+  const hasSkills = () => {
+    return (
+      resumeData.skills.programmingLanguages.concat(
+        resumeData.skills.technologies,
+        resumeData.skills.dbms,
+        resumeData.skills.platforms
+      ).length > 0
+    );
+  };
+  return (
+    <React.Fragment>
+      {!loading && (
+        <div className="resume-container template-2" ref={ref}>
+          <div id="inner" style={{ fontFamily: "serif", minHeight: "297mm" }}>
+            <div id="hd">
+              <div className="yui-gc header" style={{ marginBottom: 0 }}>
+                <div style={{ display: "flex", justifyContent: "flex-start" }}>
+                  <div
+                    className="yui-u avatar-img"
+                    style={{ marginLeft: 0, width: "30%" }}
+                  >
+                    <img src={resumeData.img} alt="" />
+                  </div>
+                  <div className="yui-u title" style={{ width: "65%" }}>
+                    <h1>{resumeData.name}</h1>
+                    <h2>
+                      {resumeData.degree + " " + resumeData.year} year Student
+                    </h2>
+                  </div>
                 </div>
+
                 <div className="yui-u">
-                  <p className="enlarge">{resumeData.objective}</p>
+                  <div className="contact-info">
+                    <h3>
+                      <a href="mailto:name@yourdomain.com">
+                        {resumeData.email}
+                      </a>
+                    </h3>
+                    <h3>+91 {resumeData.phoneNumber}</h3>
+                  </div>
                 </div>
               </div>
+            </div>
 
-              {/* <div className="yui-gf">
+            <div id="bd">
+              <div id="yui-main">
+                <div className="yui-b">
+                  <div className="yui-gf">
+                    <div className="yui-u first">
+                      <h2>Profile</h2>
+                    </div>
+                    <div className="yui-u">
+                      <p className="enlarge">{resumeData.objective}</p>
+                    </div>
+                  </div>
+
+                  {/* <div className="yui-gf">
                   <div className="yui-u first">
                     <h2>Skills</h2>
                   </div>
@@ -129,19 +145,20 @@ const Template2 = React.forwardRef(({ }, ref) => {
                   </div>
                 </div> */}
 
-              <div className="yui-gf">
-                <div className="yui-u first">
-                  <h2>Technical</h2>
-                </div>
-                <div className="yui-u">
-                  {Skills(
-                    resumeData.skills.programmingLanguages.concat(
-                      resumeData.skills.technologies,
-                      resumeData.skills.dbms,
-                      resumeData.skills.platforms
-                    )
-                  )}
-                  {/* <ul className="talent">
+                  {hasSkills() && (
+                    <div className="yui-gf">
+                      <div className="yui-u first">
+                        <h2>Technical</h2>
+                      </div>
+                      <div className="yui-u">
+                        {Skills(
+                          resumeData.skills.programmingLanguages.concat(
+                            resumeData.skills.technologies,
+                            resumeData.skills.dbms,
+                            resumeData.skills.platforms
+                          )
+                        )}
+                        {/* <ul className="talent">
                       <li>XHTML</li>
                       <li>CSS</li>
                       <li className="last">Javascript</li>
@@ -158,32 +175,37 @@ const Template2 = React.forwardRef(({ }, ref) => {
                       <li>Windows XP/Vista</li>
                       <li className="last">Linux</li>
                     </ul> */}
-                </div>
-              </div>
-
-              {resumeData.projects.length > 0 && <div className="yui-gf">
-                <div className="yui-u first">
-                  <h2>Projects</h2>
-                </div>
-                <div className="yui-u">
-                  {resumeData.projects.map((project, index) => (
-                    <div
-                      key={index}
-                      className={index == 2 ? "job last" : "job"}
-                    >
-                      <h2>{project.name}</h2>
-                      <h3>{project.type}</h3>
-                      <h4>
-                        {project.startDate}-{project.endDate}
-                      </h4>
-                      <p>
-                        {project.technologies
-                          .map((tech) => tech.toUpperCase())
-                          .join(", ")}
-                      </p>
+                      </div>
                     </div>
-                  ))}
-                  {/* <div className="job">
+                  )}
+
+                  {resumeData.projects.length > 0 && (
+                    <div className="yui-gf">
+                      <div className="yui-u first">
+                        <h2>Projects</h2>
+                      </div>
+                      <div className="yui-u">
+                        {resumeData.projects.map((project, index) => (
+                          <div
+                            key={index}
+                            className={
+                              index == resumeData.projects.length - 1
+                                ? "job last"
+                                : "job"
+                            }
+                          >
+                            <h2>{project.name}</h2>
+                            <h3>{project.type}</h3>
+                            {project.startDate && (
+                              <h4>
+                                {project.startDate}-
+                                {project.endDate || "Present"}
+                              </h4>
+                            )}
+                            <p>{project.technologies.toUpperCase()}</p>
+                          </div>
+                        ))}
+                        {/* <div className="job">
                       <h2>Facebook</h2>
                       <h3>Senior Interface Designer</h3>
                       <h4>2005-2007</h4>
@@ -196,7 +218,7 @@ const Template2 = React.forwardRef(({ }, ref) => {
                       </p>
                     </div> */}
 
-                  {/* <div className="job">
+                        {/* <div className="job">
                       <h2>Apple Inc.</h2>
                       <h3>Senior Interface Designer</h3>
                       <h4>2005-2007</h4>
@@ -235,45 +257,46 @@ const Template2 = React.forwardRef(({ }, ref) => {
                         timely e-markets.
                       </p>
                     </div> */}
-                </div>
-              </div>
-}
-              <div className="yui-gf last">
-                <div className="yui-u first">
-                  <h2>Education</h2>
-                </div>
-                {resumeData.academics.map((academic, index) => {
-                  return (
-                    index == 0 && (
-                      <div className="yui-u">
-                        <h2>{academic.college}</h2>
-                        <h3>
-                          {academic.degree} &mdash;
-                          <strong>
-                            {academic.result.gpa == 0
-                              ? academic.result.percentage + "%"
-                              : academic.result.gpa + "CPA"}
-                          </strong>
-                        </h3>
                       </div>
-                    )
-                  );
-                })}
+                    </div>
+                  )}
+                  <div className="yui-gf last">
+                    <div className="yui-u first">
+                      <h2>Education</h2>
+                    </div>
+                    {resumeData.academics.map((academic, index) => {
+                      return (
+                        index == 0 && (
+                          <div className="yui-u">
+                            <h2>{academic.college}</h2>
+                            <h3>
+                              {academic.degree} &mdash;
+                              <strong>
+                                {academic.result.gpa == 0
+                                  ? academic.result.percentage + "%"
+                                  : academic.result.gpa + "CPA"}
+                              </strong>
+                            </h3>
+                          </div>
+                        )
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
+            </div>
+            <div id="ft">
+              <p>
+                {resumeData.name} &mdash;
+                <a href="mailto:name@yourdomain.com">{resumeData.email}</a>{" "}
+                &mdash; +91 {resumeData.phoneNumber}
+              </p>
             </div>
           </div>
         </div>
-        <div id="ft">
-          <p>
-            {resumeData.name} &mdash;
-            <a href="mailto:name@yourdomain.com">{resumeData.email}</a> &mdash;
-            +91 {resumeData.phoneNumber}
-          </p>
-        </div>
-      </div>
-    </div>
-  }
-  {loading && <Loader />}
-  </React.Fragment>
+      )}
+      {loading && <Loader />}
+    </React.Fragment>
+  );
 });
 export default Template2;

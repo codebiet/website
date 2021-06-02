@@ -5,9 +5,9 @@
   padding: 1rem 2rem;
   border: 1px solid grey;
   font-family: "Nunito", sans-serif;
-  @media (max-width:700px){
-    transform: scale(.5);
-    margin-top:-16rem;
+  @media (max-width: 700px) {
+    transform: scale(0.5);
+    margin-top: -16rem;
   }
   .full-width {
     width: 100%;
@@ -36,7 +36,7 @@
       margin-left: 0.5rem;
       font-weight: 700;
       margin-bottom: 0;
-      color:black;
+      color: black;
     }
   }
   hr {
@@ -58,13 +58,23 @@
     }
   }
   .projects {
+    tr {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
     td {
       padding: 0 0.5rem;
+      min-width: 33.333%;
+      max-width: 50%;
       ul {
-        // list-style-type: disc;
+        display: flex;
+        flex-direction: column;
         margin-left: 0.3rem;
         margin-top: 0.5rem;
         margin-bottom: 0;
+        padding-right: 0;
         li {
           background: url("https://upload.wikimedia.org/wikipedia/commons/8/8c/Bullet_%28typography%29.svg")
             no-repeat left 5px;
@@ -72,6 +82,7 @@
           background-size: 0.4rem;
           background-position: 0 8px;
           border-bottom: none;
+          list-style: none;
           &:nth-child(2) {
             background-position: 0 5px;
           }
@@ -121,7 +132,7 @@
       border-bottom: none;
       list-style: disc;
       display: list-item;
-      font-size:unset;
+      font-size: unset;
     }
     table {
       ul {
@@ -130,9 +141,9 @@
         margin-bottom: 0.5rem;
         font-size: 0.8rem;
         line-height: 1.2rem;
-        span{
-          width:unset;
-          font-size:unset;
+        span {
+          width: unset;
+          font-size: unset;
         }
         .header {
           font-weight: 700;
@@ -141,7 +152,7 @@
           margin-bottom: 0;
           background: transparent;
           height: unset;
-          margin-bottom:0;
+          margin-bottom: 0;
         }
         .name {
           font-weight: 300;
@@ -155,7 +166,7 @@
       border-bottom: none;
       list-style: disc;
       display: list-item;
-      font-size:unset;
+      font-size: unset;
     }
     ul {
       list-style-type: disc;

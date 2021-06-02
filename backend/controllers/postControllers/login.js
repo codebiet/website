@@ -48,7 +48,11 @@ const login = async (req, res) => {
           expires: new Date(Date.now() + 1000 * 60 * 60 * 5),
           httpOnly: false,
         });
-        res.cookie("phoneNumberVerified", user.phoneNumberVeried, {
+        res.cookie("callingVerified", user.callingVerified, {
+          expires: new Date(Date.now() + 1000 * 60 * 60 * 5),
+          httpOnly: false,
+        });
+        res.cookie("whatsAppVerified", user.whatsAppVerified, {
           expires: new Date(Date.now() + 1000 * 60 * 60 * 5),
           httpOnly: false,
         });

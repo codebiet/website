@@ -1,5 +1,42 @@
-input{
-  margin:0;
+input {
+  margin: 0;
+}
+
+.modal .close {
+  width: unset;
+  padding: 1rem 1rem;
+  margin: -1rem -1rem -1rem auto;
+  height: unset;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  transition: none;
+  cursor: pointer;
+  position:relative;
+  top:.3rem;
+  span{
+    color: #000;
+    font-size: inherit;
+    margin:unset;
+    width:unset;
+    padding:unset;
+  }
+}
+.phone-button {
+  background: transparent !important;
+  color: #66615b;
+  border: 1px solid #66615b;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  &:hover,
+  &:active,
+  &:focus,
+  &:active:focus {
+    background: #faa104 !important;
+    border-color: #faa104 !important;
+    color: white !important;
+  }
 }
 .dashboard-main-wrapper {
   form {
@@ -76,10 +113,10 @@ input{
     }
   }
 }
-.footer .copyright{
-  background:none!important;
-  padding:0!important;
-  color:unset;
+.footer .copyright {
+  background: none !important;
+  padding: 0 !important;
+  color: unset;
 }
 
 // body {

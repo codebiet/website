@@ -242,13 +242,13 @@ const Login = (props) => {
                       }}
                     >
                       <div>
-                        <span>Not Registered?</span>
-                        <Link className="link" to="/register">
+                        <span style={{fontSize:"1rem"}}>Not Registered?</span>
+                        <Link className="link" to="/register" style={{fontSize:"1rem"}}>
                           Join Us
                         </Link>
                       </div>
                       <div className="forget-password-container">
-                        <div onClick={(e) => setForgotPassword(true)}>
+                        <div onClick={(e) => setForgotPassword(true)} style={{fontSize:"1rem",fontWeight:"700"}}>
                           Forgot Password?
                         </div>
                       </div>

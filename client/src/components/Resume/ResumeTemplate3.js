@@ -1,4 +1,4 @@
-import React,{useEffect,useState,useContext} from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { clearEverything, generateError } from "../../state/info/infoActions";
 import { InfoContext } from "../../state/Store";
@@ -21,7 +21,7 @@ const getLastHalfSkills = (skills) => {
     return skills.slice(parseInt(length / 2) + 1, length);
   }
 };
-const Template3 = React.forwardRef(({ }, ref) => {
+const Template3 = React.forwardRef(({}, ref) => {
   const [resumeData, setResumeData] = useState(dummyResumeData);
   const [loading, setLoading] = useState(true);
   const info = useContext(InfoContext);
@@ -35,18 +35,30 @@ const Template3 = React.forwardRef(({ }, ref) => {
         setLoading(false);
       })
       .catch((err) => {
-        console.log("error occured : ",err);
+        console.log("error occured : ", err);
         if (err.response && err.response.data && err.response.data.errorMsg)
           info.dispatch(generateError(err.response.data.errorMsg));
         setLoading(false);
       });
     return () => info.dispatch(clearEverything());
   }, []);
+  const hasSkills = () => {
+    return (
+      resumeData.skills.programmingLanguages.concat(
+        resumeData.skills.technologies,
+        resumeData.skills.dbms,
+        resumeData.skills.platforms
+      ).length > 0
+    );
+  };
   return (
     <React.Fragment>
       {!loading && (
         <div className="page-content resume-template3" ref={ref}>
-          <div className="container" style={{maxWidth:"unset",width:"220mm",padding:0}}>
+          <div
+            className="container"
+            style={{ maxWidth: "unset", width: "220mm", padding: 0 }}
+          >
             <div className="cover shadow-lg bg-white">
               <div className="cover-bg p-3 p-lg-4 text-white">
                 <div className="row">
@@ -103,38 +115,40 @@ const Template3 = React.forwardRef(({ }, ref) => {
                   </div>
                 </div>
               </div>
-              <hr className="d-print-none" />
-              <div className="skills-section px-3 px-lg-4">
-                <h2 className="h3 mb-3">Professional Skills</h2>
-                <div className="row">
-                  <div className="col-md-6">
-                    {getFirstHalfSkills(
-                      resumeData.skills.programmingLanguages.concat(
-                        resumeData.skills.technologies,
-                        resumeData.skills.dbms,
-                        resumeData.skills.platforms
-                      )
-                    ).map((skill) => {
-                      return (
-                        <div key={skill.name} className="mb-2">
-                          <span>{skill.name.toUpperCase()}</span>
-                          <div className="progress my-1">
-                            <div
-                              className="progress-bar bg-primary"
-                              style={{
-                                width:
-                                  skill.level == "Beginner"
-                                    ? "30%"
-                                    : skill.level == "Intermediate"
-                                    ? "50%"
-                                    : "80%",
-                              }}
-                            ></div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                    {/* <div className="mb-2">
+              {hasSkills() && (
+                <>
+                  <hr className="d-print-none" />
+                  <div className="skills-section px-3 px-lg-4">
+                    <h2 className="h3 mb-3">Professional Skills</h2>
+                    <div className="row">
+                      <div className="col-md-6">
+                        {getFirstHalfSkills(
+                          resumeData.skills.programmingLanguages.concat(
+                            resumeData.skills.technologies,
+                            resumeData.skills.dbms,
+                            resumeData.skills.platforms
+                          )
+                        ).map((skill) => {
+                          return (
+                            <div key={skill.name} className="mb-2">
+                              <span>{skill.name.toUpperCase()}</span>
+                              <div className="progress my-1">
+                                <div
+                                  className="progress-bar bg-primary"
+                                  style={{
+                                    width:
+                                      skill.level == "Beginner"
+                                        ? "30%"
+                                        : skill.level == "Intermediate"
+                                        ? "50%"
+                                        : "80%",
+                                  }}
+                                ></div>
+                              </div>
+                            </div>
+                          );
+                        })}
+                        {/* <div className="mb-2">
                     <span>HTML</span>
                     <div className="progress my-1">
                       <div
@@ -161,36 +175,35 @@ const Template3 = React.forwardRef(({ }, ref) => {
                       ></div>
                     </div>
                   </div> */}
-                  </div>
-                  <div className="col-md-6">
-                    {getLastHalfSkills(
-                      resumeData.skills.programmingLanguages.concat(
-                        resumeData.skills.technologies,
-                        resumeData.skills.dbms,
-                        resumeData.skills.platforms,
-                        resumeData.skills.other
-                      )
-                    ).map((skill) => {
-                      return (
-                        <div key={skill.name} className="mb-2">
-                          <span>{skill.name.toUpperCase()}</span>
-                          <div className="progress my-1">
-                            <div
-                              className="progress-bar bg-success"
-                              style={{
-                                width:
-                                  skill.level == "Beginner"
-                                    ? "30%"
-                                    : skill.level == "Intermediate"
-                                    ? "50%"
-                                    : "80%",
-                              }}
-                            ></div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                    {/* <div className="mb-2">
+                      </div>
+                      <div className="col-md-6">
+                        {getLastHalfSkills(
+                          resumeData.skills.programmingLanguages.concat(
+                            resumeData.skills.technologies,
+                            resumeData.skills.dbms,
+                            resumeData.skills.platforms
+                          )
+                        ).map((skill) => {
+                          return (
+                            <div key={skill.name} className="mb-2">
+                              <span>{skill.name.toUpperCase()}</span>
+                              <div className="progress my-1">
+                                <div
+                                  className="progress-bar bg-success"
+                                  style={{
+                                    width:
+                                      skill.level == "Beginner"
+                                        ? "30%"
+                                        : skill.level == "Intermediate"
+                                        ? "50%"
+                                        : "80%",
+                                  }}
+                                ></div>
+                              </div>
+                            </div>
+                          );
+                        })}
+                        {/* <div className="mb-2">
                     <span>Adobe Photoshop</span>
                     <div className="progress my-1">
                       <div
@@ -199,7 +212,7 @@ const Template3 = React.forwardRef(({ }, ref) => {
                       ></div>
                     </div>
                   </div> */}
-                    {/* <div className="mb-2">
+                        {/* <div className="mb-2">
                     <span>Sketch</span>
                     <div className="progress my-1">
                       <div
@@ -208,7 +221,7 @@ const Template3 = React.forwardRef(({ }, ref) => {
                       ></div>
                     </div>
                   </div> */}
-                    {/* <div className="mb-2">
+                        {/* <div className="mb-2">
                     <span>Adobe XD</span>
                     <div className="progress my-1">
                       <div
@@ -217,9 +230,11 @@ const Template3 = React.forwardRef(({ }, ref) => {
                       ></div>
                     </div>
                   </div> */}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
+                </>
+              )}
               <hr className="d-print-none" />
               {resumeData.projects.length > 0 && (
                 <>
@@ -240,14 +255,13 @@ const Template3 = React.forwardRef(({ }, ref) => {
                                   in {project.type}
                                 </span>
                               </div>
-                              <div className="text-muted text-small mb-2">
-                                {project.startDate} - {project.endDate}
-                              </div>
-                              <div>
-                                {project.technologies
-                                  .map((tech) => tech.toUpperCase())
-                                  .join(", ")}
-                              </div>
+                              {project.startDate && (
+                                <div className="text-muted text-small mb-2">
+                                  {project.startDate} -{" "}
+                                  {project.endDate || "Present"}
+                                </div>
+                              )}
+                              <div>{project.technologies.toUpperCase()}</div>
                             </div>
                           </div>
                         );

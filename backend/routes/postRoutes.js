@@ -10,4 +10,6 @@ router.route('/changePassword').post(require("../controllers/postControllers/cha
 router.route("/verifyCertificate").post(require('../controllers/postControllers/verifyCertificate'));
 router.route('/updateProfile').post(require('../controllers/postControllers/updateProfile'));
 router.route('/contact').post(require("../controllers/postControllers/contact"));
+router.route('/updateMobile').post(require('../controllers/postControllers/updateMobile'));
+router.route('/resendOtp').post(require('../controllers/postControllers/resendOtp'));
 module.exports = router;

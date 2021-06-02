@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Loader from "../Loader/Loader";
 import axios from "axios";
 import { clearEverything, generateError } from "../../state/info/infoActions";
@@ -14,6 +14,7 @@ const ResumeTemplate1 = React.forwardRef(({}, ref) => {
     axios
       .get("/api/resumeData")
       .then((res) => {
+        console.log(res.data);
         setResumeData(res.data);
         setLoading(false);
       })
@@ -22,8 +23,18 @@ const ResumeTemplate1 = React.forwardRef(({}, ref) => {
           info.dispatch(generateError(err.response.data.errorMsg));
         setLoading(false);
       });
-      return () => info.dispatch(clearEverything());
+    return () => info.dispatch(clearEverything());
   }, []);
+  const hasSkills = () => {
+    return (
+      resumeData.skills.programmingLanguages.concat(
+        resumeData.skills.technologies,
+        resumeData.skills.dbms,
+        resumeData.skills.platforms,
+        resumeData.skills.other
+      ).length > 0
+    );
+  };
   return (
     <>
       {!loading && (
@@ -69,7 +80,7 @@ const ResumeTemplate1 = React.forwardRef(({}, ref) => {
                     <td>{academic.degree}</td>
                     <td>{academic.college}</td>
                     <td>
-                      {academic.result.gpa
+                      {academic.result.gpa != "0"
                         ? `CGPA = ${academic.result.gpa}`
                         : `${academic.result.percentage}%`}
                     </td>
@@ -100,7 +111,7 @@ const ResumeTemplate1 = React.forwardRef(({}, ref) => {
                       resumeData.projects.length > 0 &&
                       resumeData.projects.map((project, index) => {
                         return (
-                          <td>
+                          <td key={index}>
                             <div className="name">{project.name}</div>
                             <ul>
                               <li className="type">
@@ -110,9 +121,7 @@ const ResumeTemplate1 = React.forwardRef(({}, ref) => {
                                 <div>
                                   <span>TECHNOLOGIES: </span>
                                   <span>
-                                    {project.technologies
-                                      .map((tech) => tech.toUpperCase())
-                                      .join(", ")}
+                                    {project.technologies.toUpperCase()}
                                   </span>
                                 </div>
                               </li>
@@ -128,106 +137,113 @@ const ResumeTemplate1 = React.forwardRef(({}, ref) => {
               </table>
             </div>
           )}
-          <div
-            className="full-width technical-skills"
-            aria-label="technical-skills"
-          >
-            <div className="heading-container">
-              <h2>Technical Skills</h2>
+          {hasSkills() && (
+            <div
+              className="full-width technical-skills"
+              aria-label="technical-skills"
+            >
+              <div className="heading-container">
+                <h2>Technical Skills</h2>
+              </div>
+              <table>
+                <tbody>
+                  <tr>
+                    {resumeData.skills.programmingLanguages &&
+                      resumeData.skills.programmingLanguages.length > 0 && (
+                        <td>
+                          <ul>
+                            <li>
+                              <span className="header">
+                                PROGRAMMING LANGUAGES :{" "}
+                              </span>
+                              <span className="name">
+                                {resumeData.skills.programmingLanguages
+                                  .map((language) =>
+                                    language.name.toUpperCase()
+                                  )
+                                  .join(", ")}
+                              </span>
+                            </li>
+                          </ul>
+                        </td>
+                      )}
+                  </tr>
+                  <tr>
+                    {resumeData.skills.technologies &&
+                      resumeData.skills.technologies.length > 0 && (
+                        <td>
+                          <ul>
+                            <li>
+                              <span className="header">TECHNOLOGIES: </span>
+                              <span className="name">
+                                {resumeData.skills.technologies
+                                  .map((technology) =>
+                                    technology.name.toUpperCase()
+                                  )
+                                  .join(", ")}
+                              </span>
+                            </li>
+                          </ul>
+                        </td>
+                      )}
+                  </tr>
+                  <tr>
+                    {resumeData.skills.dbms &&
+                      resumeData.skills.dbms.length > 0 && (
+                        <td>
+                          <ul>
+                            <li>
+                              <span className="header">DBMS : </span>
+                              <span className="name">
+                                {resumeData.skills.dbms
+                                  .map((dbms) => dbms.name.toUpperCase())
+                                  .join(", ")}
+                              </span>
+                            </li>
+                          </ul>
+                        </td>
+                      )}
+                  </tr>
+                  <tr>
+                    {resumeData.skills.platforms &&
+                      resumeData.skills.platforms.length > 0 && (
+                        <td>
+                          <ul>
+                            <li>
+                              <span className="header">PLATFORMS: </span>
+                              <span className="name">
+                                {resumeData.skills.platforms
+                                  .map((platform) =>
+                                    platform.name.toUpperCase()
+                                  )
+                                  .join(", ")}
+                              </span>
+                            </li>
+                          </ul>
+                        </td>
+                      )}
+                  </tr>
+                  <tr>
+                    {resumeData.skills.other &&
+                      resumeData.skills.other.length > 0 && (
+                        <td>
+                          <ul>
+                            <li>
+                              <span className="header">OTHER SKILLS: </span>
+                              <span className="name">
+                                {resumeData.skills.other
+                                  .map((other) => other.toUpperCase())
+                                  .join(", ")}
+                              </span>
+                            </li>
+                          </ul>
+                        </td>
+                      )}
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <table>
-              <tbody>
-                <tr>
-                  {resumeData.skills.programmingLanguages &&
-                    resumeData.skills.programmingLanguages.length > 0 && (
-                      <td>
-                        <ul>
-                          <li>
-                            <span className="header">
-                              PROGRAMMING LANGUAGES :{" "}
-                            </span>
-                            <span className="name">
-                              {resumeData.skills.programmingLanguages
-                                .map((language) => language.name.toUpperCase())
-                                .join(", ")}
-                            </span>
-                          </li>
-                        </ul>
-                      </td>
-                    )}
-                </tr>
-                <tr>
-                  {resumeData.skills.technologies &&
-                    resumeData.skills.technologies.length > 0 && (
-                      <td>
-                        <ul>
-                          <li>
-                            <span className="header">TECHNOLOGIES: </span>
-                            <span className="name">
-                              {resumeData.skills.technologies
-                                .map((technology) =>
-                                  technology.name.toUpperCase()
-                                )
-                                .join(", ")}
-                            </span>
-                          </li>
-                        </ul>
-                      </td>
-                    )}
-                </tr>
-                <tr>
-                  {resumeData.skills.dbms && resumeData.skills.dbms.length > 0 && (
-                    <td>
-                      <ul>
-                        <li>
-                          <span className="header">DBMS : </span>
-                          <span className="name">
-                            {resumeData.skills.dbms
-                              .map((dbms) => dbms.name.toUpperCase())
-                              .join(", ")}
-                          </span>
-                        </li>
-                      </ul>
-                    </td>
-                  )}
-                </tr>
-                <tr>
-                  {resumeData.skills.platforms &&
-                    resumeData.skills.platforms.length > 0 && (
-                      <td>
-                        <ul>
-                          <li>
-                            <span className="header">PLATFORMS: </span>
-                            <span className="name">
-                              {resumeData.skills.platforms
-                                .map((platform) => platform.name.toUpperCase())
-                                .join(", ")}
-                            </span>
-                          </li>
-                        </ul>
-                      </td>
-                    )}
-                </tr>
-                <tr>
-                  {resumeData.skills.other &&
-                    resumeData.skills.other.length > 0 && (
-                      <td>
-                        <ul>
-                          <li>
-                            <span className="header">OTHER SKILLS: </span>
-                            <span className="name">
-                              {resumeData.skills.other
-                                .map((other) => other.toUpperCase())
-                                .join(", ")}
-                            </span>
-                          </li>
-                        </ul>
-                      </td>
-                    )}
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          )}
           {resumeData.achievements && resumeData.achievements.length > 0 && (
             <div className="full-width achievements" aria-label="achievements">
               <div className="heading-container">
@@ -242,9 +258,7 @@ const ResumeTemplate1 = React.forwardRef(({}, ref) => {
           )}
         </div>
       )}
-      {
-        loading && <Loader />
-      }
+      {loading && <Loader />}
     </>
   );
 });

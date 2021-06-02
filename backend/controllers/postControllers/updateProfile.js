@@ -10,7 +10,6 @@ const uploadS3 = (params, type) => {
   return new Promise((resolve, reject) => {
     s3.upload(params, async (err, data) => {
       if (err) {
-        console.log("error in saving: ", err);
         if (type == "RESUME") reject("Error while uploading Resume");
         else if (type == "PROFILE_PHOTO")
           reject("Error while uploading Profile Photo");

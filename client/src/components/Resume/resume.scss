@@ -79,3 +79,17 @@
   transition: unset;
   font-weight: unset;
 }
+.add-details-button{
+  background: #ffa12e;
+  &:hover{
+    background: #fd9b22!important;
+  }
+  .add-details-link{
+    color:white;
+    font-weight: 700;
+    &:hover{
+      color:white;
+      text-decoration: none;
+    }
+  }
+}

@@ -48,20 +48,22 @@ const userSchema = new mongoose.Schema({
     required: true,
     validate: passwordValidatorWithMsg,
   },
-  degree:String,
-  college:String,
-  collegeCity:String,
-  academics:[{
-    year:String,
-    degree:String,
-    college:String,
-    result:{
-      gpa:String,
-      percentage:String
-    }
-  }],
-  achievements:[String],
-  about:String,
+  degree: String,
+  college: String,
+  collegeCity: String,
+  academics: [
+    {
+      year: String,
+      degree: String,
+      college: String,
+      result: {
+        gpa: String,
+        percentage: String,
+      },
+    },
+  ],
+  achievements: [String],
+  about: String,
   callingPhoneNumber: { type: String, validate: phoneNumberValidatorWithMsg },
   whatsAppPhoneNumber: { type: String, validate: phoneNumberValidatorWithMsg },
   year: { type: Number },
@@ -202,7 +204,8 @@ const userSchema = new mongoose.Schema({
   resume: { type: String },
   profilePhoto: { type: String },
   emailVerified: { type: Boolean, default: false },
-  phoneNumberVerified: { type: Boolean, default: false },
+  callingVerified: { type: Boolean, default: false },
+  whatsAppVerified: { type: Boolean, default: false },
   role: { type: String, enum: ["Student", "Professional"], default: "Student" },
 });
 

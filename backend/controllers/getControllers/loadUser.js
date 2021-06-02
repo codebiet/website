@@ -19,12 +19,10 @@ module.exports = async (req, res) => {
       .send({ errorMsg: "Status-Code:500, Internal Server Error!" });
   }
   const userData = { ...user._doc };
-  delete userData.email;
   delete userData.password;
   delete userData._id;
   delete userData.role;
   delete userData.emailVerified;
-  delete userData.phoneNumberVerified;
   res.set("Cache-Control", "no-store");
   return res.status(200).send({ ...userData });
 };

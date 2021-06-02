@@ -42,7 +42,7 @@ const resumeData = {
     {
       name: "Project-1",
       type: "Web Development",
-      technologies: ["html", "css", "javascript", "react", "nodejs"],
+      technologies: "html, css, javascript, node.js, mongodb",
       credentials: "",
       startDate: "March, 2021",
       endDate: "Present",
@@ -50,7 +50,7 @@ const resumeData = {
     {
       name: "Project-2",
       type: "Android Development",
-      technologies: ["java", "kotlin", "machine-learning"],
+      technologies: "java, kotlin, machine-learning",
       credentials: "",
       startDate: "January, 2021",
       endDate: "February",
@@ -58,7 +58,7 @@ const resumeData = {
     {
       name: "Project-3",
       type: "Machine learning Project",
-      technologies: ["python", "tensorflow", "torch", "keras"],
+      technologies: "python, tensorflow, torch, keras",
       credentials: "",
       startDate: "September, 2020",
       endDate: "December, 2020",
