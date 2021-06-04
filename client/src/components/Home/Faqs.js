@@ -51,6 +51,7 @@ const Faqs = (props) => {
           id="faq-list"
           data-aos="fade-up"
           data-aos-delay="100"
+          data-aos-once={true}
           data-aos-duration="800"
         >
           {faqsData.map((faq) => {

@@ -17,6 +17,7 @@ const Events = (props) => {
         id="activities"
         data-aos="zoom-right"
         data-aos-delay="100"
+        data-aos-once={true}
         data-aos-duration="1000"
       >
         <div className="container-fluid">

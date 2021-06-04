@@ -75,6 +75,7 @@ const Card = ({ iconClass, iconStyling, heading, description, linkTo }) => {
       className="col-md-6 col-sm-12 col-lg-4 wow bounceInUp"
       data-aos="zoom-in"
       data-aos-delay="100"
+      data-aos-once={true}
       data-aos-duration="1000"
     >
       <div className="box">
@@ -99,6 +100,7 @@ const WhatWeDo = (props) => {
       className="about-section py-5"
       data-aos="zoom-up"
       data-aos-delay="100"
+      data-aos-once={true}
       data-aos-duration="1000"
       id="whatWeDoSection"
     >
@@ -107,6 +109,7 @@ const WhatWeDo = (props) => {
           className="section-heading"
           data-aos="fade-up"
           data-aos-delay="100"
+          data-aos-once={true}
           data-aos-duration="1000"
         >
           What We Do ?

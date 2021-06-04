@@ -22,6 +22,7 @@ const Newsletter = (props) => {
       className="subscribe-area pb-50 pt-70"
       data-aos="zoom-out-down"
       data-aos-delay="100"
+      data-aos-once={true}
       data-aos-duration="800"
     >
       <div className="container">

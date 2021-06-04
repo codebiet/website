@@ -101,6 +101,7 @@ const Testimonials = (props) => {
       id="testimonials"
       data-aos="fade-left"
       data-aos-delay="300"
+      data-aos-duration={true}
       data-aos-duration="1000"
     >
       <div className="container py-md-5 py-4">

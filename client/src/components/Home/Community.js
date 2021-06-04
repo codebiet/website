@@ -67,6 +67,7 @@ const Stat = ({ fontawesomeIconClass, iconStyling, heading, statCount }) => {
         className="icon"
         data-aos="fade-up"
         data-aos-delay="100"
+        data-aos-once={true}
         data-aos-duration="1000"
       >
         <i className={fontawesomeIconClass} style={iconStyling}></i>
@@ -88,6 +89,7 @@ const Community = (props) => {
       className="image-with-content py-5"
       data-aos="fade-right"
       data-aos-delay="100"
+      data-aos-once={true}
       data-aos-duration="1000"
     >
       <div className="container py-md-5 py-4">
@@ -95,6 +97,7 @@ const Community = (props) => {
           className="row align-items-center"
           data-aos="fade-right"
           data-aos-delay="100"
+          data-aos-once={true}
           data-aos-duration="1000"
         >
           <div className="col-lg-6 content-sec-1">
@@ -116,6 +119,7 @@ const Community = (props) => {
             className="col-lg-6 pl-lg-5 mt-lg-0 mt-5"
             data-aos="fade-left"
             data-aos-delay="100"
+            data-aos-once={true}
             data-aos-duration="1000"
           >
             <img
@@ -133,6 +137,7 @@ const Community = (props) => {
               className="counters"
               data-aos="fade-up"
               data-aos-delay="100"
+              data-aos-once={true}
               data-aos-duration="1000"
             >
               {stats.map((stat) => {
