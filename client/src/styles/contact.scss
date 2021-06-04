@@ -1,3 +1,10 @@
+.contact-container {
+  margin-bottom: 4rem;
+  margin-top:1rem;
+  @media (min-width: 768px) {
+    margin-top: 5rem;
+  }
+}
 .newLetterInputDiv {
   display: flex;
   flex-wrap: nowrap;
@@ -7,6 +14,7 @@
 .contactDetailsInner {
   text-align: left;
   padding: 20px;
+  padding-top:0;
   padding-bottom: 0;
   height: auto;
   width: auto;
@@ -56,6 +64,18 @@
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
 }
+.contact-form-container {
+  width: 35%;
+  @media (min-width: 768px) and (max-width: 1000px) {
+    width: 60%;
+  }
+  @media (min-width: 1001px) and (max-width: 1200px) {
+    width: 55%;
+  }
+  @media (min-width: 1201px) and (max-width: 1500px) {
+    width: 45%;
+  }
+}
 @media (min-width: 768px) and (max-width: 1010px) {
   .contactDetails {
     margin-right: 5%;
@@ -67,9 +87,6 @@
     font-size: 1.8rem;
     margin-bottom: 3rem;
   }
-  .contact-form-container {
-    width: 60%;
-  }
 }
 @media (min-width: 768px) and (max-width: 830px) {
   .contactDetails {
@@ -77,6 +94,10 @@
   }
 }
 @media (max-width: 767px) {
+  .contact-form-container {
+    margin-top: 0;
+    width: 100%;
+  }
   .newLetterInputDiv {
     flex-wrap: wrap;
   }
@@ -93,7 +114,7 @@
     margin-bottom: 0;
   }
   form {
-    padding:10px;
+    padding: 10px;
   }
 }
 .textareaContactDetails {
@@ -108,15 +129,19 @@
   outline: none;
   color: black;
   border-radius: 4px;
-  margin: 0.5rem 0;
+  margin-bottom: 1rem;
   min-height: 5.5rem;
 }
 .contact-form-container form {
   text-align: left;
 }
 .contact-form-container form input {
-  margin: 0.5rem 0;
+  margin: 1rem 0;
+  padding:12px 10px;
   color: black;
+  &.name{
+    margin-top:0!important;
+  }
 }
 .contact-form-container form button {
   border: none;

@@ -11,6 +11,7 @@ const Social = lazy(() => import("../components/Social/social"));
 const Nav = lazy(() => import("../components/Navbar/Nav"));
 const Footer = lazy(() => import("../components/Footer/Footer"));
 import Loader from "../components/Loader/Loader";
+import { FormGroup } from "reactstrap";
 function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -35,17 +36,26 @@ function Contact() {
       return info.dispatch(
         generateError("You're required to fill in all the fields!")
       );
-    }else if(!emailRegex.test(email)){
-      return info.dispatch(generateError("Invalid Email!"))
-    }else if(phoneNumber.length < 10 || phoneNumber.length > 10 || !phoneNumberRegex.test(phoneNumber)){
-      return info.dispatch(generateError("Invalid Phone Number. Please Enter 10 digit phone Number!"));
-    }
-    else if (msg.length < 30) {
-      return info.dispatch(generateWarning("Message too Short! Atleast 50 characters Required!"));
+    } else if (!emailRegex.test(email)) {
+      return info.dispatch(generateError("Invalid Email!"));
+    } else if (
+      phoneNumber.length < 10 ||
+      phoneNumber.length > 10 ||
+      !phoneNumberRegex.test(phoneNumber)
+    ) {
+      return info.dispatch(
+        generateError(
+          "Invalid Phone Number. Please Enter 10 digit phone Number!"
+        )
+      );
+    } else if (msg.length < 30) {
+      return info.dispatch(
+        generateWarning("Message too Short! Atleast 50 characters Required!")
+      );
     }
     setLoading(true);
     axios
-      .post("/post/contact",{name,email,phoneNumber,msg})
+      .post("/post/contact", { name, email, phoneNumber, msg })
       .then((res) => {
         setLoading(false);
         info.dispatch(
@@ -70,7 +80,7 @@ function Contact() {
         <div>
           <Nav />
           <div className="this">
-            <div className="contact">
+            <div className="contact-container">
               <section className="newsletterSection">
                 <div className="newsLetter">
                   <div className="newLetterInputDiv">
@@ -108,24 +118,33 @@ function Contact() {
                     </div>
                     <div className="contact-form-container">
                       <form onSubmit={(e) => handleSubmit(e)}>
-                        <input
-                          type="text"
-                          placeholder="Your Name"
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                        />
-                        <input
-                          type="email"
-                          placeholder="Enter your email"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                        ></input>
-                        <input
-                          type="text"
-                          placeholder="Contact no."
-                          value={phoneNumber}
-                          onChange={(e) => setPhoneNumber(e.target.value)}
-                        ></input>
+                        <FormGroup>
+                          <input
+                            className="form-control name"
+                            type="text"
+                            placeholder="Your Name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                          />
+                        </FormGroup>
+                        <FormGroup>
+                          <input
+                            type="email"
+                            placeholder="Enter your email"
+                            className="form-control"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                          />
+                        </FormGroup>
+                        <FormGroup>
+                          <input
+                            type="text"
+                            placeholder="Contact no."
+                            className="form-control"
+                            value={phoneNumber}
+                            onChange={(e) => setPhoneNumber(e.target.value)}
+                          />
+                        </FormGroup>
                         <textarea
                           type="text"
                           placeholder="Type your message here*"
@@ -138,7 +157,7 @@ function Contact() {
                     </div>
                   </div>
                   <br></br>
-                  <span>
+                  <span style={{display:"inline-block",marginTop:"1rem"}}>
                     Don't worry, no spam here! Your information will only be
                     used for C.O.D.E and Chrome related updates<br></br> and our
                     emails are typically no more than 1-2 times a month. You can
@@ -147,7 +166,9 @@ function Contact() {
                   <br></br>
                 </div>
               </section>
+              <div style={{marginTop:"2rem"}}>
               <Social />
+              </div>
             </div>
           </div>
           <Footer />
