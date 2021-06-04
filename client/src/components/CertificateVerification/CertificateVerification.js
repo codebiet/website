@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, lazy } from "react";
 import axios from "axios";
-import Navbar from "../Navbar/Navbar";
+const Nav = lazy(() => import("../Navbar/Nav"));
+import Footer from "../Footer/Footer";
 import { InfoContext } from "../../state/Store";
 import {
   generateError,
@@ -58,7 +59,7 @@ const CertificateVerification = (props) => {
   };
   return (
     <React.Fragment>
-      <Navbar />
+      <Nav />
       {showResult && (
         <div className="verification-result-container">
           {certificateFound && (
@@ -88,6 +89,7 @@ const CertificateVerification = (props) => {
           <CertificateVerificationReport ref={ref} certificateData={certificateData} />
         </div>
       )}
+      <Footer />
     </React.Fragment>
   );
 };

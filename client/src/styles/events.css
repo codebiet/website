@@ -6,23 +6,6 @@
 {
    padding: 70px 130px;
 }
-.cardEvent
-{
-   box-sizing: border-box;
-   max-width: 400px;
-   text-align:left;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-    margin-top:5%;
-    margin-right:3%;
-   background-color: #fff;
-   border-radius: 18px;
-   margin-top:3%;
-   box-shadow: 0px 10px 16px -8px rgba(0,0,0,.2);
-   margin-bottom:3%;
-} 
-
  
 .eventsWrapper{font-weight: 400;
      border: 1px solid #d0d0d0;
@@ -90,110 +73,12 @@ flex-wrap: wrap;
 justify-content:  flex-start;
 padding:20px;
 }
-.cardEvent{
-     
-   color: inherit;
-   text-decoration: none;
-}
-.card
-{
-   background: #fff;
-   border-radius: 5px;
-   width: 95%;
-   cursor: pointer;
-   font-weight: 400;
-   transition: all .3s;
-}
-.cardHeader
-{
-   font-family: Mulish,Helvetica,Arial,sans-serif;
-   height: 159px;
-    position: relative;
-}
-.cardHeaderInner
-{
-   width: 100%;
-   height: 100%;
-   position: relative;  
-}
-.cardImage
-{
-   object-fit: cover;
-   width: 100%;
-   height: 100%;
-   border-top-left-radius: 5px;
-   border-top-right-radius: 5px;
-}
-.cardMain
-{
-   text-align: left;
-   padding: 10px 10px;
-}
-.cardMain>p
-{
-   padding-left: 0;
-}
-.eventDetails
-{
-   display: flex;
-    border-bottom: 1px solid #f3f3f3;
-    padding-bottom: 10px;
-
-}
-.eventInfo
-{
-   display: flex;
-   flex-direction: column;
-   margin-right: 16px;
-}
-.eventInfo  p 
-{
-   font-size: 13px;
-   color: rgba(28,28,28,.6);
-   margin: 0;
-   padding:0;
-}
-.shortDescription
-{
-   margin-top: 12px;
-   height: 57px;
-   font-size: 14px;
-   line-height: 19px;
-   color: #616161;
-   text-overflow: ellipsis;
-   overflow: hidden;
-   display: -webkit-box;
-    
-}
-.tagsContainer
-{
-   display: flex;
-    flex-wrap: wrap;
-    height: 64px;
-    margin-top: 20px;
-     width:100%;
-}
-.tags{
-   height: fit-content;
-    margin-right: 8px;
-    margin-bottom: 8px;
-    color: #616161;
-    background: #eee;
-    border-radius: 3px;
-    padding: 4px 14px;
-    font-size: 12px;
-}
- 
 @media only screen and (max-width: 600px) {
    .eventsOuter {
-     padding:20px;
+     padding: 20px;
    }
-   .eventsSubCategory
-   {
-      overflow: scroll;
+   .eventsSubCategory {
+     overflow: scroll;
    }
  }
- .cardMain >p
- {
-    font-size:20px;
- }
+ 

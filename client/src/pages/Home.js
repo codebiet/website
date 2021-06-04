@@ -1,4 +1,4 @@
-import React, { lazy,Suspense } from "react";
+import React, { lazy, Suspense } from "react";
 
 import svg from "../components/assets/SVG.svg";
 
@@ -21,11 +21,14 @@ const Footer = lazy(() => import("../components/Footer/Footer"));
 // import Nav from "../components/Navbar/Nav";
 // import Footer from "../components/Footer/Footer";
 // import { Suspense } from "react";
+const HomeComponent = lazy(() => import('../components/Home/Home'));
+// import HomeComponent from "../components/Home/Home";
 import Loader from "../components/Loader/Loader";
 function Home() {
   return (
-    <Suspense fallback={<Loader />}>
-      <div className="App">
+    <>
+      <Suspense fallback={<Loader />}>
+      {/* <div className="App">
         <div>
           <Nav />
           <div className="this">
@@ -52,7 +55,6 @@ function Home() {
                   expectations grow. With C.O.D.E guidance, you can give
                   yourself the best experience, wherever they are."
                 </p>
-                {/* <div className="exploreButton"> <a href ="#">  Explore C.O.D.E</a> </div>  */}
               </section>
               <WhatWeDo />
               <section>
@@ -66,8 +68,12 @@ function Home() {
           </div>
           <Footer />
         </div>
-      </div>
-    </Suspense>
+      </div> */}
+      <Nav/>
+      <HomeComponent />
+      <Footer />
+      </Suspense>
+    </>
   );
 }
 

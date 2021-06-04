@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import {Row,Container} from "reactstrap";
 const Footer = (props) => {
   return (
-    <footer style={{paddingTop:0}} className={"footer" + (props.default ? " footer-default" : "")}>
+    <footer style={{paddingTop:0}} className={"footer-dashboard footer" + (props.default ? " footer-default" : "")}>
       <Container fluid={props.fluid ? true : false}>
         <Row style={{display:"flex"}}>
           <nav className="footer-nav" style={{width:"unset"}}>

@@ -1,0 +1,104 @@
+.cardEvent {
+  color: inherit;
+  text-decoration: none;
+  box-sizing: border-box;
+  max-width: 400px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5%;
+  margin-right: 3%;
+  background-color: #fff;
+  border-radius: 18px;
+  margin-top: 3%;
+  box-shadow: 3px 3px 10px 1px rgba(0,0,0,.2);
+  overflow: hidden;
+  margin-bottom: 3%;
+  transition: transform .3s ease-in-out;
+  &:hover{
+    transform: scale(1.01);
+  }
+  .card {
+    background: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 400;
+    transition: all 0.3s;
+    margin-bottom: 0 !important;
+  }
+  .cardHeader {
+    font-family: Mulish, Helvetica, Arial, sans-serif;
+    height: 15rem;
+    position: relative;
+  }
+  .cardHeaderInner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .cardImage {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  .cardMain {
+    text-align: left;
+    padding: 20px 10px;
+  }
+  .cardMain > p {
+    padding-left: 0;
+  }
+  .eventDetails {
+    display: flex;
+    border-bottom: 1px solid #f3f3f3;
+    padding-bottom: 15px;
+    justify-content: space-between;
+  }
+  .eventInfo {
+    display: flex;
+    flex-direction: column;
+    margin-right: 16px;
+  }
+  .eventInfo p {
+    font-size: 13px;
+    color: rgba(28, 28, 28, 0.6);
+    margin: 0;
+    padding: 0;
+  }
+  .shortDescription {
+    margin-top: 20px;
+    margin-bottom:20px;
+    font-size: 14px;
+    line-height: 19px;
+    height:4rem;
+    color: #616161;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+  }
+  .tagsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: .1rem;
+    width: 100%;
+    margin-bottom:.3rem;
+  }
+  .tags {
+    height: fit-content;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    color: #616161;
+    background: #eee;
+    border-radius: 25px;
+    padding: 4px 14px;
+    font-size: 12px;
+  }
+
+  .cardMain > p {
+    font-size: 20px;
+    margin:.3rem 0 .6rem 0;
+  }
+}

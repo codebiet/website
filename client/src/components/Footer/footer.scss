@@ -1,0 +1,309 @@
+.main-footer {
+  .footer {
+    height: auto;
+    width: 100%;
+    box-sizing: border-box;
+    background: linear-gradient(to top, rgb(204, 204, 204), #f5f5f5);
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+  }
+  .footer .prefooter {
+    height: 90%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  .footer .copyright {
+    height: 104px !important;
+    background: #000 !important;
+    color: #777 !important;
+    font-size: 14px !important;
+    letter-spacing: 1px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 10px !important;
+    width: 100%;
+    font-size: 1rem;
+  }
+  .footer .copyright > p > a {
+    text-decoration: none;
+    color: #e3a639;
+  }
+  .footer .elevate {
+    background: linear-gradient(to top, #000, #222);
+    height: 100%;
+    width: 40%;
+    transform: skew(-20deg);
+    margin-left: -80px;
+  }
+  .footer .elevate div {
+    transform: skew(20deg);
+    padding: 10% 0%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .footer .logo {
+    width: 120px;
+    margin-top: 20px;
+  }
+  .footer .elevate > div > h3 {
+    color: #fff;
+    line-height: 1em;
+    letter-spacing: 0.1em;
+    margin: 1.5em 0em 0.5em 0em;
+    font-size: 1.17rem;
+  }
+  .footer .elevate > div > h4 {
+    line-height: 0.5em;
+    letter-spacing: 0.08em;
+    color: #e3a639;
+    font-weight: 400;
+    font-size: 1.1rem;
+    margin: 0.2em 0em;
+  }
+  .footer .elevate > div > p {
+    color: #444;
+    width: 60%;
+    text-align: center;
+    margin: 0.8em 0em;
+  }
+  .footer .elevate > div > .submenu {
+    margin: 0.5em 0em;
+    padding: 0px;
+  }
+  .footer .submenu {
+    margin: 0;
+  }
+  .footer .submenu li {
+    list-style: none;
+    line-height: 2em;
+  }
+  .footer .submenu li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: capitalize;
+    padding: 0;
+    font-size: 1rem;
+  }
+  .footer .submenu li a:hover {
+    opacity: 0.9;
+    color: #e3a639;
+  }
+  .footer .submenu li .mail {
+    color: #03a9f4;
+    text-transform: lowercase;
+  }
+  .footer .submenu li .phone {
+    color: #00c853;
+  }
+  .footer .links {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .footer .menu-section {
+    width: 60%;
+    padding: 80px 40px 0px 40px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+  }
+  .footer .menu {
+    width: 40%;
+    padding-left: 5%;
+  }
+  .footer .menu:first-child {
+    border-right: 4px solid #ddd;
+  }
+  .footer .menu-head {
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 1.4em;
+    margin-top: 0px;
+    margin-bottom: 1rem;
+    font-weight: 800;
+  }
+  .footer .menu > .submenu {
+    padding-left: 0;
+    margin: 1rem 0;
+  }
+  .footer .socialIcons {
+    margin: 10px 0px;
+  }
+  .footer .socialIcons .socialIcon {
+    margin: 5px;
+  }
+  .footer .socialIcons .socialIcon img:hover {
+    transform: scale(1.1);
+    transition: 0.5s ease;
+  }
+
+  @media screen and (max-width: 1120px) {
+    .footer .submenu li a {
+      font-size: 0.9rem;
+    }
+    .footer .elevate {
+      width: 45%;
+    }
+    .footer .menu-section {
+      width: 55%;
+    }
+    .footer .menu:first-child {
+      width: 45%;
+    }
+    .footer .menu:last-child {
+      width: 51%;
+    }
+    .footer .elevate > div {
+      padding-left: 30px;
+    }
+    .footer .elevate > div > .logo {
+      width: 100px;
+    }
+    .footer .socialIcons .socialIcon img {
+      width: 32px;
+    }
+    .footer .copyright p {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+    .footer .elevate > div {
+      padding-left: 30px;
+    }
+    .footer .elevate {
+      width: 45%;
+    }
+    .footer .elevate > div {
+      padding: 5% 0%;
+      padding-left: 40px;
+    }
+    .footer .elevate > div > p {
+      font-size: 14px;
+    }
+    .footer .menu-section {
+      width: 55%;
+    }
+    .footer .menu {
+      width: 35%;
+      padding-left: 2%;
+    }
+    .footer .socialIcons .socialIcon {
+      margin: 5px 2px;
+    }
+    .footer .socialIcons .socialIcon img {
+      width: 24px;
+    }
+    .footer .menu-head {
+      letter-spacing: 0.05em;
+      font-size: 1.2em;
+    }
+    .footer .menu > .submenu > .links {
+      font-size: 14px;
+    }
+  }
+
+  @media screen and (min-width: 720px) and (max-width: 785px) {
+    .footer .elevate {
+      width: 45%;
+      padding: 2% 0%;
+    }
+    .footer .elevate > div {
+      padding: 2% 0%;
+      padding-left: 40px;
+    }
+    .footer .elevate > div > .logo {
+      width: 80px;
+    }
+    .footer .elevate > div > h3 {
+      font-size: 0.9em;
+    }
+    .footer .elevate > div > h4 {
+      font-size: 0.7em;
+      line-height: 1em;
+    }
+    .footer .elevate > div > p {
+      font-size: 12px;
+      width: 70%;
+    }
+    .footer .elevate > div > .submenu {
+      margin: 0em;
+      padding: 0px;
+    }
+    .footer .elevate > div > .submenu > li {
+      font-size: 12px;
+    }
+    .footer .menu-section {
+      padding: 50px 20px 0px 20px;
+      width: 55%;
+    }
+    .footer .menu > h3 {
+      font-size: 1em;
+      letter-spacing: 0.05em;
+    }
+    .footer .menu > .submenu > .links {
+      font-size: 12px;
+    }
+    .footer .socialIcons .socialIcon img {
+      width: 20px;
+    }
+  }
+
+  @media screen and (max-width: 720px) {
+    .footer .prefooter {
+      width: 100%;
+    }
+    .footer .elevate {
+      width: 100%;
+      transform: skew(0deg);
+      margin-left: 0px;
+    }
+    .footer .elevate > div {
+      transform: skew(0deg);
+      padding-left: 0px;
+    }
+    .footer .elevate > div > p {
+      width: 90%;
+    }
+    .footer .menu-section {
+      width: 100%;
+      padding: 30px 10px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-around;
+      flex-wrap: nowrap;
+      flex-direction: row;
+    }
+    .footer .menu {
+      margin-left: 2%;
+    }
+    .footer .menu:last-child {
+      margin-left: 6%;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .footer .menu:last-child {
+      margin-left: 2%;
+    }
+    .footer .menu-section {
+      flex-direction: column;
+    }
+    .footer .menu {
+      width: 90%;
+    }
+    .footer .menu:first-child {
+      border-right: none;
+      border-bottom: 4px solid #ddd;
+    }
+  }
+}

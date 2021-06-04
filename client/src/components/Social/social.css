@@ -15,6 +15,10 @@
   justify-content: center;
   margin: 0;
   padding: 0;
+  list-style-type: none;
+}
+.socialMediaDiv > ul li{
+  margin:.0 1rem;
 }
 .social a:hover,.social a:active{
     text-decoration: none;

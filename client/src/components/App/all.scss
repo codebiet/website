@@ -1,24 +1,25 @@
 @import "~bootstrap/scss/bootstrap";
+// @import "~aos/src/sass/aos.scss";
 @import url("perfect-scrollbar/css/perfect-scrollbar.css");
 
 // merged css files -- start
 @import "../About/about";
-@import "../Footer/footer";
 @import "../Founder/founder";
-@import "../Newsletter/newsletter";
+// @import "../Newsletter/newsletter";
 @import "../Social/social";
-@import "../Testimonials/testimonials";
+// @import "../Testimonials/testimonials";
 @import "../../styles/contact";
 @import "../../styles/events";
-@import "../../styles/home";
+// @import "../../styles/home";
 @import "../../styles/projects";
 // merged css files -- end
+@import "../EventCard/eventCard.scss";
 @import "./theme.scss";
 @import "../Dashboard_Profile/paper-dashboard.scss";
 @import "../Resume/resumeTemplate2.scss";
 //merged css files -- start
-@import "../Navbar/nav";
-@import "../Footer/footer";
+@import "../Navbar/nav.scss";
+@import "../Footer/footer.scss";
 //merged css files --end
 @import "../Authentication/register.scss";
 @import "../CertificateVerification/certificateVerification.scss";
@@ -34,3 +35,5 @@
 @import "../Dashboard_Articles/articles.scss";
 @import "../Dashboard_Competitions/competitions.scss";
 @import "../Dashboard_Projects/projects.scss";
+@import "../Home/Home.scss";
+@import "../Home/blogCardStyle.scss";

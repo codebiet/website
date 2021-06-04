@@ -9,6 +9,9 @@ $theme-colors: (
 }
 a{
   text-decoration: none;
+  &:visited{
+    color:unset;
+  }
 }
 body{
   font-family: "Nunito", sans-serif;

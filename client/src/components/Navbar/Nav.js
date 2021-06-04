@@ -1,120 +1,191 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../../state/Store";
-import { NavLink, useHistory } from "react-router-dom";
-import contact from "../assets/contactSVG.svg";
-import project from "../assets/projectSVG.svg";
-import events from "../assets/eventSVG.svg";
-import about from "../assets/aboutSVG.svg";
+import { NavLink } from "react-router-dom";
+import logo from "../assets/codelogo.png";
 function Nav() {
-  let history = useHistory();
   const auth = useContext(AuthContext);
-  let [showSideNav, setSideNav] = useState(false);
-  let close = function (event) {
-    if (event.target.id) {
-      history.push(event.target.id);
-      setSideNav(!showSideNav);
-    }
-  };
   return (
-    <div>
-      <div className="header">
-        <div className="hamburger">
-          <button onClick={() => setSideNav(!showSideNav)}>&#9776;</button>
+    <div className="main-header-nav-container">
+      <nav>
+        {/* <!-- logo --> */}
+        <div id="logo">
+          <img src={logo} alt="code logo" />
         </div>
-
-        {!showSideNav && (
-          <div className="logo">
-            <NavLink to="/">C.O.D.E</NavLink>
-          </div>
-        )}
-
-        {showSideNav && (
-          <div className="sideNav">
-            <div className="close" onClick={() => setSideNav(!showSideNav)}>
-              X
-            </div>
-            <NavLink
-              to="/"
-              className="logoSideNav"
-              onClick={() => setSideNav(!showSideNav)}
-            >
-              <h1>C.O.D.E</h1>
-              <p>Learn Build Innovate </p>
-            </NavLink>
-            <ul className="sidebar" onClick={close}>
-              <li>
-                <div className="navTabs" id="projects">
-                  Projects
-                </div>
-              </li>
-              <li>
-                <div className="navTabs" id="events">
-                  Events
-                </div>
-              </li>
-
-              <li>
-                <div className="navTabs" id="about">
-                  About Us
-                </div>
-              </li>
-              <li>
-                <div className="navTabs" id="blogs">
-                  Blogs
-                </div>
-              </li>
-              <li>
-                <div className="navTabs" id="contact">
-                  Contact
-                </div>
-              </li>
-            </ul>
-          </div>
-        )}
-        <div className="navItems">
-          <ul>
+        {/* <!-- hamburger icon --> */}
+        <label id="ham" for="toggle">
+          <span className="slice"> </span>
+          <span className="slice"> </span>
+          <span className="slice"> </span>
+        </label>
+        <input type="checkbox" name="" id="toggle" />
+        {/* <!-- navigation menu --> */}
+        <div id="menu">
+          <ul className="nav">
             <li>
-              <NavLink to="/projects">
-                <img src={project} alt="project-icon" className="icons"></img>
-                Projects
-              </NavLink>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/events">
-                <img src={events} alt="event-icon" className="icons"></img>{" "}
-                Events
+              <NavLink to="#">
+                Resources{" "}
+                <img src="https://img.icons8.com/metro/26/000000/sort-down.png" />
               </NavLink>
+              <div>
+                <div className="nav-column">
+                  {/* <!-- <h3>Resources</h3> --> */}
+                  <ul>
+                    <li>
+                      <NavLink to="#">
+                        <img
+                          src="https://img.icons8.com/metro/26/000000/sort-down.png"
+                          className="elevated"
+                        />{" "}
+                        Articles
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="#team">
+                        <img
+                          src="https://img.icons8.com/metro/26/000000/sort-down.png"
+                          className="elevated"
+                        />{" "}
+                        Our Team
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="#">
+                        <img
+                          src="https://img.icons8.com/metro/26/000000/sort-down.png"
+                          className="elevated"
+                        />{" "}
+                        Club Activities
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="#">
+                        <img
+                          src="https://img.icons8.com/metro/26/000000/sort-down.png"
+                          className="elevated"
+                        />{" "}
+                        Projects
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="#">
+                        <img
+                          src="https://img.icons8.com/metro/26/000000/sort-down.png"
+                          className="elevated"
+                        />{" "}
+                        Achievements
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="#">
+                        <img
+                          src="https://img.icons8.com/metro/26/000000/sort-down.png"
+                          className="elevated"
+                        />{" "}
+                        Event Gallery
+                      </NavLink>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </li>
             <li>
-              <NavLink to="/blogs">Blogs</NavLink>
-            </li>
-
-            <li>
-              <NavLink to="/about">
-                <img src={about} alt="about-icon" className="icons"></img>About
-                Us
+              <NavLink to="#">
+                Actions{" "}
+                <img src="https://img.icons8.com/metro/26/000000/sort-down.png" />
               </NavLink>
+              <div>
+                <div className="nav-column">
+                  <ul>
+                    <li>
+                      <NavLink to="#">
+                        <img
+                          src="https://img.icons8.com/metro/26/000000/sort-down.png"
+                          className="elevated"
+                        />{" "}
+                        Work with Us
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="#">
+                        <img
+                          src="https://img.icons8.com/metro/26/000000/sort-down.png"
+                          className="elevated"
+                        />{" "}
+                        Give Suggestions
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="#">
+                        <img
+                          src="https://img.icons8.com/metro/26/000000/sort-down.png"
+                          className="elevated"
+                        />{" "}
+                        Discussion Forum
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/verifyCertificate">
+                        <img
+                          src="https://img.icons8.com/metro/26/000000/sort-down.png"
+                          className="elevated"
+                        />{" "}
+                        Certificate Verification
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="#">
+                        <img
+                          src="https://img.icons8.com/metro/26/000000/sort-down.png"
+                          className="elevated"
+                        />{" "}
+                        Report a Bug ?
+                      </NavLink>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </li>
             <li>
-              <NavLink to="/contact">
-                <img src={contact} alt="contact-icon" className="icons"></img>
-                Contact
-              </NavLink>
+              <NavLink to="/contact">Contact Us</NavLink>
             </li>
           </ul>
+          {!auth.state.userLoggedIn && (
+            <ul className="cta-bar" style={{ margin: "1rem 0" }}>
+              <li>
+                <NavLink
+                  to="/login"
+                  className="cta cta-1"
+                  style={{ color: "#ec7c2d" }}
+                >
+                  Login
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/register"
+                  className="cta cta-2"
+                  style={{ color: "white" }}
+                >
+                  Join Now
+                </NavLink>
+              </li>
+            </ul>
+          )}
+          {auth.state.userLoggedIn && (
+            <NavLink to="/dashboard" className="nav-user-container">
+              <img
+                className="avtar-img"
+                src="https://www.w3schools.com/howto/img_avatar.png"
+                alt=""
+              />
+              <span>{auth.state.userName}</span>
+            </NavLink>
+          )}
         </div>
-        <div></div>
-
-        {auth.state.userLoggedIn ? (
-          <NavLink to="/dashboard" className="loginButton">
-            User
-          </NavLink>
-        ) : (
-          <NavLink className="loginButton" to="/login">
-            Login
-          </NavLink>
-        )}
-      </div>
+      </nav>
     </div>
   );
 }
