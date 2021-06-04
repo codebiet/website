@@ -25,9 +25,13 @@ const FaqAccordion = ({ header, description }) => {
   const toggle = () => setIsOpen(!isOpen);
   return (
     <li style={{ display: "list-item" }}>
-      <button onClick={toggle} className={isOpen ? "collapse" : "collapsed"} style={{lineHeight:"22px"}}>
-          {header}
-          <i className="fa fa-chevron-up"></i>
+      <button
+        onClick={toggle}
+        className={isOpen ? "collapse" : "collapsed"}
+        style={{ lineHeight: "22px" }}
+      >
+        {header}
+        <i className="fa fa-chevron-up"></i>
       </button>
       <Collapse isOpen={isOpen}>
         <p>{description}</p>
@@ -42,15 +46,16 @@ const Faqs = (props) => {
   }, []);
   return (
     <section id="faq" className="faq">
-      <div className="container" data-aos="fade-up">
+      <div className="container" data-aos="fade-up" data-aos-once={true}>
         <header className="section-header">
-          <h3 style={{lineHeight:"40px"}}>Frequently Asked Questions</h3>
+          <h3 style={{ lineHeight: "40px" }}>Frequently Asked Questions</h3>
         </header>
 
         <ul
           id="faq-list"
           data-aos="fade-up"
           data-aos-delay="100"
+          data-aos-once={true}
           data-aos-duration="800"
         >
           {faqsData.map((faq) => {

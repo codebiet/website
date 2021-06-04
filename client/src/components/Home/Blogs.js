@@ -101,6 +101,7 @@ const Blogs = (props) => {
       className="w3l-blog-content blog-section py-5 grey-bg"
       data-aos="fade-left"
       data-aos-delay="100"
+      data-aos-once={true}
       data-aos-duration="1000"
     >
       <div className="container py-md-5 py-4">
@@ -122,111 +123,13 @@ const Blogs = (props) => {
                 className="col-lg-4 col-md-6 col-sm-12 col-xs-12 blog-card"
                 data-aos="zoom-in"
                 data-aos-delay="100"
+                data-aos-once={true}
                 data-aos-duration="800"
               >
                 <BlogCard {...data} />
               </div>
             );
           })}
-          {/* <div
-            className="col-lg-4 col-md-6 col-sm-12 col-xs-12 blog-card"
-            data-aos="zoom-in"
-            data-aos-delay="100"
-            data-aos-duration="1000"
-          >
-            <div className="card-wrapper">
-              <div className="card-header p-0 position-relative">
-                <Link to="#blog" className="zoom d-block">
-                  <img
-                    className="card-img-bottom d-block"
-                    src={typographyBanner}
-                    alt="Card image cap"
-                  />
-                </Link>
-                <div className="course-price-badge">Designing</div>
-              </div>
-              <div className="card-body course-details">
-                <div className="course-meta mb-3">
-                  <div className="meta-item course-students">
-                    <Link to="#author">
-                      <span className="fas fa-user"></span>
-                      <span className="meta-value"></span>Rishi
-                    </Link>
-                  </div>
-                  <div className="meta-item course-lesson">
-                    <span className="fa fa-heart"></span>
-                    <span className="meta-value"> 33 </span>
-                  </div>
-                  <div className="meta-item course-students">
-                    <span className="fa fa-calendar"></span>
-                    <span className="meta-value"> 27.05.2021</span>
-                  </div>
-                </div>
-                <Link to="#blog" className="course-desc">
-                  10 Alternatives of Google Fonts
-                </Link>
-                <p className="mt-3">
-                  Lorem ipsum dolor sit, amet consectetur elit. Earum mollitia
-                  cum ex ipsam autem!, earum. Fuga, soluta sequi!
-                </p>
-                <div className="blog-bottom-info">
-                  <Link to="#blog" className="btn btn-style">
-                    Read more
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            className="col-lg-4 col-md-6  col-sm-12 col-xs-12 blog-card"
-            data-aos="zoom-in"
-            data-aos-delay="100"
-            data-aos-duration="1000"
-          >
-            <div className="card-wrapper">
-              <div className="card-header p-0 position-relative">
-                <Link to="#blog" className="zoom d-block">
-                  <img
-                    className="card-img-bottom d-block"
-                    src={designEssentialImage}
-                    alt="Card image cap"
-                  />
-                </Link>
-                <div className="course-price-badge">Resources</div>
-              </div>
-              <div className="card-body course-details">
-                <div className="course-meta mb-3">
-                  <div className="meta-item course-students">
-                    <Link to="#author">
-                      <span className="fas fa-user"></span>
-                      <span className="meta-value"></span>Rishi
-                    </Link>
-                  </div>
-                  <div className="meta-item course-lesson">
-                    <span className="fa fa-heart"></span>
-                    <span className="meta-value"> 54 </span>
-                  </div>
-                  <div className="meta-item course-students">
-                    <span className="fa fa-calendar"></span>
-                    <span className="meta-value"> 27.05.2021</span>
-                  </div>
-                </div>
-                <Link to="#blog" className="course-desc">
-                  10 Websites for Stock Photos
-                </Link>
-                <p className="mt-3">
-                  Lorem ipsum dolor sit, amet consectetur elit. Earum mollitia
-                  cum ex ipsam autem!, earum. Fuga, soluta sequi!
-                </p>
-                <div className="blog-bottom-info">
-                  <Link to="#blog" className="btn btn-style">
-                    Read more
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-         */}
         </div>
       </div>
     </div>

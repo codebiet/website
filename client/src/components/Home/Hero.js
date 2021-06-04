@@ -98,25 +98,33 @@ const Hero = (props) => {
     }, 100);
     return () => clearTimeout(timer);
   }, [typed]);
-  useEffect(()=>{
-      AOS.init();
-      AOS.refresh();
-  },[]);
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
     <section
       id="home"
       className="w3l-banner py-5"
       data-aos="zoom-out-down"
       data-aos-delay="100"
+      data-aos-once={true}
       data-aos-duration="1000"
     >
       <div
         className="banner-image"
         data-aos="fade-up"
         data-aos-delay="100"
+        data-aos-once={true}
         data-aos-duration="500"
       ></div>
-      <div className="banner-content" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="1000">
+      <div
+        className="banner-content"
+        data-aos="zoom-in"
+        data-aos-delay="100"
+        data-aos-once={true}
+        data-aos-duration="1000"
+      >
         <div className="container pt-5 pb-md-4">
           <div className="row banner-items align-items-center">
             <div className="col-lg-5 col-md-6 pt-md-0 pt-4">
@@ -130,7 +138,11 @@ const Hero = (props) => {
                 field of study or their current level of knowledge.
               </p>
               <div className="mt-md-5 mb-lg-0">
-                <Link className="btn btn-style" to="/#whatWeDoSection" style={{fontWeight:700,textTransform:"capitalize"}}>
+                <Link
+                  className="btn btn-style"
+                  to="/#whatWeDoSection"
+                  style={{ fontWeight: 700, textTransform: "capitalize" }}
+                >
                   View our Works
                 </Link>
               </div>
