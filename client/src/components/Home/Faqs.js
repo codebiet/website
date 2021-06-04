@@ -1,14 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
-import { Link } from "react-router-dom";
-import { Collapse,Button } from "reactstrap";
-
-import { makeStyles } from "@material-ui/core/styles";
-import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
-import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { Collapse } from "reactstrap";
 const faqsData = [
   {
     header: "Non consectetur a erat nam at lectus urna duis?",

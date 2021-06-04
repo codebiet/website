@@ -1,9 +1,6 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import { Link } from "react-router-dom";
-import webpackImage from "../assets/webpack.png";
-import typographyBanner from "../assets/typographybanner.png";
-import designEssentialImage from "../assets/design essentials 03.png";
 import like from "../assets/like.png";
 import user from "../assets/user.png";
 import calendar from "../assets/calendar.png";
