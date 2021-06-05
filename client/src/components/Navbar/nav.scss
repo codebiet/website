@@ -115,7 +115,6 @@
     width: 100%;
     top: 50px;
     left: 0;
-
     opacity: 0;
     visibility: hidden;
     overflow: hidden;
@@ -190,7 +189,7 @@
     margin-bottom: 3px;
     background: #111;
   }
-  #ham:hover > .slice {
+  #ham.open > .slice {
     background: #e45c2c;
     transition: 0.4s ease;
   }
@@ -230,20 +229,26 @@
       display: block;
       width: 100%;
     }
+    .nav > li > div{
+      max-height: 0;
+      visibility: visible;
+      opacity: 1;
+      transition: max-height 0.8s ease;
+    }
     .nav > li:hover > div {
       position: inherit;
       display: block;
       width: 100%;
       opacity: 1;
-      visibility: visible;
+      // visibility: visible;
       margin-top: 20px;
-      height: auto;
+      max-height: 900vh;
       margin: 20px 0px;
       background: transparent;
       margin-top: 0px;
+      margin-bottom:0;
       padding: 0px;
       box-shadow: none;
-      transition: 0.8s ease-in;
     }
     .nav > li:hover > div > .nav-column > ul > li > a {
       padding: 0 15px;
@@ -272,17 +277,17 @@
       display: block;
       margin: 10px;
     }
-    #ham:hover > .slice:last-child {
+    #ham.open > .slice:last-child {
       display: none;
       visibility: hidden;
       transition: 0.1s;
     }
-    #ham:hover > .slice:first-child {
+    #ham.open > .slice:first-child {
       background: #e45c2c;
       transform: rotate(45deg);
       transition: 0.4s ease;
     }
-    #ham:hover > .slice:nth-child(2) {
+    #ham.open > .slice:nth-child(2) {
       background: #e45c2c;
       transform: rotate(135deg);
       margin-top: -7px;

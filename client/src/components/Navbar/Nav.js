@@ -4,6 +4,10 @@ import { NavLink } from "react-router-dom";
 import logo from "../assets/codelogo.png";
 function Nav() {
   const auth = useContext(AuthContext);
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => {
+    setIsOpen(prev => !prev);
+  }
   return (
     <div className="main-header-nav-container">
       <nav>
@@ -12,7 +16,7 @@ function Nav() {
           <img src={logo} alt="code logo" />
         </div>
         {/* <!-- hamburger icon --> */}
-        <label id="ham" for="toggle">
+        <label className={isOpen ? "open" : "close"} id="ham" htmlFor="toggle" onClick={toggle}>
           <span className="slice"> </span>
           <span className="slice"> </span>
           <span className="slice"> </span>
