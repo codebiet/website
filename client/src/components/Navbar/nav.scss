@@ -1,10 +1,40 @@
 /* Reset default Styles */
+@-webkit-keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(-100px);
+    transform: translateY(-100px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(-100px);
+    transform: translateY(-100px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
 .main-header-nav-container {
   width: 100vw;
   margin: 0;
   padding: 0;
   height: auto;
   text-align: left;
+  background: white;
+  height: 100px;
+  display:flex;
+  align-items: center;
+  &.fixed-top {
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2);
+    -webkit-animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      both;
+    animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
   nav,
   .nav,
   .nav a,
@@ -21,6 +51,7 @@
     align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
+    width:100%;
   }
   #menu {
     display: flex;
@@ -229,7 +260,7 @@
       display: block;
       width: 100%;
     }
-    .nav > li > div{
+    .nav > li > div {
       max-height: 0;
       visibility: visible;
       opacity: 1;
@@ -246,7 +277,7 @@
       margin: 20px 0px;
       background: transparent;
       margin-top: 0px;
-      margin-bottom:0;
+      margin-bottom: 0;
       padding: 0px;
       box-shadow: none;
     }

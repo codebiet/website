@@ -1,22 +1,37 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../state/Store";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/codelogo.png";
 function Nav() {
   const auth = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
+  const ref = React.createRef();
   const toggle = () => {
-    setIsOpen(prev => !prev);
-  }
+    setIsOpen((prev) => !prev);
+  };
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log(window.scrollY);
+      if (window.scrollY > 100) ref.current.classList.add("fixed-top");
+      else ref.current.classList.remove("fixed-top");
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
   return (
-    <div className="main-header-nav-container">
+    <div className="main-header-nav-container" ref={ref}>
       <nav>
         {/* <!-- logo --> */}
         <div id="logo">
           <img src={logo} alt="code logo" />
         </div>
         {/* <!-- hamburger icon --> */}
-        <label className={isOpen ? "open" : "close"} id="ham" htmlFor="toggle" onClick={toggle}>
+        <label
+          className={isOpen ? "open" : "close"}
+          id="ham"
+          htmlFor="toggle"
+          onClick={toggle}
+        >
           <span className="slice"> </span>
           <span className="slice"> </span>
           <span className="slice"> </span>
