@@ -2,8 +2,10 @@
 // @import "~aos/src/sass/aos.scss";
 @import url("perfect-scrollbar/css/perfect-scrollbar.css");
 
+@import "../About/about.scss";
+@import "../Executives/executives.scss";
+@import "../Values/values.scss";
 // merged css files -- start
-@import "../About/about";
 @import "../Founder/founder";
 // @import "../Newsletter/newsletter";
 @import "../Social/social";

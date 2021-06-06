@@ -1,0 +1,64 @@
+.aboutCODE {
+  .exe {
+    text-align: center;
+    height: auto;
+    margin: auto;
+    margin-bottom: 0px !important;
+    align-items: center;
+    justify-content: center;
+    /* background-color: oldlace; */
+    max-width: 1360px;
+    border-radius: 4px;
+  }
+  .executives {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .exe h1 {
+    font-size: 40px;
+    font-family: inherit;
+  }
+  .exe_name {
+    font-size: 1.5em;
+    margin-top: 15px;
+  }
+  .exe_tag {
+    margin-top: 0px;
+    font-size: 1em;
+  }
+
+  .exe_main_cot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    width: 260px;
+    margin-bottom: 10px;
+    margin-left: 2%;
+    margin-right: 2%;
+    height: 100%;
+    /* border: 1px solid black; */
+  }
+
+  .cards_item_img1 {
+    border-radius: 100%;
+    border: 7px solid aliceblue;
+    height: 180px;
+    width: 180px;
+    object-fit: cover;
+  }
+  .cards_item_img1:hover {
+    filter: grayscale(100%);
+  }
+
+  .des {
+    width: 40%;
+    margin: 8px auto;
+    display: flex;
+    justify-content: space-between;
+  }
+}

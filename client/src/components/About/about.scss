@@ -1,0 +1,91 @@
+.about-container-main {
+  .about {
+    padding: 20px;
+    max-width: 1360px;
+    margin: 0 auto;
+    font-family: "Nunito";
+    font-size: 22px;
+    text-align: center;
+  }
+  .aboutCODE {
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .aboutCODE > section {
+    display: flex;
+    margin-top: 5%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  h3 {
+    text-align: center;
+  }
+  .aboutCODE h1 {
+    padding-left: 0;
+    margin: 0;
+    color: rgb(97, 93, 93);
+    margin-bottom: 3%;
+  }
+  .aboutCODE p {
+    color: grey;
+    font-size: 20px;
+    margin: 0;
+  }
+  .aboutHead {
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    max-width: 620px;
+    align-items: center;
+  }
+  .aboutImg {
+    width: 100%;
+  }
+  .aboutImage {
+    padding: 10px;
+    max-width: 263px;
+  }
+
+  .founderrDivConainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Vision Css */
+
+  #Visionlist {
+    list-style-type: disc;
+    padding: 0px;
+  }
+  #Visionlist .VisionlistItems {
+    display: list-item;
+    color: #202124;
+    margin: 5px;
+    padding: 4px;
+    font-size: 16px;
+    text-align: justify;
+  }
+
+  @media only screen and (max-width: 1097px) {
+    .aboutImage {
+      display: none;
+    }
+    .aboutHead {
+      max-width: 939px;
+    }
+    .asdf {
+      display: block;
+      margin-top: 3%;
+    }
+    .aboutCODE h1 {
+      text-align: center;
+    }
+  }
+
+  @media only screen and (max-width: 425px) {
+    .aboutCODE {
+      padding: 10px;
+    }
+  }
+}

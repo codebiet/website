@@ -1,24 +1,33 @@
-import React, { lazy } from "react";
-const Founder = lazy(() => import("../Founder/founder"));
+import React from "react";
+import img from "../assets/vission.svg";
+
 function Mission() {
   return (
-    <div className="mission">
+    <div className="aboutCODE">
       <section>
-        <h1>Why we are building C.O.D.E</h1>
-        <div>
-          <p>
-            With the rising trend of video consumption, we believe videos are a
-            great medium to educate & train people. But we found a gap that
-            there are not much product video creation tools or video-first
-            product onboarding platforms. So we went and built one. With Trainn
-            you can create product training videos including product
-            walkthroughs and host as a training academy or embed within your
-            product as structured learning paths during onboarding process.
-          </p>
+        <div className="aboutImage">
+          <img src={img} alt="about-img" className="aboutImg"></img>
         </div>
-      </section>
-      <section>
-        <Founder />
+        <div className="aboutHead">
+          <h1 className="BlockHeading">
+            Why we are building <span className="Headingspan">C.O.D.E</span>
+          </h1>
+          <ul id="Visionlist">
+            <li className="VisionlistItems">
+              With the rising trend of video consumption, we believe videos are
+              a great medium to educate & train people
+            </li>
+            <li className="VisionlistItems">
+              But we found a gap that there are not much product video creation
+              tools or video-first product onboarding platforms.
+            </li>
+            <li className="VisionlistItems">
+              We went and built one. With Trainn you can create product training
+              videos including product walkthroughs and host as a training
+              academy
+            </li>
+          </ul>
+        </div>
       </section>
     </div>
   );

@@ -20,11 +20,11 @@ $font1: "Nunito", sans-serif;
   }
 
   .work_with_us h2 {
-    font-size: 2.5em;
+    font-size: 2rem;
     margin-bottom: 0px;
   }
   .work_with_us p {
-    font-size: 1.5em;
+    font-size: 1.4rem;
     margin-top: 0px;
   }
 
@@ -42,7 +42,6 @@ $font1: "Nunito", sans-serif;
     border-radius: 20px;
     color: #fff;
     display: block;
-    font-size: 1.5em;
     font-weight: bold;
     cursor: pointer;
     margin: 1em auto;
@@ -50,6 +49,13 @@ $font1: "Nunito", sans-serif;
     position: relative;
     overflow: hidden;
     text-transform: uppercase;
+    font-size: 1.4rem;
+    @media (max-width:1000px){
+      font-size:1.2rem;
+    }
+    @media (max-width:768px){
+      font-size:1rem;
+    }
   }
 
   .transitionbtn::before,
@@ -84,11 +90,11 @@ $font1: "Nunito", sans-serif;
 
   @media screen and (max-width: 768px) {
     .work_with_us h2 {
-      font-size: 2.2em;
+      font-size: 1.7rem;
       margin-bottom: 0px;
     }
     .work_with_us p {
-      font-size: 1.5em;
+      font-size: 1.3rem;
       margin-top: 0px;
     }
     .transitionbtn {
@@ -99,7 +105,7 @@ $font1: "Nunito", sans-serif;
 
   @media screen and (max-width: 500px) {
     .work_with_us h2 {
-      font-size: 2em;
+      font-size: 1.4em;
       margin-bottom: 0px;
     }
     .work_with_us p {
@@ -114,10 +120,10 @@ $font1: "Nunito", sans-serif;
 
   @media screen and (max-width: 426px) {
     .work_with_us h2 {
-      font-size: 22px;
+      font-size: 1.2rem;
     }
     .work_with_us p {
-      font-size: 16px;
+      font-size: .95rem;
     }
     .transitionbtn {
       width: 100%;
