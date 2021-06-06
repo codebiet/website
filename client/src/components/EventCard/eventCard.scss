@@ -16,6 +16,7 @@
   overflow: hidden;
   margin-bottom: 3%;
   transition: transform .3s ease-in-out;
+  background:white;
   &:hover{
     transform: scale(1.01);
   }
