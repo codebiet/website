@@ -1,0 +1,112 @@
+.card_main_cot {
+  height: auto;
+  margin: 10px auto;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+
+  display: block;
+
+  .c {
+    position: relative;
+  }
+
+  .card_cot {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 70px;
+  }
+
+  .card_wrapper {
+    height: auto;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .profile-card {
+    /* width: 300px; */
+    text-align: center;
+
+    box-shadow: 0 6px 20px rgba(35, 44, 49, 0.17);
+    border-radius: 6px;
+    -webkit-filter: drop-shadow(0 6px 20px rgba(79, 240, 39, 0.017));
+    filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+    overflow: hidden;
+    margin: 10px 10px 0px 10px;
+  }
+
+  .card-header {
+    /* margin-top: 40px; */
+    background: #ffffff;
+    padding: 10px 30px;
+    a{
+        text-decoration: none;
+    }
+    /* margin-left: 20px; */
+  }
+
+  .pic {
+    display: inline-block;
+    /* padding: 8px; */
+    margin: auto;
+    border-radius: 100%;
+    /* background-size: 200% 200%; */
+  }
+
+  .pic img {
+    border: 3px solid rgb(255, 255, 255);
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    object-fit: cover;
+  }
+
+  .name {
+    color: #ec7c2d;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .desc {
+    font-size: 15px;
+    color: black;
+    margin-bottom: 4px;
+  }
+
+  .sm {
+    display: flex;
+    justify-content: center;
+  }
+
+  .sm a {
+    color: #000000;
+    width: 56px;
+    font-size: 1rem;
+    margin-top: 0;
+  }
+
+  .sm a:hover {
+    color: #ec7c2d;
+  }
+
+  .card-footer {
+    background: #f4f4f4;
+    padding: 50px 10px;
+  }
+
+  .border {
+    width: 1px;
+    height: 30px;
+    background: #bbb;
+  }
+
+  @media only screen and (max-width: 800px) {
+    .card_wrapper {
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+  }
+}

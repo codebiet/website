@@ -40,6 +40,7 @@ import Error404 from "../../pages/404";
 import Events from "../../pages/events";
 import ProjectsPage from "../../pages/projects";
 import EventDetails from "../../pages/events";
+import BietGems from "../../pages/BietGems";
 // const Register = lazy(() => import("../../pages/Register"));
 // const SentVerifyEmail = lazy(() => import("../../pages/SentVerifyEmail"));
 // const Login = lazy(() => import("../../pages/Login"));
@@ -132,6 +133,11 @@ function App() {
               exact={true}
               path="/verifyCertificate"
               render={(props) => <CertificateVerification {...props} />}
+            />
+            <Route
+              path="/bietGems"
+              exact
+              render={(props) => <BietGems {...props} />}
             />
             <Route path="/projects" component={ProjectsPage} />
             <Route path="/contact" component={Contact} />

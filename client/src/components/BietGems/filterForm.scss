@@ -1,0 +1,84 @@
+.FilterDiv {
+  box-shadow: 0px 0px 8px rgba(46, 45, 45, 0.658);
+  margin: 20px 0px;
+  margin-top: 50px;
+  padding: 10px;
+  border-radius: 8px;
+  width: 100%;
+
+  h2 {
+    /* font-weight:300; */
+    margin: 10px;
+    text-align: center;
+  }
+  .Filters {
+    display: flex;
+    width: auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 14px 0px;
+  }
+
+  .Filters .FilterItem {
+    width: 30%;
+    min-width: 300px;
+    /* margin: 8px; */
+  }
+
+  .submitbtn {
+    width: 30%;
+    margin: auto;
+    min-width: 300px;
+  }
+  .submitbtn button {
+    width: 100%;
+    background-color: #ec7c2d;
+    color: #fff;
+    border: 1px solid white;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 18px;
+  }
+
+  .submitbtn button:hover {
+    background-color: gray;
+  }
+
+  /* .submitbtn span.icon{
+          margin-right: 8px;
+          height: 18px;
+      } */
+  .FilterItem select {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid black;
+  }
+  .FilterItem select:focus {
+    border: 1px solid #ec7c2d;
+  }
+
+  /* Media Quaries */
+
+  @media only screen and (max-width: 1000px) {
+    .Filters {
+      justify-content: center;
+    }
+    .FilterItem {
+      margin: 8px;
+    }
+
+    .Filters .FilterItem,
+    .submitbtn {
+      width: 95%;
+    }
+  }
+
+  @media only screen and (max-width: 650px) {
+    .Filters .FilterItem {
+      width: 95%;
+      min-width: 200px;
+    }
+  }
+}
