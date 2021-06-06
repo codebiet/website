@@ -1,0 +1,183 @@
+$font1: "Nunito", sans-serif;
+$font2: "Poppins", sans-serif;
+.feedback-main {
+  .complete-screen {
+    margin: 0px auto;
+    padding: 0px;
+    letter-spacing: 1px;
+    width: 85%;
+  }
+
+  .feedbackHead {
+    margin: 10px auto;
+    color: rgb(255, 177, 60);
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    letter-spacing: 3px;
+    font-family: $font1;
+    font-weight: bold;
+  }
+
+  .leftDiv {
+    position: relative;
+    display: flex;
+    margin: 40px auto;
+
+    justify-content: space-between;
+    width: 100%;
+    min-height: 400px;
+    flex-wrap: wrap;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .column {
+    flex: 1; /* Standard syntax */
+    padding: 10px;
+    margin: 0px 10px;
+  }
+
+  .leftCol {
+    min-width: 400px;
+    text-align: center;
+  }
+
+  .imgBlock {
+    display: inline-block;
+  }
+
+  .leftColHeading {
+    font-size: 28px;
+    font-weight: bold;
+    font-family: $font2;
+    letter-spacing: 2px;
+    color: black;
+  }
+
+  .leftColPara {
+    font-size: 18px;
+    color: rebeccapurple;
+    font-family: $font1;
+  }
+
+  .rightCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+
+    background-color: #ffffff;
+    border: 2px solid rgb(255, 255, 255);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .rightCol p {
+    text-align: center;
+    font-size: 28px;
+    font-family: $font2;
+  }
+  .formBlock {
+    margin-top: 40px;
+    min-width: 400px;
+    width: 100%;
+    padding: 0px;
+  }
+
+  .formBlock textarea {
+    resize: none;
+    height: 150px;
+    width: 100%;
+    outline: none;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 -3px 6px rgba(0, 0, 0, 0.23);
+    font-size: 14px;
+    font-family: $font2;
+    color: black;
+    font-weight: normal;
+  }
+  .btnDefault {
+    margin: 0px auto;
+    margin-top: 20px;
+    background-color: #ec7c2d;
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: $font2;
+  }
+
+  /* Media Queries */
+  @media screen and (max-width: 1288px) {
+    .rightCol p {
+      font-size: 24px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .column {
+      padding: 10px;
+      margin: 0px;
+    }
+    .leftDiv {
+      margin: 20px auto;
+    }
+    .feedbackHead {
+      margin: 20px auto;
+      width: 90%;
+    }
+
+    .rightCol p {
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .complete-screen {
+      width: 95%;
+    }
+
+    .formBlock {
+      min-width: 360px;
+    }
+  }
+
+  @media screen and (max-width: 540px) {
+    .leftColHeading {
+      font-size: 20px;
+    }
+
+    .feedbackHead {
+      font-size: 20px;
+    }
+
+    .leftColPara {
+      font-size: 14px;
+    }
+    .column {
+      padding: 10px;
+    }
+    .imgBlock {
+      width: 250px;
+    }
+
+    .rightCol p {
+      font-size: 16px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .leftCol {
+      min-width: 300px;
+    }
+    .imgBlock {
+      width: 190px;
+    }
+    .formBlock {
+      min-width: 0px;
+    }
+  }
+}

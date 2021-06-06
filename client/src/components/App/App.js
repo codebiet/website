@@ -34,7 +34,7 @@ import Dashboard_Resume from "../../pages/Dashboard_Resume";
 // import Toaster from "../Toaster/Toaster";
 import CertificateVerification from "../../pages/CertificateVerification";
 import About from "../../pages/About";
-import Contact from "../../pages/contact";
+import Contact from "../../pages/Feedback";
 import Home from "../../pages/Home";
 import Error404 from "../../pages/404";
 import Events from "../../pages/events";

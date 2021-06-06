@@ -8,7 +8,7 @@
 // @import "../Newsletter/newsletter";
 @import "../Social/social";
 // @import "../Testimonials/testimonials";
-@import "../../styles/contact.scss";
+@import "../Contact/contact.scss";
 @import "../../styles/events";
 // @import "../../styles/home";
 @import "../../styles/projects";
@@ -37,3 +37,7 @@
 @import "../Dashboard_Projects/projects.scss";
 @import "../Home/Home.scss";
 @import "../Home/blogCardStyle.scss";
+@import "../Contact/contact.scss";
+@import "../Slider/slider.scss";
+@import "../WorkWithUs/workWithUs.scss";
+@import "../../styles/feedback.scss";

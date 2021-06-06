@@ -1,0 +1,30 @@
+$font1: "Nunito", sans-serif;
+$font2: "Poppins", sans-serif;
+.slider-container {
+  * {
+    font-size: 14px;
+  }
+  :root {
+    --font1: "Nunito", sans-serif;
+    --font2: "Poppins", sans-serif;
+  }
+
+  .Sliderdiv {
+    width: 98%;
+    margin: 20px auto;
+  }
+  .secondaryh2 {
+    text-align: start;
+    font-family: $font1;
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+  /* Media Quaries */
+
+  @media screen and (max-width: 500px) {
+    .Sliderdiv {
+      width: 90%;
+    }
+  }
+}

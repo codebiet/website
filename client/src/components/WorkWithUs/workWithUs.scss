@@ -1,0 +1,128 @@
+$font1: "Nunito", sans-serif;
+.work-with-us-container {
+  .work_with_us {
+    text-align: center;
+    font-family: "Poppins", "sans-serif";
+    background-image: linear-gradient(
+      #ffffff,
+      #fff1ff,
+      #fcf1ef,
+      #f8e9e5,
+      #ffd9cc,
+      #ffd1bd,
+      #ffcaae,
+      #ffc49e,
+      #ffbe8e,
+      #ffb97c,
+      #ffb56b
+    );
+    padding: 20px;
+  }
+
+  .work_with_us h2 {
+    font-size: 2.5em;
+    margin-bottom: 0px;
+  }
+  .work_with_us p {
+    font-size: 1.5em;
+    margin-top: 0px;
+  }
+
+  .transitionbtn,
+  .transitionbtn::after {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+
+  .transitionbtn {
+    background-color: #fda610;
+    border: 2px solid #fda610;
+    border-radius: 20px;
+    color: #fff;
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 1em auto;
+    padding: 8px 14px;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+  }
+
+  .transitionbtn::before,
+  .transitionbtn::after {
+    background: #fff;
+    content: "";
+    position: absolute;
+    z-index: -1;
+  }
+  .transitionbtn::after {
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 0;
+  }
+
+  .transitionbtn:hover:after {
+    width: 100%;
+  }
+
+  .transitionbtn:hover {
+    color: #ffb535;
+    background-color: rgb(255, 253, 253);
+    border: 2px solid #ffb535;
+  }
+  .transitionbtn:hover {
+    -webkit-transform: rotateX(20deg);
+    -moz-transform: rotateX(20deg);
+    -ms-transform: rotateX(20deg);
+    transform: rotateX(20deg);
+  }
+
+  @media screen and (max-width: 768px) {
+    .work_with_us h2 {
+      font-size: 2.2em;
+      margin-bottom: 0px;
+    }
+    .work_with_us p {
+      font-size: 1.5em;
+      margin-top: 0px;
+    }
+    .transitionbtn {
+      padding: 15px;
+      /* font-size: 0.5em; */
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .work_with_us h2 {
+      font-size: 2em;
+      margin-bottom: 0px;
+    }
+    .work_with_us p {
+      font-size: 1em;
+      margin-top: 0px;
+    }
+    .transitionbtn {
+      padding: 10px;
+      /* font-size: 0.5em; */
+    }
+  }
+
+  @media screen and (max-width: 426px) {
+    .work_with_us h2 {
+      font-size: 22px;
+    }
+    .work_with_us p {
+      font-size: 16px;
+    }
+    .transitionbtn {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+    }
+  }
+}
