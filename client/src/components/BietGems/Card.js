@@ -118,19 +118,19 @@ const userData = [
 ];
 const CardItem = ({ name, branch, facebook, linkedin, github }) => {
   return (
-    <div class="profile-card">
-      <div class="card-header">
-        <div class="pic">
+    <div className="profile-card">
+      <div className="card-header">
+        <div className="pic">
           <img src={user_image} alt=""/>
         </div>
-        <div class="name">{name}</div>
-        <div class="desc">{branch}</div>
-        <div class="sm">
-          <Link to={facebook} class="fab fa-facebook">
+        <div className="name">{name}</div>
+        <div className="desc">{branch}</div>
+        <div className="sm">
+          <Link to={facebook} className="fab fa-facebook">
           </Link>
-          <Link to={linkedin} class="fab fa-linkedin">
+          <Link to={linkedin} className="fab fa-linkedin">
           </Link>
-          <Link to={github} class="fab fa-github">
+          <Link to={github} className="fab fa-github">
           </Link>
         </div>
       </div>
