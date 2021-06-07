@@ -3,11 +3,11 @@ import image1 from "../assets/BlogImage.jpg";
 import date from "../assets/date.png";
 import user from "../assets/user.png";
 import like from "../assets/like.png";
-// import { BlogCard } from "../Home/Blogs";
+import { Link } from "react-router-dom";
 const CardItem = (props) => {
   return (
     <div className="cards__item">
-      <a className="cards__item__link" href={props.path}>
+      <Link className="cards__item__link" to={props.path}>
         <figure
           className="cards__item__pic-wrap"
           data-category={props.label}
@@ -39,10 +39,10 @@ const CardItem = (props) => {
             <span className="round-tab">{props.tag}</span>
           </div>
         </div>
-        <div className="btn">
+        <div className="button">
           <button>Read more</button>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };

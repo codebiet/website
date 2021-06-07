@@ -172,13 +172,14 @@
 
     cursor: pointer;
   }
-  .btn {
+  .button {
+    margin-bottom: 0;
     position: relative;
     display: flex;
     padding-left: 20px;
   }
   .cards__item__info {
-    padding: 20px 20px 20px;
+    padding: 20px 20px 10px 20px;
   }
 
   @media only screen and (max-width: 1000px) {
