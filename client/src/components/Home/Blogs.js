@@ -39,7 +39,7 @@ const blogsData = [
     description: "Uploading files to AWS S3 using ExpressJS",
   },
 ];
-const BlogCard = ({
+export const BlogCard = ({
   writer,
   likes,
   publishedOn,

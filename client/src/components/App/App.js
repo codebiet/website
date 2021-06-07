@@ -41,6 +41,7 @@ import Events from "../../pages/events";
 import ProjectsPage from "../../pages/projects";
 import EventDetails from "../../pages/Event_Individual";
 import BietGems from "../../pages/BietGems";
+import BlogsIndividual from "../../pages/Blogs_Individual";
 // const Register = lazy(() => import("../../pages/Register"));
 // const SentVerifyEmail = lazy(() => import("../../pages/SentVerifyEmail"));
 // const Login = lazy(() => import("../../pages/Login"));
@@ -147,6 +148,11 @@ function App() {
               exact
               path="/events/:id"
               render={(props) => <EventDetails {...props} />}
+            />
+            <Route
+              exact
+              path="/blogs/:id"
+              render={(props) => <BlogsIndividual {...props} />}
             />
             <Route
               exact={true}
