@@ -39,7 +39,7 @@ import Home from "../../pages/Home";
 import Error404 from "../../pages/404";
 import Events from "../../pages/events";
 import ProjectsPage from "../../pages/projects";
-import EventDetails from "../../pages/events";
+import EventDetails from "../../pages/Event_Individual";
 import BietGems from "../../pages/BietGems";
 // const Register = lazy(() => import("../../pages/Register"));
 // const SentVerifyEmail = lazy(() => import("../../pages/SentVerifyEmail"));
@@ -141,9 +141,13 @@ function App() {
             />
             <Route path="/projects" component={ProjectsPage} />
             <Route path="/contact" component={Contact} />
-            <Route path="/events" component={Events} />
+            <Route exact path="/events" component={Events} />
             <Route path="/about" component={About} />
-            <Route path="/events/:id" component={EventDetails} />
+            <Route
+              exact
+              path="/events/:id"
+              render={(props) => <EventDetails {...props} />}
+            />
             <Route
               exact={true}
               path="/internalServerError"

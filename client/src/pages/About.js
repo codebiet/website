@@ -23,8 +23,8 @@ function About() {
             <Values />
             <Founder />
             <Executives />
-            <WorkWithUs />
           </div>
+          <WorkWithUs />
         </main>
         <Footer />
       </div>

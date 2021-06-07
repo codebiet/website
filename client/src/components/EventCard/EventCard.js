@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 const EventCard = ({
   name,
   startsOn,
@@ -58,6 +59,9 @@ const EventCard = ({
               <div className="tags">{tag}</div>
             ))}
           </div>
+          <Link to="/events/id" className="eventId">
+            Register
+          </Link>
         </div>
       </div>
     </div>
