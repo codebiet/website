@@ -1,0 +1,81 @@
+.our-team-main {
+  font-family: "Poppins", sans-serif;
+  .cardm {
+    display: inline-block;
+    text-align: center;
+    width: 200px;
+    height: 260px;
+    padding: 14px 10px 10px 10px;
+    margin: 12px 16px;
+    border-radius: 8px;
+    background-color: rgb(247, 247, 247);
+    @media (max-width:505px){
+        width:100%;
+    }
+  }
+
+  .operatingdiv .cardm {
+    background-color: rgb(247, 247, 247);
+  }
+ .assitancediv .cardm{
+     height:unset;
+ }
+  .cardm:hover {
+    box-shadow: 0px 0px 5px #424242;
+  }
+
+  .imgem img {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    clip-path: circle();
+    border: 2px solid #ec7c2d;
+    border-radius: 50%;
+  }
+
+  .imgem img {
+    transform: scale(1);
+    clip-path: circle();
+  }
+
+  .titlem {
+    color: rgb(255, 153, 0);
+    font-size: 18px;
+    padding: 0px 20px;
+    margin: 2px auto 0px auto;
+  }
+  .titlem h4 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size:1.1rem;
+    font-weight:800;
+  }
+
+  .desm {
+    font-size: 12px;
+    display: block;
+    padding: 0px 20px;
+  }
+
+  .detailsm {
+    display: inline;
+  }
+
+  .desm p {
+    margin-left: 5px;
+  }
+
+  .desm .icnm {
+    color: rgb(0, 0, 0);
+    width: 100%;
+    margin-left: 5px;
+    margin-bottom: 20px;
+    padding: 2px 2px 15px 2px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  .desm .icnm:hover {
+    color: rgb(255, 94, 0);
+  }
+}

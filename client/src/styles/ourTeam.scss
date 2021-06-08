@@ -1,0 +1,53 @@
+.our-team-main {
+  .member {
+    align-content: center;
+    text-align: center;
+    font-size: 1.5em;
+    margin:3rem auto;
+  }
+
+  .Members {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .teamDiv {
+    max-width: 1360px;
+    margin: auto;
+    padding: 20px;
+    overflow: hidden;
+  }
+
+  .executive {
+    align-content: center;
+    text-align: center;
+  }
+
+  .mid-hr {
+    max-width: 120px;
+    height: 3px;
+    border: none;
+    border-radius: 15px;
+    background-color: #ec7c2d;
+    margin: 0px auto;
+    opacity:1;
+    margin-top:.2rem;
+  }
+
+  .member h2 {
+    letter-spacing: 1px;
+    font-weight:500;
+    font-size:2.5rem;
+  }
+
+  @media only screen and (max-width: 800px) {
+    .Members {
+      justify-content: center;
+    }
+
+    .member h2 {
+      font-size: 30px;
+    }
+  }
+}
