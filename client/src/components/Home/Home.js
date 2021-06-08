@@ -9,6 +9,7 @@ import Team from "./Team";
 import Testimonials from "./Testimonials";
 import Newsletter from "./Newsletter";
 import Faqs from "./Faqs";
+import TorchBearers from "./TorchBearers";
 const Home = (props) => {
   const auth = useContext(AuthContext);
   return (
@@ -20,6 +21,7 @@ const Home = (props) => {
         <Blogs />
         <Community />
         <Team />
+        <TorchBearers />
         <Testimonials />
         <Newsletter />
         <Faqs />
