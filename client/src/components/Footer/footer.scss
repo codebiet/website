@@ -38,6 +38,8 @@
     width: 40%;
     transform: skew(-20deg);
     margin-left: -80px;
+    position: relative;
+    left:-1.8rem;
   }
   .footer .elevate div {
     transform: skew(20deg);
@@ -183,6 +185,7 @@
     }
     .footer .elevate {
       width: 45%;
+      left:-.65rem;
     }
     .footer .elevate > div {
       padding: 5% 0%;
@@ -217,6 +220,7 @@
     .footer .elevate {
       width: 45%;
       padding: 2% 0%;
+      position:static;
     }
     .footer .elevate > div {
       padding: 2% 0%;
@@ -267,6 +271,7 @@
       width: 100%;
       transform: skew(0deg);
       margin-left: 0px;
+      position: static;
     }
     .footer .elevate > div {
       transform: skew(0deg);
