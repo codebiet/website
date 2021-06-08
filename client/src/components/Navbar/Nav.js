@@ -59,12 +59,12 @@ function Nav() {
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
-                        />
-                        Articles
+                        />{" "}
+                        Blogs
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to="#team">
+                      <NavLink to="/ourTeam">
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
@@ -78,7 +78,7 @@ function Nav() {
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
                         />{" "}
-                        Club Activities
+                        Events
                       </NavLink>
                     </li>
                     <li>
@@ -90,7 +90,7 @@ function Nav() {
                         Projects
                       </NavLink>
                     </li>
-                    <li>
+                    {/* <li>
                       <NavLink to="#">
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
@@ -98,8 +98,8 @@ function Nav() {
                         />{" "}
                         Achievements
                       </NavLink>
-                    </li>
-                    <li>
+                    </li> */}
+                    {/* <li>
                       <NavLink to="#">
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
@@ -107,7 +107,7 @@ function Nav() {
                         />{" "}
                         Event Gallery
                       </NavLink>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               </div>
@@ -138,7 +138,7 @@ function Nav() {
                         Give Suggestions
                       </NavLink>
                     </li>
-                    <li>
+                    {/* <li>
                       <NavLink to="#">
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
@@ -146,14 +146,13 @@ function Nav() {
                         />{" "}
                         Discussion Forum
                       </NavLink>
-                    </li>
+                    </li> */}
                     <li>
                       <NavLink to="/verifyCertificate">
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
-                          style={{ marginRight: ".35rem" }}
-                        />
+                        />{" "}
                         Certificate Verification
                       </NavLink>
                     </li>
@@ -162,8 +161,7 @@ function Nav() {
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
-                          style={{ marginRight: ".35rem" }}
-                        />
+                        />{" "}
                         Report a Bug ?
                       </NavLink>
                     </li>
