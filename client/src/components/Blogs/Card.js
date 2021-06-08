@@ -41,7 +41,7 @@ const CardItem = (props) => {
             <span className="round-tab">{props.tag}</span>
           </div>
         </div>
-        <div className="button">
+        <div className="button" style={{marginLeft:"20px"}}>
           <button>Read more</button>
         </div>
       </Link>
