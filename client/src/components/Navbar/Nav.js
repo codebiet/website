@@ -152,6 +152,7 @@ function Nav() {
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
+                          style={{ marginRight: ".35rem" }}
                         />
                         Certificate Verification
                       </NavLink>
@@ -161,6 +162,7 @@ function Nav() {
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
+                          style={{ marginRight: ".35rem" }}
                         />
                         Report a Bug ?
                       </NavLink>
