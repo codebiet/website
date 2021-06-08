@@ -1,0 +1,225 @@
+.header-container {
+  font-family: "Poppins", sans-serif;
+  margin: 0 auto;
+
+  .inner {
+    position: relative;
+  }
+  .outerContainer {
+    height: auto;
+    display: block;
+    max-width: 1200px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+    margin-top: -135px;
+  }
+  .firstContainer {
+    margin: 0 auto;
+    display: flex;
+    margin-top: 150px;
+  }
+
+  .head_image {
+    border-radius: 6px;
+  }
+
+  .containerInside2 {
+    width: 100%;
+    display: flex;
+  }
+
+  .startName {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    width: 50%;
+
+    align-items: flex-start;
+    color: #000066;
+  }
+
+  .mainDetails {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    width: 50%;
+
+    color: #000066;
+    margin-top: 18px;
+  }
+
+  .mainDetails p {
+    text-align: right;
+  }
+
+  .side1Container {
+    display: flex;
+    flex-direction: column;
+    max-width: 2%;
+    width: 2%;
+    padding-right: 150px;
+    margin-right: 20px;
+    align-items: flex-start;
+    color: #000066;
+    padding-top: 38px;
+  }
+
+  .common {
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    float: left;
+    flex-direction: column;
+  }
+  .heading {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .name {
+    font-size: 30px;
+    margin-bottom: -10px;
+  }
+
+  .designation {
+    font-size: 20px;
+  }
+
+  p {
+    margin-bottom: 0px;
+  }
+
+  .containerIcon {
+    margin-right: 18px;
+    margin-left: 10px;
+    color: #ec7c2d;
+  }
+
+  .containerLine {
+    margin-top: 40px;
+  }
+
+  hr {
+    border: 1px solid #ec7c2d;
+    width: 100%;
+    height: 2px;
+    background: #ec7c2d;
+    box-shadow: none;
+    color: #ec7c2d;
+  }
+
+  .side2Container {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+
+    align-items: flex-start;
+    color: #000066;
+  }
+
+  .cot {
+    display: flex;
+    height: auto;
+    margin: 0 auto;
+    justify-content: end;
+  }
+
+  .trophy {
+    margin-bottom: -2px;
+  }
+  /* timeline css */
+
+  .hobbies_icon {
+    display: flex;
+    font-size: 2rem;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+
+  .i {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+  }
+  .icon_name {
+    font-size: 1rem;
+  }
+
+  @media only screen and (max-width: 1205px) {
+    .outerContainer {
+      margin-top: -130px;
+    }
+  }
+
+  @media only screen and (max-width: 1040px) {
+    .outerContainer {
+      margin-top: -110px;
+    }
+  }
+
+  @media screen and (max-width: 798px) {
+    .outerContainer {
+      margin-top: -140px;
+    }
+    .firstContainer {
+      flex-direction: column;
+    }
+    .side1Container {
+      width: 100%;
+      max-width: 100%;
+      padding-right: 0;
+    }
+    .side2Container {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .containerInside2 {
+      flex-direction: column;
+    }
+    .startName {
+      width: 100%;
+      max-width: 100%;
+      padding-right: 0;
+    }
+    .mainDetails {
+      width: 100%;
+      max-width: 100%;
+      margin-left: -20px;
+    }
+    .mainDetails p {
+      text-align: left;
+    }
+
+    .containerIcon {
+      margin-left: 20px;
+    }
+  }
+
+  @media screen and (max-width: 428px) {
+    .outerContainer {
+      width: 100%;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    .outerContainer {
+      width: 100%;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .outerContainer {
+      width: 100%;
+      margin-left: 35px;
+      margin-right: 20px;
+    }
+  }
+}
