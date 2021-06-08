@@ -5,7 +5,8 @@ const Footer = lazy(() => import("../components/Footer/Footer"));
 const EventCard = lazy(() => import("../components/EventCard/EventCard"));
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader/Loader";
-import eventsData from "../components/EventCard/eventsData";
+// import eventsData from "../components/EventCard/eventsData";
+const eventsData = lazy(() => import("../components/EventCard/eventsData"));
 function Events() {
   return (
     <Suspense fallback={<Loader />}>
