@@ -22,9 +22,11 @@ function Nav() {
     <div className="main-header-nav-container" ref={ref}>
       <nav>
         {/* <!-- logo --> */}
-        <div id="logo">
-          <img src={logo} alt="code logo" />
-        </div>
+        <NavLink to="/">
+          <div id="logo">
+            <img src={logo} alt="code logo" />
+          </div>
+        </NavLink>
         {/* <!-- hamburger icon --> */}
         <label
           className={isOpen ? "open" : "close"}
@@ -53,11 +55,11 @@ function Nav() {
                   {/* <!-- <h3>Resources</h3> --> */}
                   <ul>
                     <li>
-                      <NavLink to="#">
+                      <NavLink to="/blogs">
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
-                        />{" "}
+                        />
                         Articles
                       </NavLink>
                     </li>
@@ -71,7 +73,7 @@ function Nav() {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to="#">
+                      <NavLink to="/events">
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
@@ -128,7 +130,7 @@ function Nav() {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to="#">
+                      <NavLink to="/contact">
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
@@ -150,16 +152,16 @@ function Nav() {
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
-                        />{" "}
+                        />
                         Certificate Verification
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to="#">
+                      <NavLink to="/contact">
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
-                        />{" "}
+                        />
                         Report a Bug ?
                       </NavLink>
                     </li>
