@@ -1,10 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { lazy,useState, useEffect, useContext } from "react";
 import { AuthContext, InfoContext } from "../../state/Store";
-import Loader from "../Loader/Loader";
+// import Loader from "../Loader/Loader";
 import axios from 'axios';
-import DemoNavbar from "../Dashboard_Profile/DashboardHeaderNav";
-import Sidebar from "../Dashboard_Profile/DashboardSidebar";
-import Footer from "../Dashboard_Profile/DashboardFooter";
+// import DemoNavbar from "../Dashboard_Profile/DashboardHeaderNav";
+// import Sidebar from "../Dashboard_Profile/DashboardSidebar";
+// import Footer from "../Dashboard_Profile/DashboardFooter";
+const Loader = lazy(() => import("../Loader/Loader"));
+const DemoNavbar = lazy(() => import("../Dashboard_Profile/DashboardHeaderNav"));
+const Sidebar = lazy(() => import("../Dashboard_Profile/DashboardSidebar"));
+const Footer = lazy(() => import("../Dashboard_Profile/DashboardFooter"));
 const Articles = (props) => {
   const [loading, setLoading] = useState(false);
   const [profileImg,setProfileImg] = useState('');
