@@ -31,7 +31,7 @@ function Footer() {
               <h3 className="menu-head">Resources</h3>
               <ul className="submenu">
                 <li className="links">
-                  <Link to="#">
+                  <Link to="/ourTeam">
                     <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
                     Our Team
                   </Link>
@@ -39,7 +39,7 @@ function Footer() {
                 <li className="links">
                   <Link to="/events">
                     <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
-                    Club Activities
+                    Events
                   </Link>
                 </li>
                 <li className="links">
@@ -48,24 +48,24 @@ function Footer() {
                     Projects
                   </Link>
                 </li>
-                <li className="links">
+                {/* <li className="links">
                   <Link to="#">
                     <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
                     Achievements
                   </Link>
-                </li>
+                </li> */}
                 <li className="links">
                   <Link to="/blogs">
                     <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
                     Blog
                   </Link>
                 </li>
-                <li className="links">
+                {/* <li className="links">
                   <Link to="#">
                     <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
                     Image Gallery
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </div>
             <div className="menu">
@@ -83,12 +83,12 @@ function Footer() {
                     Suggestions
                   </Link>
                 </li>
-                <li className="links">
+                {/* <li className="links">
                   <Link to="#">
                     <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
                     Discussion Forum
                   </Link>
-                </li>
+                </li> */}
                 <li className="links">
                   <Link to="/verifyCertificate">
                     <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
@@ -97,21 +97,21 @@ function Footer() {
                 </li>
                 <li className="links">
                   <div className="socialIcons">
-                    <Link to="#" className="socialIcon">
+                    <a href="https://www.facebook.com/codebietjhs/" target="_blank" className="socialIcon">
                       <img src="https://img.icons8.com/fluent/40/000000/facebook-new.png" />
-                    </Link>
+                    </a>
                     <Link to="#" className="socialIcon">
                       <img src="https://img.icons8.com/color/40/000000/twitter-circled--v1.png" />
                     </Link>
-                    <Link to="#" className="socialIcon">
+                    <a href="https://t.me/joinchat/AAAAAFMLj2wLbN8JYCMtlg" target="_blank" className="socialIcon">
                       <img src="https://img.icons8.com/fluent/40/000000/telegram-app.png" />
-                    </Link>
-                    <Link to="#" className="socialIcon">
+                    </a>
+                    <a href="https://www.linkedin.com/company/codebiet/" target="_blank" className="socialIcon">
                       <img src="https://img.icons8.com/fluent/40/000000/linkedin-circled.png" />
-                    </Link>
-                    <Link to="#" className="socialIcon">
+                    </a>
+                    <a to="https://www.youtube.com/channel/UCgxZ9rqaWscw-kOfkj2F2lQ" target="_blank" className="socialIcon">
                       <img src="https://img.icons8.com/fluent/40/000000/youtube-play.png" />
-                    </Link>
+                    </a>
                   </div>
                 </li>
               </ul>
