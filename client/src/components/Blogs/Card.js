@@ -60,21 +60,21 @@ function Cards() {
                 src={image1}
                 text="Why You Should Learn R for Data Science?"
                 label="Competetive Programming"
-                path=""
+                path="/blogs/id"
                 tag="Designing"
               />
               <CardItem
                 src={image1}
                 text="Top 30 Hadoop Interview Questions You Must Prepare"
                 label="Code Studio"
-                path=""
+                path="/blogs/id"
                 tag="Designing"
               />
               <CardItem
                 src={image1}
                 text="10 Data Scientist Skills You Need in 2021"
                 label="Code Studio"
-                path=""
+                path="/blogs/id"
                 tag="Designing"
               />
             </div>
@@ -90,21 +90,21 @@ function Cards() {
                 src={image2}
                 text="Top Angular Interview Questions and Answers [Updated in 2021]"
                 label="Data Science & ML"
-                path=""
+                path="/blogs/id"
                 tag="Designing"
               />
               <CardItem
                 src={image2}
                 text="HTML VS CSS: What’s The Difference?"
                 label="Data Science & ML"
-                path=""
+                path="/blogs/id"
                 tag="Designing"
               />
               <CardItem
                 src={image2}
                 text="Flask vs Django in 2021: Which Framework to Choose?"
                 label="Data Science & ML"
-                path=""
+                path="/blogs/id"
                 tag="Designing"
               />
             </div>
@@ -120,21 +120,21 @@ function Cards() {
                 src={image3}
                 text="Building A Good Resume Of A Programmer"
                 label="Data Science & ML"
-                path=""
+                path="/blogs/id"
                 tag="Designing"
               />
               <CardItem
                 src={image3}
                 text="How To Crack Off-Campus Internships?"
                 label="Data Science & ML"
-                path=""
+                path="/blogs/id"
                 tag="Designing"
               />
               <CardItem
                 src={image3}
                 text="Top 30 Hadoop Interview Questions You Must Prepare"
                 label="Data Science & ML"
-                path=""
+                path="/blogs/id"
                 tag="Designing"
               />
             </div>
