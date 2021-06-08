@@ -43,6 +43,7 @@ import EventDetails from "../../pages/Event_Individual";
 import BietGems from "../../pages/BietGems";
 import BlogsIndividual from "../../pages/Blogs_Individual";
 import UserProfile from "../../pages/UserProfile";
+import Blogs from "../../pages/Blogs";
 // const Register = lazy(() => import("../../pages/Register"));
 // const SentVerifyEmail = lazy(() => import("../../pages/SentVerifyEmail"));
 // const Login = lazy(() => import("../../pages/Login"));
@@ -154,6 +155,11 @@ function App() {
               exact
               path="/blogs/:id"
               render={(props) => <BlogsIndividual {...props} />}
+            />
+            <Route
+              exact
+              path="/blogs"
+              render={(props) => <Blogs {...props} />}
             />
             <Route
               exact
