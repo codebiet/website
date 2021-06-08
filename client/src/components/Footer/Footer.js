@@ -37,13 +37,13 @@ function Footer() {
                   </Link>
                 </li>
                 <li className="links">
-                  <Link to="#">
+                  <Link to="/events">
                     <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
                     Club Activities
                   </Link>
                 </li>
                 <li className="links">
-                  <Link to="#">
+                  <Link to="/projects">
                     <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
                     Projects
                   </Link>
@@ -55,7 +55,7 @@ function Footer() {
                   </Link>
                 </li>
                 <li className="links">
-                  <Link to="#">
+                  <Link to="/blogs">
                     <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
                     Blog
                   </Link>
@@ -78,7 +78,7 @@ function Footer() {
                   </Link>
                 </li>
                 <li className="links">
-                  <Link to="#">
+                  <Link to="/contact">
                     <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
                     Suggestions
                   </Link>
@@ -90,7 +90,7 @@ function Footer() {
                   </Link>
                 </li>
                 <li className="links">
-                  <Link to="#">
+                  <Link to="/verifyCertificate">
                     <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
                     Certificate Verification
                   </Link>
