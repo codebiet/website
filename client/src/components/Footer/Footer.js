@@ -90,6 +90,12 @@ function Footer() {
                   </Link>
                 </li>
                 <li className="links">
+                  <Link to="/bietGems">
+                    <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
+                    BIET Gems
+                  </Link>
+                </li>
+                <li className="links">
                   <Link to="/verifyCertificate">
                     <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
                     Certificate Verification
