@@ -38,7 +38,22 @@ input {
     color: white !important;
   }
 }
+.update.ml-auto.mr-auto{
+  margin:0!important;
+  padding-left:15px;
+  @media (max-width:450px){
+    padding:0;
+    .submit-button{
+      margin-left:1rem;
+    }
+  }
+}
 .dashboard-main-wrapper {
+  .profile-img-input{
+    @media (max-width:450px){
+      margin-left:.35rem;
+    }
+  }
   form {
     max-width: unset;
     text-align: unset;

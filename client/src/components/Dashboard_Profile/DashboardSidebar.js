@@ -27,11 +27,6 @@ const routes = [
     icon: "nc-icon nc-bell-55",
   },
   {
-    path: "/resume",
-    name: "RESUME",
-    icon: "nc-icon nc-single-02",
-  },
-  {
     path: "/logout",
     name: "LOGOUT",
     icon: "nc-icon nc-tile-56",

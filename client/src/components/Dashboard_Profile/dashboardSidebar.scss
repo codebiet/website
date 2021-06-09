@@ -17,20 +17,23 @@
 .submitBorder {
   border-radius: 4px;
 }
-
-.sidebar{
-  li{
-    font-size: unset;
-    padding:0;
+.sidebar {
+  .sidebar-wrapper {
+    height: calc(100vh - 236px);
+    padding-bottom: 0;
   }
-  ul{
-    padding:0;
-      a{
-        margin:0;
-        padding:0;
-        p{
-          padding:0;
-        }
+  li {
+    font-size: unset;
+    padding: 0;
+  }
+  ul {
+    padding: 0;
+    a {
+      margin: 0;
+      padding: 0;
+      p {
+        padding: 0;
       }
+    }
   }
 }

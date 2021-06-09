@@ -39,50 +39,60 @@ const updateProfile = async (req, res) => {
     console.log(err);
     return res.status(500).send({ errorMsg: "Internal Server Error!" });
   }
-  if (req.body.updatingFor == "RESUME") {
-    let {
-      degree,college,city,academics,achievements,objective
-    } = req.body;
+  if (req.body.updatingFor == "RESUME" || true) {
+    let { degree, college, city, academics, achievements, objective } =
+      req.body;
+    let saved_user, user_data, error;
     academics = JSON.parse(academics);
     achievements = JSON.parse(achievements);
-    console.log( {
-      degree,college,city,academics,achievements,objective
-    })
-    if(!degree || !college || !city || academics.length < 3 || !objective)
-      return res.status(400).send({errorMsg:"All the fields are required under Basic Information and Academics Section",userData:{...user._doc}});
+    console.log({
+      degree,
+      college,
+      city,
+      academics,
+      achievements,
+      objective,
+    });
+    if (!degree || !college || !city || academics.length < 3 || !objective)
+      return res.status(400).send({
+        errorMsg:
+          "All the fields are required under Basic Information and Academics Section",
+        userData: { ...user._doc },
+      });
     user.degree = degree;
     user.college = college;
     user.collegeCity = city;
     user.about = objective;
     user.academics = academics;
     user.achievements = achievements;
-    let saved_user, user_data, error;
-    try{
-      saved_user = await user.save();
-      user_data = {
-        profilePhoto:saved_user.profilePhoto,
-        degree:saved_user.degree,
-        college:saved_user.college,
-        collegeCity:saved_user.collegeCity,
-        about:saved_user.about,
-        academics:saved_user.academics,
-        achievements:saved_user.achievements
-      }
-    }catch(err){
-      error = "Status-Code: 500, Internal Server Error";
-      user_data = {
-        profilePhoto:user.profilePhoto,
-        degree:user.degree,
-        collegeCity:user.college,
-        city:user.collegeCity,
-        about:user.about,
-        academics:user.academics,
-        achievements:user.achievements
-      }
-    }
-    if (error) return res.status(400).send({ error, userData: user_data });
-    else return res.status(200).send({ ...user_data });
-  } else {
+    // try{
+    //   saved_user = await user.save();
+    // user_data = {
+    //   profilePhoto:saved_user.profilePhoto,
+    //   degree:saved_user.degree,
+    //   college:saved_user.college,
+    //   collegeCity:saved_user.collegeCity,
+    //   about:saved_user.about,
+    //   academics:saved_user.academics,
+    //   achievements:saved_user.achievements
+    // }
+    // }catch(err){
+    //   error = "Status-Code: 500, Internal Server Error";
+    //   user_data = {
+    //     profilePhoto:user.profilePhoto,
+    //     degree:user.degree,
+    //     collegeCity:user.college,
+    //     city:user.collegeCity,
+    //     about:user.about,
+    //     academics:user.academics,
+    //     achievements:user.achievements
+    //   }
+    // }
+    // if (error) return res.status(400).send({ error, userData: user_data });
+    // else return res.status(200).send({ ...user_data });
+  }
+  if (req.body.updatingFor != "RESUME" || true) {
+    //both blocks(above and this) need to run, since now all the data is comming from profile update;
     let {
       callingPhoneNumber,
       whatsAppPhoneNumber,
@@ -119,20 +129,22 @@ const updateProfile = async (req, res) => {
     let resumeUrl = "";
     let profileUrl = "";
     let errorMsg = "";
-    if (callingPhoneNumber.length >= 10)
+    if (callingPhoneNumber.length >= 10) {
       user.callingPhoneNumber =
         "91" + callingPhoneNumber.slice(callingPhoneNumber.length - 10);
-    else {
+      user.callingVerified = true;
+    } else {
       errorMsg = "Invalid Calling Phone Number";
     }
-    if (whatsAppPhoneNumber.length >= 10)
+    if (whatsAppPhoneNumber.length >= 10) {
       user.whatsAppPhoneNumber =
         "91" + whatsAppPhoneNumber.slice(whatsAppPhoneNumber.length - 10);
-    else {
+      user.whatsAppVerified = true;
+    } else {
       errorMsg = "Invalid Whatsapp Number";
     }
     if (year) user.year = year;
-    if(branch) user.branch = branch;
+    if (branch) user.branch = branch;
     if (rollNum) user.rollNum = rollNum;
     user.githubUserName = githubUserName;
     user.programmingLanguages = programmingLanguages;
@@ -202,19 +214,19 @@ const updateProfile = async (req, res) => {
     if (resumeUrl) user.resume = resumeUrl;
     if (profileUrl) user.profilePhoto = profileUrl;
     let savedUser, userData;
-    try{
-      savedUser = await user.save();
-      userData = { ...savedUser._doc };
-    }catch(err){
-      errorMsg = "Status-Code: 500, Internal Server Error";
-      userData = {...user._doc};
+    if (!errorMsg) {
+      try {
+        savedUser = await user.save();
+        userData = { ...savedUser._doc };
+      } catch (err) {
+        errorMsg = "Status-Code: 500, Internal Server Error";
+        userData = { ...user._doc };
+      }
     }
-    delete userData.email;
     delete userData.password;
     delete userData._id;
     delete userData.role;
     delete userData.emailVerified;
-    delete userData.phoneNumberVerified;
     if (errorMsg) return res.status(400).send({ errorMsg, userData: userData });
     else return res.status(200).send({ ...userData });
   }

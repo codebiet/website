@@ -76,14 +76,14 @@ function Header(props) {
           <NavbarBrand href="/">
             <img src={logo} alt="" width="50px" />
           </NavbarBrand>
-          <NavItem className="pr-3 font-weight-bold">MEMBER DASHBOARD</NavItem>
+          <NavItem className="pr-3 font-weight-bold" style={{listStyle:"none",margin:"0",padding:"0",marginLeft:".5rem",position:"relative",top:".2rem"}}>MEMBER DASHBOARD</NavItem>
         </div>
-        <NavbarToggler onClick={toggle}>
+        {/* <NavbarToggler onClick={toggle}>
           <span className="navbar-toggler-bar navbar-kebab" />
           <span className="navbar-toggler-bar navbar-kebab" />
           <span className="navbar-toggler-bar navbar-kebab" />
-        </NavbarToggler>
-        <Collapse isOpen={isOpen} navbar className="justify-content-end">
+        </NavbarToggler> */}
+        {/* <Collapse isOpen={isOpen} navbar className="justify-content-end">
           <Nav navbar>
             <NavItem className="pr-3">
               <Link to="#pablo">
@@ -101,7 +101,7 @@ function Header(props) {
               </Link>
             </NavItem>
           </Nav>
-        </Collapse>
+        </Collapse> */}
       </Container>
     </Navbar>
   );

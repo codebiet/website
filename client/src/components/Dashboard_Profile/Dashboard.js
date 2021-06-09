@@ -6,7 +6,7 @@ import {
   generateError,
   clearEverything,
   generateSuccess,
-  generateWarning
+  generateWarning,
 } from "../../state/info/infoActions";
 import axios from "axios";
 import Loader from "../Loader/Loader";
@@ -241,6 +241,477 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: theme.typography.fontWeightRegular,
   },
 }));
+// generating options for degree completion year select input
+const currentDate = new Date();
+const years = [""];
+let yearGeneratingNum = 4;
+while (yearGeneratingNum >= -12) {
+  years.push(currentDate.getFullYear() + yearGeneratingNum);
+  yearGeneratingNum -= 1;
+}
+const TakeData = ({
+  degree,
+  setDegree,
+  college,
+  setCollege,
+  collegeCity,
+  setCollegeCity,
+  objective,
+  setObjective,
+  academics,
+  setAcademics,
+  achievements,
+  setAchievements,
+  name,
+  email,
+  callingPhoneNum,
+  setCallingPhoneNum,
+  whatsAppPhoneNum,
+  setWhatsAppPhoneNum,
+  githubUserInput,
+  year,
+  setYear,
+  branch,
+  setBranch,
+  rollNumberInput,
+}) => {
+  const classes = useStyles();
+  const addMore = () => {
+    setAchievements((prev) => [...prev, ""]);
+  };
+  const isdisabled = () => {
+    const last = achievements[achievements.length - 1];
+    if (!last || !last.trim()) return true;
+    else return false;
+  };
+  return (
+    <>
+      {/* <Row> */}
+        {/* <Col> */}
+          <Accordion defaultExpanded style={{ width: "100%" }}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography className={classes.heading}>
+                Basic Information
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography style={{ width: "100%" }}>
+                <Row style={{ width: "100%" }}>
+                  <Col md="6" xs="11">
+                    <FormGroup>
+                      <label className="fontType" htmlFor="fullname">
+                        Full Name
+                      </label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        value={name}
+                        placeholder="Name"
+                        disabled
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col md="5" xs="11">
+                    <FormGroup>
+                      <label className="fontType" htmlFor="email">
+                        Email address
+                      </label>
+                      <input
+                        className="form-control"
+                        placeholder="Email"
+                        type="email"
+                        name="email"
+                        value={email}
+                        disabled
+                      />
+                    </FormGroup>
+                  </Col>
+                </Row>
+                <Row style={{ width: "100%" }}>
+                  <Col md="6" xs="11">
+                    <FormGroup>
+                      <label className="fontType" htmlFor="mobile">
+                        Calling Phone Number
+                      </label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        placeholder="Calling Phone Number"
+                        value={callingPhoneNum}
+                        onChange={(e) => setCallingPhoneNum(e.target.value)}
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col md="5" xs="11">
+                    <FormGroup>
+                      <label className="fontType" htmlFor="whatsapp">
+                        Whatsapp Number
+                      </label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        placeholder="Whatsapp Phone Number"
+                        value={whatsAppPhoneNum}
+                        onChange={(e) => setWhatsAppPhoneNum(e.target.value)}
+                      />
+                    </FormGroup>
+                  </Col>
+                </Row>
+
+                <Row style={{ width: "100%" }}>
+                  <Col md="11" xs="11">
+                    <FormGroup>
+                      <label className="fontType" htmlFor="github">
+                        GitHub Username
+                      </label>
+                      {githubUserInput}
+                    </FormGroup>
+                  </Col>
+                </Row>
+
+                <Row style={{ width: "100%" }}>
+                  <Col md="4" xs="11">
+                    <FormGroup>
+                      <label className="fontType" htmlFor="year">
+                        Year
+                      </label>
+                      <select
+                        className="form-control"
+                        value={year}
+                        onChange={(e) => setYear(e.target.value)}
+                      >
+                        <option value="">Choose Year</option>
+                        <option value="1">1st</option>
+                        <option value="2">2nd</option>
+                        <option value="3">3rd</option>
+                        <option value="4">4th</option>
+                      </select>
+                    </FormGroup>
+                  </Col>
+                  <Col md="4" xs="11">
+                    <FormGroup>
+                      <label className="fontType" htmlFor="branch">
+                        Branch
+                      </label>
+
+                      <select
+                        className="form-control"
+                        value={branch}
+                        onChange={(e) => setBranch(e.target.value)}
+                      >
+                        <option value="">Branch</option>
+                        <option value="Electrical Engineering">
+                          Electrical Engineering
+                        </option>
+                        <option value="Electronics and Communication">
+                          Electronics and Communication
+                        </option>
+                        <option value="Computer Science and Engineering">
+                          Computer Science and Engineering
+                        </option>
+                        <option value="Infomation Technology">
+                          Infomation Technology
+                        </option>
+                        <option value="Civil Engineering">
+                          Civil Engineering
+                        </option>
+                        <option value="Mechanical Engineering">
+                          Mechanical Engineering
+                        </option>
+                        <option value="Chemical Technology">
+                          Chemical Technology
+                        </option>
+                      </select>
+                    </FormGroup>
+                  </Col>
+                  <Col md="3" xs="11">
+                    <FormGroup>
+                      <label className="fontType" htmlFor="rollnumber">
+                        Roll Number
+                      </label>
+                      {rollNumberInput}
+                    </FormGroup>
+                  </Col>
+                </Row>
+
+                <Row style={{ width: "100%" }}>
+                  <Col md="4" xs="11">
+                    <FormGroup>
+                      <label className="fontType" htmlFor="fullname">
+                        Degree
+                      </label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        placeholder="Degree(Eg. B.Tech)"
+                        value={degree}
+                        onChange={(e) => setDegree(e.target.value)}
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col md="4" xs="11">
+                    <FormGroup>
+                      <label className="fontType" htmlFor="mobile">
+                        College
+                      </label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        placeholder="College(Eg. BIET)"
+                        value={college}
+                        onChange={(e) => setCollege(e.target.value)}
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col md="3" xs="11">
+                    <FormGroup>
+                      <label className="fontType" htmlFor="whatsapp">
+                        College City
+                      </label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        placeholder="College City"
+                        value={collegeCity}
+                        onChange={(e) => setCollegeCity(e.target.value)}
+                      />
+                    </FormGroup>
+                  </Col>
+                </Row>
+
+                <Row style={{ width: "100%" }}>
+                  <Col md="11" xs="11">
+                    <FormGroup>
+                      <label className="fontType" htmlFor="github">
+                        About/Objective
+                      </label>
+                      <textarea
+                        className="form-control"
+                        placeholder="About/Objective"
+                        value={objective}
+                        onChange={(e) => setObjective(e.target.value)}
+                      ></textarea>
+                    </FormGroup>
+                  </Col>
+                </Row>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+
+          {academics.map((acad, index) => {
+            return (
+              <>
+                <Accordion style={{ width: "100%" }}>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    <Typography className={classes.heading}>
+                      {acad.degree + " Details"}
+                    </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Typography style={{ width: "100%" }}>
+                      <Row style={{ width: "100%" }} key={index}>
+                        <Col md="8" xs="11">
+                          <FormGroup>
+                            <label
+                              className="fontType"
+                              htmlFor={"college-" + index}
+                            >
+                              College
+                            </label>
+                            <input
+                              id={`college-${index}`}
+                              type="text"
+                              className="form-control"
+                              placeholder="College"
+                              value={acad.college}
+                              onChange={(e) =>
+                                setAcademics((prev) => {
+                                  prev[index].college = e.target.value;
+                                  return [...prev];
+                                })
+                              }
+                            />
+                          </FormGroup>
+                        </Col>
+                        <Col md="3" xs="11">
+                          <FormGroup>
+                            <label
+                              className="fontType"
+                              htmlFor={"degree-" + index}
+                            >
+                              Degree
+                            </label>
+                            <input
+                              id={`degree-${index}`}
+                              type="text"
+                              className="form-control"
+                              placeholder="Degree(Eg. B.Tech/XII/X)"
+                              value={acad.degree}
+                              disabled
+                            />
+                          </FormGroup>
+                        </Col>
+                        <Col md="8">
+                          <Row style={{ maxWidth: "100%", margin: 0 }}>
+                            <Col xs="8" style={{ paddingLeft: "0" }}>
+                              <FormGroup>
+                                <label
+                                  className="fontType"
+                                  htmlFor={"result-" + index}
+                                >
+                                  GPA/Percentage
+                                </label>
+                                <input
+                                  style={{ width: "99%" }}
+                                  id={`result-${index}`}
+                                  type="text"
+                                  className="form-control"
+                                  placeholder="GPA/Percentage"
+                                  value={acad.result}
+                                  onChange={(e) =>
+                                    setAcademics((prev) => {
+                                      prev[index].result = e.target.value;
+                                      return [...prev];
+                                    })
+                                  }
+                                />
+                              </FormGroup>
+                            </Col>
+                            <Col xs="3" style={{ paddingRight: 0 }}>
+                              <label
+                                className="fontType"
+                                htmlFor={"result-type-" + index}
+                              >
+                                Type
+                              </label>
+                              <select
+                                id={"result-type-" + index}
+                                className="form-control"
+                                value={acad.type}
+                                onChange={(e) =>
+                                  setAcademics((prev) => {
+                                    prev[index].type = e.target.value;
+                                    return [...prev];
+                                  })
+                                }
+                              >
+                                <option value="GPA">GPA</option>
+                                <option value="PERCENTAGE">Percentage</option>
+                              </select>
+                            </Col>
+                          </Row>
+                        </Col>
+                        <Col md="3" xs="11">
+                          <FormGroup>
+                            <label
+                              className="fontType"
+                              htmlFor={"year-" + index}
+                            >
+                              Passing/Expected Passing Year
+                            </label>
+                            <select
+                              id={`year-${index}`}
+                              type="text"
+                              className="form-control"
+                              placeholder="Passing Year"
+                              value={acad.year}
+                              onChange={(e) =>
+                                setAcademics((prev) => {
+                                  prev[index].year = e.target.value;
+                                  return [...prev];
+                                })
+                              }
+                            >
+                              {years.map((year) => {
+                                return (
+                                  <option key={year} value={year}>
+                                    {year || "Year"}
+                                  </option>
+                                );
+                              })}
+                            </select>
+                          </FormGroup>
+                        </Col>
+                      </Row>
+                    </Typography>
+                  </AccordionDetails>
+                </Accordion>
+              </>
+            );
+          })}
+          <Accordion style={{ width: "100%" }}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography className={classes.heading}>Achievements</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography style={{ width: "100%" }}>
+                {achievements.map((ach, index) => {
+                  return (
+                    <>
+                      <Row style={{ width: "100%" }} key={index}>
+                        <Col xs="11">
+                          <FormGroup>
+                            <label
+                              className="fontType"
+                              htmlFor={"achievement-" + index}
+                            >{`Achievement-${index + 1}`}</label>
+                            <input
+                              id={`achievement-${index}`}
+                              type="text"
+                              className="form-control"
+                              placeholder={"Achievement - " + (index + 1)}
+                              value={ach}
+                              onChange={(e) =>
+                                setAchievements((prev) => {
+                                  prev[index] = e.target.value;
+                                  return [...prev];
+                                })
+                              }
+                              disabled={index < achievements.length - 1}
+                            />
+                          </FormGroup>
+                        </Col>
+                      </Row>
+                    </>
+                  );
+                })}
+                <Row>
+                  {/* <Col> */}
+                    <div className="update ml-auto mr-auto">
+                      <div
+                        className={
+                          isdisabled()
+                            ? "btn btn-success disabled"
+                            : "btn btn-success"
+                        }
+                        style={{ margin: "0" }}
+                        onClick={() => addMore()}
+                      >
+                        Add more
+                      </div>
+                    </div>
+                  {/* </Col> */}
+                </Row>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+        {/* </Col> */}
+      {/* </Row> */}
+    </>
+  );
+};
 const Dashboard = (props) => {
   const auth = useContext(AuthContext);
   const info = useContext(InfoContext);
@@ -326,6 +797,16 @@ const Dashboard = (props) => {
   ]);
   const resumeInput = React.createRef();
   const profilePhotoInput = React.createRef();
+  const [degree, setDegree] = useState("");
+  const [college, setCollege] = useState("");
+  const [collegeCity, setCollegeCity] = useState("");
+  const [objective, setObjective] = useState("");
+  const [academics, setAcademics] = useState([
+    { year: "", degree: "B.Tech", college: "", result: "", type: "GPA" },
+    { year: "", degree: "XII", college: "", result: "", type: "GPA" },
+    { year: "", degree: "X", college: "", result: "", type: "GPA" },
+  ]);
+  const [achievements, setAchievements] = useState([""]);
   const addMore = (thing) => {
     switch (thing) {
       case "programmingLangs":
@@ -782,6 +1263,30 @@ const Dashboard = (props) => {
         });
       } else return prev;
     });
+    setDegree(data.degree || "");
+    setCollege(data.college || "");
+    setCollegeCity(data.collegeCity || "");
+    setObjective(data.about || "");
+    setAcademics((prev) => {
+      if (data.academics && data.academics.length > 0) {
+        return data.academics.map((item) => {
+          delete item._id;
+          if (item.result.percentage != 0) {
+            item.result = item.result.percentage;
+            item.type = "PERCENTAGE";
+          } else {
+            item.result = item.result.gpa;
+            item.type = "GPA";
+          }
+          return item;
+        });
+      } else return prev;
+    });
+    setAchievements(
+      data.achievements && data.achievements.length > 0
+        ? data.achievements
+        : [""]
+    );
   };
   useEffect(() => {
     setLoading(true);
@@ -805,9 +1310,62 @@ const Dashboard = (props) => {
     e.preventDefault();
     console.log("updating the profile!");
     info.dispatch(clearEverything());
-    if(!year || !branch || !rollNumber){
-      window.scrollTo(0,0);
-      return info.dispatch(generateWarning("Please provide your YEAR, BRANCH and ROLL NUMBER!"));
+    let error = false;
+    let reformedAcademics = [];
+    if (
+      !degree ||
+      !college ||
+      !collegeCity ||
+      !objective ||
+      !callingPhoneNum ||
+      !whatsAppPhoneNum
+    ) {
+      error = true;
+    }
+    const phoneRegex = /^[0-9]{10}$/;
+    if (
+      !phoneRegex.test(callingPhoneNum) ||
+      !phoneRegex.test(whatsAppPhoneNum)
+    ) {
+      return info.dispatch(
+        generateError("Please enter a valid 10 digit number")
+      );
+    }
+    for (var i = 0; i < 3; i++) {
+      let passingYear = academics[i].year;
+      let deg = academics[i].degree;
+      let clg = academics[i].college;
+      let reslt = academics[i].result;
+      let type = academics[i].type;
+      if (!passingYear || !deg || !reslt || !clg) {
+        error = true;
+        break;
+      } else {
+        let gpa = 0;
+        let percentage = 0;
+        if (type == "GPA") gpa = reslt;
+        else percentage = reslt;
+        reformedAcademics.push({
+          year: passingYear,
+          degree: deg,
+          college: clg,
+          result: { gpa, percentage },
+        });
+      }
+    }
+    if (error) {
+      window.scrollTo(0, 0);
+      return info.dispatch(
+        generateWarning(
+          "All the fields under Basic Information and Academics section are required!"
+        )
+      );
+    }
+    if (!year || !branch || !rollNumber) {
+      window.scrollTo(0, 0);
+      return info.dispatch(
+        generateWarning("Please provide your YEAR, BRANCH and ROLL NUMBER!")
+      );
     }
     const data = new FormData();
     data.append("resume", resumeInput.current.files[0]);
@@ -882,6 +1440,12 @@ const Dashboard = (props) => {
         cloudPlatforms.push(hostingPlatforms[key].name);
       }
     }
+    data.append("degree", degree);
+    data.append("college", college);
+    data.append("city", collegeCity);
+    data.append("objective", objective);
+    data.append("academics", JSON.stringify(reformedAcademics));
+    data.append("achievements", JSON.stringify(achievements));
     data.append("callingPhoneNumber", callingPhoneNum);
     data.append("whatsAppPhoneNumber", whatsAppPhoneNum);
     data.append("year", year);
@@ -907,7 +1471,7 @@ const Dashboard = (props) => {
         setLoading(false);
         setDefaultValues(res.data);
         info.dispatch(
-          generateSuccess("Congrats! You're profile was updated successfully.")
+          generateSuccess("Congrats! Your profile was updated successfully.")
         );
       })
       .catch((err) => {
@@ -955,7 +1519,7 @@ const Dashboard = (props) => {
                         </Row>
 
                         <form onSubmit={(e) => handleSubmit(e)}>
-                          <Row>
+                          <Row style={{width:"100%"}}>
                             <Col md="2" className="pt-2 pb-0 pr-4 pl-4">
                               <FormGroup
                                 style={{
@@ -966,14 +1530,14 @@ const Dashboard = (props) => {
                               >
                                 <input
                                   type="file"
-                                  className="form-control-file"
+                                  className="form-control-file profile-img-input"
                                   id="exampleFormControlFile1"
                                   ref={profilePhotoInput}
                                 />
                               </FormGroup>
                             </Col>
                           </Row>
-                          <Accordion defaultExpanded style={{ width: "100%" }}>
+                          {/* <Accordion defaultExpanded style={{ width: "100%" }}>
                             <AccordionSummary
                               expandIcon={<ExpandMoreIcon />}
                               aria-controls="panel1a-content"
@@ -1182,6 +1746,33 @@ const Dashboard = (props) => {
                               </Typography>
                             </AccordionDetails>
                           </Accordion>
+                           */}
+                          <TakeData
+                            degree={degree}
+                            setDegree={setDegree}
+                            college={college}
+                            setCollege={setCollege}
+                            collegeCity={collegeCity}
+                            setCollegeCity={setCollegeCity}
+                            objective={objective}
+                            setObjective={setObjective}
+                            academics={academics}
+                            setAcademics={setAcademics}
+                            achievements={achievements}
+                            setAchievements={setAchievements}
+                            name={name}
+                            email={email}
+                            callingPhoneNum={callingPhoneNum}
+                            setCallingPhoneNum={setCallingPhoneNum}
+                            whatsAppPhoneNum={whatsAppPhoneNum}
+                            setWhatsAppPhoneNum={setWhatsAppPhoneNum}
+                            githubUserInput={githubUserInput}
+                            year={year}
+                            setYear={setYear}
+                            branch={branch}
+                            setBranch={setBranch}
+                            rollNumberInput={rollNumberInput}
+                          />
                           {callingPhoneNum &&
                             callingVerified &&
                             whatsAppPhoneNum &&
@@ -1197,9 +1788,7 @@ const Dashboard = (props) => {
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography
-                                    style={{ width: "100%", maxWidth: "675px" }}
-                                  >
+                                  <Typography style={{ width: "100%" }}>
                                     {programmingLanguages.map((lang, index) => {
                                       return (
                                         <>
@@ -1336,9 +1925,7 @@ const Dashboard = (props) => {
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography
-                                    style={{ width: "100%", maxWidth: "675px" }}
-                                  >
+                                  <Typography style={{ width: "100%" }}>
                                     {webTechnologies.map((lang, index) => {
                                       return (
                                         <>
@@ -1471,9 +2058,7 @@ const Dashboard = (props) => {
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography
-                                    style={{ width: "100%", maxWidth: "675px" }}
-                                  >
+                                  <Typography style={{ width: "100%" }}>
                                     {webFrameworks.map((lang, index) => {
                                       return (
                                         <>
@@ -1608,9 +2193,7 @@ const Dashboard = (props) => {
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography
-                                    style={{ width: "100%", maxWidth: "675px" }}
-                                  >
+                                  <Typography style={{ width: "100%" }}>
                                     {dbms.map((lang, index) => {
                                       return (
                                         <>
@@ -1739,9 +2322,7 @@ const Dashboard = (props) => {
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography
-                                    style={{ width: "100%", maxWidth: "675px" }}
-                                  >
+                                  <Typography style={{ width: "100%" }}>
                                     {os.map((lang, index) => {
                                       return (
                                         <>
@@ -1870,9 +2451,7 @@ const Dashboard = (props) => {
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography
-                                    style={{ width: "100%", maxWidth: "675px" }}
-                                  >
+                                  <Typography style={{ width: "100%" }}>
                                     {techs.map((lang, index) => {
                                       return (
                                         <>
@@ -2220,9 +2799,7 @@ const Dashboard = (props) => {
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography
-                                    style={{ width: "100%", maxWidth: "675px" }}
-                                  >
+                                  <Typography style={{ width: "100%" }}>
                                     {otherSkills.map((lang, index) => {
                                       return (
                                         <>
@@ -2307,9 +2884,7 @@ const Dashboard = (props) => {
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography
-                                    style={{ width: "100%", maxWidth: "675px" }}
-                                  >
+                                  <Typography style={{ width: "100%" }}>
                                     <Row style={{ width: "100%" }}>
                                       <Col md="4">
                                         <FormGroup>
@@ -2467,9 +3042,7 @@ const Dashboard = (props) => {
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography
-                                    style={{ width: "100%", maxWidth: "675px" }}
-                                  >
+                                  <Typography style={{ width: "100%" }}>
                                     {internships.map((lang, index) => {
                                       return (
                                         <Row
@@ -2654,9 +3227,7 @@ const Dashboard = (props) => {
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography
-                                    style={{ width: "100%", maxWidth: "675px" }}
-                                  >
+                                  <Typography style={{ width: "100%" }}>
                                     {projects.map((lang, index) => {
                                       return (
                                         <Row
@@ -2842,9 +3413,7 @@ const Dashboard = (props) => {
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography
-                                    style={{ width: "100%", maxWidth: "675px" }}
-                                  >
+                                  <Typography style={{ width: "100%" }}>
                                     {trainings.map((lang, index) => {
                                       return (
                                         <>
@@ -2978,17 +3547,19 @@ const Dashboard = (props) => {
                                 </AccordionDetails>
                               </Accordion>
                             )}
-                          <Row>
-                            <div className="update ml-auto mr-auto">
-                              <Button
-                                className="submitBorder"
-                                color="warning"
-                                type="submit"
-                                onClick={(e) => handleSubmit(e)}
-                              >
-                                Update Profile
-                              </Button>
-                            </div>
+                          <Row style={{width:"100%"}}>
+                            <Col>
+                              <div className="update ml-auto mr-auto">
+                                <Button
+                                  className="submit-button"
+                                  color="warning"
+                                  type="submit"
+                                  onClick={(e) => handleSubmit(e)}
+                                >
+                                  Update Profile
+                                </Button>
+                              </div>
+                            </Col>
                           </Row>
                         </form>
                       </CardBody>
