@@ -138,15 +138,15 @@ function Nav() {
                         Give Suggestions
                       </NavLink>
                     </li>
-                    {/* <li>
-                      <NavLink to="#">
+                    <li>
+                      <NavLink to="/about">
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
                         />{" "}
-                        Discussion Forum
+                        About Us
                       </NavLink>
-                    </li> */}
+                    </li>
                     <li>
                       <NavLink to="/verifyCertificate">
                         <img

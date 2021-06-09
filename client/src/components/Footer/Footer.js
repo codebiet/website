@@ -83,12 +83,12 @@ function Footer() {
                     Suggestions
                   </Link>
                 </li>
-                {/* <li className="links">
-                  <Link to="#">
+                <li className="links">
+                  <Link to="/about">
                     <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
-                    Discussion Forum
+                    About Us
                   </Link>
-                </li> */}
+                </li>
                 <li className="links">
                   <Link to="/verifyCertificate">
                     <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
