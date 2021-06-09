@@ -9,9 +9,9 @@ function Mission() {
             Our <span className="Headingspan">Goal</span>
           </h1>
           <p>
-            "" Club Of Developers’ mission is to create a better learning and
+            "Club Of Developers’ mission is to create a better learning and
             collaborative atmosphere in the campus where they can learn and
-            explore new technologies and can enhance their skills ""
+            explore new technologies and can enhance their skills."
           </p>
         </div>
         <div className="aboutImage asdf">

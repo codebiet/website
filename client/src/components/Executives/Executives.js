@@ -1,11 +1,15 @@
 import React from "react";
 import profile_img from "../assets/dev.jpeg";
-
+import Vipin from "../assets/final Year/Vipin Gautam.jpg";
+import Manal from "../assets/final Year/manal_sir.jpg";
+import Tanu from "../assets/final Year/Tanu Agrawal.jpg";
 const ExecutiveItem = (props) => {
   return (
     <div className="exe_main_cot">
       <img src={props.src} alt="profile-pic" className="cards_item_img1" />
-      <p className="exe_name">{props.name}</p>
+      <p className="exe_name">
+        <b>{props.name}</b>
+      </p>
       <div style={{ padding: "0px 0px 5px 0px" }} className="des">
         <a className="icn" href={props.facebook}>
           <i
@@ -41,25 +45,25 @@ function Executives() {
       </p>
       <div class="executives">
         <ExecutiveItem
-          src={profile_img}
-          name="Monal Jain"
+          src={Manal}
+          name="Manal Jain"
           facebook="#"
-          linkedn="#"
-          mail="#"
+          linkedn="https://www.linkedin.com/in/manal-jain/"
+          mail="mailto:manaljain6667@gmail.com"
         />
         <ExecutiveItem
-          src={profile_img}
+          src={Vipin}
           name="Vipin Gautam"
           facebook="#"
-          linkedn="#"
-          mail="#"
+          linkedn="https://www.linkedin.com/in/vipin-gautam-b95531186/"
+          mail="mailto:vipingautam.m@gmail.com"
         />
         <ExecutiveItem
-          src={profile_img}
+          src={Tanu}
           name="Tanu Agarwal"
           facebook="#"
           linkedn="#"
-          mail="#"
+          mail="mailto:tanuagrawal1389@gmail.com"
         />
       </div>
     </div>
