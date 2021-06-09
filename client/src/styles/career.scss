@@ -1,0 +1,230 @@
+$color-primary:rgb(236, 124, 45);
+.career-main-container {
+    font-family:"Nunito",sans-serif;
+    font-size:1.2rem;
+    @media (max-width:500px){
+        font-size:1rem;
+    }
+   .hero-heading{
+       font-weight: 800;
+       span{
+           color:$color-primary;
+       }
+   } 
+  .font-op {
+    font-family: "Nunito",sans-serif;
+  }
+  #stats {
+    background-color: $color-primary;
+    border-radius: 1rem;
+    padding: auto;
+    height: 50%;
+  }
+  #cw {
+    color: whitesmoke;
+  }
+  #your-life-class {
+    padding-top: 10%;
+  }
+
+  .footer {
+    background-color: #1d88cd2e;
+  }
+  #changec {
+    color: $color-primary;
+    font-weight: 700;
+  }
+  #recruitment-text {
+    text-align: center;
+    font-weight: 700;
+  }
+
+  #po1 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .career-section img {
+    margin: 0 auto;
+    display: block;
+  }
+  .career-section {
+    padding: 50px 0px 100px 0px;
+    background-color: white;
+  }
+  .career-section h2 {
+    font-size: 60px;
+  }
+  .career-section h2 span {
+    font-size: 80px;
+  }
+  .career-section img {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .your-life {
+    padding: 100px 0px;
+    @media (max-width:600px){
+        padding-top:0;
+    }
+  }
+  .your-box {
+    background-color: #fff;
+    margin-top: 15px;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px #ececec;
+  }
+  .your-box h3 {
+    font-size: 18px;
+  }
+  .your-box p {
+    font-size: 14px;
+  }
+
+  .your-box-job {
+    background-color: #fff;
+    margin-top: 15px;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px #ececec;
+  }
+  .your-box-job h3 {
+    font-size: 18px;
+  }
+  .your-box-job p {
+    font-size: 14px;
+  }
+
+  .marg-top {
+    margin-top: 50px;
+  }
+  .your-life h2 {
+    font-size: 60px;
+    font-weight: 700;
+    color: black;
+  }
+  .your-life span {
+    font-size: 60px;
+    font-weight: 700;
+    color: $color-primary;
+  }
+
+  .join {
+    padding: 70px 0px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  .join h1 {
+    font-size: 40px;
+    font-weight: 600;
+    color: $color-primary;
+  }
+
+  .join-box button {
+    font-size: 14px;
+    color: #fff;
+    background-color: $color-primary;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 30px;
+    display: inline-block;
+    transition: 0.9s;
+  }
+
+  #openi {
+    text-align: center;
+  }
+
+  .learn-process {
+    padding: 100px 0px;
+    .learn-box{
+        p{
+            font-size:1rem;
+        }
+    }
+  }
+  .learn-process h1 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #000;
+  }
+  .learn-process h2 {
+    font-size: 22px;
+    color: #000;
+  }
+
+  .learn-box {
+    height: 100%;
+    padding: 20px;
+    border-radius: 10%;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+
+  #switch1 {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
+
+  .custom-control-input:checked ~ .custom-control-label::before {
+    border-color: violet !important;
+    background-color: $color-primary !important;
+  }
+
+  .custom-control-input:active ~ .custom-control-label::before {
+    background-color: $color-primary !important;
+    border-color: violet !important;
+  }
+
+  .achievement {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .img-responsive {
+    max-height: 100px;
+    max-width: 30%;
+    overflow: visible;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  @media only screen and (max-width: 600px) {
+    #mob-apply {
+      padding-top: -20px;
+      padding-bottom: 20px;
+      text-align: center;
+    }
+
+    .career-section h2 {
+      font-size: 30px;
+    }
+    .career-section h2 span {
+      font-size: 60px;
+    }
+    .marg-top {
+      margin-top: 0px;
+    }
+    .your-box {
+      margin-top: 0px;
+    }
+    #po1 {
+      padding: 10px 10px 10px 10px;
+    }
+    #stats h1 {
+      font-size: 1em;
+    }
+    #stats h6 {
+      font-size: 0.5em;
+    }
+    .col-12 {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+}

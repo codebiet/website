@@ -45,6 +45,7 @@ import BlogsIndividual from "../../pages/Blogs_Individual";
 import UserProfile from "../../pages/UserProfile";
 import Blogs from "../../pages/Blogs";
 import OurTeam from "../../pages/OurTeam";
+import Career from "../../pages/Career";
 // const Register = lazy(() => import("../../pages/Register"));
 // const SentVerifyEmail = lazy(() => import("../../pages/SentVerifyEmail"));
 // const Login = lazy(() => import("../../pages/Login"));
@@ -148,6 +149,7 @@ function App() {
             <Route exact path="/events" component={Events} />
             <Route path="/about" component={About} />
             <Route path="/ourTeam" component={OurTeam} />
+            <Route path="/careers" component={Career} />
             <Route
               exact
               path="/events/:id"
