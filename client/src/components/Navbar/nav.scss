@@ -60,7 +60,15 @@
     flex-wrap: wrap;
     padding: 20px;
   }
-
+  #menu.menu-open{
+    @media (max-width:950px){
+      position:fixed;
+      min-height:100vh;
+      z-index: 1250;
+      top:85px;
+      overflow:auto;
+    }
+  }
   .nav {
     padding: 10px 0px;
   }
@@ -264,7 +272,7 @@
       max-height: 0;
       visibility: visible;
       opacity: 1;
-      transition: max-height 0.8s ease;
+      transition: max-height 0.2s ease;
     }
     .nav > li:hover > div {
       position: inherit;
@@ -316,13 +324,13 @@
     #ham.open > .slice:first-child {
       background: #e45c2c;
       transform: rotate(45deg);
-      transition: 0.4s ease;
+      transition: 0.3s ease;
     }
     #ham.open > .slice:nth-child(2) {
       background: #e45c2c;
       transform: rotate(135deg);
       margin-top: -7px;
-      transition: 0.4s ease;
+      transition: 0.3s ease;
     }
   }
   .nav-user-container {

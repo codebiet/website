@@ -96,6 +96,12 @@ function Footer() {
                   </Link>
                 </li>
                 <li className="links">
+                  <Link to="/careers">
+                    <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
+                    Careers
+                  </Link>
+                </li>
+                <li className="links">
                   <Link to="/verifyCertificate">
                     <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
                     Certificate Verification
