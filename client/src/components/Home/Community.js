@@ -108,8 +108,9 @@ const Community = (props) => {
               </span>
             </h3>
             <p>
-              Sed ut perspiciatis unde omnis iste natus error sit doloremque
-              laudantium, totam rem aperiam, veritatis et quasi.
+              Our aim is to establish a coding culture on campus reaching every
+              student passionate about development. We want to set up a
+              supportive technical community that encourages innovative ideas.
             </p>
             <Link className="btn btn-style mt-lg-5 mt-4" to="/about">
               Wanna Know More?

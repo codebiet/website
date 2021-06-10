@@ -3,21 +3,20 @@ import AOS from "aos";
 import { Collapse } from "reactstrap";
 const faqsData = [
   {
-    header: "Non consectetur a erat nam at lectus urna duis?",
+    header: "Who can join the Club of Developers?",
     description:
-      "Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.",
+      "Club of Developers is for everyone, regardless of their field of study or their current level of knowledge. The only criteria  is passion to learn, build and innovate.",
+  },
+  {
+    header: "What are the types of events in CODE?",
+    description:
+      "CODE conducts various types of events including webinars, seminars and workshops. We also conduct various project building activities. Moreover, we also provide preparation for external events and placements.",
   },
   {
     header:
-      "Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?",
+      "Can students of other colleges also participate in the events conducted under the club ?",
     description:
-      "Dolor sit amet consectetur adipiscing elit pellentesque habitan morbi. Id interdum velit laoreet id donec ultrices. Fringill phasellus faucibus scelerisque eleifend donec pretium. Es pellentesque elit ullamcorper dignissim. Mauris ultrices eros i cursus turpis massa tincidunt dui.",
-  },
-  {
-    header:
-      "Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?",
-    description:
-      "Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis",
+      "Yes, any college student can participate in the events which we conduct. However, only the students of BIET, Jhansi will be eligible to become a part of the club as well as for the rewards.",
   },
 ];
 const FaqAccordion = ({ header, description }) => {
