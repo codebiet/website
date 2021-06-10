@@ -1,34 +1,45 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import AOS from "aos";
-import img1 from "../assets/team4.jpg";
+import Ritesh from "../assets/final Year/ritesh_rai_sir_1.jpg";
+import Samarth from "../assets/final Year/Samarth_Agarwal_Sir.jpg";
+import Rajat from "../assets/final Year/Rajat Saxena.jpg";
 const TeamMemberData = [
   {
     name: "Ritesh Rai",
     description:
       "This is basic card with image on top, title, description and button.",
-    img: img1,
+    img: Ritesh,
     detailedText:
       "This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.",
+    fbLink: "https://www.facebook.com/profile.php?id=100023781995286",
+    lnkdinLink: "https://www.linkedin.com/in/ritesh-rai-3741ba178",
+    email: "riteshrai447@gmail.com",
   },
   {
     name: "Samarth Agrawal",
     description:
       "This is basic card with image on top, title, description and button.",
-    img: img1,
+    img: Samarth,
     detailedText:
       "This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.",
+    fbLink: "https://www.facebook.com/samarthagarwal1414/",
+    lnkdinLink: "https://www.linkedin.com/in/samarth-agarwal-545429133/",
+    email: "samarthagarwal1414@gmail.com",
   },
   {
     name: "Rajat Saxena",
     description:
       "This is basic card with image on top, title, description and button.",
-    img: img1,
+    img: Rajat,
     detailedText:
       "This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.",
+    fbLink: "https://www.facebook.com/rajat.saxena.90410",
+    lnkdinLink: "https://www.linkedin.com/in/rajat-saxena-54509a15b/",
+    email: "saxena1975sanjeev@gmail.com",
   },
 ];
-const TeamMember = ({ name, description, img, detailedText }) => {
+const TeamMember = ({ name, description, img, detailedText,fbLink,lnkdinLink,email }) => {
   return (
     <div
       className="col-xs-12 col-sm-6 col-md-4"
@@ -63,40 +74,40 @@ const TeamMember = ({ name, description, img, detailedText }) => {
                 <p className="card-text">{detailedText}</p>
                 <ul className="list-inline">
                   <li className="list-inline-item">
-                    <Link
+                    <a
                       className="social-icon text-xs-center"
                       target="_blank"
-                      to="#"
+                      href={fbLink}
                     >
                       <img src="https://img.icons8.com/fluent/32/000000/facebook-new.png" />
-                    </Link>
+                    </a>
                   </li>
                   <li className="list-inline-item">
-                    <Link
+                    <a
                       className="social-icon text-xs-center"
                       target="_blank"
-                      to="#"
+                      href="#"
                     >
                       <img src="https://img.icons8.com/color/32/000000/twitter-circled.png" />
-                    </Link>
+                    </a>
                   </li>
                   <li className="list-inline-item">
-                    <Link
+                    <a
                       className="social-icon text-xs-center"
                       target="_blank"
-                      to="#"
+                      href={lnkdinLink}
                     >
                       <img src="https://img.icons8.com/fluent/32/000000/linkedin.png" />
-                    </Link>
+                    </a>
                   </li>
                   <li className="list-inline-item">
-                    <Link
+                    <a
                       className="social-icon text-xs-center"
                       target="_blank"
-                      to="#"
+                      href="#"
                     >
                       <img src="https://img.icons8.com/fluent/32/000000/instagram-new.png" />
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </div>

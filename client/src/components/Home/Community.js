@@ -111,7 +111,7 @@ const Community = (props) => {
               Sed ut perspiciatis unde omnis iste natus error sit doloremque
               laudantium, totam rem aperiam, veritatis et quasi.
             </p>
-            <Link className="btn btn-style mt-lg-5 mt-4" to="">
+            <Link className="btn btn-style mt-lg-5 mt-4" to="/about">
               Wanna Know More?
             </Link>
           </div>
