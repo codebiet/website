@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 const Nav = lazy(() => import("../components/Navbar/Nav"));
 const Footer = lazy(() => import("../components/Footer/Footer"));
 const Content = lazy(() => import("../components/UserProfile/Content"));
@@ -9,6 +9,9 @@ const Header = lazy(() => import("../components/UserProfile/Header"));
 // import Header from "../components/UserProfile/Header";
 import Loader from "../components/Loader/Loader";
 function UserProfile(props) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Suspense fallback={<Loader />}>
       <Nav />

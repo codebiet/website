@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState } from "react";
+import React, { lazy, Suspense, useState, useEffect } from "react";
 const RangeSlider = lazy(() => import("../components/Slider/Slider"));
 const WorkWithUs = lazy(() => import("../components/WorkWithUs/WorkWithUs"));
 const Contact = lazy(() => import("../components/Contact/Contact"));
@@ -9,6 +9,9 @@ import logo from "../components/assets/feedback.png";
 import Loader from "../components/Loader/Loader";
 export const Feedback = () => {
   const [feedback, setFeedback] = useState("");
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
   };

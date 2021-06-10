@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 const AboutCode = lazy(() => import("../components/About/aboutCode"));
 
 const Mission = lazy(() => import("../components/Mission/mission"));
@@ -11,6 +11,9 @@ const Nav = lazy(() => import("../components/Navbar/Nav"));
 const Footer = lazy(() => import("../components/Footer/Footer"));
 import Loader from "../components/Loader/Loader";
 function About() {
+  useEffect(() => {
+    window.scrollTo(0,0);
+  },[])
   return (
     <Suspense fallback={<Loader />}>
       <div>

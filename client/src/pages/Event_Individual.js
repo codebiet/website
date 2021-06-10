@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 const Nav = lazy(() => import("../components/Navbar/Nav"));
 const Footer = lazy(() => import("../components/Footer/Footer"));
 const Event_Individual = lazy(() =>
@@ -6,10 +6,15 @@ const Event_Individual = lazy(() =>
 );
 import Loader from "../components/Loader/Loader";
 const Event_Details = (props) => {
-  return <Suspense fallback={<Loader />}>
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  return (
+    <Suspense fallback={<Loader />}>
       <Nav />
       <Event_Individual {...props} />
       <Footer />
-  </Suspense>;
+    </Suspense>
+  );
 };
 export default Event_Details;
