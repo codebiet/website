@@ -121,7 +121,7 @@ function Nav() {
                 <div className="nav-column">
                   <ul>
                     <li>
-                      <NavLink to="#">
+                      <NavLink to="/careers">
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
@@ -145,15 +145,6 @@ function Nav() {
                           className="elevated"
                         />{" "}
                         About Us
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/careers">
-                        <img
-                          src="https://img.icons8.com/metro/26/000000/sort-down.png"
-                          className="elevated"
-                        />{" "}
-                        Careers
                       </NavLink>
                     </li>
                     <li>
