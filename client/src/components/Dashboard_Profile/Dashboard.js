@@ -287,427 +287,417 @@ const TakeData = ({
   return (
     <>
       {/* <Row> */}
-        {/* <Col> */}
-          <Accordion defaultExpanded style={{ width: "100%" }}>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-            >
-              <Typography className={classes.heading}>
-                Basic Information
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography style={{ width: "100%" }}>
-                <Row style={{ width: "100%" }}>
-                  <Col md="6" xs="11">
-                    <FormGroup>
-                      <label className="fontType" htmlFor="fullname">
-                        Full Name
-                      </label>
-                      <input
-                        className="form-control"
-                        type="text"
-                        value={name}
-                        placeholder="Name"
-                        disabled
-                      />
-                    </FormGroup>
-                  </Col>
-                  <Col md="5" xs="11">
-                    <FormGroup>
-                      <label className="fontType" htmlFor="email">
-                        Email address
-                      </label>
-                      <input
-                        className="form-control"
-                        placeholder="Email"
-                        type="email"
-                        name="email"
-                        value={email}
-                        disabled
-                      />
-                    </FormGroup>
-                  </Col>
-                </Row>
-                <Row style={{ width: "100%" }}>
-                  <Col md="6" xs="11">
-                    <FormGroup>
-                      <label className="fontType" htmlFor="mobile">
-                        Calling Phone Number
-                      </label>
-                      <input
-                        className="form-control"
-                        type="text"
-                        placeholder="Calling Phone Number"
-                        value={callingPhoneNum}
-                        onChange={(e) => setCallingPhoneNum(e.target.value)}
-                      />
-                    </FormGroup>
-                  </Col>
-                  <Col md="5" xs="11">
-                    <FormGroup>
-                      <label className="fontType" htmlFor="whatsapp">
-                        Whatsapp Number
-                      </label>
-                      <input
-                        className="form-control"
-                        type="text"
-                        placeholder="Whatsapp Phone Number"
-                        value={whatsAppPhoneNum}
-                        onChange={(e) => setWhatsAppPhoneNum(e.target.value)}
-                      />
-                    </FormGroup>
-                  </Col>
-                </Row>
+      {/* <Col> */}
+      <Accordion defaultExpanded style={{ width: "100%" }}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography className={classes.heading}>Basic Information</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography style={{ width: "100%" }}>
+            <Row style={{ width: "100%" }}>
+              <Col md="6" xs="11">
+                <FormGroup>
+                  <label className="fontType" htmlFor="fullname">
+                    Full Name
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    value={name}
+                    placeholder="Name"
+                    disabled
+                  />
+                </FormGroup>
+              </Col>
+              <Col md="5" xs="11">
+                <FormGroup>
+                  <label className="fontType" htmlFor="email">
+                    Email address
+                  </label>
+                  <input
+                    className="form-control"
+                    placeholder="Email"
+                    type="email"
+                    name="email"
+                    value={email}
+                    disabled
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+            <Row style={{ width: "100%" }}>
+              <Col md="6" xs="11">
+                <FormGroup>
+                  <label className="fontType" htmlFor="mobile">
+                    Calling Phone Number
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    placeholder="Calling Phone Number"
+                    value={callingPhoneNum}
+                    onChange={(e) => setCallingPhoneNum(e.target.value)}
+                  />
+                </FormGroup>
+              </Col>
+              <Col md="5" xs="11">
+                <FormGroup>
+                  <label className="fontType" htmlFor="whatsapp">
+                    Whatsapp Number
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    placeholder="Whatsapp Phone Number"
+                    value={whatsAppPhoneNum}
+                    onChange={(e) => setWhatsAppPhoneNum(e.target.value)}
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
 
-                <Row style={{ width: "100%" }}>
-                  <Col md="11" xs="11">
-                    <FormGroup>
-                      <label className="fontType" htmlFor="github">
-                        GitHub Username
-                      </label>
-                      {githubUserInput}
-                    </FormGroup>
-                  </Col>
-                </Row>
+            <Row style={{ width: "100%" }}>
+              <Col md="11" xs="11">
+                <FormGroup>
+                  <label className="fontType" htmlFor="github">
+                    GitHub Username
+                  </label>
+                  {githubUserInput}
+                </FormGroup>
+              </Col>
+            </Row>
 
-                <Row style={{ width: "100%" }}>
-                  <Col md="4" xs="11">
-                    <FormGroup>
-                      <label className="fontType" htmlFor="year">
-                        Year
-                      </label>
-                      <select
-                        className="form-control"
-                        value={year}
-                        onChange={(e) => setYear(e.target.value)}
-                      >
-                        <option value="">Choose Year</option>
-                        <option value="1">1st</option>
-                        <option value="2">2nd</option>
-                        <option value="3">3rd</option>
-                        <option value="4">4th</option>
-                      </select>
-                    </FormGroup>
-                  </Col>
-                  <Col md="4" xs="11">
-                    <FormGroup>
-                      <label className="fontType" htmlFor="branch">
-                        Branch
-                      </label>
-
-                      <select
-                        className="form-control"
-                        value={branch}
-                        onChange={(e) => setBranch(e.target.value)}
-                      >
-                        <option value="">Branch</option>
-                        <option value="Electrical Engineering">
-                          Electrical Engineering
-                        </option>
-                        <option value="Electronics and Communication">
-                          Electronics and Communication
-                        </option>
-                        <option value="Computer Science and Engineering">
-                          Computer Science and Engineering
-                        </option>
-                        <option value="Infomation Technology">
-                          Infomation Technology
-                        </option>
-                        <option value="Civil Engineering">
-                          Civil Engineering
-                        </option>
-                        <option value="Mechanical Engineering">
-                          Mechanical Engineering
-                        </option>
-                        <option value="Chemical Technology">
-                          Chemical Technology
-                        </option>
-                      </select>
-                    </FormGroup>
-                  </Col>
-                  <Col md="3" xs="11">
-                    <FormGroup>
-                      <label className="fontType" htmlFor="rollnumber">
-                        Roll Number
-                      </label>
-                      {rollNumberInput}
-                    </FormGroup>
-                  </Col>
-                </Row>
-
-                <Row style={{ width: "100%" }}>
-                  <Col md="4" xs="11">
-                    <FormGroup>
-                      <label className="fontType" htmlFor="fullname">
-                        Degree
-                      </label>
-                      <input
-                        className="form-control"
-                        type="text"
-                        placeholder="Degree(Eg. B.Tech)"
-                        value={degree}
-                        onChange={(e) => setDegree(e.target.value)}
-                      />
-                    </FormGroup>
-                  </Col>
-                  <Col md="4" xs="11">
-                    <FormGroup>
-                      <label className="fontType" htmlFor="mobile">
-                        College
-                      </label>
-                      <input
-                        className="form-control"
-                        type="text"
-                        placeholder="College(Eg. BIET)"
-                        value={college}
-                        onChange={(e) => setCollege(e.target.value)}
-                      />
-                    </FormGroup>
-                  </Col>
-                  <Col md="3" xs="11">
-                    <FormGroup>
-                      <label className="fontType" htmlFor="whatsapp">
-                        College City
-                      </label>
-                      <input
-                        className="form-control"
-                        type="text"
-                        placeholder="College City"
-                        value={collegeCity}
-                        onChange={(e) => setCollegeCity(e.target.value)}
-                      />
-                    </FormGroup>
-                  </Col>
-                </Row>
-
-                <Row style={{ width: "100%" }}>
-                  <Col md="11" xs="11">
-                    <FormGroup>
-                      <label className="fontType" htmlFor="github">
-                        About/Objective
-                      </label>
-                      <textarea
-                        className="form-control"
-                        placeholder="About/Objective"
-                        value={objective}
-                        onChange={(e) => setObjective(e.target.value)}
-                      ></textarea>
-                    </FormGroup>
-                  </Col>
-                </Row>
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
-
-          {academics.map((acad, index) => {
-            return (
-              <>
-                <Accordion style={{ width: "100%" }}>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
+            <Row style={{ width: "100%" }}>
+              <Col md="4" xs="11">
+                <FormGroup>
+                  <label className="fontType" htmlFor="year">
+                    Year
+                  </label>
+                  <select
+                    className="form-control"
+                    value={year}
+                    onChange={(e) => setYear(e.target.value)}
                   >
-                    <Typography className={classes.heading}>
-                      {acad.degree + " Details"}
-                    </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography style={{ width: "100%" }}>
-                      <Row style={{ width: "100%" }} key={index}>
-                        <Col md="8" xs="11">
+                    <option value="">Choose Year</option>
+                    <option value="1">1st</option>
+                    <option value="2">2nd</option>
+                    <option value="3">3rd</option>
+                    <option value="4">4th</option>
+                  </select>
+                </FormGroup>
+              </Col>
+              <Col md="4" xs="11">
+                <FormGroup>
+                  <label className="fontType" htmlFor="branch">
+                    Branch
+                  </label>
+
+                  <select
+                    className="form-control"
+                    value={branch}
+                    onChange={(e) => setBranch(e.target.value)}
+                  >
+                    <option value="">Branch</option>
+                    <option value="Electrical Engineering">
+                      Electrical Engineering
+                    </option>
+                    <option value="Electronics and Communication">
+                      Electronics and Communication
+                    </option>
+                    <option value="Computer Science and Engineering">
+                      Computer Science and Engineering
+                    </option>
+                    <option value="Infomation Technology">
+                      Infomation Technology
+                    </option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                    <option value="Mechanical Engineering">
+                      Mechanical Engineering
+                    </option>
+                    <option value="Chemical Technology">
+                      Chemical Technology
+                    </option>
+                  </select>
+                </FormGroup>
+              </Col>
+              <Col md="3" xs="11">
+                <FormGroup>
+                  <label className="fontType" htmlFor="rollnumber">
+                    Roll Number
+                  </label>
+                  {rollNumberInput}
+                </FormGroup>
+              </Col>
+            </Row>
+
+            <Row style={{ width: "100%" }}>
+              <Col md="4" xs="11">
+                <FormGroup>
+                  <label className="fontType" htmlFor="fullname">
+                    Degree
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    placeholder="Degree(Eg. B.Tech)"
+                    value={degree}
+                    onChange={(e) => setDegree(e.target.value)}
+                  />
+                </FormGroup>
+              </Col>
+              <Col md="4" xs="11">
+                <FormGroup>
+                  <label className="fontType" htmlFor="mobile">
+                    College
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    placeholder="College(Eg. BIET)"
+                    value={college}
+                    onChange={(e) => setCollege(e.target.value)}
+                  />
+                </FormGroup>
+              </Col>
+              <Col md="3" xs="11">
+                <FormGroup>
+                  <label className="fontType" htmlFor="whatsapp">
+                    College City
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    placeholder="College City"
+                    value={collegeCity}
+                    onChange={(e) => setCollegeCity(e.target.value)}
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+
+            <Row style={{ width: "100%" }}>
+              <Col md="11" xs="11">
+                <FormGroup>
+                  <label className="fontType" htmlFor="github">
+                    About/Objective
+                  </label>
+                  <textarea
+                    className="form-control"
+                    placeholder="About/Objective"
+                    value={objective}
+                    onChange={(e) => setObjective(e.target.value)}
+                  ></textarea>
+                </FormGroup>
+              </Col>
+            </Row>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+
+      {academics.map((acad, index) => {
+        return (
+          <>
+            <Accordion style={{ width: "100%" }}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <Typography className={classes.heading}>
+                  {acad.degree + " Details"}
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography style={{ width: "100%" }}>
+                  <Row style={{ width: "100%" }} key={index}>
+                    <Col md="8" xs="11">
+                      <FormGroup>
+                        <label
+                          className="fontType"
+                          htmlFor={"college-" + index}
+                        >
+                          College
+                        </label>
+                        <input
+                          id={`college-${index}`}
+                          type="text"
+                          className="form-control"
+                          placeholder="College"
+                          value={acad.college}
+                          onChange={(e) =>
+                            setAcademics((prev) => {
+                              prev[index].college = e.target.value;
+                              return [...prev];
+                            })
+                          }
+                        />
+                      </FormGroup>
+                    </Col>
+                    <Col md="3" xs="11">
+                      <FormGroup>
+                        <label className="fontType" htmlFor={"degree-" + index}>
+                          Degree
+                        </label>
+                        <input
+                          id={`degree-${index}`}
+                          type="text"
+                          className="form-control"
+                          placeholder="Degree(Eg. B.Tech/XII/X)"
+                          value={acad.degree}
+                          disabled
+                        />
+                      </FormGroup>
+                    </Col>
+                    <Col md="8">
+                      <Row style={{ maxWidth: "100%", margin: 0 }}>
+                        <Col xs="8" style={{ paddingLeft: "0" }}>
                           <FormGroup>
                             <label
                               className="fontType"
-                              htmlFor={"college-" + index}
+                              htmlFor={"result-" + index}
                             >
-                              College
+                              GPA/Percentage
                             </label>
                             <input
-                              id={`college-${index}`}
+                              style={{ width: "99%" }}
+                              id={`result-${index}`}
                               type="text"
                               className="form-control"
-                              placeholder="College"
-                              value={acad.college}
+                              placeholder="GPA/Percentage"
+                              value={acad.result}
                               onChange={(e) =>
                                 setAcademics((prev) => {
-                                  prev[index].college = e.target.value;
+                                  prev[index].result = e.target.value;
                                   return [...prev];
                                 })
                               }
                             />
                           </FormGroup>
                         </Col>
-                        <Col md="3" xs="11">
-                          <FormGroup>
-                            <label
-                              className="fontType"
-                              htmlFor={"degree-" + index}
-                            >
-                              Degree
-                            </label>
-                            <input
-                              id={`degree-${index}`}
-                              type="text"
-                              className="form-control"
-                              placeholder="Degree(Eg. B.Tech/XII/X)"
-                              value={acad.degree}
-                              disabled
-                            />
-                          </FormGroup>
-                        </Col>
-                        <Col md="8">
-                          <Row style={{ maxWidth: "100%", margin: 0 }}>
-                            <Col xs="8" style={{ paddingLeft: "0" }}>
-                              <FormGroup>
-                                <label
-                                  className="fontType"
-                                  htmlFor={"result-" + index}
-                                >
-                                  GPA/Percentage
-                                </label>
-                                <input
-                                  style={{ width: "99%" }}
-                                  id={`result-${index}`}
-                                  type="text"
-                                  className="form-control"
-                                  placeholder="GPA/Percentage"
-                                  value={acad.result}
-                                  onChange={(e) =>
-                                    setAcademics((prev) => {
-                                      prev[index].result = e.target.value;
-                                      return [...prev];
-                                    })
-                                  }
-                                />
-                              </FormGroup>
-                            </Col>
-                            <Col xs="3" style={{ paddingRight: 0 }}>
-                              <label
-                                className="fontType"
-                                htmlFor={"result-type-" + index}
-                              >
-                                Type
-                              </label>
-                              <select
-                                id={"result-type-" + index}
-                                className="form-control"
-                                value={acad.type}
-                                onChange={(e) =>
-                                  setAcademics((prev) => {
-                                    prev[index].type = e.target.value;
-                                    return [...prev];
-                                  })
-                                }
-                              >
-                                <option value="GPA">GPA</option>
-                                <option value="PERCENTAGE">Percentage</option>
-                              </select>
-                            </Col>
-                          </Row>
-                        </Col>
-                        <Col md="3" xs="11">
-                          <FormGroup>
-                            <label
-                              className="fontType"
-                              htmlFor={"year-" + index}
-                            >
-                              Passing/Expected Passing Year
-                            </label>
-                            <select
-                              id={`year-${index}`}
-                              type="text"
-                              className="form-control"
-                              placeholder="Passing Year"
-                              value={acad.year}
-                              onChange={(e) =>
-                                setAcademics((prev) => {
-                                  prev[index].year = e.target.value;
-                                  return [...prev];
-                                })
-                              }
-                            >
-                              {years.map((year) => {
-                                return (
-                                  <option key={year} value={year}>
-                                    {year || "Year"}
-                                  </option>
-                                );
-                              })}
-                            </select>
-                          </FormGroup>
+                        <Col xs="3" style={{ paddingRight: 0 }}>
+                          <label
+                            className="fontType"
+                            htmlFor={"result-type-" + index}
+                          >
+                            Type
+                          </label>
+                          <select
+                            id={"result-type-" + index}
+                            className="form-control"
+                            value={acad.type}
+                            onChange={(e) =>
+                              setAcademics((prev) => {
+                                prev[index].type = e.target.value;
+                                return [...prev];
+                              })
+                            }
+                          >
+                            <option value="GPA">GPA</option>
+                            <option value="PERCENTAGE">Percentage</option>
+                          </select>
                         </Col>
                       </Row>
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
-              </>
-            );
-          })}
-          <Accordion style={{ width: "100%" }}>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-            >
-              <Typography className={classes.heading}>Achievements</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography style={{ width: "100%" }}>
-                {achievements.map((ach, index) => {
-                  return (
-                    <>
-                      <Row style={{ width: "100%" }} key={index}>
-                        <Col xs="11">
-                          <FormGroup>
-                            <label
-                              className="fontType"
-                              htmlFor={"achievement-" + index}
-                            >{`Achievement-${index + 1}`}</label>
-                            <input
-                              id={`achievement-${index}`}
-                              type="text"
-                              className="form-control"
-                              placeholder={"Achievement - " + (index + 1)}
-                              value={ach}
-                              onChange={(e) =>
-                                setAchievements((prev) => {
-                                  prev[index] = e.target.value;
-                                  return [...prev];
-                                })
-                              }
-                              disabled={index < achievements.length - 1}
-                            />
-                          </FormGroup>
-                        </Col>
-                      </Row>
-                    </>
-                  );
-                })}
-                <Row>
-                  {/* <Col> */}
-                    <div className="update ml-auto mr-auto">
-                      <div
-                        className={
-                          isdisabled()
-                            ? "btn btn-success disabled"
-                            : "btn btn-success"
-                        }
-                        style={{ margin: "0" }}
-                        onClick={() => addMore()}
-                      >
-                        Add more
-                      </div>
-                    </div>
-                  {/* </Col> */}
-                </Row>
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
-        {/* </Col> */}
+                    </Col>
+                    <Col md="3" xs="11">
+                      <FormGroup>
+                        <label className="fontType" htmlFor={"year-" + index}>
+                          Passing/Expected Passing Year
+                        </label>
+                        <select
+                          id={`year-${index}`}
+                          type="text"
+                          className="form-control"
+                          placeholder="Passing Year"
+                          value={acad.year}
+                          onChange={(e) =>
+                            setAcademics((prev) => {
+                              prev[index].year = e.target.value;
+                              return [...prev];
+                            })
+                          }
+                        >
+                          {years.map((year) => {
+                            return (
+                              <option key={year} value={year}>
+                                {year || "Year"}
+                              </option>
+                            );
+                          })}
+                        </select>
+                      </FormGroup>
+                    </Col>
+                  </Row>
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          </>
+        );
+      })}
+      <Accordion style={{ width: "100%" }}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography className={classes.heading}>Achievements</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography style={{ width: "100%" }}>
+            {achievements.map((ach, index) => {
+              return (
+                <>
+                  <Row style={{ width: "100%" }} key={index}>
+                    <Col xs="11">
+                      <FormGroup>
+                        <label
+                          className="fontType"
+                          htmlFor={"achievement-" + index}
+                        >{`Achievement-${index + 1}`}</label>
+                        <input
+                          id={`achievement-${index}`}
+                          type="text"
+                          className="form-control"
+                          placeholder={"Achievement - " + (index + 1)}
+                          value={ach}
+                          onChange={(e) =>
+                            setAchievements((prev) => {
+                              prev[index] = e.target.value;
+                              return [...prev];
+                            })
+                          }
+                          disabled={index < achievements.length - 1}
+                        />
+                      </FormGroup>
+                    </Col>
+                  </Row>
+                </>
+              );
+            })}
+            <Row>
+              {/* <Col> */}
+              <div className="update ml-auto mr-auto">
+                <div
+                  className={
+                    isdisabled()
+                      ? "btn btn-success disabled"
+                      : "btn btn-success"
+                  }
+                  style={{ margin: "0" }}
+                  onClick={() => addMore()}
+                >
+                  Add more
+                </div>
+              </div>
+              {/* </Col> */}
+            </Row>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      {/* </Col> */}
       {/* </Row> */}
     </>
   );
@@ -1368,8 +1358,11 @@ const Dashboard = (props) => {
       );
     }
     const data = new FormData();
-    data.append("resume", resumeInput.current.files[0]);
-    data.append("profilePhoto", profilePhotoInput.current.files[0]);
+    if (resumeInput.current && resumeInput.current.files)
+      //resumeInput.current will be null if file input is not rendered due to condition mobile number is not verified;
+      data.append("resume", resumeInput.current.files[0]);
+    if (profilePhotoInput.current && profilePhotoInput.current.files)
+      data.append("profilePhoto", profilePhotoInput.current.files[0]);
     const lastProgrammingLang =
       programmingLanguages[programmingLanguages.length - 1];
     const lastWebTech = webTechnologies[webTechnologies.length - 1];
@@ -1519,7 +1512,7 @@ const Dashboard = (props) => {
                         </Row>
 
                         <form onSubmit={(e) => handleSubmit(e)}>
-                          <Row style={{width:"100%"}}>
+                          <Row style={{ width: "100%" }}>
                             <Col md="2" className="pt-2 pb-0 pr-4 pl-4">
                               <FormGroup
                                 style={{
@@ -3547,7 +3540,7 @@ const Dashboard = (props) => {
                                 </AccordionDetails>
                               </Accordion>
                             )}
-                          <Row style={{width:"100%"}}>
+                          <Row style={{ width: "100%" }}>
                             <Col>
                               <div className="update ml-auto mr-auto">
                                 <Button

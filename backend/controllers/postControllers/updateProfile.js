@@ -132,14 +132,14 @@ const updateProfile = async (req, res) => {
     if (callingPhoneNumber.length >= 10) {
       user.callingPhoneNumber =
         "91" + callingPhoneNumber.slice(callingPhoneNumber.length - 10);
-      user.callingVerified = true;
+      user.callingVerified = true;//to be removed for otp verification
     } else {
       errorMsg = "Invalid Calling Phone Number";
     }
     if (whatsAppPhoneNumber.length >= 10) {
       user.whatsAppPhoneNumber =
         "91" + whatsAppPhoneNumber.slice(whatsAppPhoneNumber.length - 10);
-      user.whatsAppVerified = true;
+      user.whatsAppVerified = true;//to be removed for otp verification;
     } else {
       errorMsg = "Invalid Whatsapp Number";
     }
