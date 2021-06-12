@@ -34,5 +34,6 @@ router
 router
   .route("/resumeData")
   .get(require("../controllers/getControllers/getResumeData"));
-router.route("/events").get(require("../controllers/getControllers/events"));
+router.route("/events/").get(require("../controllers/getControllers/events"));
+router.route('/events/:id').get(require('../controllers/getControllers/eventById'));
 module.exports = router;
