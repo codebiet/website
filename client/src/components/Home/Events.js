@@ -1,14 +1,25 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AOS from "aos";
 
 import OwlCarousel from "react-owl-carousel";
 import EventCard from "../EventCard/EventCard";
-import eventsData from "../EventCard/eventsData";
-import {Container} from "reactstrap";
+import { Container } from "reactstrap";
+import axios from "axios";
 const Events = (props) => {
+  const [eventsData, setEventsData] = useState();
   useEffect(() => {
     AOS.init();
     AOS.refresh();
+  }, []);
+  useEffect(() => {
+    axios
+      .get("/api/events")
+      .then((res) => {
+        setEventsData(res.data.events);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
   return (
     <>
@@ -48,7 +59,7 @@ const Events = (props) => {
               className="owl-theme mt-4 py-md-2 mb-md-4"
             >
               {eventsData.map((eventData) => (
-                <EventCard key={eventData.name} {...eventData} />
+                <EventCard key={eventData._id} {...eventData} />
               ))}
             </OwlCarousel>
           </Container>
