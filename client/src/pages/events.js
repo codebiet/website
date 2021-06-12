@@ -1,4 +1,4 @@
-import React, { lazy, useEffect } from "react";
+import React, { lazy, useEffect, useState } from "react";
 import { Suspense } from "react";
 const Nav = lazy(() => import("../components/Navbar/Nav"));
 const Footer = lazy(() => import("../components/Footer/Footer"));
@@ -6,6 +6,7 @@ const EventCard = lazy(() => import("../components/EventCard/EventCard"));
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader/Loader";
 import svg from "../components/assets/SVG.svg";
+import axios from "axios";
 const eventsData = [
   {
     name: "BIET HACK | Ideas meet technology",
@@ -70,8 +71,20 @@ const eventsData = [
 ];
 // const eventsData = lazy(() => import("../components/EventCard/eventsData"));
 function Events() {
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     window.scrollTo(0, 0);
+    setLoading(true);
+    axios
+      .get("/api/events")
+      .then((res) => {
+        setEvents(res.data.events);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
   return (
     <Suspense fallback={<Loader />}>
@@ -107,8 +120,9 @@ function Events() {
                   <div className="eventBody">
                     <div className="eventCardContainer">
                       <div className="eventsContainer">
-                        <EventCard {...eventsData[0]} />
-                        <EventCard {...eventsData[1]} />
+                        {events.map((event) => (
+                          <EventCard key={event._id} {...event} />
+                        ))}
                         {/* <div className="cardEvent">
                           <div className="card">
                             <div className="cardHeader">
@@ -213,6 +227,7 @@ function Events() {
           <Footer />
         </div>
       </div>
+      {loading && <Loader />}
     </Suspense>
   );
 }

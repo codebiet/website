@@ -1,53 +1,70 @@
 import svg from "../assets/SVG.svg";
 const eventData = [
-    {
-        name:'BIET HACK | Ideas meet technology',
-        startsOn:'08:00 PM, 24 MAY 2021',
-        entryFee:'Free',
-        venue:'Online',
-        description:'Run through the wave of codes smoothly and showcase your coding skills to stay ahead amongst your peers.',
-        img:svg,
-        tags:['Coding','Second Year']
-    },{
-        name:'How to crack GATE?',
-        startsOn:'08:00 PM, 24 MAY 2021',
-        entryFee:'Free',
-        venue:'Online',
-        description:'The mentors inspire a lot and encourage us to learn new technology. Happy to get training from them.',
-        img:svg,
-        tags:['Gate','All Year']
-    },{
-        name:'Placement Prep. Talk',
-        startsOn:'08:00 PM, 24 MAY 2021',
-        entryFee:'Free',
-        venue:'Online',
-        description:'Run through the wave of codes smoothly and showcase your coding skills to stay ahead amongst your peers.',
-        img:svg,
-        tags:['Coding','Second Year']
-    },{
-        name:'Workshop on Web Development',
-        startsOn:'08:00 PM, 24 MAY 2021',
-        entryFee:'Free',
-        venue:'Online',
-        description:'Run through the wave of codes smoothly and showcase your coding skills to stay ahead amongst your peers.',
-        img:svg,
-        tags:['Coding','Second Year']
-    },{
-        name:'Create a React App',
-        startsOn:'08:00 PM, 24 MAY 2021',
-        entryFee:'Free',
-        venue:'Online',
-        description:'Run through the wave of codes smoothly and showcase your coding skills to stay ahead amongst your peers.',
-        img:svg,
-        tags:['Coding','Second Year']
-    },{
-        name:'BIET CODEathon',
-        startsOn:'08:00 PM, 24 MAY 2021',
-        entryFee:'Free',
-        venue:'Online',
-        description:'Run through the wave of codes smoothly and showcase your coding skills to stay ahead amongst your peers.',
-        img:svg,
-        tags:['Coding','Second Year']
-    },
-]
+  {
+    name: "BIET HACK | Ideas meet technology",
+    startsOn: new Date(),
+    entryFee: "Free",
+    venue: "Online",
+    shortDescription:
+      "Run through the wave of codes smoothly and showcase your coding skills to stay ahead amongst your peers.",
+    cardImg: svg,
+    tags: ["Coding", "Second Year"],
+    _id: 1,
+  },
+  {
+    name: "How to crack GATE?",
+    startsOn: new Date(),
+    entryFee: "Free",
+    venue: "Online",
+    shortDescription:
+      "The mentors inspire a lot and encourage us to learn new technology. Happy to get training from them.",
+    cardImg: svg,
+    tags: ["Gate", "All Year"],
+    _id: 2,
+  },
+  {
+    name: "Placement Prep. Talk",
+    startsOn: new Date(),
+    entryFee: "Free",
+    venue: "Online",
+    shortDescription:
+      "Run through the wave of codes smoothly and showcase your coding skills to stay ahead amongst your peers.",
+    cardImg: svg,
+    tags: ["Coding", "Second Year"],
+    _id: 3,
+  },
+  {
+    name: "Workshop on Web Development",
+    startsOn: new Date(),
+    entryFee: "Free",
+    venue: "Online",
+    shortDescription:
+      "Run through the wave of codes smoothly and showcase your coding skills to stay ahead amongst your peers.",
+    cardImg: svg,
+    tags: ["Coding", "Second Year"],
+    _id: 4,
+  },
+  {
+    name: "Create a React App",
+    startsOn: new Date(),
+    entryFee: "Free",
+    venue: "Online",
+    shortDescription:
+      "Run through the wave of codes smoothly and showcase your coding skills to stay ahead amongst your peers.",
+    cardImg: svg,
+    tags: ["Coding", "Second Year"],
+    _id: 5,
+  },
+  {
+    name: "BIET CODEathon",
+    startsOn: new Date(),
+    entryFee: "Free",
+    venue: "Online",
+    shortDescription:
+      "Run through the wave of codes smoothly and showcase your coding skills to stay ahead amongst your peers.",
+    cardImg: svg,
+    tags: ["Coding", "Second Year"],
+    _id: 6,
+  },
+];
 export default eventData;
