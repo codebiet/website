@@ -1,0 +1,47 @@
+.MuiFormControl-root {
+  width: 100%;
+  border: 1px solid #dddddd !important;
+  .MuiInput-underline {
+    &::before,
+    &::after {
+      content: none !important;
+      border: none !important;
+      transition: none !important;
+    }
+  }
+  .MuiInput-input {
+    border: none;
+    padding: 0;
+  }
+  .MuiInputAdornment-root button {
+    padding: 0;
+  }
+}
+.tags-input {
+  .tagify {
+    --tags-focus-border-color: #dddddd !important;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    .tagify__input {
+      padding-left: 5px;
+      padding: 10px;
+    }
+  }
+}
+.add-events-card {
+  .editor-toolbar {
+    border: 1px solid #dddddd;
+  }
+  .editor {
+    border: 1px solid #dddddd;
+    border-top: none;
+  }
+  #add-event.btn{
+      background:rgb(236, 124, 45)!important;
+      &:hover,&:active,&:focus{
+          background:rgb(233, 103, 40)!important;
+          box-shadow: 0 0 .5rem 0 rgb(233, 103, 40)!important;
+      }
+  }
+}
