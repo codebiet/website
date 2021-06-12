@@ -1,25 +1,7 @@
 const User = require("../../models/userModal");
 const jwt = require("jsonwebtoken");
 const { v4: uuid } = require("uuid");
-const AWS = require("aws-sdk");
-const s3 = new AWS.S3({
-  accessKeyId: process.env.AWS_ACCESS_ID,
-  secretAccessKey: process.env.AWS_SECRET,
-});
-const uploadS3 = (params, type) => {
-  return new Promise((resolve, reject) => {
-    s3.upload(params, async (err, data) => {
-      if (err) {
-        if (type == "RESUME") reject("Error while uploading Resume");
-        else if (type == "PROFILE_PHOTO")
-          reject("Error while uploading Profile Photo");
-      } else
-        resolve(
-          `https://s3.ap-south-1.amazonaws.com/soorajarsn.warehouse/${params.Key}`
-        ); //file url
-    });
-  });
-};
+const uploadS3 = require('../../utils/uploadS3');
 const updateProfile = async (req, res) => {
   const token = req.cookies["token"];
   console.log(req.cookies);
@@ -172,7 +154,7 @@ const updateProfile = async (req, res) => {
           ContentType: resume.mimetype,
         };
         try {
-          resumeUrl = await uploadS3(resumeParams, "RESUME");
+          resumeUrl = await uploadS3(resumeParams);
         } catch (err) {
           errorMsg = "Error while uploading Resume";
         }
@@ -190,7 +172,7 @@ const updateProfile = async (req, res) => {
           Body: profile.data,
         };
         try {
-          profileUrl = await uploadS3(profileParams, "PROFILE_PHOTO");
+          profileUrl = await uploadS3(profileParams);
           console.log(profileUrl);
         } catch (err) {
           if (!errorMsg) errorMsg = "Error while uploading Profile Photo";
