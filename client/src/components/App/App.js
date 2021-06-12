@@ -70,6 +70,7 @@ import Career from "../../pages/Career";
 // const ProjectsPage = lazy(() => import("../../pages/projects"));
 // const EventDetails = lazy(() => import("../EventDetails/event_details"));
 import Logout from "../../pages/Logout";
+import AdminRoutes from "../ADMIN/routes/AdminRoutes";
 function App() {
   // const auth = useContext(AuthContext);
   const info = useContext(InfoContext);
@@ -170,6 +171,15 @@ function App() {
               path="/userProfile/:id"
               render={(props) => <UserProfile {...props} />}
             />
+
+            {/* Admin routes */}
+            {AdminRoutes.map((adminRoute) => {
+              return <Route
+                exact={true}
+                path={adminRoute.path}
+                render={(props) => <adminRoute.Component {...props} />}
+              />;
+            })}
             <Route
               exact={true}
               path="/internalServerError"
