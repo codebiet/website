@@ -1,24 +1,28 @@
+@import "./colors.scss";
 $theme-colors: (
   "primary": #ff9b21,
   "danger": #ff4136,
   "info": #a639e3,
 );
-#app{
-  width:100vw;
+#app {
+  width: 100vw;
   overflow: hidden;
 }
-a{
+a {
   text-decoration: none;
-  &:visited{
-    color:unset;
+  &:visited {
+    color: unset;
   }
 }
-body{
+body {
   font-family: "Nunito", sans-serif;
 }
-p,span,ul,li{
-  padding:0;
-  margin:0;
+p,
+span,
+ul,
+li {
+  padding: 0;
+  margin: 0;
 }
 
 .link,
@@ -78,7 +82,6 @@ p,span,ul,li{
   color: white;
 }
 
-
 .App-link {
   color: #61dafb;
 }
@@ -91,4 +94,9 @@ p,span,ul,li{
     transform: rotate(360deg);
   }
 }
- 
+.modal .modal-footer .btn-warning {
+  background: $color-primary !important;
+  &:hover {
+    background: $button-hover-color !important;
+  }
+}
