@@ -1,0 +1,39 @@
+.event-card-container{
+    margin:1rem;
+    cursor:pointer;
+    position:relative;
+    .cardEvent{
+        transition: none;
+        &:hover{
+            transform: scale(1);
+        }
+    }
+    .update-remove-button-container{
+        position:absolute;
+        right:1rem;
+        top:1rem;
+        button{
+            border:none;
+            outline: none;
+            background: white;
+            width:3rem;
+            height:3rem;
+            border-radius: 100%;
+            border: 2px solid #dddddd;
+            margin-left:.5rem;
+            color:cornflowerblue;
+            transition:  background .2s ease-in-out;
+            &:hover{
+                color:white;
+                background: cornflowerblue;
+            }
+        }
+        .remove-button{
+            color: red;
+            &:hover{
+                color:white;
+                background:red;
+            }
+        }
+    }
+}
