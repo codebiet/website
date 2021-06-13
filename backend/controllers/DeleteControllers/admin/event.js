@@ -2,7 +2,8 @@ const Events = require("../../../models/events");
 const events = async (req, res) => {
   const id = req.params.id;
   try {
-    const evnts = await Events.findByIdAndDelete(id).exec();
+    await Events.findByIdAndDelete(id).exec();
+    const evnts = await Events.find({});
     console.log(evnts);
     return res.send({ events: evnts });
   } catch (err) {
