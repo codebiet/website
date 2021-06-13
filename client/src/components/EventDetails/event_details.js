@@ -1,34 +1,81 @@
-import React from "react";
-import img from "../assets/header.jpg";
+import React, { useEffect, useState, lazy } from "react";
+import draftToHtml from "draftjs-to-html";
+import DOMPurify from "dompurify";
+import axios from "axios";
+import Loader from "../Loader/Loader";
+// const Loader = lazy(() => import("../Loader/Loader"));
+const months = [
+  "JAN",
+  "FEB",
+  "MAR",
+  "APR",
+  "MAY",
+  "JUNE",
+  "JULY",
+  "AUG",
+  "SEPT",
+  "OCT",
+  "NOV",
+  "DEC",
+];
 function Event_details(props) {
+  const [event, setEvent] = useState({});
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get(`/api/events/${props.match.params.id}`)
+      .then((res) => {
+        console.log(res.data.event);
+        setLoading(false);
+        setEvent(res.data.event);
+      })
+      .catch((err) => {
+        setLoading(false);
+        if (err.response && err.response.status == 404)
+          props.history.push("/error404");
+      });
+  }, []);
+  const createMarkup = (html) => {
+    return {
+      __html: DOMPurify.sanitize(html),
+    };
+  };
+  const starts = new Date(event.startsOn);
+  const hours = starts.getHours() % 12 == 0 ? 12 : starts.getHours();
+  const minutes = starts.getMinutes();
+  const AM_PM = starts.getHours() < 12 ? "AM" : "PM";
+  const year = starts.getFullYear();
+  const month = months[starts.getMonth()];
+  const date = starts.getDate();
   return (
     <main className="event-details-main">
       <div className="eventDetails">
         <div className="eventDetailsOuter">
           <div className="eventINnerDiv">
             <div className="headerImage">
-              <img src={img} alt="svg"></img>
+              <img src={event.banner} alt="svg" />
             </div>
             <div className="eventBody">
               <div className="eventINfoSection">
-                <h1>RECURSION For Humanity</h1>
+                <h1>{event.name}</h1>
                 <div className="registerDetails">
                   <div className="registerButton">Register Now</div>
                   <div className="event">
                     <p>Starts On</p>
-                    <p color="grey">01:00 PM, 5 JUN 2021</p>
+                    <p color="grey">{`${hours}:${minutes} ${AM_PM}, ${date} ${month}, ${year}`}</p>
                   </div>
                   <div className="event">
                     <p>Donation</p>
-                    <p>Free</p>
+                    <p>{event.entryFee}</p>
                   </div>
                   <div className="event">
                     <p>Venue</p>
-                    <p>Online Platform CN</p>
+                    <p>{event.venue}</p>
                   </div>
                 </div>
 
-                <div className="detailedContent">
+                {/* <div className="detailedContent">
                   <h2>DESCRIPTION</h2>
                   <div className="description">
                     <div>
@@ -94,11 +141,19 @@ function Event_details(props) {
                     </div>
                   </div>
                 </div>
+               */}
+                <div
+                  className="detailedContent"
+                  dangerouslySetInnerHTML={createMarkup(
+                    draftToHtml(JSON.parse(event.details || "{}"))
+                  )}
+                ></div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      {loading && <Loader />}
     </main>
   );
 }

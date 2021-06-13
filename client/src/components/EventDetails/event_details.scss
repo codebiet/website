@@ -41,6 +41,7 @@
 
   .eventINfoSection > h1 {
     margin: 40px 0 0;
+    margin-bottom:20px;
     font-size: 36px;
     letter-spacing: 0.4px;
     text-align: left;
@@ -56,6 +57,7 @@
     text-transform: uppercase;
     font-weight: 600;
     flex-wrap: wrap;
+    margin-bottom:1.5rem;
   }
 
   .registerButton {
@@ -72,7 +74,7 @@
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
     cursor: pointer;
     margin-right: 34px;
-    margin-top: 3%;
+    margin-top: 0;
     transition: transform .3s ease-in-out;
     transform: scale(1);
     &:hover{
@@ -80,7 +82,7 @@
     }
   }
   .event {
-    margin-top: 3%;
+    margin-top: 0;
     display: flex;
     margin-right: 30px;
     font-size: 13px;
@@ -96,6 +98,15 @@
     margin-bottom: 10px;
     color: rgb(70, 70, 50);
     padding-left: 0;
+  }
+  .detailedContent{
+    p{
+      margin:.8rem auto;
+    }
+    h1,h2,h3,h4,h5,h6{
+      margin-top:1.5rem;
+      margin-bottom:1.5rem;
+    }
   }
   .description {
     text-align: left;
