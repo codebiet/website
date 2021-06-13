@@ -45,6 +45,8 @@ const EventFormView = React.forwardRef(
       handleTagChange,
       handleSubmit,
       tags,
+      bannerUrl,
+      cardImgUrl,
       ...props
     },
     { bannerImgRef, cardImgRef }
@@ -264,6 +266,15 @@ const EventFormView = React.forwardRef(
                       ref={bannerImgRef}
                       id="bannerImgFile"
                     />
+                    {bannerUrl && (
+                      <a
+                        href={bannerUrl}
+                        target="_blank"
+                        style={{ color: "cornflowerblue" }}
+                      >
+                        Banner
+                      </a>
+                    )}
                   </FormGroup>
                 </Col>
                 <Col md="6">
@@ -277,6 +288,15 @@ const EventFormView = React.forwardRef(
                       ref={cardImgRef}
                       id="cardImgFile"
                     />
+                    {cardImgUrl && (
+                      <a
+                        href={cardImgUrl}
+                        target="_blank"
+                        style={{ color: "cornflowerblue" }}
+                      >
+                        Card Image
+                      </a>
+                    )}
                   </FormGroup>
                 </Col>
               </Row>
