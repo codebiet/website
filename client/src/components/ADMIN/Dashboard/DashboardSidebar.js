@@ -20,17 +20,24 @@ function Sidebar({ bgColor, activeColor, profileImg, routes }) {
         <Nav>
           {routes.map((route, key) => {
             return (
-              <li
-                className={location.pathname == route.path && "active"}
-                key={key}
-              >
-                <Link
-                  to={route.path}
-                  className={(location.pathname == route.path || location.pathname == route.path+"/") ? "btn btn-default active" : "btn btn-default"}
+              route.sidebarVisible && (
+                <li
+                  className={location.pathname == route.path && "active"}
+                  key={key}
                 >
-                  <p>{route.name}</p>
-                </Link>
-              </li>
+                  <Link
+                    to={route.path}
+                    className={
+                      location.pathname == route.path ||
+                      location.pathname == route.path + "/"
+                        ? "btn btn-default active"
+                        : "btn btn-default"
+                    }
+                  >
+                    <p>{route.name}</p>
+                  </Link>
+                </li>
+              )
             );
           })}
         </Nav>
