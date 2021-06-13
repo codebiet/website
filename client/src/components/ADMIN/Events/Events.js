@@ -3,7 +3,7 @@ import eventRoutes from "./eventRoutes";
 import DashboardLayout from "../Dashboard/DashboardLayout";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Loader from "../../Loader/Loader";
+import ContentLoaderSvg from "../../EventCard/EventCardLoader";
 import {
   Row,
   Col,
@@ -40,36 +40,6 @@ const ConfirmDeletion = ({ modalOpen, setModalOpen, handleDelete, id }) => {
         </Button>
       </ModalFooter>
     </Modal>
-  );
-};
-const EventCardLoader = (props) => {
-  return (
-    <ContentLoader
-      speed={2}
-      width={385}
-      height={516}
-      viewBox="0 0 385 516"
-      backgroundColor="#f3f3f3"
-      foregroundColor="#ecebeb"
-      {...props}
-    >
-      <rect x="-3" y="243" rx="2" ry="2" width="102" height="18" />
-      <rect x="1" y="187" rx="2" ry="2" width="335" height="37" />
-      <rect x="-11" y="-6" rx="2" ry="2" width="400" height="176" />
-      <rect x="-14" y="305" rx="0" ry="0" width="401" height="13" />
-      <rect x="139" y="242" rx="2" ry="2" width="102" height="17" />
-      <rect x="285" y="242" rx="2" ry="2" width="102" height="16" />
-      <rect x="-2" y="267" rx="2" ry="2" width="102" height="12" />
-      <rect x="140" y="265" rx="2" ry="2" width="102" height="12" />
-      <rect x="286" y="264" rx="2" ry="2" width="102" height="12" />
-      <rect x="0" y="323" rx="0" ry="0" width="390" height="12" />
-      <rect x="-7" y="340" rx="0" ry="0" width="405" height="13" />
-      <rect x="-4" y="359" rx="0" ry="0" width="405" height="13" />
-      <rect x="3" y="409" rx="14" ry="14" width="100" height="31" />
-      <rect x="117" y="408" rx="14" ry="14" width="100" height="31" />
-      <rect x="5" y="453" rx="14" ry="14" width="100" height="31" />
-      <rect x="232" y="408" rx="14" ry="14" width="100" height="31" />
-    </ContentLoader>
   );
 };
 const Events = () => {
@@ -117,7 +87,7 @@ const Events = () => {
     <DashboardLayout routes={eventRoutes}>
       <Row style={{ width: "100%", margin: "0" }}>
         <Col style={{ display: "flex", flexWrap: "wrap" }}>
-          {events.map((event) => {
+          {!loading && events.map((event) => {
             return (
               <div className="event-card-container">
                 <EventCard key={event._id} {...event} />
@@ -145,82 +115,25 @@ const Events = () => {
               </div>
             );
           })}
+          {loading && (
+            <>
+              <div className="event-card-container">
+                <ContentLoaderSvg />
+              </div>
+              <div className="event-card-container">
+                <ContentLoaderSvg />
+              </div>
+              <div className="event-card-container">
+                <ContentLoaderSvg />
+              </div>
+              <div className="event-card-container">
+                <ContentLoaderSvg />
+              </div>
+            </>
+          )}
         </Col>
       </Row>
-      {loading && <Loader />}
     </DashboardLayout>
   );
 };
 export default Events;
-
-const ContentLoaderSvg = () => {
-  return (
-    <svg
-      role="img"
-      width="385"
-      height="516"
-      aria-labelledby="loading-aria"
-      viewBox="0 0 385 516"
-      preserveAspectRatio="none"
-    >
-      <title id="loading-aria">Loading...</title>
-      <rect
-        x="0"
-        y="0"
-        width="100%"
-        height="100%"
-        clip-path="url(#clip-path)"
-        style='fill: url("#fill");'
-      ></rect>
-      <defs>
-        <clipPath id="clip-path">
-          <rect x="-3" y="243" rx="2" ry="2" width="102" height="18" />
-          <rect x="1" y="187" rx="2" ry="2" width="335" height="37" />
-          <rect x="-11" y="-6" rx="2" ry="2" width="400" height="176" />
-          <rect x="-14" y="305" rx="0" ry="0" width="401" height="13" />
-          <rect x="139" y="242" rx="2" ry="2" width="102" height="17" />
-          <rect x="285" y="242" rx="2" ry="2" width="102" height="16" />
-          <rect x="-2" y="267" rx="2" ry="2" width="102" height="12" />
-          <rect x="140" y="265" rx="2" ry="2" width="102" height="12" />
-          <rect x="286" y="264" rx="2" ry="2" width="102" height="12" />
-          <rect x="0" y="323" rx="0" ry="0" width="390" height="12" />
-          <rect x="-7" y="340" rx="0" ry="0" width="405" height="13" />
-          <rect x="-4" y="359" rx="0" ry="0" width="405" height="13" />
-          <rect x="3" y="409" rx="14" ry="14" width="100" height="31" />
-          <rect x="117" y="408" rx="14" ry="14" width="100" height="31" />
-          <rect x="5" y="453" rx="14" ry="14" width="100" height="31" />
-          <rect x="232" y="408" rx="14" ry="14" width="100" height="31" />
-        </clipPath>
-        <linearGradient id="fill">
-          <stop offset="0.599964" stop-color="#f3f3f3" stop-opacity="1">
-            <animate
-              attributeName="offset"
-              values="-2; -2; 1"
-              keyTimes="0; 0.25; 1"
-              dur="2s"
-              repeatCount="indefinite"
-            ></animate>
-          </stop>
-          <stop offset="1.59996" stop-color="#ecebeb" stop-opacity="1">
-            <animate
-              attributeName="offset"
-              values="-1; -1; 2"
-              keyTimes="0; 0.25; 1"
-              dur="2s"
-              repeatCount="indefinite"
-            ></animate>
-          </stop>
-          <stop offset="2.59996" stop-color="#f3f3f3" stop-opacity="1">
-            <animate
-              attributeName="offset"
-              values="0; 0; 3"
-              keyTimes="0; 0.25; 1"
-              dur="2s"
-              repeatCount="indefinite"
-            ></animate>
-          </stop>
-        </linearGradient>
-      </defs>
-    </svg>
-  );
-};
