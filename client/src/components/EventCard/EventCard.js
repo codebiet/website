@@ -32,8 +32,8 @@ const EventCard = ({
   const date = starts.getDate();
   const month = months[starts.getMonth()];
   return (
-    <Link to={"/events/" + _id}>
-      <div className="cardEvent">
+    <div className="cardEvent">
+      <Link to={"/events/" + _id}>
         <div className="card">
           <div className="cardHeader">
             <div className="cardHeaderInner">
@@ -95,8 +95,8 @@ const EventCard = ({
             </div>
           </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 

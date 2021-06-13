@@ -7,16 +7,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 5%;
   margin-right: 3%;
   background-color: #fff;
   border-radius: 18px;
-  margin-top: 3%;
   box-shadow: 3px 3px 10px 1px rgba(0,0,0,.2);
   overflow: hidden;
   margin-bottom: 3%;
   transition: transform .3s ease-in-out;
   background:white;
+  a{
+    cursor: pointer;
+    &:hover,&:active,&:visited{
+      text-decoration: none;
+      color:inherit;
+    }
+  }
   &:hover{
     transform: scale(1.01);
   }
