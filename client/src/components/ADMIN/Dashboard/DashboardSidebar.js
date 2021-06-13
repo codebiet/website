@@ -26,7 +26,7 @@ function Sidebar({ bgColor, activeColor, profileImg, routes }) {
               >
                 <Link
                   to={route.path}
-                  className={location.pathname == route.path ? "btn btn-default active" : "btn btn-default"}
+                  className={(location.pathname == route.path || location.pathname == route.path+"/") ? "btn btn-default active" : "btn btn-default"}
                 >
                   <p>{route.name}</p>
                 </Link>
