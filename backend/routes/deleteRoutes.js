@@ -7,5 +7,5 @@ const router = express.Router();
 //--------------------------------------------------------------------------------------------
 router
   .route("/event/:id")
-  .delete(require("../controllers/DeleteControllers/admin/event"));
+  .delete(require("../controllers/deleteControllers/admin/event"));
 module.exports = router;
