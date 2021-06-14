@@ -20,6 +20,7 @@ import {
   generateSuccess,
   generateError,
 } from "../../../state/info/infoActions";
+import Pagination from "../../Pagination/Pagination";
 const ConfirmDeletion = ({ modalOpen, setModalOpen, handleDelete, id }) => {
   const toggle = () => {
     setModalOpen((prev) => !prev);
@@ -48,20 +49,26 @@ const Events = () => {
   const [deleteConfirmationModalOpen, setDeleteCofirmationModalOpen] =
     useState(false);
   const info = useContext(InfoContext);
+  //managing pagination -- start
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalItems, setTotalItems] = useState(6);
+  const [limit, setLimit] = useState(6);
+  //managing pagination -- end
   useEffect(() => {
     setLoading(true);
     //scroll to top when mounted;
     window.scrollTo(0, 0);
     axios
-      .get("/api/events")
+      .get(`/api/events/?limit=${limit}&page=${currentPage - 1}`)
       .then((res) => {
         setLoading(false);
+        setTotalItems(res.data.totalItems);
         setEvents(res.data.events);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [currentPage]);
 
   const handleDelete = (id) => {
     setDeleteCofirmationModalOpen(false);
@@ -83,40 +90,51 @@ const Events = () => {
         }
       });
   };
+  const handlePageChange = (page) => {
+    console.log(page);
+    setCurrentPage(page);
+  };
   return (
     <DashboardLayout routes={eventRoutes}>
       <Row style={{ width: "100%", margin: "0" }}>
         <Col style={{ display: "flex", flexWrap: "wrap" }}>
-          {!loading && events.map((event) => {
-            return (
-              <div className="event-card-container">
-                <EventCard key={event._id} {...event} />
-                <div className="update-remove-button-container">
-                  <Link to={"/admin/events/update/" + event._id}>
-                    <button>
-                      <EditTwoTone />
+          {!loading &&
+            events.map((event) => {
+              return (
+                <div className="event-card-container">
+                  <EventCard key={event._id} {...event} />
+                  <div className="update-remove-button-container">
+                    <Link to={"/admin/events/update/" + event._id}>
+                      <button>
+                        <EditTwoTone />
+                      </button>
+                    </Link>
+                    <button
+                      className="remove-button"
+                      onClick={() =>
+                        setDeleteCofirmationModalOpen((prev) => !prev)
+                      }
+                    >
+                      <DeleteForeverRounded />
                     </button>
-                  </Link>
-                  <button
-                    className="remove-button"
-                    onClick={() =>
-                      setDeleteCofirmationModalOpen((prev) => !prev)
-                    }
-                  >
-                    <DeleteForeverRounded />
-                  </button>
-                  <ConfirmDeletion
-                    modalOpen={deleteConfirmationModalOpen}
-                    setModalOpen={setDeleteCofirmationModalOpen}
-                    handleDelete={handleDelete}
-                    id={event._id}
-                  />
+                    <ConfirmDeletion
+                      modalOpen={deleteConfirmationModalOpen}
+                      setModalOpen={setDeleteCofirmationModalOpen}
+                      handleDelete={handleDelete}
+                      id={event._id}
+                    />
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
           {loading && (
             <>
+              <div className="event-card-container">
+                <ContentLoaderSvg />
+              </div>
+              <div className="event-card-container">
+                <ContentLoaderSvg />
+              </div>
               <div className="event-card-container">
                 <ContentLoaderSvg />
               </div>
@@ -133,6 +151,13 @@ const Events = () => {
           )}
         </Col>
       </Row>
+      {totalItems > limit && (
+        <Pagination
+          totalItems={totalItems}
+          pageSize={limit}
+          handlePageChange={handlePageChange}
+        />
+      )}
     </DashboardLayout>
   );
 };
