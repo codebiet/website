@@ -12,7 +12,7 @@ const eventSchema = new mongoose.Schema({
   details: String,
   banner: { type: String, required: true },
   cardImg: { type: String, required: true },
-  registered: [mongoose.Schema.Types.ObjectId],
+  registered: {type:[mongoose.Schema.Types.ObjectId],select:false},
 });
 const Events = mongoose.model("Events", eventSchema);
 module.exports = Events;
