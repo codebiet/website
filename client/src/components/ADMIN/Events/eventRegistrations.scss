@@ -1,0 +1,40 @@
+.event-reg-main{
+    font-family: "Nunito",sans-serif;
+    .event-reg-heading{
+        font-size:3rem;
+        font-weight: 600;
+        @media (max-width:1000px){
+            font-size:2.5rem;
+        }
+        @media (max-width:500px){
+            font-size:2rem;
+        }
+    }
+    .event-description{
+        li{
+            font-size:1.3rem;
+            margin:.3rem 0;
+            @media (max-width:1000px){
+                font-size:1.2rem;
+            }
+            @media (max-width:500px){
+                font-size:1.1rem;
+            }
+        }
+    }
+    .candidate-heading{
+        font-size:2.8rem;
+        font-weight: 600;
+        margin-top:.3rem;
+        margin-bottom:1.5rem;
+        @media (max-width:1000px){
+            font-size:2.3rem;
+        }
+        @media (max-width:500px){
+            font-size:1.8rem;
+        }
+    }
+    .user{
+        background:rgb(240,240,240);
+    }
+}
