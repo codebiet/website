@@ -36,4 +36,11 @@ router
   .get(require("../controllers/getControllers/getResumeData"));
 router.route("/events/").get(require("../controllers/getControllers/events"));
 router.route('/events/:id').get(require('../controllers/getControllers/eventById'));
+
+//-------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------
+//------------------------------------ADMIN--------------------------------------
+//-------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------
+router.route('/admin/events/registrations/:id').get(require('../controllers/getControllers/admin/registrations'));
 module.exports = router;
