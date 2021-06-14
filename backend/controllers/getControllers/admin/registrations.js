@@ -4,8 +4,8 @@ const events = async (req, res) => {
   const limit = parseInt(req.query.limit) || 10;
   const id = req.params.id;
   try {
-    const evnts = await Events.findById({ id }).select("+registered");
-    if(!evnts) return res.status(404).send({errorMsg:"Event Not Found"});
+    const evnts = await Events.findById(id).select("+registered");
+    if (!evnts) return res.status(404).send({ errorMsg: "Event Not Found" });
     const registrations = evnts.registered;
     return res.send({
       totalItems: registrations.length,

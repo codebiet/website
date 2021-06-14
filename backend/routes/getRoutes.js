@@ -42,5 +42,5 @@ router.route('/events/:id').get(require('../controllers/getControllers/eventById
 //------------------------------------ADMIN--------------------------------------
 //-------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------
-router.route('/admin/events/registrations/:id').get(require('../controllers/getControllers/admin/registrations'));
+router.route('/admin/events/:id/registrations/').get(require('../controllers/getControllers/admin/registrations'));
 module.exports = router;
