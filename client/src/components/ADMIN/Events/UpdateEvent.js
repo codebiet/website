@@ -7,7 +7,10 @@ import {
   generateError,
   generateWarning,
   generateSuccess,
+  clearEverything,
 } from "../../../state/info/infoActions";
+import UpdateEventsView from "./EventFormView";
+import { EditorState, convertToRaw, convertFromRaw } from "draft-js";
 const UpdateEvent = (props) => {
   const info = useContext(InfoContext);
   const [eventName, setEventName] = useState("");
@@ -20,12 +23,12 @@ const UpdateEvent = (props) => {
   const [description, setDescription] = useState("");
   const [tags, setTags] = useState([]);
   const [defaultTags, setDefaultTags] = useState([]);
-  const [details, setDetails] = useState({});
+  const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const bannerImgRef = React.createRef();
   const cardImgRef = React.createRef();
   const [bannerUrl, setBannerUrl] = useState("");
   const [cardImgUrl, setCardImgUrl] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true); //since initially event will be loading
   const setDefaultValues = (event) => {
     setEventName(event.name);
     setEventType(event.type);
@@ -36,10 +39,12 @@ const UpdateEvent = (props) => {
     setVenue(event.venue);
     setDescription(event.shortDescription);
     setDefaultTags(event.tags);
-    setDetails(JSON.parse(event.details));
+    setEditorState(
+      EditorState.createWithContent(convertFromRaw(JSON.parse(event.details)))
+    );
     setBannerUrl(event.banner);
     setCardImgUrl(event.cardImg);
-  }
+  };
   useEffect(() => {
     setLoading(true);
     axios
@@ -53,6 +58,8 @@ const UpdateEvent = (props) => {
         if (err.response && err.response.status == 404)
           props.history.push("/error404");
       });
+    //clear any alerts when this component unmounts
+    return () => info.dispatch(clearEverything());
   }, []);
   const handleTagChange = (values) => {
     let parsedValues = [];
@@ -73,25 +80,17 @@ const UpdateEvent = (props) => {
       !duration ||
       !venue ||
       !description ||
-      !JSON.stringify(details)
+      !JSON.stringify(convertToRaw(editorState.getCurrentContent()))
     )
       return info.dispatch(
         generateWarning(
           "All the fields are required. Please fill in the fields!"
         )
       );
-    if (!bannerImgRef.current.files[0]) {
-      return info.dispatch(
-        generateWarning("Banner is required to be uploaded!")
-      );
-    }
-    if (!cardImgRef.current.files[0]) {
-      return info.dispatch(
-        generateWarning("Card Image is required to be uploaded!")
-      );
-    }
-    data.append("banner", bannerImgRef.current.files[0]);
-    data.append("cardImg", cardImgRef.current.files[0]);
+    if (!bannerImgRef.current.files[0]) data.append("banner", bannerUrl);
+    else data.append("banner", bannerImgRef.current.files[0]);
+    if (!cardImgRef.current.files[0]) data.append("cardImg", cardImgUrl);
+    else data.append("cardImg", cardImgRef.current.files[0]);
     data.append("name", eventName);
     data.append("type", eventType);
     data.append("entryFee", entryFee);
@@ -101,18 +100,25 @@ const UpdateEvent = (props) => {
     data.append("venue", venue);
     data.append("shortDescription", description);
     data.append("tags", JSON.stringify(tags));
-    data.append("details", JSON.stringify(details));
+    data.append(
+      "details",
+      JSON.stringify(convertToRaw(editorState.getCurrentContent()))
+    );
     setLoading(true);
     axios
-      .post("/put/admin/event", data)
+      .put(`/put/event/${props.match.params.id}`, data)
       .then((res) => {
         setLoading(false);
-        info.dispatch(generateSuccess("Event Updated Successfull!"));
+        if (res.data.event) {
+          setDefaultValues(res.data.event);
+          info.dispatch(generateSuccess("Event Updated Successfull!"));
+        }
       })
       .catch((err) => {
         setLoading(false);
+        console.log(err);
         if (err.response && err.response.data)
-          info.dispatch(generateError(err.response.data));
+          info.dispatch(generateError(err.response.data.errorMsg));
         else info.dispatch(generateError("Something went wrong!"));
       });
   };
@@ -133,21 +139,23 @@ const UpdateEvent = (props) => {
     setVenue,
     description,
     setDescription,
-    details,
-    setDetails,
     handleTagChange,
     handleSubmit,
-    tags:defaultTags,
+    tags: defaultTags,
     bannerUrl,
-    cardImgUrl
+    cardImgUrl,
+    editorState,
+    setEditorState,
   };
   return (
     <>
-      <UpdateEventsView
-        ref={{ bannerImgRef, cardImgRef }}
-        {...state}
-        action="Update Event"
-      />
+      {!loading && (
+        <UpdateEventsView
+          ref={{ bannerImgRef, cardImgRef }}
+          {...state}
+          action="Update Event"
+        />
+      )}
       {loading && <Loader />}
     </>
   );
