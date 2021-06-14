@@ -14,7 +14,7 @@ import {
   Button,
 } from "reactstrap";
 import EventCard from "../../EventCard/EventCard";
-import { DeleteForeverRounded, EditTwoTone } from "@material-ui/icons";
+import { DeleteForeverRounded, EditTwoTone, PeopleAltTwoTone } from "@material-ui/icons";
 import { InfoContext } from "../../../state/Store";
 import {
   generateSuccess,
@@ -104,6 +104,11 @@ const Events = () => {
                 <div className="event-card-container">
                   <EventCard key={event._id} {...event} />
                   <div className="update-remove-button-container">
+                  <Link to={"/admin/events/registrations/" + event._id}>
+                      <button>
+                        <PeopleAltTwoTone />
+                      </button>
+                    </Link>
                     <Link to={"/admin/events/update/" + event._id}>
                       <button>
                         <EditTwoTone />
