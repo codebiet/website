@@ -1,0 +1,23 @@
+@import "../App/colors.scss";
+.pagination {
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  .page-link {
+    color: $color-primary;
+    &:hover,
+    &:active,
+    &:focus {
+      color: $button-hover-color;
+    }
+    &:focus {
+      box-shadow: 0 0 5px 0 $box-shadow-color;
+    }
+    .page-link:hover:not(.active) {
+      background-color: rgb(245, 219, 163);
+      border-radius: 100px;
+    }
+  }
+}
