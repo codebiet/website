@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import "./Editor.scss";
 import { Editor } from "react-draft-wysiwyg";
-const EditorComponent = ({ content, setContent }) => {
+const EditorComponent = ({ editorState, setEditorState }) => {
   return (
     <Editor
+      editorState={editorState}
       wrapperClassName="editor-wrapper"
       editorClassName="editor"
       toolbarClassName="editor-toolbar"
@@ -19,7 +20,7 @@ const EditorComponent = ({ content, setContent }) => {
           ],
         },
       }}
-      onContentStateChange={(contentState) => setContent(contentState)}
+      onEditorStateChange={(editorState) => setEditorState(editorState)}
     ></Editor>
   );
 };

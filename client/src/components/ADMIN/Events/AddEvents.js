@@ -9,6 +9,7 @@ import {
   generateWarning,
   generateSuccess,
 } from "../../../state/info/infoActions";
+import { EditorState, convertToRaw } from "draft-js";
 const AddEvents = (props) => {
   const info = useContext(InfoContext);
   const [eventName, setEventName] = useState("");
@@ -20,7 +21,7 @@ const AddEvents = (props) => {
   const [venue, setVenue] = useState("");
   const [description, setDescription] = useState("");
   const [tags, setTags] = useState([]);
-  const [details, setDetails] = useState({});
+  const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const bannerImgRef = React.createRef();
   const cardImgRef = React.createRef();
   const [loading, setLoading] = useState(false);
@@ -43,7 +44,7 @@ const AddEvents = (props) => {
       !duration ||
       !venue ||
       !description ||
-      !JSON.stringify(details)
+      !JSON.stringify(convertToRaw(editorState.getCurrentContent()))
     )
       return info.dispatch(
         generateWarning(
@@ -71,7 +72,7 @@ const AddEvents = (props) => {
     data.append("venue", venue);
     data.append("shortDescription", description);
     data.append("tags", JSON.stringify(tags));
-    data.append("details", JSON.stringify(details));
+    data.append("details", JSON.stringify(convertToRaw(editorState.getCurrentContent())));
     setLoading(true);
     axios
       .post("/post/admin/addEvent", data)
@@ -103,15 +104,19 @@ const AddEvents = (props) => {
     setVenue,
     description,
     setDescription,
-    details,
-    setDetails,
     handleTagChange,
     handleSubmit,
-    tags:[]//since no default tags
+    tags: [], //since no default tags
+    editorState,
+    setEditorState,
   };
   return (
     <>
-      <AddEventsView ref={{ bannerImgRef, cardImgRef }} {...state} action="Add Event" />
+      <AddEventsView
+        ref={{ bannerImgRef, cardImgRef }}
+        {...state}
+        action="Add Event"
+      />
       {loading && <Loader />}
     </>
   );

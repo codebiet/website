@@ -40,13 +40,13 @@ const EventFormView = React.forwardRef(
       setVenue,
       description,
       setDescription,
-      details,
-      setDetails,
       handleTagChange,
       handleSubmit,
       tags,
       bannerUrl,
       cardImgUrl,
+      editorState,
+      setEditorState,
       ...props
     },
     { bannerImgRef, cardImgRef }
@@ -248,8 +248,8 @@ const EventFormView = React.forwardRef(
                       Details
                     </label>
                     <EditorComponent
-                      content={details}
-                      setContent={setDetails}
+                      editorState={editorState}
+                      setEditorState={setEditorState}
                     />
                   </FormGroup>
                 </Col>
