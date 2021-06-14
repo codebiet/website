@@ -1,5 +1,5 @@
 import "date-fns";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import AddEventsView from "./EventFormView";
 import axios from "axios";
 import { InfoContext } from "../../../state/Store";
@@ -8,6 +8,7 @@ import {
   generateError,
   generateWarning,
   generateSuccess,
+  clearEverything
 } from "../../../state/info/infoActions";
 import { EditorState, convertToRaw } from "draft-js";
 const AddEvents = (props) => {
@@ -25,6 +26,9 @@ const AddEvents = (props) => {
   const bannerImgRef = React.createRef();
   const cardImgRef = React.createRef();
   const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    return () => info.dispatch(clearEverything());
+  },[])
   const handleTagChange = (values) => {
     let parsedValues = [];
     if (values) parsedValues = JSON.parse(values);
