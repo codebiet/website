@@ -9,6 +9,7 @@ const ContentLoaderSvg = () => {
       viewBox="0 0 385 516"
       preserveAspectRatio="none"
       className="cardEvent"
+      style={{maxWidth:"100%"}}
     >
       <title id="loading-aria">Loading...</title>
       <rect
