@@ -1,9 +1,14 @@
 const Events = require("../../models/events");
 
 const events = async (req, res) => {
+  const pageOptions = {
+    page: parseInt(req.query.page) || 0,
+    limit:parseInt(req.query.limit) || 10
+  }
   try {
-    const evnts = await Events.find({});
-    return res.send({ events: evnts });
+    const noOfItems = (await Events.find({})).length;
+    const evnts = await Events.find({}).skip(pageOptions.page*pageOptions.limit).limit(pageOptions.limit);
+    return res.send({totalItems:noOfItems, events: evnts });
   } catch (err) {
     console.log(err);
     return res
