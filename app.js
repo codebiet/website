@@ -12,6 +12,7 @@ const upload = require("express-fileupload");
 const getRoutes = require("./backend/routes/getRoutes");
 const postRoutes = require("./backend/routes/postRoutes");
 const deleteRoutes = require("./backend/routes/deleteRoutes");
+const putRoutes = require('./backend/routes/putRoutes');
 const app = express();
 const multer = require("multer");
 const multerUpload = multer();
@@ -43,6 +44,7 @@ app.use(
 app.use("/delete", deleteRoutes);
 app.use("/post", postRoutes);
 app.use("/api", getRoutes);
+app.use('/put',putRoutes);
 app.get("/robots.txt", function (req, res) {
   res.type("text/plain");
   res.send("User-agent: *\nAllow: /");
