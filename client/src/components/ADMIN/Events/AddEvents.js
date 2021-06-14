@@ -87,7 +87,7 @@ const AddEvents = (props) => {
       .catch((err) => {
         setLoading(false);
         if (err.response && err.response.data)
-          info.dispatch(generateError(err.response.data));
+          info.dispatch(generateError(err.response.data.errorMsg));
         else info.dispatch(generateError("Something went wrong!"));
       });
   };
