@@ -6,6 +6,10 @@ const PaginationComponent = ({ totalItems, pageSize, handlePageChange }) => {
       totalItems={totalItems}
       pageSize={pageSize}
       onSelect={handlePageChange}
+      firstPageText="<<"
+      previousPageText="<"
+      nextPageText=">"
+      lastPageText=">>"
     />
   );
 };

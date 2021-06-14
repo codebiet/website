@@ -7,17 +7,26 @@
   margin-bottom: 40px;
   .page-link {
     color: $color-primary;
+    font-weight: 600;
     &:hover,
     &:active,
     &:focus {
-      color: $button-hover-color;
+      background-color: rgb(255, 250, 220);
+      border-color: rgb(245, 219, 163);
     }
-    &:focus {
-      box-shadow: 0 0 5px 0 $box-shadow-color;
+    &:focus{
+      box-shadow: 0 0 0 0.2rem $box-shadow-color;
     }
     .page-link:hover:not(.active) {
       background-color: rgb(245, 219, 163);
       border-radius: 100px;
+    }
+  }
+  .page-item.active{
+    .page-link{
+      background-color: $color-primary;
+      border-color: $color-primary;
+      color:white;
     }
   }
 }
