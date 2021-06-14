@@ -1,6 +1,7 @@
 import Events from "./Events";
 import AddEvents from "./AddEvents";
 import UpdateEvent from "./UpdateEvent";
+import EventRegistrations from "./EventRegistrations";
 const eventRoutes = [
   {
     path: "/admin/events",
@@ -19,6 +20,11 @@ const eventRoutes = [
     name: "Update Events",
     sidebarVisible: false,
     Component: UpdateEvent,
+  },{
+    path:"/admin/events/:id/registrations",
+    name: "Registrations",
+    sidebarVisible:false,
+    Component: EventRegistrations
   }
 ];
 

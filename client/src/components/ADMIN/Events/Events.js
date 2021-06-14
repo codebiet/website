@@ -104,7 +104,7 @@ const Events = () => {
                 <div className="event-card-container">
                   <EventCard key={event._id} {...event} />
                   <div className="update-remove-button-container">
-                  <Link to={"/admin/events/registrations/" + event._id}>
+                  <Link to={`/admin/events/${event._id}/registrations`}>
                       <button>
                         <PeopleAltTwoTone />
                       </button>
