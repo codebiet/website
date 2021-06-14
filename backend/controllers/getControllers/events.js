@@ -6,7 +6,7 @@ const events = async (req, res) => {
     limit:parseInt(req.query.limit) || 10
   }
   try {
-    const noOfItems = (await Events.find({})).length;
+    const noOfItems = (await Events.count({}));
     const evnts = await Events.find({}).skip(pageOptions.page*pageOptions.limit).limit(pageOptions.limit);
     return res.send({totalItems:noOfItems, events: evnts });
   } catch (err) {
