@@ -1,9 +1,21 @@
 import React, { useState, useEffect, useContext } from "react";
 import eventRoutes from "./eventRoutes";
 import DashboardLayout from "../Dashboard/DashboardLayout";
-import { Link } from "react-router-dom";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardHeader,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  FormGroup,
+} from "reactstrap";
 import axios from "axios";
-import { Card, CardBody, CardHeader } from "reactstrap";
+import { convertToRaw, EditorState } from "draft-js";
+import EditorComponent from "../../Editor/Editor";
+import draftToHtml from "draftjs-to-html";
 import PaginationComponent from "../../Pagination/Pagination";
 import { InfoContext } from "../../../state/Store";
 import {
@@ -12,6 +24,93 @@ import {
   generateSuccess,
   clearEverything,
 } from "../../../state/info/infoActions";
+const SendMessageModal = ({ modalOpen, setModalOpen, eventId }) => {
+  const [editorState, setEditorState] = useState(EditorState.createEmpty());
+  const [subject, setSubject] = useState("");
+  const [warning, setWarning] = useState("");
+  const info = useContext(InfoContext);
+  const toggle = () => {
+    setModalOpen((prev) => !prev);
+  };
+  useEffect(() => {
+    if (warning) setWarning("");
+  }, []);
+  const sendMessage = () => {
+    if (!subject) return setWarning("Please fill in all the fields!");
+    const html = draftToHtml(convertToRaw(editorState.getCurrentContent()));
+    axios
+      .post(`/post/admin/events/${eventId}/registrations/sendMsg`, {
+        html,
+        subject,
+      })
+      .then((res) => {
+        //reinstantiate the editor state and subject
+        setEditorState(EditorState.createEmpty());
+        setSubject("");
+        //-----------------------------------------
+        //give success message
+        info.dispatch(
+          generateSuccess(
+            "Message will be send to all the registered candidates shortly!"
+          )
+        );
+        //close modal after showing message and waiting for 2 seconds
+        setTimeout(() => {
+          setModalOpen(false);
+        }, 3000);
+      })
+      .catch((err) => {
+        setModalOpen(false);
+        if (err.response && err.response.data)
+          info.dispatch(generateError(err.response.data.errorMsg));
+        else info.dispatch(generateError("Something went wrong!"));
+      });
+  };
+  return (
+    <Modal className="send-email" isOpen={modalOpen} toggle={toggle}>
+      <ModalHeader toggle={toggle}>Send Message</ModalHeader>
+      <ModalBody>
+        <p style={{ marginBottom: "1rem" }}>
+          {warning ? (
+            <span style={{ color: "red" }}>{warning}</span>
+          ) : (
+            <span>Write the message you want to send below.</span>
+          )}
+        </p>
+        <FormGroup>
+          <label htmlFor="email-subject" className="fontType">
+            Email Subject
+          </label>
+          <input
+            className="form-control"
+            type="text"
+            placeholder="Email Subject"
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+            style={{ marginBottom: "1rem", color: "#111" }}
+            id="email-subject"
+            autoComplete="off"
+          />
+        </FormGroup>
+        <FormGroup>
+          <label htmlFor="editor">Email Body</label>
+          <EditorComponent
+            editorState={editorState}
+            setEditorState={setEditorState}
+          />
+        </FormGroup>
+      </ModalBody>
+      <ModalFooter>
+        <Button color="warning" onClick={() => sendMessage()}>
+          Send Message
+        </Button>
+        <Button color="secondary" onClick={toggle}>
+          Cancel
+        </Button>
+      </ModalFooter>
+    </Modal>
+  );
+};
 const UserCard = ({ user }) => {
   return (
     <Card className="user">
@@ -56,6 +155,8 @@ const EventRegistrations = (props) => {
   const [event, setEvent] = useState({});
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
+  //message modal -- state
+  const [msgOpen, setMsgOpen] = useState(false);
   //managing pagination -- start
   const [currentPage, setCurrentPage] = useState(1);
   const [totalItems, setTotalItems] = useState(10);
@@ -66,7 +167,6 @@ const EventRegistrations = (props) => {
     axios
       .get(`/api/events/${props.match.params.id}`)
       .then((res) => {
-        console.log(res.data.event);
         setEvent(res.data.event);
       })
       .catch((err) => {
@@ -87,7 +187,6 @@ const EventRegistrations = (props) => {
       )
       .then((res) => {
         setLoading(false);
-        console.log(res.data);
         setTotalItems(res.data.totalItems);
         setUsers(res.data.registered);
       })
@@ -113,7 +212,27 @@ const EventRegistrations = (props) => {
         </CardHeader>
         <hr style={{ marginTop: "1.4rem", marginBottom: "0" }} />
         <CardBody>
-          <h2 className="candidate-heading">Candidates</h2>
+          <div
+            className="candidate-header-container"
+            style={{ position: "relative" }}
+          >
+            <h2 className="candidate-heading">Candidates</h2>
+            {users.length > 0 && (
+              <>
+                <Button
+                  style={{ position: "absolute", right: "1rem", top: 0 }}
+                  onClick={() => setMsgOpen((prev) => !prev)}
+                >
+                  Send Message
+                </Button>
+                <SendMessageModal
+                  modalOpen={msgOpen}
+                  setModalOpen={setMsgOpen}
+                  eventId={props.match.params.id}
+                />
+              </>
+            )}
+          </div>
           {!loading &&
             users.map((user) => <UserCard key={user.email} user={user} />)}
           {!loading && users.length == 0 && <h6>No Registrations Yet</h6>}
@@ -126,11 +245,13 @@ const EventRegistrations = (props) => {
               <UserCard />
             </>
           )}
-          {totalItems > limit && <PaginationComponent
-            totalItems={totalItems}
-            pageSize={limit}
-            handlePageChange={(page) => setCurrentPage(page)}
-          />}
+          {totalItems > limit && (
+            <PaginationComponent
+              totalItems={totalItems}
+              pageSize={limit}
+              handlePageChange={(page) => setCurrentPage(page)}
+            />
+          )}
         </CardBody>
       </Card>
     </DashboardLayout>
@@ -175,7 +296,7 @@ const ContentLoaderSvg = (props) => {
           </stop>
           <stop
             offset="1.59996"
-            stopColor={props.invert ? "#000000" : "#ffffff"}
+            stopColor={props.invert ? "#f0f0f0" : "#ffffff"}
             stopOpacity="1"
           >
             <animate
