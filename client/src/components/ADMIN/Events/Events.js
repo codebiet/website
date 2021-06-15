@@ -56,7 +56,7 @@ const ConfirmDeletion = ({ modalOpen, setModalOpen, handleDelete, id }) => {
 const FilterComponent = ({ filter, setFilter }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   return (
-    <Card >
+    <Card>
       <CardBody
         style={{
           display: "flex",
@@ -71,7 +71,7 @@ const FilterComponent = ({ filter, setFilter }) => {
           toggle={() => setDropdownOpen((prev) => !prev)}
         >
           <DropdownToggle caret>{filter}</DropdownToggle>
-          <DropdownMenu right style={{zIndex:"1200"}}>
+          <DropdownMenu right style={{ zIndex: "1200" }}>
             <DropdownItem onClick={() => setFilter("All")}>All</DropdownItem>
             <DropdownItem onClick={() => setFilter("Upcoming")}>
               Upcoming
@@ -98,14 +98,44 @@ const FilterComponent = ({ filter, setFilter }) => {
   );
 };
 const getFilters = (filter) => {
-  if(filter == "All") return '';
-  else if(filter == "Upcoming") return 'gt='+new Date(Date.now() - 1000*60*60*24);
-  else if(filter == "Last Week") return 'gt='+new Date(Date.now() - 1000*60*60*24*7)+"&lt="+new Date(new Date(Date.now() - 1000*60*60*24));
-  else if(filter == "Last Month") return 'gt='+new Date(Date.now() - 1000*60*60*24*30)+"&lt="+new Date(new Date(Date.now() - 1000*60*60*24));
-  else if(filter == "Last 3 Months") return 'gt='+new Date(Date.now() - 1000*60*60*24*30*3)+"&lt="+new Date(new Date(Date.now() - 1000*60*60*24));
-  else if(filter == "Last 6 Months") return 'gt='+new Date(Date.now() - 1000*60*60*24*30*6)+"&lt="+new Date(new Date(Date.now() - 1000*60*60*24));
-  else if(filter == "Last 1 Year") return 'gt='+new Date(Date.now() - 1000*60*60*24*30*12)+"&lt="+new Date(new Date(Date.now() - 1000*60*60*24));
-}
+  if (filter == "All") return "";
+  else if (filter == "Upcoming") return "gt=" + new Date(Date.now());
+  else if (filter == "Last Week")
+    return (
+      "gt=" +
+      new Date(Date.now() - 1000 * 60 * 60 * 24 * 7) +
+      "&lt=" +
+      new Date(new Date(Date.now()))
+    );
+  else if (filter == "Last Month")
+    return (
+      "gt=" +
+      new Date(Date.now() - 1000 * 60 * 60 * 24 * 30) +
+      "&lt=" +
+      new Date(new Date(Date.now()))
+    );
+  else if (filter == "Last 3 Months")
+    return (
+      "gt=" +
+      new Date(Date.now() - 1000 * 60 * 60 * 24 * 30 * 3) +
+      "&lt=" +
+      new Date(new Date(Date.now()))
+    );
+  else if (filter == "Last 6 Months")
+    return (
+      "gt=" +
+      new Date(Date.now() - 1000 * 60 * 60 * 24 * 30 * 6) +
+      "&lt=" +
+      new Date(new Date(Date.now()))
+    );
+  else if (filter == "Last 1 Year")
+    return (
+      "gt=" +
+      new Date(Date.now() - 1000 * 60 * 60 * 24 * 30 * 12) +
+      "&lt=" +
+      new Date(new Date(Date.now()))
+    );
+};
 const Events = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -135,7 +165,7 @@ const Events = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, [currentPage,filter]);
+  }, [currentPage, filter]);
 
   const handleDelete = (id) => {
     setDeleteCofirmationModalOpen(false);
