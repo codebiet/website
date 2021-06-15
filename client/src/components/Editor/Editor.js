@@ -12,16 +12,12 @@ const EditorComponent = ({ editorState, setEditorState }) => {
     return () => info.dispatch(clearEverything());
   }, []);
   const uploadFile = async (file) => {
-    console.log("starting upload function");
     const data = new FormData();
-    console.log("appending file");
     data.append("file", file);
-    console.log("returning promise");
     return new Promise((resolve, reject) => {
       axios
         .post("/post/uploadfile", data)
         .then((res) => {
-          console.log(res.data);
           resolve(res.data);
         })
         .catch((err) => {
