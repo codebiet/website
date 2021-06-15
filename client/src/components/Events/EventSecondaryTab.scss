@@ -1,0 +1,33 @@
+.event-primary-tab-inner{
+    font-family: "Nunito",sans-serif;
+    padding:0!important;
+    max-width:unset!important;
+    .nav-tabs{
+        border:none;
+        border-bottom:1px solid #dddddd;
+        .nav-item{
+            .nav-link{
+                border:none;
+                color:black;
+                font-size:1.2rem;
+                cursor: pointer;
+                &.active{
+                    font-weight: 600;
+                    background-color: rgb(236, 124, 45);
+                    color:white;
+                }
+            }
+        }
+    }
+    .tab-content{
+        margin-bottom:0;
+    }
+    .event-cards-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding:2rem 1rem;
+        padding-bottom:0;
+    }
+}

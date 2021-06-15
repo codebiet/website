@@ -1,0 +1,40 @@
+.event-container-main{
+    margin-top:4rem;
+    margin-bottom:4rem;
+    @media (min-width:1050px) and (max-width:1200px){
+        max-width:90vw;
+    }
+    @media (min-width:1201px) and (max-width:1400px){
+        max-width:80vw;
+    }
+    @media (min-width:1538px) and (max-width:1730px){
+        max-width:90vw;
+    }
+    @media (min-width:1730px){
+        max-width:85vw;
+    }
+}
+.event-primary-tab{
+    font-family: "Nunito",sans-serif;
+    &.nav-tabs{
+        .nav-item{
+            .nav-link{
+                color:black;
+                font-size:1.2rem;
+                cursor: pointer;
+                &.active{
+                    font-weight: 600;
+                    background-color: rgb(236, 124, 45);
+                    color:white;
+                }
+            }
+        }
+    } 
+}
+.event-primary-tab-content{
+    font-family: "Nunito",sans-serif;
+    &.tab-content{
+        border:1px solid #dddddd;
+        border-top:none;
+    }
+}
