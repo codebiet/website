@@ -11,7 +11,6 @@ function Nav() {
   };
   useEffect(() => {
     const handleScroll = () => {
-      console.log(window.scrollY);
       if (window.scrollY > 100) ref.current.classList.add("fixed-top");
       else ref.current.classList.remove("fixed-top");
     };
