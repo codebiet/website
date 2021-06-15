@@ -52,7 +52,6 @@
     margin-top: 14px;
     display: flex;
     align-items: center;
-    padding-bottom: 21px;
     border-bottom: 1px solid hsla(0, 0%, 59.2%, 0.14);
     text-transform: uppercase;
     font-weight: 600;
@@ -77,6 +76,7 @@
     margin-top: 0;
     transition: transform .3s ease-in-out;
     transform: scale(1);
+    margin-bottom:1rem;
     &:hover{
       transform: scale(1.01);
     }
@@ -87,6 +87,7 @@
     margin-right: 30px;
     font-size: 13px;
     line-height: 13px;
+    margin-bottom:1rem;
   }
   .event > p {
     margin: 0 0 0 5px;
