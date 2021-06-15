@@ -5,12 +5,6 @@ import {
   Nav,
   NavItem,
   NavLink,
-  Card,
-  Button,
-  CardTitle,
-  CardText,
-  Row,
-  Col,
   Container,
 } from "reactstrap";
 import classnames from "classnames";
@@ -22,8 +16,7 @@ const getQuery = (activePrimaryTab, activeSecTab) => {
   let query = "";
   if (activePrimaryTab == 2) query = "type=Webinar&";
   else if (activePrimaryTab == 3) query = "type=Coding&";
-  if (activeSecTab == 2)
-    query = query + "gt=" + new Date(Date.now());
+  if (activeSecTab == 2) query = query + "gt=" + new Date(Date.now());
   else if (activeSecTab == 3) query = query + "lt=" + new Date(Date.now());
   return query;
 };
@@ -86,47 +79,34 @@ const SecondaryTab = ({ activeMainTab }) => {
           <div className="event-cards-container">
             {!loading &&
               events.map((event) => <EventCard key={event._id} {...event} />)}
-            {loading && (
-              <>
-                <EventCardLoading />
-                <EventCardLoading />
-                <EventCardLoading />
-                <EventCardLoading />
-              </>
-            )}
+            {loading && <LoadingPlaceholder />}
           </div>
         </TabPane>
         <TabPane tabId="2">
           <div className="event-cards-container">
             {!loading &&
               events.map((event) => <EventCard key={event._id} {...event} />)}
-            {loading && (
-              <>
-                <EventCardLoading />
-                <EventCardLoading />
-                <EventCardLoading />
-                <EventCardLoading />
-              </>
-            )}
+            {loading && <LoadingPlaceholder />}
           </div>
         </TabPane>
         <TabPane tabId="3">
           <div className="event-cards-container">
             {!loading &&
               events.map((event) => <EventCard key={event._id} {...event} />)}
-            {loading && (
-              <>
-                <EventCardLoading />
-                <EventCardLoading />
-                <EventCardLoading />
-                <EventCardLoading />
-              </>
-            )}
+            {loading && <LoadingPlaceholder />}
           </div>
         </TabPane>
       </TabContent>
     </Container>
   );
 };
-
+const LoadingPlaceholder = () => {
+  return (
+    <>
+      <EventCardLoading />
+      <EventCardLoading />
+      <EventCardLoading />
+    </>
+  );
+};
 export default SecondaryTab;
