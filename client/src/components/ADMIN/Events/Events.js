@@ -99,12 +99,12 @@ const FilterComponent = ({ filter, setFilter }) => {
 };
 const getFilters = (filter) => {
   if(filter == "All") return '';
-  else if(filter == "Upcoming") return 'gt='+new Date();
-  else if(filter == "Last Week") return 'gt='+new Date(Date.now() - 1000*60*60*24*7)+"&lt="+new Date();
-  else if(filter == "Last Month") return 'gt='+new Date(Date.now() - 1000*60*60*24*30)+"&lt="+new Date();
-  else if(filter == "Last 3 Months") return 'gt='+new Date(Date.now() - 1000*60*60*24*30*3)+"&lt="+new Date();
-  else if(filter == "Last 6 Months") return 'gt='+new Date(Date.now() - 1000*60*60*24*30*6)+"&lt="+new Date();
-  else if(filter == "Last 1 Year") return 'gt='+new Date(Date.now() - 1000*60*60*24*30*12)+"&lt="+new Date();
+  else if(filter == "Upcoming") return 'gt='+new Date(Date.now() - 1000*60*60*24);
+  else if(filter == "Last Week") return 'gt='+new Date(Date.now() - 1000*60*60*24*7)+"&lt="+new Date(new Date(Date.now() - 1000*60*60*24));
+  else if(filter == "Last Month") return 'gt='+new Date(Date.now() - 1000*60*60*24*30)+"&lt="+new Date(new Date(Date.now() - 1000*60*60*24));
+  else if(filter == "Last 3 Months") return 'gt='+new Date(Date.now() - 1000*60*60*24*30*3)+"&lt="+new Date(new Date(Date.now() - 1000*60*60*24));
+  else if(filter == "Last 6 Months") return 'gt='+new Date(Date.now() - 1000*60*60*24*30*6)+"&lt="+new Date(new Date(Date.now() - 1000*60*60*24));
+  else if(filter == "Last 1 Year") return 'gt='+new Date(Date.now() - 1000*60*60*24*30*12)+"&lt="+new Date(new Date(Date.now() - 1000*60*60*24));
 }
 const Events = () => {
   const [events, setEvents] = useState([]);
