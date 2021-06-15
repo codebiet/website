@@ -9,7 +9,7 @@ const sendMsg = async (req, res) => {
     registrations.forEach((user) => {
       emailSender(user.email, html, subject);
     });
-    return res.send({ events: evnts });
+    return res.status(202).send({ msg: "Email will be sent to the registered candidates shortly!" });
   } catch (err) {
     console.log(err);
     return res
