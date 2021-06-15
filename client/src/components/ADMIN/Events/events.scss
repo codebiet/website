@@ -9,6 +9,14 @@
     &:hover {
       transform: scale(1);
     }
+    .cardHeader {
+      .cardHeaderInner {
+        background: black;
+        img {
+          opacity: 0.5;
+        }
+      }
+    }
   }
   .update-remove-button-container {
     position: absolute;
