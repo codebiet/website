@@ -19,4 +19,5 @@ router.route('/uploadfile').post(require('../controllers/postControllers/uploadF
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 router.route('/admin/addEvent').post(require('../controllers/postControllers/admin/addEvent'));
+router.route('/admin/events/:id/registrations/sendMsg').post(require('../controllers/postControllers/admin/sendMsg'));
 module.exports = router;
