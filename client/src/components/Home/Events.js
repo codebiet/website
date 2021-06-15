@@ -3,18 +3,23 @@ import AOS from "aos";
 
 import OwlCarousel from "react-owl-carousel";
 import EventCard from "../EventCard/EventCard";
+import EventLoaderCard from "../EventCard/EventCardLoader";
 import { Container } from "reactstrap";
 import axios from "axios";
 const Events = (props) => {
-  const [eventsData, setEventsData] = useState();
+  const [eventsData, setEventsData] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     AOS.init();
     AOS.refresh();
   }, []);
   useEffect(() => {
+    setLoading(true);
     axios
       .get("/api/events")
       .then((res) => {
+        setLoading(false);
+        console.log(res.data.events);
         setEventsData(res.data.events);
       })
       .catch((err) => {
@@ -45,23 +50,45 @@ const Events = (props) => {
             </h3>
           </div>
           <Container className="py-md-5 py-4">
-            <OwlCarousel
-              items={3}
-              autoplay={true}
-              autoplayHoverPause={true}
-              margin={50}
-              responsive={{
-                0: { items: 1 },
-                1000: { items: 2 },
-                1400: { items: 3 },
-              }}
-              id="events"
-              className="owl-theme mt-4 py-md-2 mb-md-4"
-            >
-              {eventsData.map((eventData) => (
-                <EventCard key={eventData._id} {...eventData} />
-              ))}
-            </OwlCarousel>
+            {eventsData.length && (
+              <OwlCarousel
+                items={3}
+                autoplay={true}
+                autoplayHoverPause={true}
+                margin={50}
+                responsive={{
+                  0: { items: 1 },
+                  1000: { items: 2 },
+                  1400: { items: 3 },
+                }}
+                id="events"
+                className="owl-theme mt-4 py-md-2 mb-md-4"
+              >
+                {eventsData.map((eventData) => (
+                  <EventCard key={eventData._id} {...eventData} />
+                ))}
+              </OwlCarousel>
+            )}
+            {loading && (
+              <OwlCarousel
+                items={3}
+                autoplay={true}
+                autoplayHoverPause={true}
+                margin={50}
+                responsive={{
+                  0: { items: 1 },
+                  1000: { items: 2 },
+                  1400: { items: 3 },
+                }}
+                id="events"
+                className="owl-theme mt-4 py-md-2 mb-md-4"
+              >
+                <EventLoaderCard />
+                <EventLoaderCard />
+                <EventLoaderCard />
+                <EventLoaderCard />
+              </OwlCarousel>
+            )}
           </Container>
         </div>
       </section>
