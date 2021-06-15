@@ -1,33 +1,44 @@
-.event-primary-tab-inner{
-    font-family: "Nunito",sans-serif;
-    padding:0!important;
-    max-width:unset!important;
-    .nav-tabs{
-        border:none;
-        border-bottom:1px solid #dddddd;
-        .nav-item{
-            .nav-link{
-                border:none;
-                color:black;
-                font-size:1.2rem;
-                cursor: pointer;
-                &.active{
-                    font-weight: 600;
-                    background-color: rgb(236, 124, 45);
-                    color:white;
-                }
-            }
+.event-primary-tab-inner {
+  font-family: "Nunito", sans-serif;
+  padding: 0 !important;
+  max-width: unset !important;
+  .nav-tabs {
+    border: none;
+    border-bottom: 1px solid #dddddd;
+    .nav-item {
+      .nav-link {
+        border: none;
+        color: black;
+        font-size: 1.2rem;
+        cursor: pointer;
+        @media (max-width: 500px) {
+          font-size: 1rem;
         }
+        &.active {
+          font-weight: 600;
+          background-color: rgb(236, 124, 45);
+          color: white;
+        }
+      }
     }
-    .tab-content{
-        margin-bottom:0;
+  }
+  .tab-content {
+    margin-bottom: 0;
+  }
+  .event-cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 1.5rem;
+    justify-items: center;
+    @media (min-width:2100px){
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
-    .event-cards-container{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        padding:2rem 1rem;
-        padding-bottom:0;
+    @media (min-width: 800px) and (max-width: 1400px) {
+      grid-template-columns: 1fr 1fr;
     }
+    @media (max-width: 799px) {
+      grid-template-columns: 1fr;
+    }
+    padding: 2rem 1rem;
+  }
 }
