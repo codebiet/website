@@ -1,0 +1,32 @@
+.add-suggestion-button{
+    background:cornflowerblue;
+    border:none;
+    height:5rem;
+    width:5rem;
+    border-radius:100%;
+    position: fixed;
+    bottom:3rem;
+    right:3rem;
+    transition: background .3s ease;
+    .add-icon{
+        height:5rem;
+        width:5rem;
+        transition: all .3s ease;
+    }
+    &:hover{
+        background: black;
+        .add-icon{
+            color:cornflowerblue;
+        }
+    }
+    @media (max-width:500px){
+        height:4rem;
+        width:4rem;
+        bottom:2rem;
+        right:2rem;
+        .add-icon{
+            width:4rem;
+            height:4rem;
+        }
+    }
+}
