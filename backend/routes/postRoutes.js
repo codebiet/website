@@ -13,7 +13,8 @@ router.route('/contact').post(require("../controllers/postControllers/contact"))
 router.route('/updateMobile').post(require('../controllers/postControllers/updateMobile'));
 router.route('/resendOtp').post(require('../controllers/postControllers/resendOtp'));
 router.route('/uploadfile').post(require('../controllers/postControllers/uploadFile'));
-router.route('/event/:id/register').post(require('../controllers/postControllers/eventRegistration'))
+router.route('/event/:id/register').post(require('../controllers/postControllers/eventRegistration'));
+router.route('/blogs/addSuggestion').post(require('../controllers/postControllers/addBlogSuggestion'));
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 //-------------------------------------admin routes-------------------------------------------

@@ -36,6 +36,7 @@ router
   .get(require("../controllers/getControllers/getResumeData"));
 router.route("/events/").get(require("../controllers/getControllers/events"));
 router.route('/events/:id').get(require('../controllers/getControllers/eventById'));
+router.route('/blogs/suggestions').get(require('../controllers/getControllers/blogSuggestions'));
 
 //-------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------
