@@ -53,8 +53,12 @@ const ConfirmDeletion = ({ modalOpen, setModalOpen, handleDelete, id }) => {
     </Modal>
   );
 };
-const FilterComponent = ({ filter, setFilter }) => {
+const FilterComponent = ({ filter, setFilter, setPage }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const changeFilter = (newFilter) => {
+    setPage(1);
+    setFilter(newFilter);
+  };
   return (
     <Card>
       <CardBody
@@ -72,23 +76,23 @@ const FilterComponent = ({ filter, setFilter }) => {
         >
           <DropdownToggle caret>{filter}</DropdownToggle>
           <DropdownMenu right style={{ zIndex: "1200" }}>
-            <DropdownItem onClick={() => setFilter("All")}>All</DropdownItem>
-            <DropdownItem onClick={() => setFilter("Upcoming")}>
+            <DropdownItem onClick={() => changeFilter("All")}>All</DropdownItem>
+            <DropdownItem onClick={() => changeFilter("Upcoming")}>
               Upcoming
             </DropdownItem>
-            <DropdownItem onClick={() => setFilter("Last Week")}>
+            <DropdownItem onClick={() => changeFilter("Last Week")}>
               Last Week
             </DropdownItem>
-            <DropdownItem onClick={() => setFilter("Last Month")}>
+            <DropdownItem onClick={() => changeFilter("Last Month")}>
               Last Month
             </DropdownItem>
-            <DropdownItem onClick={() => setFilter("Last 3 Months")}>
+            <DropdownItem onClick={() => changeFilter("Last 3 Months")}>
               Last 3 Months
             </DropdownItem>
-            <DropdownItem onClick={() => setFilter("Last 6 Months")}>
+            <DropdownItem onClick={() => changeFilter("Last 6 Months")}>
               Last 6 Months
             </DropdownItem>
-            <DropdownItem onClick={() => setFilter("Last 1 Year")}>
+            <DropdownItem onClick={() => changeFilter("Last 1 Year")}>
               Last 1 Year
             </DropdownItem>
           </DropdownMenu>
@@ -193,7 +197,11 @@ const Events = () => {
   };
   return (
     <DashboardLayout routes={eventRoutes}>
-      <FilterComponent filter={filter} setFilter={setFilter} />
+      <FilterComponent
+        filter={filter}
+        setFilter={setFilter}
+        setPage={setCurrentPage}
+      />
       <Row style={{ width: "100%", margin: "0" }}>
         <Col style={{ display: "flex", flexWrap: "wrap" }}>
           {!loading &&
