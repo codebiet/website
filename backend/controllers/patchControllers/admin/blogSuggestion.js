@@ -24,8 +24,17 @@ const getParams = (file) => {
 };
 module.exports = async (req, res) => {
   const filters = {
-    state: req.query.state || "AVAILABLE",
-    approvedSuggestion: req.query.approvedSuggestion || "true",
+    state: (req.query.state && [req.query.state]) || [
+      "AVAILABLE",
+      "PICKED",
+      "DRAFT",
+      "PENDING",
+      "APPROVED",
+      "DISCARDED",
+    ],
+    approvedSuggestion: (req.query.approvedSuggestion && [
+      req.query.approvedSuggestion == "true" || false,
+    ]) || [true, false],
   };
   const title = req.body.title;
   const tags = JSON.parse(req.body.tags);
@@ -62,8 +71,8 @@ module.exports = async (req, res) => {
   try {
     await suggestion.save();
     const suggestions = await Blogs.find({
-      state: filters.state,
-      approvedSuggestion: filters.approvedSuggestion == "true",
+      state: { $in: filters.state },
+      approvedSuggestion: { $in: filters.approvedSuggestion },
     }).sort({ suggestedAt: -1 }); //getting suggestions;
     return res.send({ suggestions: suggestions });
   } catch (err) {

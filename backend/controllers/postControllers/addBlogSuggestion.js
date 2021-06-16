@@ -23,6 +23,19 @@ const getParams = (file) => {
   };
 };
 module.exports = async (req, res) => {
+  const filters = {
+    state: (req.query.state && [req.query.state]) || [
+      "AVAILABLE",
+      "PICKED",
+      "DRAFT",
+      "PENDING",
+      "APPROVED",
+      "DISCARDED",
+    ],
+    approvedSuggestion: (req.query.approvedSuggestion && [
+      req.query.approvedSuggestion == "true" || false,
+    ]) || [true, false],
+  };
   const isAdmin = true; //will get using req.body.isAdmin, and this information will be added in middleware for verifying admin or user;
   const suggestedBy = "ADMIN"; //will get using req.body.userId, and this information will be added in middleware for verifying admin or user;
   const title = req.body.title;
@@ -60,8 +73,11 @@ module.exports = async (req, res) => {
       cardImg: cardImgUrl,
     });
     await suggestion.save();
-    const suggestions = await Blogs.find({state:"AVAILABLE",approvedSuggestion:true});//getting suggestions;
-    return res.send({ suggestions:  suggestions});
+    const suggestions = await Blogs.find({
+      state: { $in: filters.state },
+      approvedSuggestion: { $in: filters.approvedSuggestion },
+    }).sort({ suggestedAt: -1 }); //getting suggestions;
+    return res.send({ suggestions: suggestions });
   } catch (err) {
     console.log(err);
     return res
