@@ -7,11 +7,6 @@ import ContentLoaderSvg from "../../EventCard/EventCardLoader";
 import {
   Row,
   Col,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Button,
   Card,
   CardBody,
   Dropdown,
@@ -31,28 +26,6 @@ import {
   generateError,
 } from "../../../state/info/infoActions";
 import Pagination from "../../Pagination/Pagination";
-const ConfirmDeletion = ({ modalOpen, setModalOpen, handleDelete, id }) => {
-  const toggle = () => {
-    setModalOpen((prev) => !prev);
-  };
-  return (
-    <Modal isOpen={modalOpen} toggle={toggle}>
-      <ModalHeader toggle={toggle}>Confirm</ModalHeader>
-      <ModalBody>
-        The event will be deleted permanently and can't be restored later. Are
-        you sure you want to delete?
-      </ModalBody>
-      <ModalFooter>
-        <Button color="warning" onClick={() => handleDelete(id)}>
-          Delete
-        </Button>
-        <Button color="secondary" onClick={toggle}>
-          Cancel
-        </Button>
-      </ModalFooter>
-    </Modal>
-  );
-};
 const FilterComponent = ({ filter, setFilter, setPage }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const changeFilter = (newFilter) => {
