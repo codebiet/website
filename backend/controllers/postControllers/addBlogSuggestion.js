@@ -36,6 +36,7 @@ module.exports = async (req, res) => {
     return res.status(400).send({ errorMsg: "This title exists already!" });
   let cardImgUrl = "";
   if (req.files) {
+    const cardImg = req.files.cardImg;
     if (invalidFileType(cardImg))
       return res
         .status(400)
@@ -59,7 +60,8 @@ module.exports = async (req, res) => {
       cardImg: cardImgUrl,
     });
     await suggestion.save();
-    return res.send({ msg: "Suggestion Added Successfully" });
+    const suggestions = await Blogs.find({state:"AVAILABLE",approvedSuggestion:true});//getting suggestions;
+    return res.send({ suggestions:  suggestions});
   } catch (err) {
     console.log(err);
     return res
