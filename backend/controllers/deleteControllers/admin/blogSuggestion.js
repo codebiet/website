@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
   };
   const id = req.params.id;
   try {
-    await Blogs.findByIdAndDelete(id).exec();
+    await Blogs.findOneAndDelete({ _id: id, state: "AVAILABLE" }).exec();
     const suggestions = await Blogs.find({
       state: filters.state,
       approvedSuggestion: filters.approvedSuggestion == "true",
