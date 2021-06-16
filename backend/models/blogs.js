@@ -1,6 +1,12 @@
 const mongoose = require("./connection");
 const blogSchema = new mongoose.Schema({
   title: { type: String, required: true },
+  titleLower: {
+    type: String,
+    default: function () {
+      return this.title.toLowerCase();
+    },
+  },
   url: {
     type: String,
     default: function () {
@@ -20,7 +26,7 @@ const blogSchema = new mongoose.Schema({
   tags: [String],
   suggestedBy: { type: String, default: "ADMIN" },
   approvedSuggestion: { type: Boolean, default: false },
-  cardImg:String
+  cardImg: String,
 });
 const Blogs = mongoose.model("Blogs", blogSchema);
 module.exports = Blogs;
