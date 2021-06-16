@@ -15,7 +15,10 @@ const events = async (req, res) => {
   };
   //since our time zone is GMT+05:30 and mongodb stores date in UTC format, that's why subtracted - 05:30hours in date to get correct match for gt and lt;
   try {
-    const noOfItems = await Events.countDocuments({});
+    const noOfItems = await Events.countDocuments({
+      startsOn: { $gt: pageOptions.startsGt, $lt: pageOptions.startsLt },
+      type: { $in: pageOptions.type },
+    });
     const evnts = await Events.find({
       startsOn: { $gt: pageOptions.startsGt, $lt: pageOptions.startsLt },
       type: { $in: pageOptions.type },
