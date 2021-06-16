@@ -19,3 +19,10 @@ const events = async (req, res) => {
   }
 };
 module.exports = events;
+
+// Model.aggregate([
+//     { "$unwind": "$books" },
+//     { "$replaceRoot": { "newRoot": "$books" } }
+//   ],function(err,results) {
+
+//   })
