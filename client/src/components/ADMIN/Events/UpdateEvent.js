@@ -106,7 +106,7 @@ const UpdateEvent = (props) => {
     );
     setLoading(true);
     axios
-      .put(`/put/event/${props.match.params.id}`, data)
+      .patch(`/patch/event/${props.match.params.id}`, data)
       .then((res) => {
         setLoading(false);
         if (res.data.event) {

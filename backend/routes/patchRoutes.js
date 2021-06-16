@@ -7,5 +7,5 @@ const router = express.Router();
 //--------------------------------------------------------------------------------------------
 router
   .route("/event/:id")
-  .put(require("../controllers/putControllers/admin/event"));
+  .patch(require("../controllers/patchControllers/admin/event"));
 module.exports = router;
