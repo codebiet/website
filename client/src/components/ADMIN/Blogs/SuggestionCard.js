@@ -24,6 +24,7 @@ const SuggestionCard = ({
   limit = 12,
   setPage = () => "",
   setTotalItems = () => "",
+  actions = true,
 }) => {
   const info = useContext(InfoContext);
   const [deleteConfirmationModalOpen, setDeleteCofirmationModalOpen] =
@@ -122,85 +123,87 @@ const SuggestionCard = ({
         )}
       </div>
 
-      <div className="actions">
-        {suggestion.pickedBy && (
-          <button>
-            <PeopleAltTwoTone />
-          </button>
-        )}
-        <>
-          <button
-            className={isAvailable() ? "" : "disabled"}
-            disabled={isAvailable() ? false : true}
-            onClick={() => setUpdateModalOpen((prev) => !prev)}
-          >
-            {suggestion.approvedSuggestion ? (
-              <EditTwoTone />
-            ) : (
-              <ThumbUpAltSharp />
-            )}
-          </button>
-          {/* the below modal will be used for approval or update */}
-          {isAvailable() && (
-            <UpdateSuggestionModal
-              modalOpen={updateModalOpen}
-              setModalOpen={setUpdateModalOpen}
-              setAlert={setAlert}
-              setSuggestions={setSuggestions}
-              defaultTitle={suggestion.title}
-              defaultTags={suggestion.tags}
-              defaultCardImgUrl={suggestion.cardImg}
-              updating={suggestion.approvedSuggestion ? true : false}
-              approving={suggestion.approvedSuggestion ? false : true}
-              queryString={queryString}
-              id={suggestion._id}
-            />
+      {actions && (
+        <div className="actions">
+          {suggestion.pickedBy && (
+            <button>
+              <PeopleAltTwoTone />
+            </button>
           )}
-        </>
-        {/* The below button handles disapproval for suggestions by users*/}
-        {getState() == "SUGGESTED" && (
           <>
             <button
-              onClick={() =>
-                setDisapproveConfirmationModalOpen((prev) => !prev)
-              }
+              className={isAvailable() ? "" : "disabled"}
+              disabled={isAvailable() ? false : true}
+              onClick={() => setUpdateModalOpen((prev) => !prev)}
             >
-              <ThumbDownAltSharp />
+              {suggestion.approvedSuggestion ? (
+                <EditTwoTone />
+              ) : (
+                <ThumbUpAltSharp />
+              )}
             </button>
-            {/* the below modal will be used for disapproval confirmation */}
-            <ConfirmDeletion
-              modalOpen={disapproveConfirmationModalOpen}
-              setModalOpen={setDisapproveConfirmationModalOpen}
-              handleDelete={handleDisapproval} //this won't delete but disapprove suggestion
-              id={suggestion._id}
-              buttonContent={"Disapprove"}
-              msg={
-                "This action is irreversible. You won't be able to change the state of this suggestion later once you disapprove."
-              }
-            />
+            {/* the below modal will be used for approval or update */}
+            {isAvailable() && (
+              <UpdateSuggestionModal
+                modalOpen={updateModalOpen}
+                setModalOpen={setUpdateModalOpen}
+                setAlert={setAlert}
+                setSuggestions={setSuggestions}
+                defaultTitle={suggestion.title}
+                defaultTags={suggestion.tags}
+                defaultCardImgUrl={suggestion.cardImg}
+                updating={suggestion.approvedSuggestion ? true : false}
+                approving={suggestion.approvedSuggestion ? false : true}
+                queryString={queryString}
+                id={suggestion._id}
+              />
+            )}
           </>
-        )}
-        {/* remove button will be disabled if suggestion is not 'AVAILABLE', and can't be deleted */}
-        <>
-          <button
-            className={
-              isAvailable() ? "remove-button" : "remove-button disabled"
-            }
-            onClick={() => setDeleteCofirmationModalOpen((prev) => !prev)}
-            disabled={isAvailable() ? false : true}
-          >
-            <DeleteForeverRounded />
-          </button>
-          {isAvailable() && (
-            <ConfirmDeletion
-              modalOpen={deleteConfirmationModalOpen}
-              setModalOpen={setDeleteCofirmationModalOpen}
-              handleDelete={handleDelete}
-              id={suggestion._id}
-            />
+          {/* The below button handles disapproval for suggestions by users*/}
+          {getState() == "SUGGESTED" && (
+            <>
+              <button
+                onClick={() =>
+                  setDisapproveConfirmationModalOpen((prev) => !prev)
+                }
+              >
+                <ThumbDownAltSharp />
+              </button>
+              {/* the below modal will be used for disapproval confirmation */}
+              <ConfirmDeletion
+                modalOpen={disapproveConfirmationModalOpen}
+                setModalOpen={setDisapproveConfirmationModalOpen}
+                handleDelete={handleDisapproval} //this won't delete but disapprove suggestion
+                id={suggestion._id}
+                buttonContent={"Disapprove"}
+                msg={
+                  "This action is irreversible. You won't be able to change the state of this suggestion later once you disapprove."
+                }
+              />
+            </>
           )}
-        </>
-      </div>
+          {/* remove button will be disabled if suggestion is not 'AVAILABLE', and can't be deleted */}
+          <>
+            <button
+              className={
+                isAvailable() ? "remove-button" : "remove-button disabled"
+              }
+              onClick={() => setDeleteCofirmationModalOpen((prev) => !prev)}
+              disabled={isAvailable() ? false : true}
+            >
+              <DeleteForeverRounded />
+            </button>
+            {isAvailable() && (
+              <ConfirmDeletion
+                modalOpen={deleteConfirmationModalOpen}
+                setModalOpen={setDeleteCofirmationModalOpen}
+                handleDelete={handleDelete}
+                id={suggestion._id}
+              />
+            )}
+          </>
+        </div>
+      )}
     </div>
   );
 };
