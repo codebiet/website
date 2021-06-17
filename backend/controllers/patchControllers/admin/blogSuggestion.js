@@ -44,7 +44,7 @@ module.exports = async (req, res) => {
   const id = req.params.id;
   if (!title) return res.status(400).send({ errorMsg: "Title is required!" });
   const suggestion = await Blogs.findById(id);
-  if (suggestion.suggestedBy != "ADMIN" && !suggestion.approvedSuggestion) {
+  if (!suggestion.approvedSuggestion) {
     //means admin is approving the suggestion; card image required to be uploaded by admin
     if (!req.files || !req.files.cardImg)
       return res
