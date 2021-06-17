@@ -31,6 +31,7 @@ import Dashboard_Articles from "../../pages/Dashboard_Articles";
 import Dashboard_Competitions from "../../pages/Dashboard_Competitions";
 import Dashboard_Projects from "../../pages/Dashboard_Projects";
 import Dashboard_Resume from "../../pages/Dashboard_Resume";
+import Dashboard_Suggestion from "../../pages/Dashboard_Suggestion";
 // import Toaster from "../Toaster/Toaster";
 import CertificateVerification from "../../pages/CertificateVerification";
 import About from "../../pages/About";
@@ -122,6 +123,11 @@ function App() {
             />
             <Route
               exact={true}
+              path="/suggestions"
+              render={(props) => <Dashboard_Suggestion {...props} />}
+            />
+            <Route
+              exact={true}
               path="/user-projects"
               render={(props) => <Dashboard_Projects {...props} />}
             />
@@ -174,11 +180,13 @@ function App() {
 
             {/* Admin routes */}
             {AdminRoutes.map((adminRoute) => {
-              return <Route
-                exact={true}
-                path={adminRoute.path}
-                render={(props) => <adminRoute.Component {...props} />}
-              />;
+              return (
+                <Route
+                  exact={true}
+                  path={adminRoute.path}
+                  render={(props) => <adminRoute.Component {...props} />}
+                />
+              );
             })}
             <Route
               exact={true}
