@@ -1,6 +1,13 @@
 import React from "react";
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
-const ConfirmDeletion = ({ modalOpen, setModalOpen, handleDelete, id }) => {
+const ConfirmDeletion = ({
+  modalOpen,
+  setModalOpen,
+  handleDelete,
+  id,
+  msg,
+  buttonContent
+}) => {
   const toggle = () => {
     setModalOpen((prev) => !prev);
   };
@@ -8,12 +15,13 @@ const ConfirmDeletion = ({ modalOpen, setModalOpen, handleDelete, id }) => {
     <Modal isOpen={modalOpen} toggle={toggle}>
       <ModalHeader toggle={toggle}>Confirm</ModalHeader>
       <ModalBody>
-        This will be deleted permanently and can't be restored later. Are you
-        sure you want to delete?
+        {msg
+          ? msg
+          : "This will be deleted permanently and can't be restored later. Are you sure you want to delete?"}
       </ModalBody>
       <ModalFooter>
         <Button color="warning" onClick={() => handleDelete(id)}>
-          Delete
+          {buttonContent ? buttonContent : "Delete"}
         </Button>
         <Button color="secondary" onClick={toggle}>
           Cancel
