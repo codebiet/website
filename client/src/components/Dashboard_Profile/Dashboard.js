@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { AuthContext } from "../../state/Store";
+import { loadUser } from "../../state/auth/authActions";
 import { InfoContext } from "../../state/Store";
 import {
   generateError,
@@ -797,6 +798,19 @@ const Dashboard = (props) => {
     { year: "", degree: "X", college: "", result: "", type: "GPA" },
   ]);
   const [achievements, setAchievements] = useState([""]);
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get("/api/loadUser")
+      .then((res) => {
+        setLoading(false);
+        setDefaultValues(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    return () => info.dispatch(clearEverything());
+  }, []);
   const addMore = (thing) => {
     switch (thing) {
       case "programmingLangs":
@@ -1279,19 +1293,6 @@ const Dashboard = (props) => {
     );
   };
   useEffect(() => {
-    setLoading(true);
-    axios
-      .get("/api/loadUser")
-      .then((res) => {
-        setLoading(false);
-        setDefaultValues(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    return () => info.dispatch(clearEverything());
-  }, []);
-  useEffect(() => {
     window.scrollTo();
     return () => info.dispatch(clearEverything());
   }, []);
@@ -1463,6 +1464,7 @@ const Dashboard = (props) => {
       .then((res) => {
         setLoading(false);
         setDefaultValues(res.data);
+        loadUser(auth.dispatch);
         info.dispatch(
           generateSuccess("Congrats! Your profile was updated successfully.")
         );
@@ -1484,7 +1486,7 @@ const Dashboard = (props) => {
             <Sidebar
               bgColor="white"
               activeColor="info"
-              profileImg={profileImg}
+              profileImg={auth.state.profileImg}
             />
             <div className="main-panel dashboard-main-panel">
               <DemoNavbar {...props} />
@@ -1498,13 +1500,14 @@ const Dashboard = (props) => {
                       <CardBody>
                         <Row>
                           <Col md="2">
-                            {!profileImg && (
+                            {/* profileImg if update happens */}
+                            {!auth.state.profileImg && (
                               <AccountCircleIcon style={{ fontSize: "140" }} />
                             )}
-                            {profileImg && (
+                            {auth.state.profileImg && (
                               <img
                                 className="profile-img"
-                                src={profileImg}
+                                src={auth.state.profileImg}
                                 alt=""
                               />
                             )}

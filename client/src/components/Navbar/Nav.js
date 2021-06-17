@@ -196,11 +196,7 @@ function Nav() {
           )}
           {auth.state.userLoggedIn && (
             <NavLink to="/dashboard" className="nav-user-container">
-              <img
-                className="avtar-img"
-                src="https://www.w3schools.com/howto/img_avatar.png"
-                alt=""
-              />
+              <img className="avtar-img" src={auth.state.profileImg} alt="" />
               <span>{auth.state.userName}</span>
             </NavLink>
           )}

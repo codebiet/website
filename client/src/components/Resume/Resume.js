@@ -25,7 +25,7 @@ import {
   FormGroup,
   Row,
   Col,
-  Container
+  Container,
 } from "reactstrap";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -104,21 +104,6 @@ const TakeData = ({ setLoading, setProfileImg, setDataTaken }) => {
         : [""]
     );
   };
-  useEffect(() => {
-    setLoading(true);
-    axios
-      .get("/api/loadUser")
-      .then((res) => {
-        setDefaultValues(res.data);
-        if (!res.data.year || !res.data.branch || !res.data.rollNum) setBasicDetailsAdded(false);
-        else setBasicDetailsAdded(true);
-        setLoading(false);
-        setDataUpdated(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(dataUpdated);
@@ -501,26 +486,30 @@ const TakeData = ({ setLoading, setProfileImg, setDataTaken }) => {
         </Col>
       </Row>
       {!basicDetailsAdded && (
-            <Container style={{ marginBottom: "3rem" }}>
-              {/* <div> */}
-              <Row style={{textAlign:"center",marginTop:"3rem"}}>
-                <Col>
-                  <p>You need to add basic details under your profile section to use
-                this utility.</p>
-                </Col>
-              </Row>
-              <Row>
-                <div className="update ml-auto mr-auto">
-                  <div
-                    className="btn btn-warning add-details-button"
-                    style={{ marginTop: "1rem" }}
-                  >
-                    <Link to="/dashboard" className="add-details-link">Add Details</Link>
-                  </div>
-                </div>
-              </Row>
-            </Container>
-          )}
+        <Container style={{ marginBottom: "3rem" }}>
+          {/* <div> */}
+          <Row style={{ textAlign: "center", marginTop: "3rem" }}>
+            <Col>
+              <p>
+                You need to add basic details under your profile section to use
+                this utility.
+              </p>
+            </Col>
+          </Row>
+          <Row>
+            <div className="update ml-auto mr-auto">
+              <div
+                className="btn btn-warning add-details-button"
+                style={{ marginTop: "1rem" }}
+              >
+                <Link to="/dashboard" className="add-details-link">
+                  Add Details
+                </Link>
+              </div>
+            </div>
+          </Row>
+        </Container>
+      )}
     </>
   );
 };
@@ -538,7 +527,11 @@ const Resume = (props) => {
     <>
       {auth.state.userLoggedIn && (
         <div className="wrapper dashboard-main-wrapper">
-          <Sidebar bgColor="white" activeColor="info" profileImg={profileImg} />
+          <Sidebar
+            bgColor="white"
+            activeColor="info"
+            profileImg={auth.state.profileImg}
+          />
           <div className="main-panel dashboard-main-panel">
             <DemoNavbar {...props} />
             <div className="content">
