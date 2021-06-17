@@ -18,6 +18,9 @@ const AddUpdateSuggestionModal = ({
   defaultCardImgUrl = "",
   defaultTags = [],
   updating = false,
+  approving = false,
+  queryString = () => "",
+  id = "",
 }) => {
   const [title, setTitle] = useState(defaultTitle);
   const [cardImgUrl, setCardImgUrl] = useState(defaultCardImgUrl);
@@ -50,11 +53,14 @@ const AddUpdateSuggestionModal = ({
     data.append("cardImg", cardImgRef.current.files[0]);
     setLoading(true);
     axios
-      .post("/post/blogs/addSuggestion", data)
+      .post("/post/blogs/addSuggestion?" + queryString(), data)
       .then((res) => {
         setLoading(false);
         setSuggestions(res.data.suggestions);
-        setAlert({ type: "success", msg: "Successfully added the Suggestion" });
+        setAlert({
+          type: "success",
+          msg: "Successfully added the Suggestion!",
+        });
         setModalOpen(false);
       })
       .catch((err) => {
@@ -66,19 +72,26 @@ const AddUpdateSuggestionModal = ({
   };
   const handleUpdateSuggestion = () => {
     if (!title || (!cardImgRef.current.files[0] && !cardImgUrl))
-      return setError("Title and card Image both are required");
+      return setError("Title and card Image both are required!");
     const data = new FormData();
     data.append("title", title);
     data.append("tags", JSON.stringify(tags));
     data.append("cardImg", cardImgRef.current.files[0]);
     setLoading(true);
     axios
-      .patch("/patch/blogs/updateSuggestion", data)
+      .patch(
+        "/patch/admin/blogs/updateSuggestion/" + id + "?" + queryString(),
+        data
+      )
       .then((res) => {
         setLoading(false);
+        setSuggestions(res.data.suggestions);
+        let msg = updating
+          ? "Successfully updated the Suggestion!"
+          : "Successfully approved the Suggestion!";
         setAlert({
           type: "success",
-          msg: "Successfully updated the Suggestion",
+          msg: msg,
         });
         setModalOpen(false);
       })
@@ -91,19 +104,28 @@ const AddUpdateSuggestionModal = ({
   };
   const handleSubmit = () => {
     setError("");
-    if (!updating) {
-      return handleAddSuggestion();
-    } else {
+    if (updating || approving) {
       return handleUpdateSuggestion();
+    } else {
+      return handleAddSuggestion();
     }
   };
   return (
     <Modal isOpen={modalOpen} toggle={toggle}>
       <ModalHeader toggle={toggle}>
-        Add Suggestion
+        {updating
+          ? "Update Suggestion"
+          : approving
+          ? "Approve Suggestion"
+          : "Add Suggestion"}
         {loading && <div className="scroller"></div>}
       </ModalHeader>
       <ModalBody>
+        {approving && (
+          <p style={{ marginBottom: "1rem", fontWeight: "400" }}>
+            Please Upload the card image to approve.
+          </p>
+        )}
         {error && (
           <p style={{ marginBottom: "1rem", color: "red", fontWeight: "600" }}>
             {error}
@@ -145,14 +167,20 @@ const AddUpdateSuggestionModal = ({
           />
           {cardImgUrl && (
             <span>
-              <a href={cardImg}>Card Image </a>
+              <a
+                href={cardImgUrl}
+                target="_blank"
+                style={{ color: "cornflowerblue" }}
+              >
+                Card Image
+              </a>
             </span>
           )}
         </FormGroup>
       </ModalBody>
       <ModalFooter>
         <Button color="warning" onClick={() => handleSubmit()}>
-          {updating ? "Update" : "Add"}
+          {updating ? "Update" : approving ? "Approve" : "Add"}
         </Button>
         <Button color="secondary" onClick={toggle}>
           Cancel
