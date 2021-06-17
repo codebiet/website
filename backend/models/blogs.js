@@ -26,6 +26,7 @@ const blogSchema = new mongoose.Schema({
   tags: [String],
   suggestedBy: { type: String, default: "ADMIN" },
   approvedSuggestion: { type: Boolean, default: false },
+  disapprovedSuggestion: { type: Boolean, default: false },
   cardImg: String,
 });
 const Blogs = mongoose.model("Blogs", blogSchema);
