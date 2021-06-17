@@ -207,6 +207,7 @@ const userSchema = new mongoose.Schema({
   callingVerified: { type: Boolean, default: false },
   whatsAppVerified: { type: Boolean, default: false },
   role: { type: String, enum: ["Student", "Professional"], default: "Student" },
+  isAdmin: { type: Boolean, default: false },
 });
 
 userSchema.query.findByEmail = function (email) {
