@@ -8,7 +8,7 @@ import {
 import { AddCircle } from "@material-ui/icons";
 import AddSuggestionModal from "./AddUpdateSuggestionModal";
 
-const AddSuggestion = ({ setSuggestions }) => {
+const AddSuggestion = ({ setSuggestions, setTotalItems = (items) => "" }) => {
   const info = useContext(InfoContext);
   const [alert, setAlert] = useState({});
   const [addSuggestionModalOpen, setAddSuggestionModalOpen] = useState(false);
@@ -33,7 +33,8 @@ const AddSuggestion = ({ setSuggestions }) => {
         setAlert={setAlert}
         modalOpen={addSuggestionModalOpen}
         setModalOpen={setAddSuggestionModalOpen}
-        setSuggestions={setSuggestions}//so that we can get the new added suggestion and can render that
+        setSuggestions={setSuggestions} //so that we can get the new added suggestion and can render that
+        setTotalItems={setTotalItems}
       />
     </>
   );

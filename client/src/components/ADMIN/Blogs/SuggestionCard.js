@@ -19,7 +19,11 @@ const SuggestionCard = ({
   queryString = () => "",
   setSuggestions = () => "",
   suggestion = {},
-  setLoading = (state) => "",
+  setLoading = () => "",
+  page = 1,
+  limit = 12,
+  setPage = () => "",
+  setTotalItems = () => "",
 }) => {
   const info = useContext(InfoContext);
   const [deleteConfirmationModalOpen, setDeleteCofirmationModalOpen] =
@@ -38,7 +42,8 @@ const SuggestionCard = ({
     }
   }, [alert]);
   const isAvailable = () => {
-    if (suggestion.state == "AVAILABLE" && !suggestion.disapprovedSuggestion) return true;
+    if (suggestion.state == "AVAILABLE" && !suggestion.disapprovedSuggestion)
+      return true;
     else return false;
   };
   const handleDelete = (id) => {
@@ -48,7 +53,9 @@ const SuggestionCard = ({
       .then((res) => {
         setLoading(false);
         info.dispatch(generateSuccess("Deleted Successfully!"));
+        setTotalItems(res.data.totalItems);
         setSuggestions(res.data.suggestions);
+        if ((page - 1) * limit >= res.data.totalItems) setPage(page - 1);
         setDeleteCofirmationModalOpen(false);
       })
       .catch((err) => {

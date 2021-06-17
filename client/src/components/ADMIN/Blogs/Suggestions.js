@@ -1,10 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { InfoContext } from "../../../state/Store";
-import {
-  generateError,
-  generateSuccess,
-  clearEverything,
-} from "../../../state/info/infoActions";
+import Pagination from "../../Pagination/Pagination";
 import {
   Card,
   CardBody,
@@ -22,6 +17,7 @@ import SuggestionCard from "./SuggestionCard";
 const typeFilters = [
   { title: "All", value: "All" },
   { title: "Suggested", value: "SUGGESTED" },
+  { title: "Available", value: "AVAILABLE" },
   { title: "By Admin", value: "ADMIN" },
   { title: "Picked", value: "PICKED" },
   { title: "Approved", value: "APPROVED" },
@@ -84,6 +80,7 @@ const getTypeQuery = (filter) => {
   if (filter == "All") return "";
   else if (filter == "SUGGESTED")
     return "suggestedBy=USER&approvedSuggestion=false&disapprovedSuggestion=false";
+  else if(filter == "AVAILABLE")return "state=AVAILABLE&approvedSuggestion=true";
   else if (filter == "ADMIN") return "suggestedBy=ADMIN";
   else if (filter == "PICKED") return "state=PICKED";
   else if (filter == "APPROVED")
@@ -145,9 +142,15 @@ const Suggestions = (props) => {
   const [loading, setLoading] = useState(false);
   const [currentTypeFilters, setCurrentTypeFilters] = useState("All");
   const [currentDurationFilters, setCurrentDurationFilters] = useState("All");
+  //for pagination purpose;
   const [currentPage, setCurrentPage] = useState(1);
-  const [limit, setLimit] = useState(12);
-  const [totalItems, setTotalItems] = useState(11);
+  const [limit, setLimit] = useState(6);
+  const [totalItems, setTotalItems] = useState(5);
+  //for pagination purpose;
+  const handlePageChange = (page) => {
+    console.log(page);
+    setCurrentPage(page);
+  };
   const queryString = () => {
     return (
       getDurationQuery(currentDurationFilters) +
@@ -157,7 +160,10 @@ const Suggestions = (props) => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("/api/blogs/suggestions?" + queryString())
+      .get(
+        `/api/blogs/suggestions?page=${currentPage - 1}&limit=${limit}&` +
+          queryString()
+      ) //pagination starts from 0
       .then((res) => {
         setLoading(false);
         setSuggestions(res.data.suggestions);
@@ -200,6 +206,11 @@ const Suggestions = (props) => {
               setSuggestions={setSuggestions}
               queryString={queryString}
               setLoading={setLoading}
+              //the below details are used for pagination purpose;
+              page={currentPage}
+              limit={limit}
+              setPage={setCurrentPage}
+              setTotalItems={setTotalItems}
             />
           ))}
         {/* suggestion cards are used as loader placeholder cards during loading */}
@@ -217,7 +228,16 @@ const Suggestions = (props) => {
       <AddSuggestion
         setSuggestions={setSuggestions}
         queryString={queryString}
+        setTotalItems={setTotalItems} //so that no of items can be increased after addition
       />
+
+      {totalItems > limit && (
+        <Pagination
+          totalItems={totalItems}
+          pageSize={limit}
+          handlePageChange={handlePageChange}
+        />
+      )}
     </DashboardLayout>
   );
 };

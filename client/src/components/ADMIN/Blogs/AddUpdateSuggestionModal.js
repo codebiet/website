@@ -21,6 +21,8 @@ const AddUpdateSuggestionModal = ({
   approving = false,
   queryString = () => "",
   id = "",
+  //below details are used for pagination purpose, after addition no. of items will increase
+  setTotalItems = () => ""
 }) => {
   const [title, setTitle] = useState(defaultTitle);
   const [cardImgUrl, setCardImgUrl] = useState(defaultCardImgUrl);
@@ -57,6 +59,7 @@ const AddUpdateSuggestionModal = ({
       .then((res) => {
         setLoading(false);
         setSuggestions(res.data.suggestions);
+        setTotalItems(res.data.totalItems);
         setAlert({
           type: "success",
           msg: "Successfully added the Suggestion!",
