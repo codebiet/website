@@ -16,6 +16,7 @@ module.exports = async (req, res) => {
       req.query.disapprovedSuggestion == "true" || false,
     ]) || [true, false],
   };
+  const id = req.params.id;
   try {
     await Blogs.findByIdAndUpdate(
       id,
