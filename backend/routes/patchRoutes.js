@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const authAdmin = require("../middlewares/authAdmin");
+const authAdminOrUser = require("../middlewares/authAdminOrUser");
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 //-------------------------------------admin routes-------------------------------------------
@@ -10,8 +12,14 @@ router
   .patch(require("../controllers/patchControllers/admin/event"));
 router
   .route("/admin/blogs/updateSuggestion/:id")
-  .patch(require("../controllers/patchControllers/admin/blogSuggestion"));
+  .patch(
+    authAdmin,
+    require("../controllers/patchControllers/admin/blogSuggestion")
+  );
 router
   .route("/admin/blogs/suggestion/:id/disapprove")
-  .patch(require("../controllers/patchControllers/admin/disapproveBlogSuggestion"));
+  .patch(
+    authAdmin,
+    require("../controllers/patchControllers/admin/disapproveBlogSuggestion")
+  );
 module.exports = router;
