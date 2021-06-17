@@ -67,19 +67,18 @@ export const logOutUser = (dispatch) => {
   Cookies.remove("userLoggedIn");
 };
 
-// export const loadUser = (dispatch, state) => {
-//   const config = getConfig(state);
-//   axios
-//     .get(`${END_POINT}/api/loadUser`, config)
-//     .then((res) => {
-//       dispatch(loadUserSuccess(res.data));
-//     })
-//     .catch((err) => {
-//         if(err.response && err.response.data && err.response.data.errorMsg == 'Invalid Token!')
-//             dispatch(loadUserError(""));
-//       console.log(err);
-//     });
-// };
+export const loadUser = (dispatch) => {
+  axios
+    .get(`/api/loadUser`,)
+    .then((res) => {
+      dispatch(loadUserSuccess(res.data));
+    })
+    .catch((err) => {
+        if(err.response && err.response.data && err.response.data.errorMsg == 'Invalid Token!')
+            dispatch(loadUserError(""));
+      console.log(err);
+    });
+};
 // export const getConfig = (state) => {
 //   const token = state.token;
 //   const config = {

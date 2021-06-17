@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Store, { InfoContext } from "../../state/Store";
+import Store, { InfoContext, AuthContext } from "../../state/Store";
+import { loadUser } from "../../state/auth/authActions";
 import ReactDOM from "react-dom";
 import "aos/dist/aos.css";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -73,8 +74,11 @@ import Career from "../../pages/Career";
 import Logout from "../../pages/Logout";
 import AdminRoutes from "../ADMIN/routes/AdminRoutes";
 function App() {
-  // const auth = useContext(AuthContext);
+  const auth = useContext(AuthContext);
   const info = useContext(InfoContext);
+  useEffect(() => {
+    loadUser(auth.dispatch);
+  }, []);
   return (
     <React.Fragment>
       <ErrorBoundary>

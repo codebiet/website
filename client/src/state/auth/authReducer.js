@@ -21,7 +21,8 @@ const initialState = {
   token: Cookies.get("token"),
   userLoggedIn: Cookies.get("userLoggedIn") == "true",
   emailVerified: Cookies.get("emailVerified") == "true",
-  phoneNumberVerified: Cookies.get("phoneNumberVerified") == "true",
+  callingVerified: Cookies.get("callingVerified") == "true",
+  whatsAppVerified: Cookies.get("whatsAppVerified") == "true",
   userLoggingIn: false,
   userName: Cookies.get("userName") || "",
   userId: Cookies.get("userId") || "",
@@ -30,18 +31,30 @@ const initialState = {
   signupError: "",
   recoverError: "",
   isAdmin: false,
+  profileImg: "",
   sendingVerificationEmail: false,
-  redirectToVerifyEmail:false
+  redirectToVerifyEmail: false,
 };
 
 const authReducer = (state = initialState, action) => {
   console.log(action);
   switch (action.type) {
     case LOAD_USER_SUCCESS:
+      console.log(action.payload);
       return {
         ...state,
         userLoggedIn: true,
-        ...action.payload,
+        emailVerified: action.payload.emailVerified,
+        callingVerified: action.payload.callingVerified,
+        whatsAppVerified: action.payload.whatsAppVerified,
+        userName: action.payload.name,
+        userId: action.payload._id,
+        recoverMsg: "",
+        loginError: "",
+        signupError: "",
+        recoverError: "",
+        isAdmin: action.payload.isAdmin || false,
+        profileImg: action.payload.profilePhoto,
       };
     case LOGIN_REQUEST:
     case SIGNUP_REQUEST:
@@ -59,9 +72,10 @@ const authReducer = (state = initialState, action) => {
         token: action.payload.token,
         userLoggedIn: false,
         emailVerified: false,
-        mobileVerified: false,
+        callingVerified: false,
+        whatsAppVerified: false,
         userLoggingIn: false,
-        redirectToVerifyEmail:true,
+        redirectToVerifyEmail: true,
         loginError: "",
         signupError: "",
         recoverError: "",
@@ -73,12 +87,14 @@ const authReducer = (state = initialState, action) => {
         token: action.payload.token,
         userLoggedIn: true,
         emailVerified: action.payload.emailVerified,
-        mobileVerified: action.payload.mobileVerified,
+        callingVerified: action.payload.callingVerified,
+        whatsAppVerified: action.payload.whatsAppVerified,
         userLoggingIn: false,
         loginError: "",
         signupError: "",
         recoverError: "",
         isAdmin: action.payload.isAdmin || false,
+        profileImg: action.payload.profileImg,
       };
     case LOGIN_ERROR:
       return {
