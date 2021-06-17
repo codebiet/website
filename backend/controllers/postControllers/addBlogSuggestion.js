@@ -35,6 +35,9 @@ module.exports = async (req, res) => {
     approvedSuggestion: (req.query.approvedSuggestion && [
       req.query.approvedSuggestion == "true" || false,
     ]) || [true, false],
+    disapprovedSuggestion: (req.query.disapprovedSuggestion && [
+      req.query.disapprovedSuggestion == "true" || false,
+    ]) || [true, false],
   };
   const isAdmin = true; //will get using req.body.isAdmin, and this information will be added in middleware for verifying admin or user;
   const suggestedBy = "ADMIN"; //will get using req.body.userId, and this information will be added in middleware for verifying admin or user;
@@ -76,6 +79,7 @@ module.exports = async (req, res) => {
     const suggestions = await Blogs.find({
       state: { $in: filters.state },
       approvedSuggestion: { $in: filters.approvedSuggestion },
+      disapprovedSuggestion: { $in: filters.disapprovedSuggestion },
     }).sort({ suggestedAt: -1 }); //getting suggestions;
     return res.send({ suggestions: suggestions });
   } catch (err) {

@@ -12,6 +12,9 @@ module.exports = async (req, res) => {
     approvedSuggestion: (req.query.approvedSuggestion && [
       req.query.approvedSuggestion == "true" || false,
     ]) || [true, false],
+    disapprovedSuggestion: (req.query.disapprovedSuggestion && [
+      req.query.disapprovedSuggestion == "true" || false,
+    ]) || [true, false],
   };
   const id = req.params.id;
   try {
@@ -19,6 +22,7 @@ module.exports = async (req, res) => {
     const suggestions = await Blogs.find({
       state: { $in: filters.state },
       approvedSuggestion: { $in: filters.approvedSuggestion },
+      disapprovedSuggestion: { $in: filters.disapprovedSuggestion },
     }).sort({ suggestedAt: -1 }); //getting suggestions;
     return res.send({ suggestions });
   } catch (err) {
