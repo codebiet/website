@@ -10,11 +10,13 @@ const login = async (req, res) => {
       .send({ errorMsg: "Email and password are required!" });
   }
   let user;
-  try{
+  try {
     user = await User.findOne().findByEmail(email).exec();
-  }catch(err){
+  } catch (err) {
     console.log(err);
-    return res.status(500).send({errorMsg:"Status Code:500, Internal Server Error!"})
+    return res
+      .status(500)
+      .send({ errorMsg: "Status Code:500, Internal Server Error!" });
   }
   if (!user) {
     console.log("Invalid email!");
@@ -22,7 +24,8 @@ const login = async (req, res) => {
   }
   bcrypt.compare(password, user.password).then((isMatch) => {
     console.log(isMatch);
-    if (!isMatch) return res.status(401).send({ errorMsg: "Please Check your Password!" });
+    if (!isMatch)
+      return res.status(401).send({ errorMsg: "Please Check your Password!" });
     jwt.sign(
       { id: user._id },
       process.env.JWT_SECRET,
@@ -63,9 +66,12 @@ const login = async (req, res) => {
         return res.status(200).send({
           token,
           emailVerified: user.emailVerified,
-          phoneNumberVerified: user.phoneNumberVerified,
+          callingVerified: user.callingVerified,
+          whatsAppVerified: user.whatsAppVerified,
+          isAdmin: user.isAdmin,
+          profilePhoto: user.profilePhoto,
           userName: user.name,
-          userId: user._id
+          userId: user._id,
         });
       }
     );
