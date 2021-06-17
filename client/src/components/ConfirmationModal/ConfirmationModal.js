@@ -7,6 +7,7 @@ const ConfirmDeletion = ({
   msg,
   modalHeader,
   buttonContent,
+  id,
 }) => {
   const toggle = () => {
     setModalOpen((prev) => !prev);
@@ -16,7 +17,7 @@ const ConfirmDeletion = ({
       <ModalHeader toggle={toggle}>{modalHeader}</ModalHeader>
       <ModalBody>{msg}</ModalBody>
       <ModalFooter>
-        <Button color="warning" onClick={handleSubmit}>
+        <Button color="warning" onClick={() => handleSubmit(id)}>
           {buttonContent}
         </Button>
         <Button color="secondary" onClick={toggle}>
