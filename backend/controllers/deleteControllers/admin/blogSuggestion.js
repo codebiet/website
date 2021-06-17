@@ -32,12 +32,14 @@ module.exports = async (req, res) => {
     const totalItems = await Blogs.countDocuments({
       suggestedAt: { $gt: filters.suggestedAtGt, $lt: filters.suggestedAtLt },
       state: { $in: filters.state },
+      suggestedBy: { $in: filters.suggestedBy },
       approvedSuggestion: { $in: filters.approvedSuggestion },
       disapprovedSuggestion: { $in: filters.disapprovedSuggestion },
     });
     const suggestions = await Blogs.find({
       suggestedAt: { $gt: filters.suggestedAtGt, $lt: filters.suggestedAtLt },
       state: { $in: filters.state },
+      suggestedBy: { $in: filters.suggestedBy },
       approvedSuggestion: { $in: filters.approvedSuggestion },
       disapprovedSuggestion: { $in: filters.disapprovedSuggestion },
     })
