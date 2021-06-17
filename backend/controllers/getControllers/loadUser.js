@@ -22,7 +22,6 @@ module.exports = async (req, res) => {
   delete userData.password;
   delete userData._id;
   delete userData.role;
-  delete userData.emailVerified;
   res.set("Cache-Control", "no-store");
   return res.status(200).send({ ...userData });
 };
