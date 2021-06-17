@@ -24,7 +24,8 @@ const blogSchema = new mongoose.Schema({
     default: "AVAILABLE",
   },
   tags: [String],
-  suggestedBy: { type: String, default: "ADMIN" },
+  suggestedBy: { type: String, default: "ADMIN", enum: ["ADMIN", "USER"] },
+  suggestedById: { type: mongoose.Schema.Types.ObjectId, ref: "Users" }, //this will be used to get the user who suggested, if this suggestion was by a user;
   approvedSuggestion: { type: Boolean, default: false },
   disapprovedSuggestion: { type: Boolean, default: false },
   cardImg: String,
