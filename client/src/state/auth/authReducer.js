@@ -94,7 +94,9 @@ const authReducer = (state = initialState, action) => {
         signupError: "",
         recoverError: "",
         isAdmin: action.payload.isAdmin || false,
-        profileImg: action.payload.profileImg,
+        profileImg: action.payload.profilePhoto,
+        userName: action.payload.userName,
+        userId: action.payload.userId,
       };
     case LOGIN_ERROR:
       return {
