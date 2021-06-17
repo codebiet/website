@@ -49,8 +49,8 @@ module.exports = async (req, res) => {
     page: parseInt(req.query.page) || 0,
     limit: parseInt(req.query.limit) || 12,
   };
-  const isAdmin = true; //will get using req.body.isAdmin, and this information will be added in middleware for verifying admin or user;
-  const suggestedBy = "ADMIN"; //will get using req.body.userId, and this information will be added in middleware for verifying admin or user;
+  const isAdmin = req.body.isAdmin; //will get using req.body.isAdmin, and this information will be added in middleware for verifying admin or user;
+  const suggestedBy = isAdmin ? "ADMIN" : "USER"; //will get using req.body.userId, and this information will be added in middleware for verifying admin or user;
   const title = req.body.title;
   const tags = JSON.parse(req.body.tags);
   const approvedSuggestion = isAdmin ? true : false; //whether this suggestion will be shown to users or not, if user suggested then this won't be shown to user until admin approves it;
@@ -84,6 +84,7 @@ module.exports = async (req, res) => {
       approvedSuggestion,
       suggestedBy,
       cardImg: cardImgUrl,
+      suggestedById: req.body.userId,
     });
     await suggestion.save();
     const totalItems = await Blogs.countDocuments({
