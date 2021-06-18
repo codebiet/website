@@ -43,7 +43,7 @@ const login = async (req, res) => {
           expires: new Date(Date.now() + 1000 * 60 * 60 * 5),
           httpOnly: false,
         });
-        res.cookie("userId", user._id, {
+        res.cookie("userId", (user._id).toString(), {
           expires: new Date(Date.now() + 1000 * 60 * 60 * 5),
           httpOnly: false,
         });
