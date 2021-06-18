@@ -26,21 +26,20 @@ module.exports = async (req, res) => {
     page: parseInt(req.query.page) || 0,
     limit: parseInt(req.query.limit) || 12,
   };
+  if (req.query.pickedBy) filters.pickedBy = req.query.pickedBy;
+  console.log(filters);
+  let dbFilters = {
+    suggestedAt: { $gt: filters.suggestedAtGt, $lt: filters.suggestedAtLt },
+    state: { $in: filters.state },
+    suggestedBy: { $in: filters.suggestedBy },
+    approvedSuggestion: { $in: filters.approvedSuggestion },
+    disapprovedSuggestion: { $in: filters.disapprovedSuggestion },
+  };
+  if (filters.pickedBy)
+    dbFilters = { ...dbFilters, pickedBy: filters.pickedBy };
   try {
-    const totalItems = await Blogs.countDocuments({
-      suggestedAt: { $gt: filters.suggestedAtGt, $lt: filters.suggestedAtLt },
-      state: { $in: filters.state },
-      suggestedBy: { $in: filters.suggestedBy },
-      approvedSuggestion: { $in: filters.approvedSuggestion },
-      disapprovedSuggestion: { $in: filters.disapprovedSuggestion },
-    });
-    const suggestions = await Blogs.find({
-      suggestedAt: { $gt: filters.suggestedAtGt, $lt: filters.suggestedAtLt },
-      state: { $in: filters.state },
-      suggestedBy: { $in: filters.suggestedBy },
-      approvedSuggestion: { $in: filters.approvedSuggestion },
-      disapprovedSuggestion: { $in: filters.disapprovedSuggestion },
-    })
+    const totalItems = await Blogs.countDocuments(dbFilters);
+    const suggestions = await Blogs.find(dbFilters)
       .sort({ suggestedAt: -1 })
       .skip(filters.page * filters.limit) //pagination starts from 0
       .limit(filters.limit); //getting suggestions;
