@@ -20,7 +20,6 @@ module.exports = async (req, res) => {
   }
   const userData = { ...user._doc };
   delete userData.password;
-  delete userData._id;
   delete userData.role;
   res.set("Cache-Control", "no-store");
   return res.status(200).send({ ...userData });
