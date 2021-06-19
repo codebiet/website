@@ -1,3 +1,4 @@
+const Users = require("../../../models/userModal");
 const Blogs = require("../../../models/blogs");
 module.exports = async (req, res) => {
   const getUTCDate = (ISTDateString) => {
@@ -49,7 +50,7 @@ module.exports = async (req, res) => {
     })
       .sort({ suggestedAt: -1 })
       .skip(filters.page * filters.limit) //pagination starts from 0
-      .limit(filters.limit); //getting suggestions;
+      .limit(filters.limit).populate('pickedBy', 'name email', Users); //getting suggestions;
     return res.send({ totalItems, suggestions });
   } catch (err) {
     console.log(err);
