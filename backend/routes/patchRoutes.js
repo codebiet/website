@@ -8,6 +8,12 @@ router
     authAdminOrUser,
     require("../controllers/patchControllers/pickArticle")
   );
+router
+  .route("/blogs/:id/submitForReview")
+  .patch(
+    authAdminOrUser,
+    require("../controllers/patchControllers/submitBlogForReview")
+  );
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 //-------------------------------------admin routes-------------------------------------------
