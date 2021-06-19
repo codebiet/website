@@ -16,7 +16,7 @@ export default (props) => {
       {auth.state.userLoggedIn && (
         <>
           <Nav />
-          <Container>
+          <Container style={{margin:"4rem auto"}} className="write-article-container">
             <Editor editorState={editorState} setEditorState={setEditorState} />
           </Container>
           <Footer />
