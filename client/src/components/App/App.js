@@ -73,6 +73,7 @@ import Career from "../../pages/Career";
 // const EventDetails = lazy(() => import("../EventDetails/event_details"));
 import Logout from "../../pages/Logout";
 import AdminRoutes from "../ADMIN/routes/AdminRoutes";
+import WriteArticle from "../WriteArticle/WriteArticle";
 function App() {
   const auth = useContext(AuthContext);
   const info = useContext(InfoContext);
@@ -176,6 +177,7 @@ function App() {
               path="/blogs"
               render={(props) => <Blogs {...props} />}
             />
+            <Route exact path="/blogs/:id/write-article" render={(props) => <WriteArticle />} />
             <Route
               exact
               path="/userProfile/:id"

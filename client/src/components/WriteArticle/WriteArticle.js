@@ -8,7 +8,7 @@ import { EditorState, convertToRaw, convertFromRaw } from "draft-js";
 import { Redirect } from "react-router-dom";
 import Nav from "../Navbar/Nav";
 import Footer from "../Footer/Footer";
-export default WriteArticle = (props) => {
+export default (props) => {
   const auth = useContext(AuthContext);
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   return (
