@@ -17,6 +17,7 @@ const blogSchema = new mongoose.Schema({
   discardReason: String,
   suggestedAt: { type: Date, default: Date.now() },
   postedAt: { type: Date },
+  postedBy: { type: mongoose.Schema.Types.ObjectId, ref: "Users" },
   pickedBy: { type: mongoose.Schema.Types.ObjectId, ref: "Users" },
   state: {
     type: String,
