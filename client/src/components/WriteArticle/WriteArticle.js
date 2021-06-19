@@ -1,4 +1,4 @@
-import react, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Loader from "../Loader/Loader";
 import { AuthContext } from "../../state/Store";
 import Editor from "../Editor/Editor";

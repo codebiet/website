@@ -33,6 +33,7 @@ import Dashboard_Competitions from "../../pages/Dashboard_Competitions";
 import Dashboard_Projects from "../../pages/Dashboard_Projects";
 import Dashboard_Resume from "../../pages/Dashboard_Resume";
 import Dashboard_Suggestion from "../../pages/Dashboard_Suggestion";
+import WriteArticle from "../../pages/WriteArticle";
 // import Toaster from "../Toaster/Toaster";
 import CertificateVerification from "../../pages/CertificateVerification";
 import About from "../../pages/About";
@@ -73,7 +74,6 @@ import Career from "../../pages/Career";
 // const EventDetails = lazy(() => import("../EventDetails/event_details"));
 import Logout from "../../pages/Logout";
 import AdminRoutes from "../ADMIN/routes/AdminRoutes";
-import WriteArticle from "../WriteArticle/WriteArticle";
 function App() {
   const auth = useContext(AuthContext);
   const info = useContext(InfoContext);
