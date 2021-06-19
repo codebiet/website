@@ -19,6 +19,7 @@ const blogSchema = new mongoose.Schema({
   postedAt: { type: Date },
   postedBy: { type: mongoose.Schema.Types.ObjectId, ref: "Users" },
   pickedBy: { type: mongoose.Schema.Types.ObjectId, ref: "Users" },
+  pickedAt: Date,
   state: {
     type: String,
     enum: ["AVAILABLE", "PICKED", "DRAFT", "PENDING", "APPROVED", "DISCARDED"],
