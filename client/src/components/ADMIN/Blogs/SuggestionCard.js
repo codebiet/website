@@ -30,6 +30,8 @@ const SuggestionCard = ({
   PickArticle = <></>,
   WriteArticle = <></>,
   writingCard = false,
+  ApproveOrDiscard = <></>,
+  usedAsBlogCard = false,
 }) => {
   const info = useContext(InfoContext);
   const [deleteConfirmationModalOpen, setDeleteCofirmationModalOpen] =
@@ -128,7 +130,7 @@ const SuggestionCard = ({
           !writingCard && ( //if it is user dashboard, all suggestion state's will be available only, so no need to mention
             <div className={"state " + getState()}>{getState()}</div>
           )}
-          {/* below action is applicable if the card is used as writing card */}
+        {/* below action is applicable if the card is used as writing card */}
         {writingCard && (
           <WriteArticle id={suggestion._id} state={suggestion.state} />
         )}
@@ -137,7 +139,16 @@ const SuggestionCard = ({
           <PickArticle id={suggestion._id} setUpdated={setUpdated} />
         )}
       </div>
-
+      {/* if used as blog card at admin panel, then it need to have approve or disapprove actions */}
+      {usedAsBlogCard && (
+        <ApproveOrDiscard
+          id={suggestion.id}
+          queryString={queryString}
+          setBlogs={setSuggestions}
+          setTotalItems={setTotalItems}
+        />
+      )}
+      {/* if default actions are not false then show them */}
       {actions && (
         <div className="actions">
           {suggestion.pickedBy && (
