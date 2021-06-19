@@ -177,7 +177,11 @@ function App() {
               path="/blogs"
               render={(props) => <Blogs {...props} />}
             />
-            <Route exact path="/blogs/:id/write-article" render={(props) => <WriteArticle />} />
+            <Route
+              exact
+              path="/blogs/:id/write-article"
+              render={(props) => <WriteArticle {...props} />}
+            />
             <Route
               exact
               path="/userProfile/:id"
