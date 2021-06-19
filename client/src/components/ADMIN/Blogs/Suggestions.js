@@ -80,7 +80,8 @@ const getTypeQuery = (filter) => {
   if (filter == "All") return "";
   else if (filter == "SUGGESTED")
     return "suggestedBy=USER&approvedSuggestion=false&disapprovedSuggestion=false";
-  else if(filter == "AVAILABLE")return "state=AVAILABLE&approvedSuggestion=true";
+  else if (filter == "AVAILABLE")
+    return "state=AVAILABLE&approvedSuggestion=true";
   else if (filter == "ADMIN") return "suggestedBy=ADMIN";
   else if (filter == "PICKED") return "state=PICKED";
   else if (filter == "APPROVED")
@@ -103,7 +104,7 @@ const FilterComponent = ({
     setCurrentFilter(newFilter);
   };
   return (
-    <Card>
+    <Card style={{borderRadius:"0"}}>
       <CardBody
         style={{
           display: "flex",
@@ -153,6 +154,7 @@ const Suggestions = (props) => {
   };
   const queryString = () => {
     return (
+      `page=${currentPage - 1}&limit=${limit}&` +
       getDurationQuery(currentDurationFilters) +
       getTypeQuery(currentTypeFilters)
     );
@@ -160,10 +162,7 @@ const Suggestions = (props) => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(
-        `/api/blogs/suggestions?page=${currentPage - 1}&limit=${limit}&` +
-          queryString()
-      ) //pagination starts from 0
+      .get(`/api/blogs/suggestions?` + queryString()) //pagination starts from 0
       .then((res) => {
         setLoading(false);
         setSuggestions(res.data.suggestions);
