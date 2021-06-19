@@ -8,7 +8,7 @@ import Footer from "../Dashboard_Profile/DashboardFooter";
 import SuggestionCard from "../ADMIN/Blogs/SuggestionCard";
 import { Redirect } from "react-router-dom";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 const PickArticle = ({ id, setUpdated }) => {
   const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
   const handlePickArticle = (id) => {
@@ -47,7 +47,7 @@ const PickArticle = ({ id, setUpdated }) => {
 };
 const WriteArticle = ({ id, state }) => {
   return (
-    <Link to={`/blogs/${id}/write-article`}>
+    <Link to={`/blogs/${id}/write-article`} style={{textDecoration:"none"}}>
       <div className="state AVAILABLE">
         {state == "DRAFT" ? "Continue writing..." : "Write Article"}
       </div>
@@ -66,22 +66,21 @@ const Suggestions = (props) => {
       window.scrollTo(0, 0);
       setLoading(true);
       axios
-        .get("/api/blogs/suggestions?state=AVAILABLE&approvedSuggestion=true")
-        .then((res) => {
-          console.log(res.data);
-          setSuggestions(res.data.suggestions);
-          setLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      console.log(auth.state.userId);
-      axios
         .get(
           "/api/blogs/suggestions?state=PICKED&pickedBy=" + auth.state.userId
         )
         .then((res) => {
           setPickedSuggestion(res.data.suggestions);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      axios
+        .get("/api/blogs/suggestions?state=AVAILABLE&approvedSuggestion=true")
+        .then((res) => {
+          console.log(res.data);
+          setSuggestions(res.data.suggestions);
+          setLoading(false);
         })
         .catch((err) => {
           console.log(err);
