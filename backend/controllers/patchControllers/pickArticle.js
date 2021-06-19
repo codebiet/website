@@ -4,7 +4,13 @@ module.exports = async (req, res) => {
   try {
     await Blogs.findByIdAndUpdate(
       id,
-      { $set: { state: "PICKED", pickedBy: req.body.userId } },
+      {
+        $set: {
+          state: "PICKED",
+          pickedBy: req.body.userId,
+          pickedAt: new Date(),
+        },
+      },
       { new: true }
     );
     return res.status(200).send({ msg: "success" });
