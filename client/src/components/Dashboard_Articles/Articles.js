@@ -6,10 +6,25 @@ const DemoNavbar = lazy(() =>
 );
 const Sidebar = lazy(() => import("../Dashboard_Profile/DashboardSidebar"));
 const Footer = lazy(() => import("../Dashboard_Profile/DashboardFooter"));
+import axios from "axios";
 import { Redirect } from "react-router-dom";
+import SuggestionCard from "../ADMIN/Blogs/SuggestionCard";
 const Articles = (props) => {
   const [loading, setLoading] = useState(false);
+  const [articles, setArticles] = useState([]);
   const auth = useContext(AuthContext);
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get(`/api/blogs?postedBy=${auth.state.userId}`)
+      .then((res) => {
+        setArticles(res.data.blogs);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <React.Fragment>
       {auth.state.userLoggedIn && auth.state.emailVerified ? (
@@ -23,12 +38,32 @@ const Articles = (props) => {
             <div className="main-panel dashboard-main-panel">
               <DemoNavbar {...props} />
               <div className="content">
-                <div className="articles-container">
-                  <h1 className="text-muted">Nothing to Show</h1>
+              <h2 style={{ paddingTop: "1rem" }}>Your Articles</h2>
+                <div className="suggestions-container">
+                  {!loading &&
+                    articles.map((article) => (
+                      <SuggestionCard
+                        key={article._id}
+                        suggestion={article}
+                        actions={false}
+                      />
+                    ))}
+                  {loading && (
+                    <>
+                      <SuggestionCard actions={false} />
+                      <SuggestionCard actions={false} />
+                      <SuggestionCard actions={false} />
+                      <SuggestionCard actions={false} />
+                    </>
+                  )}
                 </div>
+                {!loading && articles.length == 0 && (
+                  <div className="no-article">
+                    <h1 className="text-muted">Nothing to Show</h1>
+                  </div>
+                )}
               </div>
               <Footer fluid />
-              {loading && <Loader />}
             </div>
           </div>
         </React.Fragment>
