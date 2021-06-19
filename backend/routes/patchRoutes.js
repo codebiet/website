@@ -14,6 +14,12 @@ router
     authAdminOrUser,
     require("../controllers/patchControllers/submitBlogForReview")
   );
+router
+  .route("/blogs/:id/saveAsDraft")
+  .patch(
+    authAdminOrUser,
+    require("../controllers/patchControllers/saveAsDraft")
+  );
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 //-------------------------------------admin routes-------------------------------------------
