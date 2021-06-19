@@ -16,9 +16,12 @@ export default (props) => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`/api/blogs/${props.match.params.id}?writing=true`)
+      .get(
+        `/api/blogs/${props.match.params.id}?writing=true&pickedBy=${auth.state.userId}`
+      )
       .then((res) => {
         setLoading(false);
+        if(res.data.blogs.length == 0) return props.history.push('/page-not-found');
         setBlog(res.data.blogs[0]);
         if (res.data.blogs.length > 0 && res.data.blogs[0].content)
           setEditorState(
@@ -43,7 +46,10 @@ export default (props) => {
     e.preventDefault();
     setLoading(true);
     axios
-      .patch(`/patch/blogs/${props.match.params.id}/submitForReview`, getContent())
+      .patch(
+        `/patch/blogs/${props.match.params.id}/submitForReview`,
+        getContent()
+      )
       .then((res) => {
         setLoading(false);
         props.history.push("/user-articles");

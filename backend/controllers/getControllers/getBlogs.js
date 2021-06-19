@@ -22,7 +22,10 @@ module.exports = async (req, res) => {
     postedAt: { $gt: filters.postedAtGt, $lt: filters.postedAtLt },
     state: { $in: filters.state },
   };
-  if (req.query.writing == "true") delete dbFilters.postedAt;
+  if (req.query.writing == "true") {
+    delete dbFilters.postedAt;
+    dbFilters.pickedBy = req.query.pickedBy;
+  }
   if (req.params.id) dbFilters._id = req.params.id;
   if (req.query.postedBy) dbFilters.postedBy = req.query.postedBy;
   console.log(dbFilters);
