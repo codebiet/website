@@ -35,13 +35,21 @@ router
   .route("/resumeData")
   .get(require("../controllers/getControllers/getResumeData"));
 router.route("/events/").get(require("../controllers/getControllers/events"));
-router.route('/events/:id').get(require('../controllers/getControllers/eventById'));
-router.route('/blogs/suggestions').get(require('../controllers/getControllers/blogSuggestions'));
-
+router
+  .route("/events/:id")
+  .get(require("../controllers/getControllers/eventById"));
+router
+  .route("/blogs/suggestions")
+  .get(require("../controllers/getControllers/blogSuggestions"));
+router
+  .route("/blogs/:id?")
+  .get(require("../controllers/getControllers/getBlogs"));
 //-------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------
 //------------------------------------ADMIN--------------------------------------
 //-------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------
-router.route('/admin/events/:id/registrations/').get(require('../controllers/getControllers/admin/registrations'));
+router
+  .route("/admin/events/:id/registrations/")
+  .get(require("../controllers/getControllers/admin/registrations"));
 module.exports = router;
