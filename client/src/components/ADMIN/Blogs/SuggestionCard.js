@@ -25,6 +25,11 @@ const SuggestionCard = ({
   setPage = () => "",
   setTotalItems = () => "",
   actions = true,
+  userDashboard = false,
+  setUpdated = () => "",
+  PickArticle = <></>,
+  WriteArticle = <></>,
+  writingCard = false,
 }) => {
   const info = useContext(InfoContext);
   const [deleteConfirmationModalOpen, setDeleteCofirmationModalOpen] =
@@ -118,8 +123,18 @@ const SuggestionCard = ({
             <span className="tag-loading-placeholder tag"></span>
           </>
         </div>
-        {suggestion.state && (
-          <div className={"state " + getState()}>{getState()}</div>
+        {suggestion.state &&
+          !userDashboard &&
+          !writingCard && ( //if it is user dashboard, all suggestion state's will be available only, so no need to mention
+            <div className={"state " + getState()}>{getState()}</div>
+          )}
+          {/* below action is applicable if the card is used as writing card */}
+        {writingCard && (
+          <WriteArticle id={suggestion._id} state={suggestion.state} />
+        )}
+        {/* below action is applicable if the card is shown to user dashboard, so that they can pick article */}
+        {userDashboard && (
+          <PickArticle id={suggestion._id} setUpdated={setUpdated} />
         )}
       </div>
 
