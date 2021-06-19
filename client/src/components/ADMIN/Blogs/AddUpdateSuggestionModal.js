@@ -22,7 +22,8 @@ const AddUpdateSuggestionModal = ({
   queryString = () => "",
   id = "",
   //below details are used for pagination purpose, after addition no. of items will increase
-  setTotalItems = () => ""
+  setTotalItems = () => "",
+  userDashboard = false,
 }) => {
   const [title, setTitle] = useState(defaultTitle);
   const [cardImgUrl, setCardImgUrl] = useState(defaultCardImgUrl);
@@ -47,12 +48,16 @@ const AddUpdateSuggestionModal = ({
     setTags(parsedValues);
   };
   const handleAddSuggestion = () => {
-    if (!title || !cardImgRef.current.files[0])
-      return setError("Title and Card Image both are required!");
+    if (
+      !title ||
+      (!userDashboard && !cardImgRef.current.files[0] && !cardImgUrl)
+    )
+      //
+      return setError("You are required to fill in all the fields!");
     const data = new FormData();
     data.append("title", title);
     data.append("tags", JSON.stringify(tags));
-    data.append("cardImg", cardImgRef.current.files[0]);
+    if (!userDashboard) data.append("cardImg", cardImgRef.current.files[0]);
     setLoading(true);
     axios
       .post("/post/blogs/addSuggestion?" + queryString(), data)
@@ -75,7 +80,7 @@ const AddUpdateSuggestionModal = ({
   };
   const handleUpdateSuggestion = () => {
     if (!title || (!cardImgRef.current.files[0] && !cardImgUrl))
-      return setError("Title and card Image both are required!");
+      return setError("You are required to fill in all the fields!");
     const data = new FormData();
     data.append("title", title);
     data.append("tags", JSON.stringify(tags));
@@ -158,28 +163,30 @@ const AddUpdateSuggestionModal = ({
             onChange={(e) => handleTagChange(e.detail.value)}
           />
         </FormGroup>
-        <FormGroup>
-          <label htmlFor="card-img" className="fontType">
-            Card Image
-          </label>
-          <input
-            id="card-img"
-            className="form-control"
-            type="file"
-            ref={cardImgRef}
-          />
-          {cardImgUrl && (
-            <span>
-              <a
-                href={cardImgUrl}
-                target="_blank"
-                style={{ color: "cornflowerblue" }}
-              >
-                Card Image
-              </a>
-            </span>
-          )}
-        </FormGroup>
+        {!userDashboard && ( //uesr is not required to upload card image, admin will upload during approval
+          <FormGroup>
+            <label htmlFor="card-img" className="fontType">
+              Card Image
+            </label>
+            <input
+              id="card-img"
+              className="form-control"
+              type="file"
+              ref={cardImgRef}
+            />
+            {cardImgUrl && (
+              <span>
+                <a
+                  href={cardImgUrl}
+                  target="_blank"
+                  style={{ color: "cornflowerblue" }}
+                >
+                  Card Image
+                </a>
+              </span>
+            )}
+          </FormGroup>
+        )}
       </ModalBody>
       <ModalFooter>
         <Button color="warning" onClick={() => handleSubmit()}>
