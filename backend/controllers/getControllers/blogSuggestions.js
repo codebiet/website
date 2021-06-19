@@ -4,7 +4,7 @@ module.exports = async (req, res) => {
     return new Date(new Date(ISTDateString) - 1000 * 60 * (60 * 5 + 30));
   };
   const filters = {
-    state: (req.query.state && [req.query.state]) || [
+    state: (req.query.state && req.query.state.split(",")) || [
       "AVAILABLE",
       "PICKED",
       "DRAFT",
