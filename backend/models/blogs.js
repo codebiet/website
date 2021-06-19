@@ -17,8 +17,8 @@ const blogSchema = new mongoose.Schema({
   discardReason: String,
   suggestedAt: { type: Date, default: Date.now() },
   postedAt: { type: Date },
-  postedBy: { type: mongoose.Schema.Types.ObjectId, ref: "Users" },
-  pickedBy: { type: mongoose.Schema.Types.ObjectId, ref: "Users" },
+  postedBy: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
+  pickedBy: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
   pickedAt: Date,
   state: {
     type: String,
@@ -27,7 +27,7 @@ const blogSchema = new mongoose.Schema({
   },
   tags: [String],
   suggestedBy: { type: String, default: "ADMIN", enum: ["ADMIN", "USER"] },
-  suggestedById: { type: mongoose.Schema.Types.ObjectId, ref: "Users" }, //this will be used to get the user who suggested, if this suggestion was by a user;
+  suggestedById: { type: mongoose.Schema.Types.ObjectId, ref: "users" }, //this will be used to get the user who suggested, if this suggestion was by a user;
   approvedSuggestion: { type: Boolean, default: false },
   disapprovedSuggestion: { type: Boolean, default: false },
   cardImg: String,

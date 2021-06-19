@@ -61,7 +61,7 @@ module.exports = async (req, res) => {
   if (suggestionAvailabe)
     return res.status(400).send({ errorMsg: "This title exists already!" });
   let cardImgUrl = "";
-  if (req.files) {
+  if (req.files && req.files.cardImg) {
     const cardImg = req.files.cardImg;
     if (invalidFileType(cardImg))
       return res
@@ -77,6 +77,11 @@ module.exports = async (req, res) => {
         .send({ errorMsg: "Error while uploading card Image!" });
     }
   }
+  if (isAdmin && (!req.files || !req.files.cardImg))
+    return res.status(400).send({
+      errorMsg:
+        "You have admin priviledges and an admin can't suggest article without card Image.",
+    });
   try {
     const suggestion = new Blogs({
       title,
