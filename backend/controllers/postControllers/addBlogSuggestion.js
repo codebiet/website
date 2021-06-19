@@ -47,7 +47,7 @@ module.exports = async (req, res) => {
       (req.query.lt && getUTCDate(req.query.lt)) ||
       new Date(Date.now() + 1000 * 60 * 60), //there will be no suggestion in our db which we get in future(after current time).
     page: parseInt(req.query.page) || 0,
-    limit: parseInt(req.query.limit) || 12,
+    limit: parseInt(req.query.limit) || 1000,
   };
   const isAdmin = req.body.isAdmin; //will get using req.body.isAdmin, and this information will be added in middleware for verifying admin or user;
   const suggestedBy = isAdmin ? "ADMIN" : "USER"; //will get using req.body.userId, and this information will be added in middleware for verifying admin or user;

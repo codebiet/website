@@ -47,7 +47,7 @@ module.exports = async (req, res) => {
       (req.query.lt && getUTCDate(req.query.lt)) ||
       new Date(Date.now() + 1000 * 60 * 60), //there will be no suggestion in our db which we get in future(after current time).
     page: parseInt(req.query.page) || 0,
-    limit: parseInt(req.query.limit) || 12,
+    limit: parseInt(req.query.limit) || 1000,
   };
   const title = req.body.title;
   const tags = JSON.parse(req.body.tags);
