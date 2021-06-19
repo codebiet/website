@@ -8,6 +8,7 @@ import Footer from "../Dashboard_Profile/DashboardFooter";
 import SuggestionCard from "../ADMIN/Blogs/SuggestionCard";
 import { Redirect } from "react-router-dom";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
+import AddSuggestion from "../ADMIN/Blogs/AddSuggestion";
 import { Link } from "react-router-dom";
 const PickArticle = ({ id, setUpdated }) => {
   const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
@@ -47,7 +48,10 @@ const PickArticle = ({ id, setUpdated }) => {
 };
 const WriteArticle = ({ id, state }) => {
   return (
-    <Link to={`/blogs/${id}/write-article`} style={{textDecoration:"none"}}>
+    <Link
+      to={`/blogs/${id}/write-article`}
+      style={{ textDecoration: "none", width: "fit-content" }}
+    >
       <div className="state AVAILABLE">
         {state == "DRAFT" ? "Continue writing..." : "Write Article"}
       </div>
@@ -55,7 +59,8 @@ const WriteArticle = ({ id, state }) => {
   );
 };
 const Suggestions = (props) => {
-  const [loading, setLoading] = useState(false);
+  const [availableLoading, setAvailableLoading] = useState(false);
+  const [pickedLoading, setPickedLoading] = useState(true); //making this true initially, so that do not see the note saying pick article, due to a bit latency in running useEffect, without even loading currently picked article by user
   const [suggestions, setSuggestions] = useState([]);
   const [pickedSuggestion, setPickedSuggestion] = useState([]);
   //to get updated suggestion when someone pick article
@@ -64,13 +69,16 @@ const Suggestions = (props) => {
   useEffect(() => {
     if (mounted || updated) {
       window.scrollTo(0, 0);
-      setLoading(true);
+      setPickedLoading(true);
+      setAvailableLoading(true);
       axios
         .get(
-          "/api/blogs/suggestions?state=PICKED&pickedBy=" + auth.state.userId
+          "/api/blogs/suggestions?state=PICKED,DRAFT&pickedBy=" +
+            auth.state.userId
         )
         .then((res) => {
           setPickedSuggestion(res.data.suggestions);
+          setPickedLoading(false);
         })
         .catch((err) => {
           console.log(err);
@@ -80,7 +88,7 @@ const Suggestions = (props) => {
         .then((res) => {
           console.log(res.data);
           setSuggestions(res.data.suggestions);
-          setLoading(false);
+          setAvailableLoading(false);
         })
         .catch((err) => {
           console.log(err);
@@ -106,7 +114,7 @@ const Suggestions = (props) => {
                 <h2 style={{ paddingTop: "1rem" }}>Picked Articles</h2>
                 <div className="picked-articles">
                   <div className="suggestions-container">
-                    {!loading &&
+                    {!pickedLoading &&
                       pickedSuggestion.map((suggestion) => (
                         <SuggestionCard
                           key={suggestion._id}
@@ -116,7 +124,7 @@ const Suggestions = (props) => {
                           writingCard={true}
                         />
                       ))}
-                    {loading && (
+                    {pickedLoading && (
                       <>
                         <SuggestionCard actions={false} />
                         <SuggestionCard actions={false} />
@@ -125,7 +133,7 @@ const Suggestions = (props) => {
                       </>
                     )}
                   </div>
-                  {!loading && pickedSuggestion.length == 0 && (
+                  {!pickedLoading && pickedSuggestion.length == 0 && (
                     <p className="no-picked">
                       Pick a suggestion to write an article.
                     </p>
@@ -133,7 +141,7 @@ const Suggestions = (props) => {
                 </div>
                 <h2 style={{ marginTop: "2rem" }}>Available Suggestions</h2>
                 <div className="suggestions-container">
-                  {!loading &&
+                  {!availableLoading &&
                     suggestions.map((suggestion) => (
                       <SuggestionCard
                         key={suggestion._id}
@@ -144,7 +152,7 @@ const Suggestions = (props) => {
                         PickArticle={PickArticle}
                       />
                     ))}
-                  {loading && (
+                  {availableLoading && (
                     <>
                       <SuggestionCard actions={false} />
                       <SuggestionCard actions={false} />
@@ -154,9 +162,11 @@ const Suggestions = (props) => {
                   )}
                 </div>
               </div>
+
               <Footer fluid />
             </div>
           </div>
+          <AddSuggestion userDashboard={true} />
         </React.Fragment>
       ) : (
         <Redirect
