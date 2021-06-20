@@ -1,18 +1,28 @@
-.no-article{
-    width:100%;
-    border:2px solid rgb(200,200,200);
-    min-height: 10rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    h1{
-        font-size:2.5rem;
-        margin-bottom: 0;
-        @media (max-width:1000px){
-            font-size:2rem;
-        }
-        @media (max-width:767px){
-            font-size:1.5rem;
-        }
+@import "../App/colors.scss";
+.no-article {
+  width: 100%;
+  border: 2px solid rgb(200, 200, 200);
+  min-height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+    @media (max-width: 1000px) {
+      font-size: 2rem;
     }
+    @media (max-width: 767px) {
+      font-size: 1.5rem;
+    }
+  }
 }
+// #why-discarded-tooltip{
+#why-discarded-tooltip.tooltip {
+  .tooltip-inner {
+    width: 20rem !important;
+    max-width: 20rem !important;
+    text-align: justify;
+  }
+}
+// }

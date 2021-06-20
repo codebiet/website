@@ -38,7 +38,7 @@ const Articles = (props) => {
             <div className="main-panel dashboard-main-panel">
               <DemoNavbar {...props} />
               <div className="content">
-              <h2 style={{ paddingTop: "1rem" }}>Your Articles</h2>
+                <h2 style={{ paddingTop: "1rem" }}>Your Articles</h2>
                 <div className="suggestions-container">
                   {!loading &&
                     articles.map((article) => (
