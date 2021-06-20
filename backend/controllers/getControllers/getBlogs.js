@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
     page: req.query.page || 0,
     limit: req.query.limit || 10000,
   };
-  if (req.query.writing == "true") filters.state.push("PICKED"); //if getting blog detail at write-article page, then blog state will be PICKED
+  if (req.query.writing == "true") filters.state = ["PICKED", "DRAFT"]; //if getting blog detail at write-article page, then blog state will be PICKED
   let dbFilters = {
     postedAt: { $gt: filters.postedAtGt, $lt: filters.postedAtLt },
     state: { $in: filters.state },
