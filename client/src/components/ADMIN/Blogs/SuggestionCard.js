@@ -142,7 +142,7 @@ const SuggestionCard = ({
       {/* if used as blog card at admin panel, then it need to have approve or disapprove actions */}
       {usedAsBlogCard && (
         <ApproveOrDiscard
-          id={suggestion.id}
+          id={suggestion._id}
           queryString={queryString}
           setBlogs={setSuggestions}
           setTotalItems={setTotalItems}
