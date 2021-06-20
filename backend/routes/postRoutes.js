@@ -56,4 +56,7 @@ router
 router
   .route("/admin/events/:id/registrations/sendMsg")
   .post(require("../controllers/postControllers/admin/sendMsg"));
+router
+  .route("/admin/write-blog")
+  .post(authAdmin, require("../controllers/postControllers/admin/writeBlog"));
 module.exports = router;
