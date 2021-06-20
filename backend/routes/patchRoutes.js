@@ -40,4 +40,16 @@ router
     authAdmin,
     require("../controllers/patchControllers/admin/disapproveBlogSuggestion")
   );
+router
+  .route("/admin/blogs/:id/approve")
+  .patch(
+    authAdmin,
+    require("../controllers/patchControllers/admin/approveBlog")
+  );
+router
+  .route("/admin/blogs/:id/discard")
+  .patch(
+    authAdmin,
+    require("../controllers/patchControllers/admin/discardBlog")
+  );
 module.exports = router;
