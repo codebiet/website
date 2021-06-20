@@ -21,7 +21,8 @@ export default (props) => {
       )
       .then((res) => {
         setLoading(false);
-        if(res.data.blogs.length == 0) return props.history.push('/page-not-found');
+        if (res.data.blogs.length == 0)
+          return props.history.push("/page-not-found");
         setBlog(res.data.blogs[0]);
         if (res.data.blogs.length > 0 && res.data.blogs[0].content)
           setEditorState(
@@ -52,7 +53,7 @@ export default (props) => {
       )
       .then((res) => {
         setLoading(false);
-        props.history.push("/user-articles");
+        props.history.push("/articles");
       })
       .catch((err) => {});
   };
