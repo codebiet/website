@@ -123,7 +123,7 @@ const ApproveOrDiscard = ({
   };
   return (
     <>
-      {(state != "APPROVED" && state != "DISCARDED") && (
+      {state != "APPROVED" && state != "DISCARDED" && (
         <div className="actions">
           <button onClick={handleApproval}>
             <ThumbUpAltSharp />
@@ -164,6 +164,7 @@ export default (props) => {
     axios
       .get("/api/blogs")
       .then((res) => {
+        console.log(res.data.blogs);
         setBlogs(res.data.blogs);
         setLoading(false);
       })

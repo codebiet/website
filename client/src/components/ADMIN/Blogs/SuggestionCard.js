@@ -12,9 +12,28 @@ import {
   PeopleAltTwoTone,
   ThumbDownAltSharp,
   ThumbUpAltSharp,
+  HelpOutline,
 } from "@material-ui/icons";
 import ConfirmDeletion from "../Events/ConfirmDeletion";
 import axios from "axios";
+import { UncontrolledTooltip } from "reactstrap";
+const DiscardReason = ({ reason }) => {
+  return (
+    <>
+      <HelpOutline
+        id="discard-reason"
+        style={{ marginTop: ".5rem", cursor: "pointer" }}
+      />
+      <UncontrolledTooltip
+        placement="right"
+        target="discard-reason"
+        id="why-discarded-tooltip"
+      >
+        {reason}
+      </UncontrolledTooltip>
+    </>
+  );
+};
 const SuggestionCard = ({
   queryString = () => "",
   setSuggestions = () => "",
@@ -128,7 +147,16 @@ const SuggestionCard = ({
         {suggestion.state &&
           !userDashboard &&
           !writingCard && ( //if it is user dashboard, all suggestion state's will be available only, so no need to mention
-            <div className={"state " + getState()}>{getState()}</div>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <>
+                <div className={"state " + getState()}>
+                  <span>{getState()}</span>
+                </div>
+                {suggestion.state == "DISCARDED" && (
+                  <DiscardReason reason={suggestion.discardReason} />
+                )}
+              </>
+            </div>
           )}
         {/* below action is applicable if the card is used as writing card */}
         {writingCard && (
