@@ -192,6 +192,7 @@ export default (props) => {
               setSuggestions={setBlogs}
               setTotalItems={setTotalItems}
               usedAsBlogCard={true}
+              reviewEnabled={true}
             />
           ))}
         {/* suggestion cards are used as loader placeholder cards during loading */}

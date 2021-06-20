@@ -13,6 +13,7 @@ import {
   ThumbDownAltSharp,
   ThumbUpAltSharp,
   HelpOutline,
+  Visibility,
 } from "@material-ui/icons";
 import ConfirmDeletion from "../Events/ConfirmDeletion";
 import axios from "axios";
@@ -34,6 +35,21 @@ const DiscardReason = ({ reason }) => {
     </>
   );
 };
+const ReviewArticle = ({ id }) => {
+  return (
+    <div className="actions">
+      <a
+        href={`/reviewBlog/${id}`}
+        style={{ width: "unset", textDecoration: "none", color: "inherit" }}
+        target="_blank"
+      >
+        <button>
+          <Visibility />
+        </button>
+      </a>
+    </div>
+  );
+};
 const SuggestionCard = ({
   queryString = () => "",
   setSuggestions = () => "",
@@ -51,6 +67,7 @@ const SuggestionCard = ({
   writingCard = false,
   ApproveOrDiscard = <></>,
   usedAsBlogCard = false,
+  reviewEnabled = false, //there will be review button, after clicking upon that admin or particular user(whose blog is) can see the blog
 }) => {
   const info = useContext(InfoContext);
   const [deleteConfirmationModalOpen, setDeleteCofirmationModalOpen] =
@@ -177,6 +194,7 @@ const SuggestionCard = ({
           setTotalItems={setTotalItems}
         />
       )}
+      {reviewEnabled && <ReviewArticle id={suggestion._id} />}
       {/* if default actions are not false then show them */}
       {actions && (
         <div className="actions">
