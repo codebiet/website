@@ -74,13 +74,13 @@ const WriteBlog = (props) => {
   };
   return (
     <DashboardLayout routes={blogRoutes}>
-      <Card>
+      <Card style={{ marginTop: "2rem" }}>
         <CardHeader>
           <h3>Publish Your Blog</h3>
         </CardHeader>
         <CardBody>
           <Form onSubmit={(e) => handleSubmit(e)}>
-            <Row style={{ maxWidth: "100%", width: "100%" }}>
+            <Row style={{ maxWidth: "100%", width: "100%", margin: 0 }}>
               <Col md="6">
                 <FormGroup>
                   <label htmlFor="title" className="fontType">
@@ -112,7 +112,7 @@ const WriteBlog = (props) => {
                 </FormGroup>
               </Col>
             </Row>
-            <Row style={{ maxWidth: "100%", width: "100%" }}>
+            <Row style={{ maxWidth: "100%", width: "100%", margin: 0 }}>
               <Col md="6">
                 <FormGroup>
                   <label htmlFor="tags" className="fontType">
@@ -141,7 +141,7 @@ const WriteBlog = (props) => {
                 </FormGroup>
               </Col>
             </Row>
-            <Row style={{ maxWidth: "100%", width: "100%" }}>
+            <Row style={{ maxWidth: "100%", width: "100%", margin: 0 }}>
               <Col>
                 <Editor
                   editorState={editorState}
@@ -149,15 +149,23 @@ const WriteBlog = (props) => {
                 />
               </Col>
             </Row>
-            <Row>
+            <Row style={{ width: "100%", maxWidth: "100%", margin: 0 }}>
               <Col>
-                <Button
-                  color="warning"
-                  style={{ background: "orange" }}
-                  onClick={(e) => handleSubmit(e)}
-                >
-                  Publish Blog
-                </Button>
+                <FormGroup>
+                  <Button
+                    color="warning"
+                    style={{
+                      background: "orange",
+                      color: "white",
+                      border: "none",
+                      width: "fit-content",
+                    }}
+                    onClick={(e) => handleSubmit(e)}
+                    className="form-control"
+                  >
+                    Publish
+                  </Button>
+                </FormGroup>
               </Col>
             </Row>
           </Form>
