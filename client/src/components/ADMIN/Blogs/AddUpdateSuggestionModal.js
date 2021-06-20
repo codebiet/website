@@ -15,6 +15,7 @@ const AddUpdateSuggestionModal = ({
   setAlert = () => "",
   setSuggestions = () => "",
   defaultTitle = "",
+  defaultCategory = "",
   defaultCardImgUrl = "",
   defaultTags = [],
   updating = false,
@@ -26,6 +27,7 @@ const AddUpdateSuggestionModal = ({
   userDashboard = false,
 }) => {
   const [title, setTitle] = useState(defaultTitle);
+  const [category, setCategory] = useState(defaultCategory);
   const [cardImgUrl, setCardImgUrl] = useState(defaultCardImgUrl);
   const [tags, setTags] = useState(defaultTags);
   const cardImgRef = React.createRef();
@@ -50,6 +52,7 @@ const AddUpdateSuggestionModal = ({
   const handleAddSuggestion = () => {
     if (
       !title ||
+      !category ||
       (!userDashboard && !cardImgRef.current.files[0] && !cardImgUrl)
     )
       //
@@ -57,6 +60,7 @@ const AddUpdateSuggestionModal = ({
     const data = new FormData();
     data.append("title", title);
     data.append("tags", JSON.stringify(tags));
+    data.append("category", category);
     if (!userDashboard) data.append("cardImg", cardImgRef.current.files[0]);
     setLoading(true);
     axios
@@ -79,11 +83,12 @@ const AddUpdateSuggestionModal = ({
       });
   };
   const handleUpdateSuggestion = () => {
-    if (!title || (!cardImgRef.current.files[0] && !cardImgUrl))
+    if (!title || !category || (!cardImgRef.current.files[0] && !cardImgUrl))
       return setError("You are required to fill in all the fields!");
     const data = new FormData();
     data.append("title", title);
     data.append("tags", JSON.stringify(tags));
+    data.append("category", category);
     data.append("cardImg", cardImgRef.current.files[0]);
     setLoading(true);
     axios
@@ -149,6 +154,18 @@ const AddUpdateSuggestionModal = ({
             placeholder="Enter Blog Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+          />
+        </FormGroup>
+        <FormGroup>
+          <label htmlFor="title" className="fontType">
+            Category
+          </label>
+          <input
+            className="form-control"
+            type="text"
+            placeholder="Enter Category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
           />
         </FormGroup>
         <FormGroup>

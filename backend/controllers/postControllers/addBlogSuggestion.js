@@ -1,4 +1,4 @@
-const Users = require('../../models/userModal');
+const Users = require("../../models/userModal");
 const Blogs = require("../../models/blogs");
 const uploadS3 = require("../../utils/uploadS3");
 const { v4: uuid } = require("uuid");
@@ -53,9 +53,13 @@ module.exports = async (req, res) => {
   const isAdmin = req.body.isAdmin; //will get using req.body.isAdmin, and this information will be added in middleware for verifying admin or user;
   const suggestedBy = isAdmin ? "ADMIN" : "USER"; //will get using req.body.userId, and this information will be added in middleware for verifying admin or user;
   const title = req.body.title;
+  const category = req.body.category;
   const tags = JSON.parse(req.body.tags);
   const approvedSuggestion = isAdmin ? true : false; //whether this suggestion will be shown to users or not, if user suggested then this won't be shown to user until admin approves it;
-  if (!title) return res.status(400).send({ errorMsg: "Title is required!" });
+  if (!title || !category)
+    return res
+      .status(400)
+      .send({ errorMsg: "Title and Category is required!" });
   const suggestionAvailabe = await Blogs.findOne({
     titleLower: title.toLowerCase(),
   });
@@ -88,6 +92,7 @@ module.exports = async (req, res) => {
       title,
       tags,
       approvedSuggestion,
+      category,
       suggestedBy,
       cardImg: cardImgUrl,
       suggestedById: req.body.userId,
@@ -109,7 +114,8 @@ module.exports = async (req, res) => {
     })
       .sort({ suggestedAt: -1 })
       .skip(filters.page * filters.limit) //pagination starts from 0
-      .limit(filters.limit).populate('pickedBy', 'name email', Users);; //getting suggestions;
+      .limit(filters.limit)
+      .populate("pickedBy", "name email", Users); //getting suggestions;
     return res.send({ totalItems, suggestions });
   } catch (err) {
     console.log(err);

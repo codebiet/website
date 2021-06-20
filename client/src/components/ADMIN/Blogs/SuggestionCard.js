@@ -76,7 +76,7 @@ const SuggestionCard = ({
   const handleDelete = (id) => {
     setLoading(true);
     axios
-      .delete("/delete/blogs/suggestion/" + id + queryString())
+      .delete("/delete/blogs/suggestion/" + id + "?" + queryString())
       .then((res) => {
         setLoading(false);
         info.dispatch(generateSuccess("Deleted Successfully!"));
@@ -205,6 +205,7 @@ const SuggestionCard = ({
                 setAlert={setAlert}
                 setSuggestions={setSuggestions}
                 defaultTitle={suggestion.title}
+                defaultCategory={suggestion.category}
                 defaultTags={suggestion.tags}
                 defaultCardImgUrl={suggestion.cardImg}
                 updating={suggestion.approvedSuggestion ? true : false}
