@@ -26,6 +26,7 @@ import {
   generateError,
 } from "../../../state/info/infoActions";
 import Pagination from "../../Pagination/Pagination";
+import ConfirmDeletion from "./ConfirmDeletion";
 const FilterComponent = ({ filter, setFilter, setPage }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const changeFilter = (newFilter) => {
