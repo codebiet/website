@@ -15,8 +15,9 @@ module.exports = async (req, res) => {
       (req.query.lt && getUTCDate(req.query.lt)) ||
       new Date(Date.now() + 1000 * 60 * 60), // there will be now blogs in our db posted in future, ofcourse;
     page: req.query.page || 0,
-    limit: req.query.limit || 10000,
+    limit: parseInt(req.query.limit) || 10000,
   };
+  console.log(filters.limit);
   if (req.query.writing == "true") filters.state = ["PICKED", "DRAFT"]; //if getting blog detail at write-article page, then blog state will be PICKED
   let dbFilters = {
     postedAt: { $gt: filters.postedAtGt, $lt: filters.postedAtLt },
