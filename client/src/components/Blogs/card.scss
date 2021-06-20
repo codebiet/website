@@ -11,6 +11,7 @@
   .cards__container {
     display: flex;
     flex-flow: column;
+    margin-top: 2rem;
     /* align-items: center; */
     /* max-width: 90%; */
     /* width: 90%;  */
@@ -24,7 +25,15 @@
 
   .cards__items {
     margin-bottom: 24px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 2rem;
+    @media (max-width: 800px) {
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 801px) and (max-width: 1000px) {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   .cards__item {
@@ -159,12 +168,12 @@
     padding: 20px 20px 20px;
   }
 
-  @media only screen and (max-width: 900px) {
-    .cards__items {
-      display: flex;
-      flex-direction: column;
-    }
-  }
+  // @media only screen and (max-width: 900px) {
+  //   .cards__items {
+  //     display: flex;
+  //     flex-direction: column;
+  //   }
+  // }
 
   @media only screen and (min-width: 1200px) {
     .content__blog__container {
@@ -172,15 +181,15 @@
     }
   }
 
-  @media only screen and (min-width: 1024px) {
-    .cards__items {
-      display: flex;
-    }
-  }
+  // @media only screen and (min-width: 1024px) {
+  //   .cards__items {
+  //     display: flex;
+  //   }
+  // }
 
-  @media only screen and (max-width: 1024px) {
-    .cards__item {
-      margin-bottom: 2rem;
-    }
-  }
+  // @media only screen and (max-width: 1024px) {
+  //   .cards__item {
+  //     margin-bottom: 2rem;
+  //   }
+  // }
 }

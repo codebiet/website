@@ -1,3 +1,4 @@
+const Users = require("../../models/userModal");
 const Blogs = require("../../models/blogs");
 const getUTCDate = (ISTDateString) => {
   return new Date(new Date(ISTDateString) - 1000 * 60 * (60 * 5 + 30));
@@ -32,11 +33,13 @@ module.exports = async (req, res) => {
   console.log(dbFilters);
   //if no filters applied will get all the blogs, in descending order by posted date and time, but will limit to get 1000 blogs if no pagination limit given
   try {
+    const skip = (req.query.skip && parseInt(req.query.skip)) || 0; //skip will be given when querying for blogs page, since we need some(3) blogs for hero section, we need to skip some(3) more blogs in each pagination
     const totalItems = await Blogs.countDocuments(dbFilters);
     const blogs = await Blogs.find(dbFilters)
       .sort({ postedAt: -1 })
-      .skip(filters.page * filters.limit) //pagination starts from 0
-      .limit(filters.limit); //getting blogs;
+      .skip(filters.page * filters.limit + skip) //pagination starts from 0
+      .limit(filters.limit)
+      .populate("postedBy", "name email", Users); //getting blogs;
     return res.send({ totalItems, blogs });
   } catch (err) {
     console.log(err);
