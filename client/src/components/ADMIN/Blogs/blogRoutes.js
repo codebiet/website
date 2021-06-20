@@ -1,6 +1,7 @@
 import React from "react";
 import Suggestions from "./Suggestions";
 import Blogs from "./Blogs";
+import WriteBlog from "./WriteBlog";
 const eventRoutes = [
   {
     path: "/admin/blogs/suggestions",
@@ -18,13 +19,7 @@ const eventRoutes = [
     path: "/admin/blogs/write/",
     name: "Write a blog",
     sidebarVisible: true,
-    Component: <></>,
-  },
-  {
-    path: "/admin/blogs/update/:url",
-    name: "Update Blog",
-    sidebarVisible: false,
-    Component: <></>,
+    Component: WriteBlog,
   },
 ];
 
