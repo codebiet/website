@@ -143,6 +143,7 @@ const SuggestionCard = ({
       {usedAsBlogCard && (
         <ApproveOrDiscard
           id={suggestion._id}
+          state={suggestion.state}
           queryString={queryString}
           setBlogs={setSuggestions}
           setTotalItems={setTotalItems}

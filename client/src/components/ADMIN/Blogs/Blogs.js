@@ -93,6 +93,7 @@ const DiscardModal = ({
 };
 const ApproveOrDiscard = ({
   id,
+  state,
   queryString = () => "",
   setBlogs = () => "",
   setTotalItems = () => "",
@@ -100,6 +101,7 @@ const ApproveOrDiscard = ({
   const [discardModalOpen, setDiscardModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const info = useContext(InfoContext);
+  console.log(state);
   useEffect(() => {
     return () => info.dispatch(clearEverything());
   }, []);
@@ -120,23 +122,27 @@ const ApproveOrDiscard = ({
       });
   };
   return (
-    <div className="actions">
-      <button onClick={handleApproval}>
-        <ThumbUpAltSharp />
-      </button>
-      <button onClick={() => setDiscardModalOpen((prev) => !prev)}>
-        <ThumbDownAltSharp />
-      </button>
-      <DiscardModal
-        modalOpen={discardModalOpen}
-        setModalOpen={setDiscardModalOpen}
-        id={id}
-        queryString={queryString}
-        setBlogs={setBlogs}
-        setTotalItems={setTotalItems}
-      />
-      {loading && <Loader />}
-    </div>
+    <>
+      {(state != "APPROVED" && state != "DISCARDED") && (
+        <div className="actions">
+          <button onClick={handleApproval}>
+            <ThumbUpAltSharp />
+          </button>
+          <button onClick={() => setDiscardModalOpen((prev) => !prev)}>
+            <ThumbDownAltSharp />
+          </button>
+          <DiscardModal
+            modalOpen={discardModalOpen}
+            setModalOpen={setDiscardModalOpen}
+            id={id}
+            queryString={queryString}
+            setBlogs={setBlogs}
+            setTotalItems={setTotalItems}
+          />
+          {loading && <Loader />}
+        </div>
+      )}
+    </>
   );
 };
 export default (props) => {
@@ -190,12 +196,12 @@ export default (props) => {
         {/* suggestion cards are used as loader placeholder cards during loading */}
         {loading && (
           <>
-            <SuggestionCard />
-            <SuggestionCard />
-            <SuggestionCard />
-            <SuggestionCard />
-            <SuggestionCard />
-            <SuggestionCard />
+            <SuggestionCard actions={false} />
+            <SuggestionCard actions={false} />
+            <SuggestionCard actions={false} />
+            <SuggestionCard actions={false} />
+            <SuggestionCard actions={false} />
+            <SuggestionCard actions={false} />
           </>
         )}
       </Container>
