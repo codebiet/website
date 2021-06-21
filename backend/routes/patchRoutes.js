@@ -20,6 +20,12 @@ router
     authAdminOrUser,
     require("../controllers/patchControllers/saveAsDraft")
   );
+router
+  .route("/blogs/:id/comment")
+  .patch(authAdmin, require("../controllers/patchControllers/comment"));
+router
+  .route("/blogs/:blogId/comment/:id/reply")
+  .patch(authAdmin, require("../controllers/patchControllers/commentReply"));
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 //-------------------------------------admin routes-------------------------------------------

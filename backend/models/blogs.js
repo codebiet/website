@@ -34,16 +34,20 @@ const blogSchema = new mongoose.Schema({
   cardImg: String,
   likes: { type: Number, default: 0, select: false },
   comments: {
-    body: { type: String, required: true },
-    commentedBy: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
-    replies: [
+    type: [
       {
         body: { type: String, required: true },
-        repliedBy: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
-        repliedAt: { type: Date, default: Date.now() },
+        commentedBy: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
+        replies: [
+          {
+            body: { type: String, required: true },
+            repliedBy: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
+            repliedAt: { type: Date, default: Date.now() },
+          },
+        ],
+        commentedAt: { type: Date, default: Date.now() },
       },
     ],
-    commentedAt: { type: Date, default: Date.now() },
     select: false,
   },
 });

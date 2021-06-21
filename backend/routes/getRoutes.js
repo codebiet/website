@@ -51,6 +51,9 @@ router
 router
   .route("/reviewBlog/:id")
   .get(authAdminOrUser, require("../controllers/getControllers/reviewBlog"));
+router
+  .route("/blogs/:id/comments")
+  .get(require("../controllers/getControllers/comments"));
 //-------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------
 //------------------------------------ADMIN--------------------------------------

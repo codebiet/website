@@ -100,7 +100,60 @@
     align-items: center;
     width: 90%;
   }
-
+  .comment {
+    display: flex;
+    font-size: 1rem;
+    margin: 1rem 0 1.5rem 0;
+    .comment-user-img {
+      img {
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+        min-height: 45px;
+        border-radius: 100%;
+        border: 1px solid black;
+      }
+    }
+    .content-with-username {
+      margin-left: 1rem;
+      width: 100%;
+      .username {
+        font-weight: 700;
+      }
+      .show-replies-btn {
+        background: #eee;
+        border: none;
+        outline: none;
+        padding: 0.2rem 0.5rem;
+        margin-left: 0;
+      }
+      .replies {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-in-out;
+        &.open {
+          max-height: 2000px;
+          transition: max-height 1s ease-in-out;
+        }
+        .comment {
+          font-size: 0.9rem;
+          margin: 1rem 0;
+        }
+      }
+      .actions {
+        button {
+          font-size: 0.9rem;
+          color: gray;
+          background: transparent !important;
+          border: none !important;
+          outline: none !important;
+          font-weight: 300;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
   .ContactForm input[type="text"],
   .ContactForm input[type="email"],
   .ContactForm input[type="number"],

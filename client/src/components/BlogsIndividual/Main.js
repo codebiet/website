@@ -1,7 +1,42 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import image from "../assets/BlogImage.jpg";
 import Comment from "./Comment";
+import axios from "axios";
+import Loader from "../Loader/Loader";
+import draftToHtml from "draftjs-to-html";
+import DOMPurify from "dompurify";
+import Card from "./Card";
+import { Link } from "react-router-dom";
 const Main = (props) => {
+  const [blog, setBlog] = useState({});
+  const [prevBlog, setPrevBlog] = useState({});
+  const [nextBlog, setNextBlog] = useState({});
+  const [recentBlogs, setRecentBlogs] = useState([]);
+  const [suggestedBlogs, setSuggestedBlogs] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const createMarkup = (html) => {
+    return {
+      __html: DOMPurify.sanitize(html),
+    };
+  };
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get("/api/blog/" + props.match.params.url)
+      .then((res) => {
+        setLoading(false);
+        setBlog(res.data.blog);
+        console.log(res.data.blog);
+        if (res.data.prevBlog.length != 0) setPrevBlog(res.data.prevBlog[0]);
+        if (res.data.nextBlog.length != 0) setNextBlog(res.data.nextBlog[0]);
+        setRecentBlogs(res.data.recentBlogs);
+        setSuggestedBlogs(res.data.suggestedBlogs);
+      })
+      .catch((err) => {
+        if (err.response && err.response.status == 404)
+          props.history.push("/page-not-found");
+      });
+  }, []);
   return (
     <main className="blogs-individual-container-main">
       <div className="ll">
@@ -10,75 +45,39 @@ const Main = (props) => {
             <div className="content">
               <header className="header1 header2">
                 <aside className="cat_position cat_info">
-                  <a class="catagory" href="">
-                    Data structure
-                  </a>
+                  <Link class="catagory" to="#">
+                    {blog.category}
+                  </Link>
                 </aside>
-                <h1 className="article_heading">
-                  Recursion in Data Structure: How Does it Work, Types &amp;
-                  When Used | Coding Ninjas Blog
+                <h1
+                  className="article_heading"
+                  style={{ marginBottom: "1rem" }}
+                >
+                  {blog.title}
                 </h1>
-                <div className="date">
-                  <span>12 May 2020</span>
+                <div className="date" style={{ marginBottom: "1rem" }}>
+                  <span>
+                    {blog.postedAt && new Date(blog.postedAt).toDateString()}
+                  </span>
                 </div>
-                <div className="k">
+                {/* <div className="k">
                   <div className="l">
-                    <img src={image}></img>
+                    <img src={blog.cardImg}></img>
                   </div>
                   <span class="image_caption overlay">
                     Code gives you wings
                   </span>
-                </div>
+                </div> */}
               </header>
             </div>
 
             <div className="content_body content">
-              <div>
-                <h2>Introduction To Career Camp</h2>
-                <p>
-                  Meet Sudhendra Kumar Singh, a B. TECH (C.S.E) graduate from
-                  Amity University batch 2016-20. He joined the Coders Club in
-                  his college and won several distinctions in coding hackathons
-                  throughout his graduation. Singh joined Coding Ninjas’ Career
-                  Camp in January 2020 and soon bagged an internship in July
-                  2020 as a Full-stack web developer in Brickview Studios and
-                  soon got placed as a front-end developer in Gocomet Pvt Ltd
-                  via Career Camp. He is also serving as a Teaching Assistant
-                  for current Career Camp batches for web development and Data
-                  structures courses.
-                </p>
-                <h2>Coding Journey</h2>
-                <p>
-                  First few months I struggled a lot, then after six months, I
-                  was able to solve almost all basic to intermediate level
-                  problems. Then I joined Coding Ninjas which improved my
-                  problem-solving skills,” Singh mentions. He came to know about
-                  Career Camp through his friend who suggested he appear for the
-                  Career Camp entrance test.
-                </p>
-                <h2>Introduction To Career Camp</h2>
-                <p>
-                  Meet Sudhendra Kumar Singh, a B. TECH (C.S.E) graduate from
-                  Amity University, batch 2016-20. He joined the Coders Club in
-                  his college and won several distinctions in coding hackathons
-                  throughout his graduation. Singh joined Coding Ninjas’ Career
-                  Camp in January 2020 and soon bagged an internship in July
-                  2020 as a Full-stack web developer in Brickview Studios and
-                  soon got placed as a front-end developer in Gocomet Pvt Ltd
-                  via Career Camp. He is also serving as a Teaching Assistant
-                  for current Career Camp batches for web development and Data
-                  structures courses.{" "}
-                </p>
-                <h2>Coding Journey</h2>
-                <p>
-                  First few months I struggled a lot, then after six months, I
-                  was able to solve almost all basic to intermediate level
-                  problems. Then I joined Coding Ninjas which improved my
-                  problem-solving skills,” Singh mentions. He came to know about
-                  Career Camp through his friend who suggested he appear for the
-                  Career Camp entrance test.
-                </p>
-              </div>
+              <div
+                dangerouslySetInnerHTML={createMarkup(
+                  draftToHtml(JSON.parse(blog.content || "{}"))
+                )}
+                style={{ textAlign: "justify" }}
+              ></div>
             </div>
             <div className="article_footer">
               <div className="article_tag">
@@ -86,20 +85,17 @@ const Main = (props) => {
                   <span className="tag_icon">
                     <i className="fas fa-tag"></i> TAGS
                   </span>
-                  <a>
-                    <span className="round-tab">Web development</span>
-                  </a>
-                  <a>
-                    <span className="round-tab">Designing</span>
-                  </a>
-                  <a>
-                    <span className="round-tab">Career</span>
-                  </a>
+                  {blog.tags &&
+                    blog.tags.map((tag) => (
+                      <a>
+                        <span className="round-tab">{tag}</span>
+                      </a>
+                    ))}
                 </div>
               </div>
             </div>
             {/* social media div */}
-            <aside className="social_media_cot">
+            {/* <aside className="social_media_cot">
               <div className="share_tab">
                 <span className="share_no">0</span>
                 <span className="share">Shares</span>
@@ -129,81 +125,56 @@ const Main = (props) => {
                 </a>
               </div>
             </aside>
+           */}
             {/* comment box here */}
-            <Comment />
+            {blog._id && (
+              <Comment id={blog._id} prevBlog={prevBlog} nextBlog={nextBlog} />
+            )}
 
             {/* comment box */}
           </div>
+          <Card suggestedBlogs={suggestedBlogs} />
           {/* main container end here */}
           <div className="recent_container">
             <div className="blogs-sidebar">
               <div className="op search search_box">
                 <form className="search_form" style={{ marginLeft: 0 }}>
-                  <label style={{width:"100%"}}>
+                  <label style={{ width: "100%" }}>
                     <span></span>
-                    <input
+                    {/* <input
                       type="Search"
                       placeholder="Search"
                       className="search_input"
-                    ></input>
+                    ></input> */}
                   </label>
-                  {/* <input type="submit" className="search_icon"></input> */}
                 </form>
               </div>
-              <div className="widget">
-                <h2 className="recent_widget recent_post">Recent Post</h2>
-                <ul>
-                  <li>
-                    <a id="link">
-                      <i className="fas fa-edit"></i>
-                      Facebook Interview Questions for Off-Campus Placement
-                    </a>
-                    <span className="post-date">date</span>
-                  </li>
-
-                  <li>
-                    <a id="link">
-                      <i className="fas fa-edit"></i>
-                      Coding Ninjas’ Career Camp Gives You Wings To Achieve Your
-                      Dreams
-                    </a>
-                    <span className="post-date">Date</span>
-                  </li>
-                  <li>
-                    <a id="link">
-                      <i className="fas fa-edit"></i>
-                      Clustering in Machine Learning for Python
-                    </a>
-                    <span className="post-date">Date</span>
-                  </li>
-                  <li>
-                    <a id="link">
-                      <i className="fas fa-edit"></i>
-                      Java Cheat Sheet: Things You Should Be Knowing
-                    </a>
-                    <span className="post-date">Date</span>
-                  </li>
-                  <li>
-                    <a id="link">
-                      <i className="fas fa-edit"></i>
-                      Facebook Interview Questions for Off-Campus Placement
-                    </a>
-                    <span className="post-date">Date</span>
-                  </li>
-                  <li>
-                    <a id="link">
-                      <i className="fas fa-edit"></i>
-                      Commonly used Machine Learning Algorithms (with Python & R
-                      Codes)
-                    </a>
-                    <span className="post-date">Date</span>
-                  </li>
-                </ul>
-              </div>
+              {recentBlogs.length > 0 && (
+                <div className="widget">
+                  <h2 className="recent_widget recent_post">Recent Post</h2>
+                  <ul>
+                    {recentBlogs &&
+                      recentBlogs.map((blog) => {
+                        return (
+                          <li>
+                            <a id="link">
+                              <i className="fas fa-edit"></i>
+                              {blog.title}
+                            </a>
+                            <span className="post-date">
+                              {new Date(blog.postedOn).toDateString()}
+                            </span>
+                          </li>
+                        );
+                      })}
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </div>
+      {loading && <Loader />}
     </main>
   );
 };
