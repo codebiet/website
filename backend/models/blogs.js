@@ -32,6 +32,20 @@ const blogSchema = new mongoose.Schema({
   approvedSuggestion: { type: Boolean, default: false },
   disapprovedSuggestion: { type: Boolean, default: false },
   cardImg: String,
+  likes: { type: Number, default: 0, select: false },
+  comments: {
+    body: { type: String, required: true },
+    commentedBy: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
+    replies: [
+      {
+        body: { type: String, required: true },
+        repliedBy: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
+        repliedAt: { type: Date, default: Date.now() },
+      },
+    ],
+    commentedAt: { type: Date, default: Date.now() },
+    select: false,
+  },
 });
 const Blogs = mongoose.model("Blogs", blogSchema);
 module.exports = Blogs;
