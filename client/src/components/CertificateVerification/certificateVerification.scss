@@ -1,19 +1,18 @@
 .verification-result-container {
   margin: 0;
-  padding: 1rem 3rem;
+  padding: 2rem 3rem;
   width: 100vw;
-  height: calc(100vh - 10rem);
+  height: unset;
   overflow: hidden;
   font-family: "Nunito", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
   @media (max-width: 500px) {
-    padding: 1rem 0.5rem;
-    height: calc(100vh - 8rem);
+    padding: 4rem 1rem;
   }
   @media (min-width: 1200px) {
-    padding: 1rem 6rem;
+    padding: 1rem 6rem 3rem 6rem;
   }
   .button-container {
     text-align: center;
@@ -49,6 +48,10 @@
 }
 .certificate-found {
   position: relative;
+  margin-top: 6rem;
+  @media (min-width: 600px) {
+    margin-top: 12rem;
+  }
   img {
     position: absolute;
     width: 25rem;
@@ -147,7 +150,7 @@
       margin-left: 0.9rem;
       position: absolute;
       right: 0.2rem;
-      top:calc(50% - 1.1rem);
+      top: calc(50% - 1.1rem);
     }
     @media (min-width: 750px) and (max-width: 999px) {
       i {
@@ -160,7 +163,6 @@
 }
 .certificate-not-found {
   text-align: center;
-  margin-top: -10rem;
   img {
     height: 60%;
   }
@@ -181,7 +183,14 @@
 }
 
 .getCertificateNumber {
-  label { position: absolute; top:-1000px; left:-1000px; }
+  label {
+    position: absolute;
+    top: -1000px;
+    left: -1000px;
+  }
+  .form-container {
+    height: 20rem;
+  }
   .header {
     display: flex;
     justify-content: space-between;
@@ -202,9 +211,9 @@
       font-weight: 800;
       margin: 0;
       padding: 1rem calc(3rem - 40px);
-      font-size:2.5rem;
-      @media (min-width:700px) and (max-width:1200px){
-        font-size:2rem;
+      font-size: 2.5rem;
+      @media (min-width: 700px) and (max-width: 1200px) {
+        font-size: 2rem;
       }
       @media (max-width: 500px) {
         padding: 1rem 2px;
@@ -260,14 +269,14 @@
     h2 {
       font-weight: 600;
       margin-bottom: 1.5rem;
-      font-size:1.5rem;
+      font-size: 1.5rem;
       @media (max-width: 500px) {
         font-size: 1.2rem;
       }
     }
     input {
       text-align: center;
-      @media (min-width:350px){
+      @media (min-width: 350px) {
         width: 300px;
       }
       height: 40px;
@@ -276,7 +285,7 @@
       font-weight: 400;
       color: black;
       border: none;
-      border-radius:0;
+      border-radius: 0;
       border-bottom: 1px solid black;
       outline: none;
     }
@@ -357,9 +366,9 @@
           font-size: 0.9rem;
           font-weight: 800;
           color: gray;
-          padding:0;
-          margin:0;
-          width:unset;
+          padding: 0;
+          margin: 0;
+          width: unset;
         }
       }
     }
