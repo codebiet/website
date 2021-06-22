@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { InfoContext } from "../../state/Store";
 import {
   clearError,
@@ -20,13 +20,18 @@ const Toaster = (props) => {
     ? "#ec524b"
     : "#9a69e1";
   const clearMsgs = () => {
-    setExtraStyles({ opacity: 0, transition: "all 1s ease" });
+    setTimeout(() => {
+      setExtraStyles({ opacity: 0, transition: "all 1s ease" });
+    }, 3500);
     setTimeout(() => {
       info.dispatch(clearError());
       info.dispatch(clearSuccess());
       info.dispatch(clearWarning());
-    }, 1000);
+    }, 4000);
   };
+  useEffect(() => {
+    clearMsgs();
+  }, []);
   return (
     <div className="toaster-container" style={{ background, ...extraStyles }}>
       <div className="toaster-body">
