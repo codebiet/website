@@ -1,4 +1,5 @@
 import eventRoutes from "../Events/eventRoutes";
 import blogRoutes from "../Blogs/blogRoutes";
-const routes = [...eventRoutes, ...blogRoutes];
+import projectRoutes from "../Projects/projectRoutes";
+const routes = [...eventRoutes, ...blogRoutes, ...projectRoutes];
 export default routes;

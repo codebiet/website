@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 const authAdmin = require("../middlewares/authAdmin");
 const authAdminOrUser = require("../middlewares/authAdminOrUser");
+router
+  .route("/deleteproject/:project_id")
+  .delete(require("../controllers/deleteControllers/deleteProject"));
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 //-------------------------------------admin routes-------------------------------------------

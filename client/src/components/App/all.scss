@@ -49,7 +49,7 @@
 @import "../BietGems/card.scss";
 @import "../BietGems/filterForm.scss";
 @import "../BietGems/hero.scss";
-@import "../Pagination/Pagination.scss"; 
+@import "../Pagination/Pagination.scss";
 @import "../EventDetails/event_details.scss";
 @import "../BlogsIndividual/card.scss";
 @import "../BlogsIndividual/comment.scss";
@@ -64,13 +64,17 @@
 @import "../../styles/career.scss";
 @import "../Dashboard_Suggestions/suggestions.scss";
 @import "../WriteArticle/writeArticle.scss";
-// 
-// 
+@import "../Project/filter.scss";
+@import "../Project/header.scss";
+@import "../Project/project.scss";
+//
+//
 // admin pages
-// 
-// 
+//
+//
 @import "../ADMIN/Events/events.scss";
 @import "../ADMIN/Events/AddEvents.scss";
 @import "../ADMIN/Events/eventRegistrations.scss";
 @import "../ADMIN/Blogs/AddSuggestion.scss";
 @import "../ADMIN/Blogs/suggestionCard.scss";
+@import "../ADMIN/Projects/AddProject.scss";

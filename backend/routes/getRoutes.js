@@ -54,6 +54,9 @@ router
 router
   .route("/blogs/:id/comments")
   .get(require("../controllers/getControllers/comments"));
+router
+  .route("/projects")
+  .get(require("../controllers/getControllers/getProjects"));
 //-------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------
 //------------------------------------ADMIN--------------------------------------

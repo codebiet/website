@@ -81,7 +81,7 @@ function Nav() {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to="#">
+                      <NavLink to="/projects">
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"

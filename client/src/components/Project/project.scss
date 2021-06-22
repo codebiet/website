@@ -1,0 +1,56 @@
+.project-container-main {
+  .container {
+    padding: 5vw 10vw;
+  }
+
+  .card {
+    background-color: #f4f4f4;
+  }
+
+  .card:hover {
+    background-color: #ffffff;
+  }
+
+  .card-title {
+    font-weight: 700;
+  }
+  .checked {
+    color: orange;
+  }
+  .myhover:hover {
+    opacity: 0.8;
+    margin: 10px !important;
+  }
+
+  .tab_h {
+    font-size: 13px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    /* display: inline-block; */
+    /* padding: 8px; */
+    padding-left: 0px;
+  }
+
+  .round-tab_h {
+    margin-bottom: 6px;
+    margin-right: 8px;
+    border-radius: 25px;
+    padding: 8px 12px;
+    color: #1f1e1d;
+    font-weight: bold;
+    background-color: #f0a500;
+  }
+
+  .btn {
+    background-color: #cf7500;
+    color: #ffffff;
+    padding: 8px 12px;
+  }
+
+  .btn:hover {
+    padding: 10px 15px;
+    background-color: #290001;
+    color: #ffffff;
+  }
+}

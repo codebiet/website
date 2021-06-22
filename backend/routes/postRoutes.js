@@ -59,4 +59,7 @@ router
 router
   .route("/admin/write-blog")
   .post(authAdmin, require("../controllers/postControllers/admin/writeBlog"));
+router
+  .route("/admin/addproject")
+  .post(require("../controllers/postControllers/addProject"));
 module.exports = router;

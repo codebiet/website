@@ -26,6 +26,9 @@ router
 router
   .route("/blogs/:blogId/comment/:id/reply")
   .patch(authAdmin, require("../controllers/patchControllers/commentReply"));
+router
+  .route("/updateproject/:project_id")
+  .patch(require("../controllers/patchControllers/updateProject"));
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 //-------------------------------------admin routes-------------------------------------------

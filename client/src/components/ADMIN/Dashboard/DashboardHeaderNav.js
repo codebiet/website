@@ -120,7 +120,7 @@ function Header(props) {
             </NavItem>
             <NavItem className="pr-3">
               <Link
-                to="/admin/projects"
+                to="/admin/projects/add"
                 style={{
                   color: "#111",
                   fontWeight: 600,
