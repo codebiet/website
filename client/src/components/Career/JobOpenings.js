@@ -10,15 +10,18 @@ const JobOpenings = () => {
     <section data-aos="fade-up" class="jobs-available">
       <div class="container">
         <div class="your-box">
-          <h2 class="container" style={{fontWeight:700}}>Job Openings</h2>
+          <h2 class="container" style={{ fontWeight: 700 }}>
+            Job Openings
+          </h2>
           <div class="container">
-            <InputGroup size="lg">
+            <InputGroup size="lg" style={{ border: "1px solid #ddd" }}>
               <InputGroup.Prepend>
-                <InputGroup.Text id="inputGroup-sizing-lg">
+                <InputGroup.Text style={{ border: "none" }}>
                   Search
                 </InputGroup.Text>
               </InputGroup.Prepend>
               <FormControl
+                style={{ border: "none", position: "relative", top: ".1rem" }}
                 aria-label="Large"
                 aria-describedby="inputGroup-sizing-sm"
               />
