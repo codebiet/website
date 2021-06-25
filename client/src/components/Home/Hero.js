@@ -132,13 +132,13 @@ const Hero = (props) => {
                 field of study or their current level of knowledge.
               </p>
               <div className="mt-md-5 mb-lg-0">
-                <Link
+                <a
                   className="btn btn-style"
-                  to="/#whatWeDoSection"
+                  href="#whatWeDoSection"
                   style={{ fontWeight: 700, textTransform: "capitalize" }}
                 >
                   View our Works
-                </Link>
+                </a>
               </div>
             </div>
             <div className="col-md-6 banner-right mt-lg-4 mt-0 text-right offset-lg-1">
