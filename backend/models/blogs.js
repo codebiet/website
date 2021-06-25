@@ -1,4 +1,5 @@
 const mongoose = require("./connection");
+const slugify = require("slugify");
 const blogSchema = new mongoose.Schema({
   title: { type: String, required: true },
   titleLower: {
@@ -10,7 +11,9 @@ const blogSchema = new mongoose.Schema({
   url: {
     type: String,
     default: function () {
-      return this.title.split(" ").join("-");
+      return slugify(this.title, {
+        remove: /[*+~.()'"!:@]/g,
+      }); //to make url from the blog title
     },
   },
   content: String,
