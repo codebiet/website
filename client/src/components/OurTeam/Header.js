@@ -6,12 +6,12 @@ function Header() {
       <div className="content">
         <h1 className="leader">Club Of DEvelopers</h1>
         <p>
-          Club Of DEveloper is an initiative of The Department of Computer
-          Science & Engineering,BIET Jhansi. CODE aims to establish a coding
-          culture on campus, reaching every student passionate about
-          development. The club's motto is to Learn-Build-Innovate. CODE is for
-          everyone, regardless of their field of study or their current level of
-          knowledge.
+          Our team is a family of members of code. Our team consists of various
+          members who together make a perfect Team. Three founder members are
+          there for the planning and growth. There are three executive members
+          responsible for the plan execution. There are 9 operating members and
+          9 members in assistance. There are 20 dedicated mentors for the
+          technical guidance and 300+ active members of the club.
         </p>
       </div>
       <img src={header_img} className="image" />
