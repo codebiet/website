@@ -19,9 +19,13 @@ function Footer() {
               <p>A Development Club founded in 2020 by BIETians</p>
               <ul className="submenu">
                 <li>
-                  <Link to="mailto:code@bietjhs.ac.in" className="mail">
+                  <a
+                    href="mailto:code@bietjhs.ac.in"
+                    className="mail"
+                    target="_blank"
+                  >
                     code@bietjhs.ac.in
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -103,19 +107,35 @@ function Footer() {
                 </li>
                 <li className="links">
                   <div className="socialIcons">
-                    <a href="https://www.facebook.com/codebietjhs/" target="_blank" className="socialIcon">
+                    <a
+                      href="https://www.facebook.com/codebietjhs/"
+                      target="_blank"
+                      className="socialIcon"
+                    >
                       <img src="https://img.icons8.com/fluent/40/000000/facebook-new.png" />
                     </a>
                     <Link to="#" className="socialIcon">
                       <img src="https://img.icons8.com/color/40/000000/twitter-circled--v1.png" />
                     </Link>
-                    <a href="https://t.me/joinchat/AAAAAFMLj2wLbN8JYCMtlg" target="_blank" className="socialIcon">
+                    <a
+                      href="https://t.me/joinchat/AAAAAFMLj2wLbN8JYCMtlg"
+                      target="_blank"
+                      className="socialIcon"
+                    >
                       <img src="https://img.icons8.com/fluent/40/000000/telegram-app.png" />
                     </a>
-                    <a href="https://www.linkedin.com/company/codebiet/" target="_blank" className="socialIcon">
+                    <a
+                      href="https://www.linkedin.com/company/codebiet/"
+                      target="_blank"
+                      className="socialIcon"
+                    >
                       <img src="https://img.icons8.com/fluent/40/000000/linkedin-circled.png" />
                     </a>
-                    <a to="https://www.youtube.com/channel/UCgxZ9rqaWscw-kOfkj2F2lQ" target="_blank" className="socialIcon">
+                    <a
+                      to="https://www.youtube.com/channel/UCgxZ9rqaWscw-kOfkj2F2lQ"
+                      target="_blank"
+                      className="socialIcon"
+                    >
                       <img src="https://img.icons8.com/fluent/40/000000/youtube-play.png" />
                     </a>
                   </div>
