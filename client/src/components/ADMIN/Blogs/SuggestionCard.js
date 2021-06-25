@@ -18,16 +18,16 @@ import {
 import ConfirmDeletion from "../Events/ConfirmDeletion";
 import axios from "axios";
 import { UncontrolledTooltip } from "reactstrap";
-const DiscardReason = ({ reason }) => {
+const DiscardReason = ({ reason, articleId }) => {
   return (
     <>
       <HelpOutline
-        id="discard-reason"
+        id={"id" + articleId}
         style={{ marginTop: ".5rem", cursor: "pointer" }}
       />
       <UncontrolledTooltip
         placement="right"
-        target="discard-reason"
+        target={"id" + articleId}
         id="why-discarded-tooltip"
       >
         {reason}
@@ -170,7 +170,10 @@ const SuggestionCard = ({
                   <span>{getState()}</span>
                 </div>
                 {suggestion.state == "DISCARDED" && (
-                  <DiscardReason reason={suggestion.discardReason} />
+                  <DiscardReason
+                    reason={suggestion.discardReason}
+                    articleId={suggestion._id}
+                  />
                 )}
               </>
             </div>
