@@ -1,8 +1,20 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import OwlCarousel from "react-owl-carousel";
-import img from "../assets/013-antimony.svg";
-const partners = [img, img, img, img, img, img, img];
+import civil from '../assets/torchBearers/civil.jpeg';
+import cossco from '../assets/torchBearers/cossco.jpeg';
+import drones from '../assets/torchBearers/drones.jpeg';
+import eef from '../assets/torchBearers/eef.jpeg';
+import electronics from '../assets/torchBearers/electronics.jpeg';
+import fee from '../assets/torchBearers/fee.png'
+import findredd from '../assets/torchBearers/findRedd.jpeg';
+import mechanical from '../assets/torchBearers/mechanical.jpeg';
+import scoit from '../assets/torchBearers/Scoit.jpeg';
+import swizzle from '../assets/torchBearers/Swizzle.png';
+import tdl from '../assets/torchBearers/tdl.png';
+import unknown1 from '../assets/torchBearers/unknown1.jpeg';
+import unknown2 from '../assets/torchBearers/unknown2.jpeg';
+const partners = [civil, cossco, drones, eef, electronics, fee, findredd, mechanical, scoit, swizzle, tdl, unknown1, unknown2];
 const PartnerCard = ({ img }) => {
   return (
     <div
@@ -24,7 +36,7 @@ const TorchBearers = () => {
   }, []);
   return (
     <section
-      class="w3l-clients py-5 mb-5 mt-4"
+      class="w3l-clients py-5 mt-4"
       data-aos="zoom-right"
       data-aos-delay="100"
       data-aos-duration="1000"

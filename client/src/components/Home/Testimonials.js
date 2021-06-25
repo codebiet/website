@@ -97,14 +97,14 @@ const Testimonials = (props) => {
   }, []);
   return (
     <section
-      className="w3l-clients py-5 mb-5 mt-4"
+      className="w3l-clients py-5 mb-5"
       id="testimonials"
       data-aos="fade-left"
       data-aos-delay="300"
       data-aos-once={true}
       data-aos-duration="1000"
     >
-      <div className="container py-md-5 py-4">
+      <div className="container py-4">
         <div
           className="title-main text-center mx-auto mb-5"
           style={{ maxWidth: "600px" }}

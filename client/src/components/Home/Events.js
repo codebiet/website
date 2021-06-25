@@ -49,7 +49,9 @@ const Events = (props) => {
               </span>
             </h3>
           </div>
-          <Container className="py-md-5 py-4">
+          <Container
+            className="py-md-5 events-container"
+          >
             {eventsData.length && (
               <OwlCarousel
                 items={3}
@@ -62,7 +64,7 @@ const Events = (props) => {
                   1400: { items: 3 },
                 }}
                 id="events"
-                className="owl-theme mt-4 py-md-2 mb-md-4"
+                className="owl-theme mt-4 py-md-2"
               >
                 {eventsData.map((eventData) => (
                   <EventCard key={eventData._id} {...eventData} />
