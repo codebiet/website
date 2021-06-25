@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
       (req.query.lt && getUTCDate(req.query.lt)) ||
       new Date(Date.now() + 1000 * 60 * 60), // there will be no blogs in our db posted in future, ofcourse;
     page: req.query.page || 0,
-    limit: req.query.limit || 10000,
+    limit: (req.query.limit && parseInt(req.query.limit)) || 10000,
   };
   let dbFilters = {
     postedAt: { $gt: filters.postedAtGt, $lt: filters.postedAtLt },
@@ -21,11 +21,9 @@ module.exports = async (req, res) => {
   };
   const reason = req.body.reason;
   if (!reason)
-    return res
-      .status(400)
-      .send({
-        errorMsg: "Please give a valid reason why you are discarding the blog!",
-      });
+    return res.status(400).send({
+      errorMsg: "Please give a valid reason why you are discarding the blog!",
+    });
   const id = req.params.id;
   try {
     const discarded = await Blogs.findByIdAndUpdate(id, {
@@ -42,6 +40,7 @@ module.exports = async (req, res) => {
       approvedSuggestion: true,
       suggestedBy: discarded.suggestedBy,
       suggestedById: discarded.suggestedById,
+      category: discarded.category,
     });
     newSuggestion.save();
     const totalItems = await Blogs.countDocuments(dbFilters);
