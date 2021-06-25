@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import { Link } from "react-router-dom";
 import employeeDiscussingImg from "../assets/employee-discussing-strategy-in-the-office-2127132.png";
@@ -43,10 +43,16 @@ const stats = [
   },
 ];
 const CountUpComponent = ({ end }) => {
+  const handleChange = (visible, start, countUpRef) => {
+    if (visible && countUpRef.current.innerHTML == 0) start();
+  };
   return (
-    <CountUp end={end} redraw={true} useEasing={false}>
+    <CountUp end={end} redraw={false} useEasing={false}>
       {({ countUpRef, start }) => (
-        <VisibilitySensor onChange={start} delayedCall>
+        <VisibilitySensor
+          onChange={(visible) => handleChange(visible, start, countUpRef)}
+          delayedCall
+        >
           <span
             style={{
               fontWeight: "inherit",
@@ -61,6 +67,7 @@ const CountUpComponent = ({ end }) => {
   );
 };
 const Stat = ({ fontawesomeIconClass, iconStyling, heading, statCount }) => {
+  const [visible, setVisible] = useState(false);
   return (
     <div className="col-lg-2 stat-card col-md-4 col-sm-6 text-center">
       <div
@@ -73,7 +80,11 @@ const Stat = ({ fontawesomeIconClass, iconStyling, heading, statCount }) => {
         <i className={fontawesomeIconClass} style={iconStyling}></i>
       </div>
       <h3 style={{ textAlign: "center" }}>
-        <CountUpComponent end={statCount} />
+        <CountUpComponent
+          end={statCount}
+          visible={visible}
+          setVisible={setVisible}
+        />
       </h3>
       <p>{heading}</p>
     </div>
