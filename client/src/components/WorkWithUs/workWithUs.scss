@@ -50,11 +50,23 @@ $font1: "Nunito", sans-serif;
     overflow: hidden;
     text-transform: uppercase;
     font-size: 1.4rem;
-    @media (max-width:1000px){
-      font-size:1.2rem;
+    a {
+      color: white;
+      &:hover {
+        color: #ffb535;
+        text-decoration: none;
+      }
+      &:active,
+      &:visited {
+        color: white;
+        text-decoration: none;
+      }
     }
-    @media (max-width:768px){
-      font-size:1rem;
+    @media (max-width: 1000px) {
+      font-size: 1.2rem;
+    }
+    @media (max-width: 768px) {
+      font-size: 1rem;
     }
   }
 
@@ -80,6 +92,9 @@ $font1: "Nunito", sans-serif;
     color: #ffb535;
     background-color: rgb(255, 253, 253);
     border: 2px solid #ffb535;
+    a {
+      color: #ffb535;
+    }
   }
   .transitionbtn:hover {
     -webkit-transform: rotateX(20deg);
@@ -123,7 +138,7 @@ $font1: "Nunito", sans-serif;
       font-size: 1.2rem;
     }
     .work_with_us p {
-      font-size: .95rem;
+      font-size: 0.95rem;
     }
     .transitionbtn {
       width: 100%;
