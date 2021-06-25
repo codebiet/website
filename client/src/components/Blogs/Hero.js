@@ -37,7 +37,7 @@ const Hero = (props) => {
         </div>
         <div className="div2">
           {blogs.length > 1 && (
-            <Link className="cards__item__link" to={blogs[1].url}>
+            <Link className="cards__item__link" to={"/blogs/" + blogs[1].url}>
               <div
                 className="recent_card  cards__item__pic-wrap1"
                 id="container"
@@ -58,7 +58,7 @@ const Hero = (props) => {
             </Link>
           )}
           {blogs.length > 2 && (
-            <Link className="cards__item__link" to={blogs[2].url}>
+            <Link className="cards__item__link" to={"/blogs/" + blogs[2].url}>
               <div
                 className="recent_card cards__item__pic-wrap1"
                 id="container"
