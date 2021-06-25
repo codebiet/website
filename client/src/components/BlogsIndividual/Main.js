@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import image from "../assets/BlogImage.jpg";
 import Comment from "./Comment";
 import axios from "axios";
 import Loader from "../Loader/Loader";
@@ -14,8 +13,6 @@ const Main = (props) => {
   const [recentBlogs, setRecentBlogs] = useState([]);
   const [suggestedBlogs, setSuggestedBlogs] = useState([]);
   const [loading, setLoading] = useState(false);
-  const urlParam = props.match.params.url;
-  console.log(urlParam);
   const createMarkup = (html) => {
     return {
       __html: DOMPurify.sanitize(html),
@@ -23,14 +20,16 @@ const Main = (props) => {
   };
   useEffect(() => {
     setLoading(true);
+    window.scrollTo(0, 0);
     axios
       .get("/api/blog/" + props.match.params.url)
       .then((res) => {
         setLoading(false);
         setBlog(res.data.blog);
-        console.log(res.data.blog);
         if (res.data.prevBlog.length != 0) setPrevBlog(res.data.prevBlog[0]);
+        else setPrevBlog({});
         if (res.data.nextBlog.length != 0) setNextBlog(res.data.nextBlog[0]);
+        else setNextBlog({});
         setRecentBlogs(res.data.recentBlogs);
         setSuggestedBlogs(res.data.suggestedBlogs);
       })
@@ -159,12 +158,12 @@ const Main = (props) => {
                       recentBlogs.map((blog) => {
                         return (
                           <li>
-                            <a id="link">
+                            <Link id="link" to={"/blogs/" + blog.url}>
                               <i className="fas fa-edit"></i>
                               {blog.title}
-                            </a>
+                            </Link>
                             <span className="post-date">
-                              {new Date(blog.postedOn).toDateString()}
+                              {new Date(blog.postedAt).toDateString()}
                             </span>
                           </li>
                         );

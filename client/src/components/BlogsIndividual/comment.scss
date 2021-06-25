@@ -25,6 +25,13 @@
   .nav_pad {
     padding-left: 20px;
     padding-right: 20px;
+    a{
+      color:black;
+      &:hover,&:active,&:visited{
+        text-decoration: none;
+        color:black;
+      }
+    }
   }
   h4 {
     font-size: 1rem;
@@ -75,7 +82,8 @@
     display: inline;
     margin-right: 10px;
     margin-left: 10px;
-    font-size: 00.857rem;
+    font-size: 0.857rem;
+    line-height: 1rem;
   }
   .nav_box .nav2 {
     display: flex;

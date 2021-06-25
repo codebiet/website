@@ -7,13 +7,18 @@
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     margin: 1rem 0;
-    font-size:1.5rem;
-    @media (max-width:500px){
-        font-size:1.4rem;
+    font-size: 1.5rem;
+    @media (max-width: 500px) {
+      font-size: 1.4rem;
     }
   }
-  h1,h2,h3,h4,h5,h6{
-    margin-top:1rem;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 1rem;
   }
   .ll {
     height: auto;
@@ -45,6 +50,16 @@
     background-color: rgb(255, 255, 255);
     padding-left: 50px;
     flex: 0 0 33.33%;
+
+    a {
+      color: black;
+      &:hover,
+      &:active,
+      &:visited {
+        text-decoration: none;
+        color: black;
+      }
+    }
   }
 
   .cat_position {

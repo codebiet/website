@@ -111,7 +111,7 @@ const Comment = ({ id, prevBlog, nextBlog }) => {
       })
       .catch((err) => {});
     return () => info.dispatch(clearEverything());
-  }, []);
+  }, [location.pathname, id]);
   const handleComment = (e) => {
     e.preventDefault();
     if (!auth.state.userLoggedIn) setRedirect(true);
