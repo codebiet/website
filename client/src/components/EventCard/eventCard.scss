@@ -10,19 +10,21 @@
   margin-right: 3%;
   background-color: #fff;
   border-radius: 18px;
-  box-shadow: 3px 3px 10px 1px rgba(0,0,0,.2);
+  box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   margin-bottom: 3%;
-  transition: transform .3s ease-in-out;
-  background:white;
-  a{
+  transition: transform 0.3s ease-in-out;
+  background: white;
+  a {
     cursor: pointer;
-    &:hover,&:active,&:visited{
+    &:hover,
+    &:active,
+    &:visited {
       text-decoration: none;
-      color:inherit;
+      color: inherit;
     }
   }
-  &:hover{
+  &:hover {
     transform: scale(1.01);
   }
   .card {
@@ -56,7 +58,7 @@
   }
   .cardMain > p {
     padding-left: 0;
-    color:#111111;
+    color: #111111;
     font-weight: 600;
   }
   .eventDetails {
@@ -78,21 +80,29 @@
   }
   .shortDescription {
     margin-top: 20px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
     font-size: 14px;
-    line-height: 19px;
-    height:4rem;
+    line-height: 22px;
+    height: 4rem;
     color: #616161;
     text-overflow: ellipsis;
     overflow: hidden;
+    display: block; /* Fallback for non-webkit */
     display: -webkit-box;
+    max-width: 400px;
+    height: 14 * 19 * 3 + 'px'; /* Fallback for non-webkit */
+    // margin: 0 auto;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .tagsContainer {
     display: flex;
     flex-wrap: wrap;
-    margin-top: .1rem;
+    margin-top: 0.1rem;
     width: 100%;
-    margin-bottom:.3rem;
+    margin-bottom: 0.3rem;
   }
   .tags {
     height: fit-content;
@@ -107,6 +117,6 @@
 
   .cardMain > p {
     font-size: 18px;
-    margin:.3rem 0 .6rem 0;
+    margin: 0.3rem 0 0.6rem 0;
   }
 }
