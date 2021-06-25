@@ -72,6 +72,7 @@
     "reactstrap": "^8.9.0",
     "routes.js": "0.0.1",
     "shortid": "^2.2.16",
+    "slugify": "^1.5.3",
     "typewriter-effect": "^2.18.0",
     "universal-cookie": "^4.0.4",
     "uuid": "^8.3.2"
