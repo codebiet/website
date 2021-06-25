@@ -45,6 +45,9 @@ router
     authAdminOrUser,
     require("../controllers/postControllers/addBlogSuggestion")
   );
+router
+  .route("/newsletter")
+  .post(require("../controllers/postControllers/newsletter"));
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 //-------------------------------------admin routes-------------------------------------------
