@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Loader from "../Loader/Loader";
 const Hero = (props) => {
   const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
+    setLoading(true);
     axios
       .get("/api/blogs?state=APPROVED&page=0&limit=3")
       .then((res) => {
+        setLoading(false);
         setBlogs(res.data.blogs);
       })
       .catch((err) => {});
@@ -80,6 +84,7 @@ const Hero = (props) => {
           )}
         </div>
       </div>
+      {loading && <Loader />}
     </div>
   );
 };

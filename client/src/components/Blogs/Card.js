@@ -5,6 +5,7 @@ import like from "../assets/like.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Pagination from "../Pagination/Pagination";
+import Loader from "../Loader/Loader";
 const CardItem = (props) => {
   return (
     <div className="cards__item">
@@ -51,6 +52,7 @@ const CardItem = (props) => {
 };
 function Cards() {
   const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(false);
   //pagination -- start
   const [currentPage, setCurrentPage] = useState(1);
   const [limit, setLimit] = useState(9);
@@ -60,11 +62,13 @@ function Cards() {
   };
   //pagination -- end
   useEffect(() => {
+    setLoading(true);
     axios
       .get(`/api/blogs?state=APPROVED&page=${currentPage - 1}&limit=9&skip=3`) //pagination starts from 0
       .then((res) => {
         setBlogs(res.data.blogs);
         setTotalItems(res.data.totalItems);
+        setLoading(false);
       })
       .catch((err) => {});
   }, []);
@@ -175,6 +179,7 @@ function Cards() {
           handlePageChange={handlePageChange}
         />
       )}
+      {loading && <Loader />}
     </>
   );
 }
