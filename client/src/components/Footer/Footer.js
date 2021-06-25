@@ -114,9 +114,6 @@ function Footer() {
                     >
                       <img src="https://img.icons8.com/fluent/40/000000/facebook-new.png" />
                     </a>
-                    <Link to="#" className="socialIcon">
-                      <img src="https://img.icons8.com/color/40/000000/twitter-circled--v1.png" />
-                    </Link>
                     <a
                       href="https://t.me/joinchat/AAAAAFMLj2wLbN8JYCMtlg"
                       target="_blank"
@@ -132,7 +129,7 @@ function Footer() {
                       <img src="https://img.icons8.com/fluent/40/000000/linkedin-circled.png" />
                     </a>
                     <a
-                      to="https://www.youtube.com/channel/UCgxZ9rqaWscw-kOfkj2F2lQ"
+                      href="https://www.youtube.com/channel/UCgxZ9rqaWscw-kOfkj2F2lQ"
                       target="_blank"
                       className="socialIcon"
                     >
