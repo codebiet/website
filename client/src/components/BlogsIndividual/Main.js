@@ -14,6 +14,8 @@ const Main = (props) => {
   const [recentBlogs, setRecentBlogs] = useState([]);
   const [suggestedBlogs, setSuggestedBlogs] = useState([]);
   const [loading, setLoading] = useState(false);
+  const urlParam = props.match.params.url;
+  console.log(urlParam);
   const createMarkup = (html) => {
     return {
       __html: DOMPurify.sanitize(html),
@@ -36,7 +38,7 @@ const Main = (props) => {
         if (err.response && err.response.status == 404)
           props.history.push("/page-not-found");
       });
-  }, []);
+  }, [props.match.params.url]);
   return (
     <main className="blogs-individual-container-main">
       <div className="ll">
