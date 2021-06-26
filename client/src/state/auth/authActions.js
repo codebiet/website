@@ -9,6 +9,7 @@ import {
   RECOVER_SUCCESS,
   RECOVER_ERROR,
   SIGNUP_ERROR,
+  LOAD_USER_REQUEST,
   LOAD_USER_SUCCESS,
   LOAD_USER_ERROR,
   LOGOUT_SUCCESS,
@@ -40,6 +41,7 @@ export const recoverSuccess = (msg) => ({
   payload: msg,
 });
 
+export const loadUserRequest = () => ({ type: LOAD_USER_REQUEST });
 export const loadUserSuccess = (data) => ({
   type: LOAD_USER_SUCCESS,
   payload: data,
@@ -68,14 +70,19 @@ export const logOutUser = (dispatch) => {
 };
 
 export const loadUser = (dispatch) => {
+  dispatch(loadUserRequest());
   axios
-    .get(`/api/loadUser`,)
+    .get(`/api/loadUser`)
     .then((res) => {
       dispatch(loadUserSuccess(res.data));
     })
     .catch((err) => {
-        if(err.response && err.response.data && err.response.data.errorMsg == 'Invalid Token!')
-            dispatch(loadUserError(""));
+      if (
+        err.response &&
+        err.response.data &&
+        err.response.data.errorMsg == "Invalid Token!"
+      )
+        dispatch(loadUserError(""));
       console.log(err);
     });
 };

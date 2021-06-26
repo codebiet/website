@@ -9,6 +9,7 @@ import {
   RECOVER_SUCCESS,
   RECOVER_REQUEST,
   LOGOUT_SUCCESS,
+  LOAD_USER_REQUEST,
   LOAD_USER_SUCCESS,
   LOAD_USER_ERROR,
   CLEAR_MSGS,
@@ -24,6 +25,8 @@ const initialState = {
   callingVerified: Cookies.get("callingVerified") == "true",
   whatsAppVerified: Cookies.get("whatsAppVerified") == "true",
   userLoggingIn: false,
+  userLoading: false,
+  userLoaded: false,
   userName: Cookies.get("userName") || "",
   userId: Cookies.get("userId") || "",
   recoverMsg: "",
@@ -39,11 +42,14 @@ const initialState = {
 const authReducer = (state = initialState, action) => {
   console.log(action);
   switch (action.type) {
+    case LOAD_USER_REQUEST:
+      return { ...state, userLoading: true };
     case LOAD_USER_SUCCESS:
-      console.log(action.payload);
       return {
         ...state,
         userLoggedIn: true,
+        userLoading: false,
+        userLoaded: true,
         emailVerified: action.payload.emailVerified,
         callingVerified: action.payload.callingVerified,
         whatsAppVerified: action.payload.whatsAppVerified,
@@ -86,6 +92,7 @@ const authReducer = (state = initialState, action) => {
         ...state,
         token: action.payload.token,
         userLoggedIn: true,
+        userLoaded: true,
         emailVerified: action.payload.emailVerified,
         callingVerified: action.payload.callingVerified,
         whatsAppVerified: action.payload.whatsAppVerified,
@@ -141,6 +148,8 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         token: null,
+        userLoading: false,
+        userLoaded: true,
         userLoggingIn: false,
         userLoggedIn: false,
         emailVerified: false,

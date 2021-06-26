@@ -142,6 +142,18 @@ function Header(props) {
                 Blogs
               </Link>
             </NavItem>
+            <NavItem className="pr-3">
+              <Link
+                to="/logout"
+                style={{
+                  color: "#111",
+                  fontWeight: 600,
+                  textDecoration: "none",
+                }}
+              >
+                Logout
+              </Link>
+            </NavItem>
           </Nav>
         </Collapse>
       </Container>
