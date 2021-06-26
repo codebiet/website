@@ -1,7 +1,7 @@
 const Blogs = require("../../models/blogs");
 module.exports = async (req, res) => {
   const filters = {
-    state: ["PENDING", "DISCARDED"],
+    state: ["PENDING", "DISCARDED", "APPROVED"],
   };
   let dbFilters = {
     state: { $in: filters.state },
