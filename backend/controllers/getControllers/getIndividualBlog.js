@@ -34,7 +34,7 @@ module.exports = async (req, res) => {
       .sort({ postedAt: -1 })
       .skip(6)
       .limit(4)
-      .populate("postedBy", "user email", User);
+      .populate("postedBy", "name email", User);
     return res.send({ blog, prevBlog, nextBlog, suggestedBlogs, recentBlogs });
   } catch (err) {
     console.log(err);
