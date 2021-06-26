@@ -40,28 +40,29 @@ const Main = (props) => {
   }, [props.match.params.url]);
   return (
     <main className="blogs-individual-container-main">
-      <div className="ll">
+      <div className="ll" style={{maxWidth:"100vw"}}>
         <div className=" l container">
-          <div className="main_container">
-            <div className="content">
-              <header className="header1 header2">
-                <aside className="cat_position cat_info">
-                  <Link class="catagory" to="#">
-                    {blog.category}
-                  </Link>
-                </aside>
-                <h1
-                  className="article_heading"
-                  style={{ marginBottom: "1rem" }}
-                >
-                  {blog.title}
-                </h1>
-                <div className="date" style={{ marginBottom: "1rem" }}>
-                  <span>
-                    {blog.postedAt && new Date(blog.postedAt).toDateString()}
-                  </span>
-                </div>
-                {/* <div className="k">
+          <div className="blogs-and-resent-blogs-container">
+            <div className="main_container">
+              <div className="content">
+                <header className="header1 header2">
+                  <aside className="cat_position cat_info">
+                    <Link class="catagory" to="#">
+                      {blog.category}
+                    </Link>
+                  </aside>
+                  <h1
+                    className="article_heading"
+                    style={{ marginBottom: "1rem" }}
+                  >
+                    {blog.title}
+                  </h1>
+                  <div className="date" style={{ marginBottom: "1rem" }}>
+                    <span>
+                      {blog.postedAt && new Date(blog.postedAt).toDateString()}
+                    </span>
+                  </div>
+                  {/* <div className="k">
                   <div className="l">
                     <img src={blog.cardImg}></img>
                   </div>
@@ -69,34 +70,34 @@ const Main = (props) => {
                     Code gives you wings
                   </span>
                 </div> */}
-              </header>
-            </div>
+                </header>
+              </div>
 
-            <div className="content_body content">
-              <div
-                dangerouslySetInnerHTML={createMarkup(
-                  draftToHtml(JSON.parse(blog.content || "{}"))
-                )}
-                style={{ textAlign: "justify" }}
-              ></div>
-            </div>
-            <div className="article_footer">
-              <div className="article_tag">
-                <div className="tags post-tag">
-                  <span className="tag_icon">
-                    <i className="fas fa-tag"></i> TAGS
-                  </span>
-                  {blog.tags &&
-                    blog.tags.map((tag) => (
-                      <a>
-                        <span className="round-tab">{tag}</span>
-                      </a>
-                    ))}
+              <div className="content_body content">
+                <div
+                  dangerouslySetInnerHTML={createMarkup(
+                    draftToHtml(JSON.parse(blog.content || "{}"))
+                  )}
+                  style={{ textAlign: "justify" }}
+                ></div>
+              </div>
+              <div className="article_footer">
+                <div className="article_tag">
+                  <div className="tags post-tag">
+                    <span className="tag_icon">
+                      <i className="fas fa-tag"></i> TAGS
+                    </span>
+                    {blog.tags &&
+                      blog.tags.map((tag) => (
+                        <a>
+                          <span className="round-tab">{tag}</span>
+                        </a>
+                      ))}
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* social media div */}
-            {/* <aside className="social_media_cot">
+              {/* social media div */}
+              {/* <aside className="social_media_cot">
               <div className="share_tab">
                 <span className="share_no">0</span>
                 <span className="share">Shares</span>
@@ -127,14 +128,19 @@ const Main = (props) => {
               </div>
             </aside>
            */}
-            {/* comment box here */}
-            {blog._id && (
-              <Comment id={blog._id} prevBlog={prevBlog} nextBlog={nextBlog} />
-            )}
+              {/* comment box here */}
+              {blog._id && (
+                <Comment
+                  id={blog._id}
+                  prevBlog={prevBlog}
+                  nextBlog={nextBlog}
+                />
+              )}
 
-            {/* comment box */}
+              {/* comment box */}
+            </div>
+            <Card suggestedBlogs={suggestedBlogs} />
           </div>
-          <Card suggestedBlogs={suggestedBlogs} />
           {/* main container end here */}
           <div className="recent_container">
             <div className="blogs-sidebar">

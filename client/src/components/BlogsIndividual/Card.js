@@ -5,7 +5,7 @@ import like from "../assets/like.png";
 import { Link } from "react-router-dom";
 const CardItem = (props) => {
   return (
-    <div className="cards__item">
+    <div className="cards__item" style={{ maxWidth: "28rem" }}>
       <Link className="cards__item__link" to={"/blogs/" + props.path}>
         <figure
           className="cards__item__pic-wrap"
