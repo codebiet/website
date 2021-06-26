@@ -12,7 +12,7 @@ const blogSchema = new mongoose.Schema({
     type: String,
     default: function () {
       return slugify(this.title, {
-        remove: /[*+~.()'"!:@]/g,
+        remove: /[*+~.()'"!:@//\\]/g,
       }); //to make url from the blog title
     },
   },
