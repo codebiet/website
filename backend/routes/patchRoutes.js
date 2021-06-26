@@ -35,6 +35,12 @@ router
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 router
+  .route("/admin/:id/deleteAdmin")
+  .patch(
+    authAdmin,
+    require("../controllers/patchControllers/admin/deleteAdmin")
+  );
+router
   .route("/event/:id")
   .patch(require("../controllers/patchControllers/admin/event"));
 router

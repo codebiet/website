@@ -53,6 +53,7 @@ router
 //-------------------------------------admin routes-------------------------------------------
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
+router.route('/admin/addAdmin').post(authAdmin,require('../controllers/postControllers/admin/addAdmin'));
 router
   .route("/admin/addEvent")
   .post(require("../controllers/postControllers/admin/addEvent"));

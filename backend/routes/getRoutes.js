@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const authLogin = require("../middlewares/authLogin");
 const redirectHome = require("../middlewares/redirectHome");
+const authAdmin = require("../middlewares/authAdmin");
 const authAdminOrUser = require("../middlewares/authAdminOrUser");
 router
   .route("/loadUser")
@@ -62,6 +63,9 @@ router
 //------------------------------------ADMIN--------------------------------------
 //-------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------
+router
+  .route("/admins")
+  .get(authAdmin, require("../controllers/getControllers/admin/getAdmin"));
 router
   .route("/admin/events/:id/registrations/")
   .get(require("../controllers/getControllers/admin/registrations"));
