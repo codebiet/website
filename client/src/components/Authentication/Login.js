@@ -189,7 +189,7 @@ const Login = (props) => {
             <Redirect
               to={
                 (props.location.state && props.location.state.from) ||
-                "/dashboard"
+                "/"
               }
             />
           ) : (
