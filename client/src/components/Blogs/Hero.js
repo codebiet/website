@@ -22,7 +22,7 @@ const Hero = (props) => {
           {blogs.length > 0 && (
             <Link className="cards__item__link" to={"/blogs/" + blogs[0].url}>
               <div id="containr" className="cards__item__pic-wrap1">
-                <div style={{ position: "relative" }}>
+                <div style={{ position: "relative", height: "100%" }}>
                   <img src={blogs[0].cardImg} className="image1" />
                   <span className="blog-category">{blogs[0].category}</span>
                 </div>
@@ -48,6 +48,7 @@ const Hero = (props) => {
               >
                 <span className="d">
                   <img src={blogs[1].cardImg} className="image2" />
+                  <span className="blog-category">{blogs[1].category}</span>
                 </span>
                 <div className="text_overlay ">
                   <a>{blogs[1].title}</a>
@@ -69,6 +70,7 @@ const Hero = (props) => {
               >
                 <div className="d">
                   <img src={blogs[2].cardImg} className="image2" />
+                  <span className="blog-category">{blogs[2].category}</span>
                 </div>
                 <div className="text_overlay">
                   <a>{blogs[2].title}</a>
