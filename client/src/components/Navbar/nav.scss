@@ -1,4 +1,5 @@
 /* Reset default Styles */
+@import "../App/colors.scss";
 @-webkit-keyframes slide-bottom {
   0% {
     -webkit-transform: translateY(-100px);
@@ -27,7 +28,7 @@
   text-align: left;
   background: white;
   height: 100px;
-  display:flex;
+  display: flex;
   align-items: center;
   &.fixed-top {
     box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2);
@@ -51,7 +52,7 @@
     align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
-    width:100%;
+    width: 100%;
   }
   #menu {
     display: flex;
@@ -60,13 +61,13 @@
     flex-wrap: wrap;
     padding: 20px;
   }
-  #menu.menu-open{
-    @media (max-width:950px){
-      position:fixed;
-      min-height:100vh;
+  #menu.menu-open {
+    @media (max-width: 950px) {
+      position: fixed;
+      min-height: 100vh;
       z-index: 1250;
-      top:85px;
-      overflow:auto;
+      top: 85px;
+      overflow: auto;
     }
   }
   .nav {
@@ -148,15 +149,60 @@
   }
 
   /* Menu Dropdown */
-  .nav > li > div {
-    position: absolute;
-    display: block;
-    width: 100%;
-    top: 50px;
-    left: 0;
-    opacity: 0;
-    visibility: hidden;
-    overflow: hidden;
+  @media (min-width: 951px) {
+    // .nav > li > div {
+    //   position: absolute;
+    //   display: block;
+    //   width: 100%;
+    //   top: 50px;
+    //   left: 0;
+    //   opacity: 0;
+    //   visibility: hidden;
+    //   overflow: hidden;
+    // }
+    .nav {
+      .expand-on-hover {
+        .expand {
+          //
+          position: absolute;
+          top: 50px;
+          left: 0;
+          display: block;
+          width: 100%;
+          overflow: hidden;
+          //
+          visibility: hidden;
+          opacity: 0;
+          transition: all 0.2s ease-in-out;
+          background: linear-gradient(360deg, #eee, #fff);
+          border-radius: 20px;
+          padding: 20px;
+          li {
+            padding: 5px 0px;
+            display: list-item;
+            a {
+              color: $color-primary;
+              font-weight: 500;
+              letter-spacing: 1px;
+              &:hover,
+              &:visited,
+              &:active {
+                color: $button-hover-color;
+                font-weight: 700;
+                transition: 0.2s ease;
+              }
+            }
+          }
+        }
+        &:hover {
+          .expand {
+            visibility: visible;
+            opacity: 1;
+            transition: all 0.1s ease-in-out;
+          }
+        }
+      }
+    }
   }
 
   .cta-1 {
@@ -186,33 +232,29 @@
     box-shadow: 0px 0px 20px #ec8c24;
     transition: 0.5s ease;
   }
-  .nav > li:hover > div {
-    opacity: 1;
-    visibility: visible;
-    overflow: visible;
-    padding: 20px;
-    background: linear-gradient(360deg, #eee, #fff);
-    border-radius: 20px;
-  }
+  // .nav > li:hover > div {
+  //   opacity: 1;
+  //   visibility: visible;
+  //   overflow: visible;
+  //   padding: 20px;
+  //   background: linear-gradient(360deg, #eee, #fff);
+  //   border-radius: 20px;
+  // }
 
-  .nav > li:hover > div > .nav-column > h3 {
-    color: #111;
-    text-transform: uppercase;
-  }
-  .nav > li:hover > div > .nav-column > ul li {
-    padding: 5px 0px;
-    display: list-item;
-  }
-  .nav > li:hover > div > .nav-column > ul li a {
-    color: #ec8c24;
-    font-weight: 500;
-    letter-spacing: 1px;
-  }
-  .nav > li:hover > div > .nav-column > ul li a:hover {
-    color: #e45c2c;
-    font-weight: 700;
-    transition: 0.8s ease;
-  }
+  // .nav > li:hover > div > .nav-column > ul li {
+  //   padding: 5px 0px;
+  //   display: list-item;
+  // }
+  // .nav > li:hover > div > .nav-column > ul li a {
+  //   color: #ec8c24;
+  //   font-weight: 500;
+  //   letter-spacing: 1px;
+  // }
+  // .nav > li:hover > div > .nav-column > ul li a:hover {
+  //   color: #e45c2c;
+  //   font-weight: 700;
+  //   transition: 0.8s ease;
+  // }
 
   #ham {
     margin: 25px 30px 0px 0px;
@@ -268,45 +310,64 @@
       display: block;
       width: 100%;
     }
-    .nav > li > div {
-      max-height: 0;
-      visibility: visible;
-      opacity: 1;
-      transition: max-height 0.2s ease;
+    .nav {
+      .expand-on-hover {
+        .expand {
+          max-height: 0;
+          overflow: hidden;
+          margin-left:1rem;
+          transition: max-height 0.3s ease-in-out;
+          li {
+            padding: 5px 0px;
+            display: list-item;
+            a {
+              color: $color-primary;
+              font-weight: 500;
+              letter-spacing: 1px;
+            }
+          }
+        }
+        &:hover {
+          .expand {
+            max-height: 300px;
+            transition: max-height 0.1s ease-in-out;
+          }
+        }
+      }
     }
-    .nav > li:hover > div {
-      position: inherit;
-      display: block;
-      width: 100%;
-      opacity: 1;
-      // visibility: visible;
-      margin-top: 20px;
-      max-height: 900vh;
-      margin: 20px 0px;
-      background: transparent;
-      margin-top: 0px;
-      margin-bottom: 0;
-      padding: 0px;
-      box-shadow: none;
-    }
-    .nav > li:hover > div > .nav-column > ul > li > a {
-      padding: 0 15px;
-      line-height: 40px;
-      font-family: "Poppins", Helvetica, Arial, sans-serif;
-      font-weight: bold;
-      font-size: 14px;
-      letter-spacing: 1px;
-      color: #222;
-      text-shadow: 0 0 1px rgba(0, 0, 0, 0.35);
-    }
-    .nav > li:hover > div > .nav-column > ul > li > a:hover {
-      padding: 15px;
-      line-height: 40px;
-      color: #e45c2c;
-      letter-spacing: 1px;
-      font-weight: 700;
-      transition: 0.2s ease;
-    }
+    // .nav > li:hover > div {
+    //   position: inherit;
+    //   display: block;
+    //   width: 100%;
+    //   opacity: 1;
+    //   // visibility: visible;
+    //   margin-top: 20px;
+    //   max-height: 900vh;
+    //   margin: 20px 0px;
+    //   background: transparent;
+    //   margin-top: 0px;
+    //   margin-bottom: 0;
+    //   padding: 0px;
+    //   box-shadow: none;
+    // }
+    // .nav > li:hover > div > .nav-column > ul > li > a {
+    //   padding: 0 15px;
+    //   line-height: 40px;
+    //   font-family: "Poppins", Helvetica, Arial, sans-serif;
+    //   font-weight: bold;
+    //   font-size: 14px;
+    //   letter-spacing: 1px;
+    //   color: #222;
+    //   text-shadow: 0 0 1px rgba(0, 0, 0, 0.35);
+    // }
+    // .nav > li:hover > div > .nav-column > ul > li > a:hover {
+    //   padding: 15px;
+    //   line-height: 40px;
+    //   color: #e45c2c;
+    //   letter-spacing: 1px;
+    //   font-weight: 700;
+    //   transition: 0.2s ease;
+    // }
     .cta-bar {
       display: flex;
       justify-content: space-between;

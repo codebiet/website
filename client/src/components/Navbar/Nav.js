@@ -44,14 +44,13 @@ function Nav() {
             <li>
               <NavLink to="/">Home</NavLink>
             </li>
-            <li>
+            <li className="expand-on-hover">
               <NavLink to="#">
                 Resources{" "}
                 <img src="https://img.icons8.com/metro/26/000000/sort-down.png" />
               </NavLink>
-              <div>
+              <div className="expand">
                 <div className="nav-column">
-                  {/* <!-- <h3>Resources</h3> --> */}
                   <ul>
                     <li>
                       <NavLink to="/blogs">
@@ -111,12 +110,12 @@ function Nav() {
                 </div>
               </div>
             </li>
-            <li>
+            <li className="expand-on-hover">
               <NavLink to="#">
                 Actions{" "}
                 <img src="https://img.icons8.com/metro/26/000000/sort-down.png" />
               </NavLink>
-              <div>
+              <div className="expand">
                 <div className="nav-column">
                   <ul>
                     <li>
