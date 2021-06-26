@@ -1,0 +1,16 @@
+.suggestion-card-main .actions {
+  .approve-button {
+    background: white;
+    color: green;
+    &:hover {
+      background-color: green;
+    }
+  }
+  .discard-button {
+    background: white;
+    color: red;
+    &:hover {
+      background-color: red;
+    }
+  }
+}

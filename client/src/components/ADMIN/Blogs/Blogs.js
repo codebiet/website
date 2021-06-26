@@ -19,7 +19,7 @@ import blogRoutes from "./blogRoutes";
 import SuggestionCard from "./SuggestionCard";
 import Pagination from "../../Pagination/Pagination";
 import axios from "axios";
-import { ThumbUpAltSharp, ThumbDownAltSharp } from "@material-ui/icons";
+import { CheckCircle, Cancel } from "@material-ui/icons";
 import Loader from "../../Loader/Loader";
 import { InfoContext } from "../../../state/Store";
 import {
@@ -240,11 +240,14 @@ const ApproveOrDiscard = ({
     <>
       {state != "APPROVED" && state != "DISCARDED" && (
         <div className="actions" style={{ right: "4.45rem" }}>
-          <button onClick={handleApproval}>
-            <ThumbUpAltSharp />
+          <button className="approve-button" onClick={handleApproval}>
+            <CheckCircle />
           </button>
-          <button onClick={() => setDiscardModalOpen((prev) => !prev)}>
-            <ThumbDownAltSharp />
+          <button
+            className="discard-button"
+            onClick={() => setDiscardModalOpen((prev) => !prev)}
+          >
+            <Cancel />
           </button>
           <DiscardModal
             modalOpen={discardModalOpen}
@@ -283,14 +286,14 @@ export default (props) => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("/api/blogs?"+queryString())
+      .get("/api/blogs?" + queryString())
       .then((res) => {
         console.log(res.data.blogs);
         setBlogs(res.data.blogs);
         setLoading(false);
       })
       .catch((err) => {});
-  }, [currentPage,currentDurationFilters,currentTypeFilters]);
+  }, [currentPage, currentDurationFilters, currentTypeFilters]);
   return (
     <DashboardLayout routes={blogRoutes}>
       <FilterComponent
