@@ -2,7 +2,7 @@ import Home from "./Home.js";
 import AddAdmin from "./AddAdmin.js";
 const homeRoutes = [
   {
-    path: "/admin/",
+    path: "/admin",
     name: "View Admins",
     sidebarVisible: true,
     Component: Home,
