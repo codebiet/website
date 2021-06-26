@@ -27,7 +27,7 @@ module.exports = async (req, res) => {
   const title = req.body.title;
   const category = req.body.category;
   const tags = JSON.parse(req.body.tags);
-  const content = JSON.parse(req.body.content);
+  const content = req.body.content;
   //validation ---- start
   if (!title || !category)
     return res
