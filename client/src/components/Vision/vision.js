@@ -14,17 +14,16 @@ function Mission() {
           </h1>
           <ul id="Visionlist">
             <li className="VisionlistItems">
-              With the rising trend of video consumption, we believe videos are
-              a great medium to educate & train people
+              To provide a platform to the students so that they can compete
+              with other students of the same or different colleges.
             </li>
             <li className="VisionlistItems">
-              But we found a gap that there are not much product video creation
-              tools or video-first product onboarding platforms.
+              To make the students aware of the latest technologies prevailing
+              in the current scenario.
             </li>
             <li className="VisionlistItems">
-              We went and built one. With Trainn you can create product training
-              videos including product walkthroughs and host as a training
-              academy
+              To set up a supportive technical community that encourages
+              innovative ideas.
             </li>
           </ul>
         </div>
