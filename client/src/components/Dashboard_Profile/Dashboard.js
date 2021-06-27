@@ -205,7 +205,11 @@ const AddPhoneNumberModal = (props) => {
       <ModalBody>
         <Row>
           <Col>
-            <form style={{ paddingLeft: 0 }} onSubmit={(e) => handleSubmit(e)}>
+            <form
+              style={{ paddingLeft: 0 }}
+              onSubmit={(e) => handleSubmit(e)}
+              autoComplete="off"
+            >
               {msg && (
                 <p style={{ color: "red", paddingLeft: 0, textAlign: "left" }}>
                   {msg}
@@ -275,6 +279,7 @@ const TakeData = ({
   branch,
   setBranch,
   rollNumberInput,
+  deleteThingWithoutOptions,
 }) => {
   const classes = useStyles();
   const addMore = () => {
@@ -371,115 +376,6 @@ const TakeData = ({
                 </FormGroup>
               </Col>
             </Row>
-
-            <Row style={{ width: "100%" }}>
-              <Col md="4" xs="11">
-                <FormGroup>
-                  <label className="fontType" htmlFor="year">
-                    Year
-                  </label>
-                  <select
-                    className="form-control"
-                    value={year}
-                    onChange={(e) => setYear(e.target.value)}
-                  >
-                    <option value="">Choose Year</option>
-                    <option value="1">1st</option>
-                    <option value="2">2nd</option>
-                    <option value="3">3rd</option>
-                    <option value="4">4th</option>
-                  </select>
-                </FormGroup>
-              </Col>
-              <Col md="4" xs="11">
-                <FormGroup>
-                  <label className="fontType" htmlFor="branch">
-                    Branch
-                  </label>
-
-                  <select
-                    className="form-control"
-                    value={branch}
-                    onChange={(e) => setBranch(e.target.value)}
-                  >
-                    <option value="">Branch</option>
-                    <option value="Electrical Engineering">
-                      Electrical Engineering
-                    </option>
-                    <option value="Electronics and Communication">
-                      Electronics and Communication
-                    </option>
-                    <option value="Computer Science and Engineering">
-                      Computer Science and Engineering
-                    </option>
-                    <option value="Infomation Technology">
-                      Infomation Technology
-                    </option>
-                    <option value="Civil Engineering">Civil Engineering</option>
-                    <option value="Mechanical Engineering">
-                      Mechanical Engineering
-                    </option>
-                    <option value="Chemical Technology">
-                      Chemical Technology
-                    </option>
-                  </select>
-                </FormGroup>
-              </Col>
-              <Col md="3" xs="11">
-                <FormGroup>
-                  <label className="fontType" htmlFor="rollnumber">
-                    Roll Number
-                  </label>
-                  {rollNumberInput}
-                </FormGroup>
-              </Col>
-            </Row>
-
-            <Row style={{ width: "100%" }}>
-              <Col md="4" xs="11">
-                <FormGroup>
-                  <label className="fontType" htmlFor="fullname">
-                    Degree
-                  </label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    placeholder="Degree(Eg. B.Tech)"
-                    value={degree}
-                    onChange={(e) => setDegree(e.target.value)}
-                  />
-                </FormGroup>
-              </Col>
-              <Col md="4" xs="11">
-                <FormGroup>
-                  <label className="fontType" htmlFor="mobile">
-                    College
-                  </label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    placeholder="College(Eg. BIET)"
-                    value={college}
-                    onChange={(e) => setCollege(e.target.value)}
-                  />
-                </FormGroup>
-              </Col>
-              <Col md="3" xs="11">
-                <FormGroup>
-                  <label className="fontType" htmlFor="whatsapp">
-                    College City
-                  </label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    placeholder="College City"
-                    value={collegeCity}
-                    onChange={(e) => setCollegeCity(e.target.value)}
-                  />
-                </FormGroup>
-              </Col>
-            </Row>
-
             <Row style={{ width: "100%" }}>
               <Col md="11" xs="11">
                 <FormGroup>
@@ -515,29 +411,77 @@ const TakeData = ({
               <AccordionDetails>
                 <Typography style={{ width: "100%" }}>
                   <Row style={{ width: "100%" }} key={index}>
-                    <Col md="8" xs="11">
-                      <FormGroup>
-                        <label
-                          className="fontType"
-                          htmlFor={"college-" + index}
-                        >
-                          College
-                        </label>
-                        <input
-                          id={`college-${index}`}
-                          type="text"
-                          className="form-control"
-                          placeholder="College"
-                          value={acad.college}
-                          onChange={(e) =>
-                            setAcademics((prev) => {
-                              prev[index].college = e.target.value;
-                              return [...prev];
-                            })
-                          }
-                        />
-                      </FormGroup>
-                    </Col>
+                    {/* applicable for B.Tech only */}
+                    {index == 0 && (
+                      <>
+                        <Col md="4" xs="11">
+                          <FormGroup>
+                            <label
+                              className="fontType"
+                              htmlFor={"college-" + index}
+                            >
+                              College
+                            </label>
+                            <select
+                              id={`college-${index}`}
+                              className="form-control"
+                              value={acad.college}
+                              onChange={(e) => {
+                                setCollege(e.target.value);
+                                setAcademics((prev) => {
+                                  prev[index].college = e.target.value;
+                                  return [...prev];
+                                });
+                              }}
+                            >
+                              <option value="">College</option>
+                              <option value="BIET">BIET</option>
+                              <option value="OTHERS">OTHERS</option>
+                            </select>
+                          </FormGroup>
+                        </Col>
+                        <Col md="4" xs="11">
+                          <FormGroup>
+                            <label className="fontType" htmlFor="whatsapp">
+                              College City
+                            </label>
+                            <input
+                              className="form-control"
+                              type="text"
+                              placeholder="College City"
+                              value={collegeCity}
+                              onChange={(e) => setCollegeCity(e.target.value)}
+                            />
+                          </FormGroup>
+                        </Col>
+                      </>
+                    )}
+                    {/* applicable for 12th and 10th and not for B.tech */}
+                    {index != 0 && (
+                      <Col md="8" xs="11">
+                        <FormGroup>
+                          <label
+                            className="fontType"
+                            htmlFor={"college-" + index}
+                          >
+                            College
+                          </label>
+                          <input
+                            id={`college-${index}`}
+                            type="text"
+                            className="form-control"
+                            placeholder="College"
+                            value={acad.college}
+                            onChange={(e) =>
+                              setAcademics((prev) => {
+                                prev[index].college = e.target.value;
+                                return [...prev];
+                              })
+                            }
+                          />
+                        </FormGroup>
+                      </Col>
+                    )}
                     <Col md="3" xs="11">
                       <FormGroup>
                         <label className="fontType" htmlFor={"degree-" + index}>
@@ -553,6 +497,75 @@ const TakeData = ({
                         />
                       </FormGroup>
                     </Col>
+                  </Row>
+                  {/* applicable for B.tech only */}
+                  {index == 0 && (
+                    <Row style={{ width: "100%" }}>
+                      <Col md="4" xs="11">
+                        <FormGroup>
+                          <label className="fontType" htmlFor="year">
+                            Year
+                          </label>
+                          <select
+                            className="form-control"
+                            value={year}
+                            onChange={(e) => setYear(e.target.value)}
+                          >
+                            <option value="">Choose Year</option>
+                            <option value="1">1st</option>
+                            <option value="2">2nd</option>
+                            <option value="3">3rd</option>
+                            <option value="4">4th</option>
+                          </select>
+                        </FormGroup>
+                      </Col>
+                      <Col md="4" xs="11">
+                        <FormGroup>
+                          <label className="fontType" htmlFor="branch">
+                            Branch
+                          </label>
+
+                          <select
+                            className="form-control"
+                            value={branch}
+                            onChange={(e) => setBranch(e.target.value)}
+                          >
+                            <option value="">Branch</option>
+                            <option value="Electrical Engineering">
+                              Electrical Engineering
+                            </option>
+                            <option value="Electronics and Communication">
+                              Electronics and Communication
+                            </option>
+                            <option value="Computer Science and Engineering">
+                              Computer Science and Engineering
+                            </option>
+                            <option value="Infomation Technology">
+                              Infomation Technology
+                            </option>
+                            <option value="Civil Engineering">
+                              Civil Engineering
+                            </option>
+                            <option value="Mechanical Engineering">
+                              Mechanical Engineering
+                            </option>
+                            <option value="Chemical Technology">
+                              Chemical Technology
+                            </option>
+                          </select>
+                        </FormGroup>
+                      </Col>
+                      <Col md="3" xs="11">
+                        <FormGroup>
+                          <label className="fontType" htmlFor="rollnumber">
+                            Roll Number
+                          </label>
+                          {rollNumberInput}
+                        </FormGroup>
+                      </Col>
+                    </Row>
+                  )}
+                  <Row style={{ width: "100%" }}>
                     <Col md="8">
                       <Row style={{ maxWidth: "100%", margin: 0 }}>
                         <Col xs="8" style={{ paddingLeft: "0" }}>
@@ -579,7 +592,7 @@ const TakeData = ({
                             />
                           </FormGroup>
                         </Col>
-                        <Col xs="3" style={{ paddingRight: 0 }}>
+                        <Col xs="3" md="4" style={{ paddingRight: 0 }}>
                           <label
                             className="fontType"
                             htmlFor={"result-type-" + index}
@@ -674,6 +687,26 @@ const TakeData = ({
                         />
                       </FormGroup>
                     </Col>
+                    {index < achievements.length - 1 && (
+                      <Col
+                        xs="1"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <DeleteForeverOutlined
+                          style={{
+                            color: "#fd2f00",
+                            cursor: "pointer",
+                          }}
+                          onClick={() =>
+                            deleteThingWithoutOptions(setAchievements, index)
+                          }
+                        />
+                      </Col>
+                    )}
                   </Row>
                 </>
               );
@@ -788,7 +821,7 @@ const Dashboard = (props) => {
   ]);
   const resumeInput = React.createRef();
   const profilePhotoInput = React.createRef();
-  const [degree, setDegree] = useState("");
+  const [degree, setDegree] = useState("B.Tech");
   const [college, setCollege] = useState("");
   const [collegeCity, setCollegeCity] = useState("");
   const [objective, setObjective] = useState("");
@@ -1514,7 +1547,10 @@ const Dashboard = (props) => {
                           </Col>
                         </Row>
 
-                        <form onSubmit={(e) => handleSubmit(e)}>
+                        <form
+                          onSubmit={(e) => handleSubmit(e)}
+                          autoComplete="off"
+                        >
                           <Row style={{ width: "100%" }}>
                             <Col md="2" className="pt-2 pb-0 pr-4 pl-4">
                               <FormGroup
@@ -1768,6 +1804,9 @@ const Dashboard = (props) => {
                             branch={branch}
                             setBranch={setBranch}
                             rollNumberInput={rollNumberInput}
+                            deleteThingWithoutOptions={
+                              deleteThingWithoutOptions
+                            }
                           />
                           {callingPhoneNum &&
                             callingVerified &&
