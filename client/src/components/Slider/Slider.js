@@ -21,7 +21,7 @@ const marks = [
     label: "1",
   },
   {
-    value: "2",
+    value: 2,
     label: "2",
   },
   {
@@ -58,10 +58,11 @@ const marks = [
   },
 ];
 
-function RangeSlider() {
+function RangeSlider({ setRating = () => "" }) {
   const classes = useStyles();
 
   function valuetext(value) {
+    setRating(parseInt(value));
     return `${value}`;
   }
 

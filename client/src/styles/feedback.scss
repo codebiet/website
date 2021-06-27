@@ -1,5 +1,6 @@
 $font1: "Nunito", sans-serif;
 $font2: "Poppins", sans-serif;
+@import "../components/App/colors.scss";
 .feedback-main {
   .complete-screen {
     margin: 0px auto;
@@ -108,6 +109,9 @@ $font2: "Poppins", sans-serif;
     font-weight: bold;
     cursor: pointer;
     font-family: $font2;
+    &:hover,&:active{
+      background: $button-hover-color!important;
+    }
   }
 
   /* Media Queries */

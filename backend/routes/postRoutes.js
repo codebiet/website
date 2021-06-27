@@ -48,12 +48,17 @@ router
 router
   .route("/newsletter")
   .post(require("../controllers/postControllers/newsletter"));
+router
+  .route("/feedback")
+  .post(require("../controllers/postControllers/feedback"));
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 //-------------------------------------admin routes-------------------------------------------
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
-router.route('/admin/addAdmin').post(authAdmin,require('../controllers/postControllers/admin/addAdmin'));
+router
+  .route("/admin/addAdmin")
+  .post(authAdmin, require("../controllers/postControllers/admin/addAdmin"));
 router
   .route("/admin/addEvent")
   .post(require("../controllers/postControllers/admin/addEvent"));
