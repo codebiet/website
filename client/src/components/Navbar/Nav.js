@@ -6,8 +6,15 @@ function Nav() {
   const auth = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const ref = React.createRef();
+  const resourcesRef = React.createRef();
+  const actionsRef = React.createRef();
   const toggle = () => {
     setIsOpen((prev) => !prev);
+  };
+  const touchHandler = (e, refForToggle, refForRemove) => {
+    e.preventDefault();
+    // refForRemove.current.classList.remove("hovered");
+    refForToggle.current.classList.toggle("hovered");
   };
   useEffect(() => {
     const handleScroll = () => {
@@ -44,7 +51,11 @@ function Nav() {
             <li>
               <NavLink to="/">Home</NavLink>
             </li>
-            <li className="expand-on-hover">
+            <li
+              className="expand-on-hover"
+              ref={resourcesRef}
+              onTouchStart={(e) => touchHandler(e, resourcesRef, actionsRef)}
+            >
               <NavLink to="#">
                 Resources{" "}
                 <img src="https://img.icons8.com/metro/26/000000/sort-down.png" />
@@ -110,7 +121,11 @@ function Nav() {
                 </div>
               </div>
             </li>
-            <li className="expand-on-hover">
+            <li
+              className="expand-on-hover"
+              ref={actionsRef}
+              onTouchStart={(e) => touchHandler(e, actionsRef, resourcesRef)}
+            >
               <NavLink to="#">
                 Actions{" "}
                 <img src="https://img.icons8.com/metro/26/000000/sort-down.png" />
