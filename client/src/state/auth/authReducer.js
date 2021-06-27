@@ -144,7 +144,6 @@ const authReducer = (state = initialState, action) => {
       };
     case LOGOUT_SUCCESS:
     case LOAD_USER_ERROR:
-      console.log("logout success");
       return {
         ...state,
         token: null,

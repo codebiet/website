@@ -1,5 +1,5 @@
 const Users = require("../../../models/userModal");
-
+const bcrypt = require("bcryptjs");
 module.exports = async (req, res) => {
   try {
     const email = req.body.email;
@@ -17,13 +17,27 @@ module.exports = async (req, res) => {
       await user.save();
       return res.send({ msg: "success" });
     } else {
-      const admin = new Users({
-        name: name || "Admin",
-        email: email,
-        password: email,
+      bcrypt.genSalt(10, (err, salt) => {
+        if (err)
+          res
+            .status(500)
+            .send({ errorMsg: "Status-Code: 500, Internal Server Error!" });
+        bcrypt.hash(email, salt, async (err, hash) => {
+          if (err)
+            res
+              .status(500)
+              .send({ errorMsg: "Status-Code: 500, Internal Server Error!" });
+          const admin = new Users({
+            name: name || "Admin",
+            email: email,
+            password: hash,
+            isAdmin: true,
+            emailVerified: true,
+          });
+          await admin.save();
+          return res.send({ msg: "success" });
+        });
       });
-      await admin.save();
-      return res.send({ msg: "success" });
     }
   } catch (err) {
     console.log(err);

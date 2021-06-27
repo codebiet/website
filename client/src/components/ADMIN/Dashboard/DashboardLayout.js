@@ -21,7 +21,9 @@ const Dashboard = ({ routes, profileImg, ...props }) => {
   return (
     <>
       {redirect ? (
-        <Redirect to={{ pathname: "/", state: { from: location.pathname } }} />
+        <Redirect
+          to={{ pathname: "/login", state: { from: location.pathname } }}
+        />
       ) : (
         <>
           {loading ? (

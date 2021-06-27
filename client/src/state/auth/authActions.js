@@ -46,7 +46,7 @@ export const loadUserSuccess = (data) => ({
   type: LOAD_USER_SUCCESS,
   payload: data,
 });
-export const loadUserError = (err) => ({ type: LOAD_USER_ERROR, payload: err });
+export const loadUserError = () => ({ type: LOAD_USER_ERROR });
 
 export const clearMsgs = () => ({ type: CLEAR_MSGS });
 
@@ -77,13 +77,7 @@ export const loadUser = (dispatch) => {
       dispatch(loadUserSuccess(res.data));
     })
     .catch((err) => {
-      if (
-        err.response &&
-        err.response.data &&
-        err.response.data.errorMsg == "Invalid Token!"
-      )
-        dispatch(loadUserError(""));
-      console.log(err);
+      dispatch(loadUserError());
     });
 };
 // export const getConfig = (state) => {
