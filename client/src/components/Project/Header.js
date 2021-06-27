@@ -21,9 +21,10 @@ function Header() {
             />
           </h1>
           <p>
-            We have completed a lot of projects in our Buildathon event where
-            many students learned new technologies and finished their project in
-            team with perfect teamwork.
+            One can see the potential of our students in the exemplary projects
+            they have made using a wide range of technologies. Their
+            determination to learn and grow and their creativity can be seen in
+            the remarkable work they have done during Buildathon!
           </p>
         </div>
       </div>

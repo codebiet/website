@@ -6,12 +6,11 @@ function Header() {
       <div className="content">
         <h1 className="leader">Club Of DEvelopers</h1>
         <p>
-          Our team is a family of members of code. Our team consists of various
-          members who together make a perfect Team. Three founder members are
-          there for the planning and growth. There are three executive members
-          responsible for the plan execution. There are 9 operating members and
-          9 members in assistance. There are 20 dedicated mentors for the
-          technical guidance and 300+ active members of the club.
+          Fuelled by the passion to learn, build and innovate, we are a family
+          of 300+ active members. Harnessing the energy of young minds, we have
+          3 executive members responsible for plan execution. There are 9
+          operating members, 9 members in assistance and 20 dedicated mentors
+          for the technical guidance.
         </p>
       </div>
       <img src={header_img} className="image" />
