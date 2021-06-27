@@ -2,63 +2,66 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import { Link } from "react-router-dom";
 import OwlCarousel from "react-owl-carousel";
-import johnsonWilliamImg from "../assets/testi1.jpg";
-import alexandarSakuraImg from "../assets/testi2.jpg";
-import johnWilsonImg from "../assets/testi3.jpg";
+import abhinayDubey from "../assets/testimonials/abhinayDubey.jpg";
+import aman from "../assets/testimonials/aman.jpeg";
+import ashirvad from "../assets/testimonials/Ashirvad.jpeg";
+import kshitiz from "../assets/testimonials/kshitizSharma.jpeg";
+import prakhar from "../assets/testimonials/prakhar.jpeg";
+import siddhantMishra from "../assets/testimonials/siddhantMishra.jpeg";
 const usertestimonialsData = [
   {
-    heading: "Best Mentorship",
-    content:
-      "The mentors inspire a lot and encourage us to learn new technology. Happy to get training from them.",
-    userImg: johnsonWilliamImg,
-    name: "Johnson William",
-    branch: "CSE",
-    year: 1,
+    heading: "Straightforward Learning Platform",
+    content: `It's always been useful and interesting to learn new things and their implementation in real world projects too and CODE has helped me a lot in this.
+      It has an awesome interactive environment which is easy to use without facing any difficulty.`,
+    userImg: abhinayDubey,
+    name: "Abhinay Dubey",
+    branch: "ECE",
+    year: 2,
   },
   {
-    heading: "Plenty of Learning Opportunities",
-    content:
-      "The webinars organized by CODE are very helpful in constantly motivating towards your learning goal",
-    userImg: alexandarSakuraImg,
-    name: "Alexander sakura",
-    branch: "Information Technology",
-    year: 1,
+    heading: "Learner to Earner",
+    content: `CODE really helped me a lot in exploring something new and keeping updated about the latest technologies as well as sharing of knowledge keeps everyone boost up.
+    Overall CODE is one stop solution of our journey from learner to earner.`,
+    userImg: prakhar,
+    name: "Prakhar Singh",
+    branch: "ECE",
+    year: 2,
   },
   {
-    heading: "Career Guidance",
+    heading: "Great Learning Opportunity",
+    content: `I learnt a lot about web development under the mentorship provided to us by CODE.
+      Highly suggest being a part!`,
+    userImg: kshitiz,
+    name: "Kshitij Sharma",
+    branch: "ECE",
+    year: 2,
+  },
+  {
+    heading: "Place to learn and Explore",
     content:
-      "CODE helps me build coding habits through its perfectly structured timeline of events.",
-    userImg: johnWilsonImg,
-    name: "John Wilson",
+      "CODE is a platform where you can not only develop your coding skills but could  would get complete mentorship and guidance from the best coders of our college. Regular coding competition , seminars boost your knowledge of the field and help in brightening the future.",
+    userImg: ashirvad,
+    name: "Ashirvad Pathak",
     branch: "CSE",
     year: 2,
   },
   {
-    heading: "Knowledgebase of Resources",
+    heading: "A Platform for Beginers",
     content:
-      "Blog Section of code is the way to learn and keep up-to-date with the latest technologies and also share your knowledge.",
-    userImg: johnsonWilliamImg,
-    name: "Julia Sakura",
-    branch: "IT",
-    year: 2,
+      "This is a great learning platform with ample of useful resources .Overall it is full of bunch of learning",
+    userImg: siddhantMishra,
+    name: "Siddhant Mishra",
+    branch: "ECE",
+    year: 1,
   },
   {
-    heading: "Great Learning Opportunities",
-    content:
-      "I am highly influenced by the policy of “Learning on the go” that code follows to fulfill its learn build innovate moto.",
-    userImg: johnWilsonImg,
-    name: "John Nissan",
-    branch: "Civil Engineering",
-    year: 3,
-  },
-  {
-    heading: "Recommended for Everyone!",
-    content:
-      "CODE is a place where you can broaden your mind with practical and beneficial web development projects. Highly recommend it to anyone who wants to reach the cutting edge of the web.",
-    userImg: alexandarSakuraImg,
-    name: "Duke Samson",
-    branch: "CSE",
-    year: 3,
+    heading: "Tool For A Developer",
+    content: `It's A Wonderful Experience, the development section boost up my coding experience and
+      organising events build my confidence.`,
+    userImg: aman,
+    name: "Aman Gangwani",
+    branch: "ECE",
+    year: 1,
   },
 ];
 const UserTestimonial = ({ heading, content, userImg, name, branch, year }) => {
@@ -127,7 +130,12 @@ const Testimonials = (props) => {
           className="owl-theme mt-4 py-md-2 mb-md-4"
         >
           {usertestimonialsData.map((testimonialData) => {
-            return <UserTestimonial key={testimonialData.name} {...testimonialData} />;
+            return (
+              <UserTestimonial
+                key={testimonialData.name}
+                {...testimonialData}
+              />
+            );
           })}
         </OwlCarousel>
       </div>
