@@ -49,6 +49,7 @@ import UserProfile from "../../pages/UserProfile";
 import Blogs from "../../pages/Blogs";
 import OurTeam from "../../pages/OurTeam";
 import Career from "../../pages/Career";
+import Discussion from "../../pages/Discussion";
 // const Register = lazy(() => import("../../pages/Register"));
 // const SentVerifyEmail = lazy(() => import("../../pages/SentVerifyEmail"));
 // const Login = lazy(() => import("../../pages/Login"));
@@ -192,6 +193,11 @@ function App() {
               exact
               path="/userProfile/:id"
               render={(props) => <UserProfile {...props} />}
+            />
+            <Route
+              exact
+              path="/discussion-forum"
+              render={(props) => <Discussion {...props} />}
             />
 
             {/* Admin routes */}
