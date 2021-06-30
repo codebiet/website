@@ -2,7 +2,7 @@ const mongoose = require("./connection");
 
 const doubtSchema = mongoose.Schema({
   queryTitle: { type: String, required: true },
-  queryDescription: { type: String, required: true },
+  queryDescription: { type: String, required: false },
   category: { type: String, required: true },
   tags: { type: [String], required: true },
   postedBy: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
@@ -17,7 +17,12 @@ const doubtSchema = mongoose.Schema({
       repliedAt: { type: Date, default: Date.now() },
     },
   ],
-  likes: { type: Number, default: 0 },
+  replyAdded: { type: Boolean, default: false },
+  likedBy: [{ type: mongoose.Schema.Types.ObjectId, ref: "users" }],
+  likes: {
+    type: Number,
+    default: 0,
+  },
   views: { type: Number, default: 0 },
   postedAt: { type: Date, default: Date.now() },
 });
