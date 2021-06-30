@@ -42,20 +42,6 @@ li {
     transform: scale(1.05);
   }
 }
-.btn {
-  background-color: $color-primary !important;
-  border: none !important;
-  font-weight: 700;
-  &:hover,
-  &:active,
-  &:focus {
-    border: none !important;
-    box-shadow: none !important;
-    background-color: $color-secondary !important;
-    background: $color-secondary !important;
-    transform: scale(1.05);
-  }
-}
 .round-corner {
   border-radius: 30px !important;
 }
