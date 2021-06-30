@@ -10,7 +10,7 @@ const uploadS3 = (params) => {
         reject(`Error while uploading the file.`);
       } else
         resolve(
-          `https://s3.ap-south-1.amazonaws.com/soorajarsn.warehouse/${params.Key}`
+          `https://club-of-developers.s3.ap-south-1.amazonaws.com/${params.Key}`
         ); //file url
     });
   });

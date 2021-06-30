@@ -1,5 +1,5 @@
 const sendEmail = require("./smtpTransport");
-const encrypt = require('./encrypt');
+const encrypt = require("./encrypt");
 const getHTML = (link) => {
   return `
     <div style="margin:0;padding:2rem 0;min-width:100%;background-color:#0f2b3c">
@@ -8,7 +8,7 @@ const getHTML = (link) => {
         <table border="0" cellpadding="0" cellspacing="0" align="center" style="margin:0 auto;width:100%" role="presentation">
           <tr>
             <td style="text-align:center">
-              <img src="https://s3.ap-south-1.amazonaws.com/soorajarsn.warehouse/codeLogo.png" style="width:50%" class="CToWUd"/>
+              <img src="https://club-of-developers.s3.ap-south-1.amazonaws.com/codeLogo.png" style="width:50%" class="CToWUd"/>
             </td>
           </tr>
           <tr>
