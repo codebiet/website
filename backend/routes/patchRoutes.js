@@ -29,6 +29,18 @@ router
 router
   .route("/updateproject/:project_id")
   .patch(require("../controllers/patchControllers/updateProject"));
+router
+  .route("/doubts/:id/reply")
+  .patch(
+    authAdminOrUser,
+    require("../controllers/patchControllers/doubtReply")
+  );
+router
+  .route("/doubts/:id/like")
+  .patch(
+    authAdminOrUser,
+    require("../controllers/patchControllers/likeDoubtPost")
+  );
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 //-------------------------------------admin routes-------------------------------------------
