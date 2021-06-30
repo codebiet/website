@@ -51,6 +51,9 @@ router
 router
   .route("/feedback")
   .post(require("../controllers/postControllers/feedback"));
+router
+  .route("/askDoubt")
+  .post(authAdminOrUser, require("../controllers/postControllers/askDoubt"));
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 //-------------------------------------admin routes-------------------------------------------
