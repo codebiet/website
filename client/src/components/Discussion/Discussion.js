@@ -93,7 +93,11 @@ function Discussion(props) {
               setTotalItems={setTotalItems}
             />
             <HorizontalBar />
-            <SwitchBar setSort={setSort} setType={setType} />
+            <SwitchBar
+              setSort={setSort}
+              setType={setType}
+              setCurrentPage={setCurrentPage}
+            />
             {posts.map((post) => (
               <PostCard post={post} getQuery={getQuery} setPosts={setPosts} />
             ))}
@@ -114,6 +118,7 @@ function Discussion(props) {
           searchInputValue={searchInputValue}
           changeSearchInputValue={changeSearchInputValue}
           handleSearch={handleSearch}
+          setCurrentPage={setCurrentPage}
         />
       </div>
       <FloatingButtons
@@ -121,6 +126,7 @@ function Discussion(props) {
         setSort={setSort}
         category={category}
         setCategory={setCategory}
+        setCurrentPage={setCurrentPage}
       />
       {loading && <Loader />}
     </main>

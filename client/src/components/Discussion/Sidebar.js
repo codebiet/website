@@ -9,8 +9,14 @@ const Sidebar = ({
   searchInputValue,
   changeSearchInputValue,
   handleSearch,
+  setCurrentPage,
 }) => {
+  const changeCategory = (newCategory) => {
+    setCurrentPage(1);
+    setCategory(newCategory);
+  };
   const handleTagFilterChange = (newFilter) => {
+    setCurrentPage(1);
     setTags((prev) => {
       const index = prev.indexOf(newFilter);
       if (index >= 0) prev.splice(index, 1);
@@ -46,7 +52,7 @@ const Sidebar = ({
                     ? "list-group-item selected"
                     : "list-group-item"
                 }
-                onClick={() => setCategory("Java")}
+                onClick={() => changeCategory("Java")}
               >
                 Java
                 {/* <span className="float-right badge badge-warning badge-pill">
@@ -60,7 +66,7 @@ const Sidebar = ({
                     ? "list-group-item selected"
                     : "list-group-item"
                 }
-                onClick={() => setCategory("Python")}
+                onClick={() => changeCategory("Python")}
               >
                 Python
               </a>
@@ -72,7 +78,7 @@ const Sidebar = ({
                     ? "list-group-item selected"
                     : "list-group-item"
                 }
-                onClick={() => setCategory("Programming Languages")}
+                onClick={() => changeCategory("Programming Languages")}
               >
                 Programming Languages
               </a>
@@ -83,7 +89,7 @@ const Sidebar = ({
                     ? "list-group-item selected"
                     : "list-group-item"
                 }
-                onClick={() => setCategory("DS and Algo")}
+                onClick={() => changeCategory("DS and Algo")}
               >
                 DS & Algo
                 {/* <span className="float-right badge badge-warning badge-pill">
@@ -97,7 +103,7 @@ const Sidebar = ({
                     ? "list-group-item selected"
                     : "list-group-item"
                 }
-                onClick={() => setCategory("Competitive Programming")}
+                onClick={() => changeCategory("Competitive Programming")}
               >
                 Competitive Programming
               </a>
@@ -108,7 +114,7 @@ const Sidebar = ({
                     ? "list-group-item selected"
                     : "list-group-item"
                 }
-                onClick={() => setCategory("Operating Systems")}
+                onClick={() => changeCategory("Operating Systems")}
               >
                 Operating Systems
               </a>
@@ -119,7 +125,7 @@ const Sidebar = ({
                     ? "list-group-item selected"
                     : "list-group-item"
                 }
-                onClick={() => setCategory("DBMS")}
+                onClick={() => changeCategory("DBMS")}
               >
                 DBMS
               </a>
@@ -130,7 +136,7 @@ const Sidebar = ({
                     ? "list-group-item selected"
                     : "list-group-item"
                 }
-                onClick={() => setCategory("Web Development")}
+                onClick={() => changeCategory("Web Development")}
               >
                 Web Development
               </a>
@@ -141,7 +147,7 @@ const Sidebar = ({
                     ? "list-group-item selected"
                     : "list-group-item"
                 }
-                onClick={() => setCategory("Android Development")}
+                onClick={() => changeCategory("Android Development")}
               >
                 Android Development
               </a>
@@ -152,7 +158,7 @@ const Sidebar = ({
                     ? "list-group-item selected"
                     : "list-group-item"
                 }
-                onClick={() => setCategory("ML and AI")}
+                onClick={() => changeCategory("ML and AI")}
               >
                 ML & AI
               </a>
@@ -163,7 +169,7 @@ const Sidebar = ({
                     ? "list-group-item selected"
                     : "list-group-item"
                 }
-                onClick={() => setCategory("Interview Preparation")}
+                onClick={() => changeCategory("Interview Preparation")}
               >
                 Interview Preparation
                 {/* <span className="float-right badge badge-warning badge-pill">

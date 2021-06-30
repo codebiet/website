@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-const SwitchBar = ({ setSort, setType }) => {
+const SwitchBar = ({ setSort, setType, setCurrentPage }) => {
   //set Type if used to implement Help Others filter, if type == "Help Others", in query we'll add replyAdded = false, means which are unanswered questions
   var active = {
     backgound: "rgb(255, 166, 0)",
@@ -39,6 +39,7 @@ const SwitchBar = ({ setSort, setType }) => {
     setliveCss(inActive);
     setupcomingCss(inActive);
     setclosedCss(active);
+    setCurrentPage(1);
     setSort("");
     setType("Help Others");
   };

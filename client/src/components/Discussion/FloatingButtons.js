@@ -5,6 +5,7 @@ const FloatingButtons = ({
   category = "",
   setSort = () => "",
   setCategory = () => "",
+  setCurrentPage,
 }) => {
   const [toggle1, settoggle1] = useState(false);
   const [toggle2, settoggle2] = useState(false);
@@ -22,6 +23,7 @@ const FloatingButtons = ({
     settoggle1(false);
   };
   const changeCategory = (newCategory) => {
+    setCurrentPage(1);
     setCategory(newCategory);
     window.scrollTo(0, 0);
     settoggle2(false);
@@ -29,7 +31,7 @@ const FloatingButtons = ({
   return (
     <>
       <Modal isOpen={toggle1} toggle={changeToggle1}>
-        <div className="modal-dialog" style={{margin:0}}>
+        <div className="modal-dialog" style={{ margin: 0 }}>
           <div className="modal-content mobilemodal">
             <ModalHeader toggle={changeToggle1}>Sorting Options</ModalHeader>
             <div className="modal-body">
@@ -98,7 +100,7 @@ const FloatingButtons = ({
       </Modal>
 
       <Modal isOpen={toggle2} toggle={changeToggle2}>
-        <div className="modal-dialog" style={{margin:0}}>
+        <div className="modal-dialog" style={{ margin: 0 }}>
           <div className="modal-content mobilemodal">
             <ModalHeader toggle={changeToggle2}>Filter Categories</ModalHeader>
 
