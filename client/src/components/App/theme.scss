@@ -103,13 +103,13 @@ li {
 .modal-header {
   position: relative;
   overflow-x: hidden;
-  .scroller {
-    background: $color-primary;
-    position: absolute;
-    height: 0.3rem;
-    width: 80%;
-    top: 0;
-    left: 0;
-    animation: scroll 1.2s linear infinite;
-  }
+}
+.scroller {
+  background: $color-primary;
+  position: absolute;
+  height: 0.3rem;
+  width: 80%;
+  top: 0;
+  left: 0;
+  animation: scroll 1.2s linear infinite;
 }
