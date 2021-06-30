@@ -4,6 +4,7 @@ const authLogin = require("../middlewares/authLogin");
 const redirectHome = require("../middlewares/redirectHome");
 const authAdmin = require("../middlewares/authAdmin");
 const authAdminOrUser = require("../middlewares/authAdminOrUser");
+const getUserId = require("../middlewares/getUserId");
 router
   .route("/loadUser")
   .get(require("../controllers/getControllers/loadUser"));
@@ -58,6 +59,9 @@ router
 router
   .route("/projects")
   .get(require("../controllers/getControllers/getProjects"));
+router
+  .route("/doubts")
+  .get(getUserId, require("../controllers/getControllers/getDoubts"));
 //-------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------
 //------------------------------------ADMIN--------------------------------------
