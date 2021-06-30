@@ -39,7 +39,7 @@
     transform: skew(-20deg);
     margin-left: -80px;
     position: relative;
-    left:-1.8rem;
+    left: -1.8rem;
   }
   .footer .elevate div {
     transform: skew(20deg);
@@ -93,6 +93,7 @@
     text-transform: capitalize;
     padding: 0;
     font-size: 1rem;
+    text-align: left;
   }
   .footer .submenu li a:hover {
     opacity: 0.9;
@@ -185,7 +186,10 @@
     }
     .footer .elevate {
       width: 45%;
-      left:-.65rem;
+      left: -0.65rem;
+      @media (min-width: 805px) {
+        min-height: 22.2rem;
+      }
     }
     .footer .elevate > div {
       padding: 5% 0%;
@@ -220,7 +224,8 @@
     .footer .elevate {
       width: 45%;
       padding: 2% 0%;
-      position:static;
+      min-height: 18.3rem;
+      position: static;
     }
     .footer .elevate > div {
       padding: 2% 0%;
