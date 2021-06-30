@@ -1,140 +1,171 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useState, useEffect, useContext } from "react";
+import { InfoContext } from "../../state/Store";
+import { generateSuccess } from "../../state/info/infoActions";
 import axios from "axios";
+import Tags from "@yaireo/tagify/dist/react.tagify";
+import { Modal, ModalHeader, ModalBody } from "reactstrap";
 //
 
-export const AskBar = () => {
-  const [toggle, settoggle] = useState(false);
-
+const AskBar = ({
+  setPosts = () => "",
+  getQuery = () => "",
+  setTotalItems = () => "",
+}) => {
+  const [modalOpen, setModalOpen] = useState(false);
   const [queryTitle, setQueryTitle] = useState("");
   const [queryDescription, setQueryDescription] = useState("");
-  const [category, setcategory] = useState("");
-  const [tags, setTags] = useState("");
-  useEffect(() => {}, []);
+  const [category, setcategory] = useState("Java");
+  const [tags, setTags] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const info = useContext(InfoContext);
+  useEffect(() => {
+    if (error) setError("");
+  }, [queryTitle, queryDescription]);
 
-  const actionHandler = (e) => {
-    settoggle(!toggle);
+  const toggleModal = (e) => {
+    setModalOpen((prev) => !prev);
   };
 
-  const changeAction = () => {
-    settoggle(false);
+  const handleTagChange = (values) => {
+    let parsedValues = [];
+    if (values) parsedValues = JSON.parse(values);
+    parsedValues = parsedValues.map((tagObj) => tagObj.value);
+    console.log(parsedValues);
+    setTags(parsedValues);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     axios
-      .post("http://localhost:4000/post/askDoubt", {
+      .post("/post/askDoubt" + getQuery(), {
         queryTitle,
         queryDescription,
         category,
-        tags,
+        tags: JSON.stringify(tags),
       })
       .then((res) => {
-        console.log(res);
+        setLoading(false);
+        setModalOpen(false);
+        info.dispatch(
+          generateSuccess(
+            "Your doubt has been posted. We'll notify you when someone replies on this."
+          )
+        );
+        console.log(res.data);
+        setPosts(res.data.doubts);
+        setTotalItems(res.data.totalItems);
       })
       .catch((err) => {
-        console.log(err);
+        setLoading(false);
+        if (err.response && err.response.data)
+          setError(err.response.data.errorMsg);
+        else setError("Something went wrong!");
       });
-    settoggle(false);
   };
 
   return (
     <>
-      {toggle && (
-        <>
-          <div className="modal" id="formModal">
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h4 className="modal-title">Ask your Question</h4>
-                  <button
-                    type="button"
-                    onClick={changeAction}
-                    className="close"
-                    data-dismiss="modal"
+      <Modal isOpen={modalOpen} toggle={toggleModal}>
+        <div className="modal-dialog" style={{ margin: 0 }}>
+          <div className="modal-content">
+            <ModalHeader toggle={toggleModal}>
+              Ask your Question
+              {loading && <div className="scroller"></div>}
+            </ModalHeader>
+            <ModalBody>
+              <form onSubmit={(e) => handleSubmit(e)}>
+                {error && (
+                  <p
+                    style={{
+                      fontSize: "1rem",
+                      color: "red",
+                      textAlign: "center",
+                    }}
                   >
-                    &times;
-                  </button>
+                    {error}
+                  </p>
+                )}
+                <div className="form-group">
+                  <textarea
+                    className="form-control"
+                    id="ques-title"
+                    rows="3"
+                    placeholder="Add an interesting title"
+                    value={queryTitle}
+                    onChange={(e) => setQueryTitle(e.target.value)}
+                  ></textarea>
+                  <small id="quesHelpBlock" className="form-text text-muted">
+                    Short but descriptive
+                  </small>
                 </div>
-
-                <div className="modal-body">
-                  <form onSubmit={(e) => handleSubmit(e)}>
-                    <div className="form-group">
-                      <textarea
-                        className="form-control"
-                        id="ques-title"
-                        rows="3"
-                        placeholder="Add an interesting title"
-                        value={queryTitle}
-                        onChange={(e) => setQueryTitle(e.target.value)}
-                      ></textarea>
-                      <small
-                        id="quesHelpBlock"
-                        className="form-text text-muted"
-                      >
-                        Short but descriptive
-                      </small>
-                    </div>
-                    <div className="form-group">
-                      <textarea
-                        className="form-control"
-                        id="ques-content"
-                        rows="4"
-                        placeholder="Your text post (optional)"
-                        value={queryDescription}
-                        onChange={(e) => setQueryDescription(e.target.value)}
-                      ></textarea>
-                      <small
-                        id="contentHelpBlock"
-                        className="form-text text-muted"
-                      >
-                        Provide a detailed description to make it easier for
-                        others to reply.
-                      </small>
-                    </div>
-                    <div className="form-group">
-                      <label for="category">Choose a Category</label>
-                      <select
-                        className="form-control"
-                        id="category"
-                        value={category}
-                        onChange={(e) => setcategory(e.target.value)}
-                      >
-                        <option>Java</option>
-                        <option>Python</option>
-                        <option>Programming Languages</option>
-                        <option>Competitive Programming</option>
-                        <option>Interview Preparation</option>
-                        <option>Operating Systems</option>
-                        <option>Dynamic Programming</option>
-                      </select>
-                    </div>
-                    <div className="form-group">
-                      <textarea
-                        className="form-control"
-                        id="ques-tags"
-                        rows="2"
-                        placeholder="Add tags (optional)"
-                        value={tags}
-                        onChange={(e) => setTags(e.target.value)}
-                      ></textarea>
-                      <small
-                        id="tagsHelpBlock"
-                        className="form-text text-muted"
-                      >
-                        To help people quicly see what you posted about
-                      </small>
-                    </div>
-                    <button className="btn btn-primary" type="submit">
-                      Submit your Question
-                    </button>
-                  </form>
+                <div className="form-group">
+                  <textarea
+                    className="form-control"
+                    id="ques-content"
+                    rows="4"
+                    placeholder="Your text post (optional)"
+                    value={queryDescription}
+                    onChange={(e) => setQueryDescription(e.target.value)}
+                  ></textarea>
+                  <small id="contentHelpBlock" className="form-text text-muted">
+                    Provide a detailed description to make it easier for others
+                    to reply.
+                  </small>
                 </div>
-              </div>
-            </div>
+                <div className="form-group">
+                  <label htmlFor="category" className="form-text text-muted">
+                    Choose a Category
+                  </label>
+                  <select
+                    className="form-control"
+                    id="category"
+                    value={category}
+                    onChange={(e) => setcategory(e.target.value)}
+                  >
+                    <option value="Java">Java</option>
+                    <option value="Python">Python</option>
+                    <option value="Programming Languages">
+                      Programming Languages
+                    </option>
+                    <option value="DS and Algo">DS & Algo</option>
+                    <option value="Competitive Programming">
+                      Competitive Programming
+                    </option>
+                    <option value="Interview Preparation">
+                      Interview Preparation
+                    </option>
+                    <option value="Operating Systems">Operating Systems</option>
+                    <option value="DBMS">DBMS</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Android Development"></option>
+                    <option value="ML and AI">ML & AI</option>
+                    <option value="Interview Preparation">
+                      Interview Preparation
+                    </option>
+                    <option value="Others">Others</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <Tags
+                    placeholder="Enter tag and press enter"
+                    className="form-control"
+                    value={tags.join(", ")}
+                    onChange={(e) => handleTagChange(e.detail.value)}
+                  />
+                  <small id="tagsHelpBlock" className="form-text text-muted">
+                    To help people quicly see what you posted about
+                  </small>
+                </div>
+                <button className="btn btn-primary" type="submit">
+                  Submit your Question
+                </button>
+              </form>
+            </ModalBody>
           </div>
-        </>
-      )}
+        </div>
+      </Modal>
 
       <div className="container-fluid mt-20">
         <div className="row">
@@ -142,15 +173,15 @@ export const AskBar = () => {
             <div className="card mb-4 banner">
               <div className="d-flex justify-content-between align-items-center px-0 pt-0 pb-3">
                 <div className="px-4 pt-3 bnrhead">
-                  <h3> Ask your Question or discuss a topic </h3>
+                  <h3 style={{ marginBottom: 0 }}>
+                    Ask your Question or discuss a topic
+                  </h3>
                 </div>
                 <div className="px-4 pt-3 bnrimg">
                   <a
-                    href="/post"
+                    href="#"
                     className="arrowicon"
-                    data-toggle="modal"
-                    data-target="#formModal"
-                    onClick={(e) => actionHandler(e)}
+                    onClick={(e) => toggleModal(e)}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -163,18 +194,18 @@ export const AskBar = () => {
                     >
                       <g
                         fill="none"
-                        fill-rule="nonzero"
+                        fillRule="nonzero"
                         stroke="none"
-                        stroke-width="1"
-                        stroke-linecap="butt"
-                        stroke-linejoin="miter"
-                        stroke-miterlimit="10"
-                        stroke-dasharray=""
-                        stroke-dashoffset="0"
-                        font-family="none"
-                        font-weight="none"
-                        font-size="none"
-                        text-anchor="none"
+                        strokeWidth="1"
+                        strokeLinecap="butt"
+                        strokeLinejoin="miter"
+                        strokeMiterlimit="10"
+                        strokeDasharray=""
+                        strokeDashoffset="0"
+                        fontFamily="none"
+                        fontWeight="none"
+                        fontSize="none"
+                        textAnchor="none"
                         style={{ mixBlendMode: "normal" }}
                       >
                         <path d="M0,172v-172h172v172z" fill="none"></path>
@@ -193,3 +224,5 @@ export const AskBar = () => {
     </>
   );
 };
+
+export default AskBar;

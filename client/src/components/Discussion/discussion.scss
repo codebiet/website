@@ -10,13 +10,6 @@
   #x {
     margin-top: 20px;
   }
-
-  #qnasidebar {
-    max-height: 800px;
-    overflow-y: scroll;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
   .badge-pill:hover {
     background: #111;
     color: rgb(255, 203, 106);
@@ -128,7 +121,7 @@
   }
 
   .card-body p {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .category {
@@ -253,6 +246,10 @@
     box-shadow: inset 0px 0px 40px #ccc;
     border: 1px solid #ccc;
     border-radius: 10px;
+    &::-webkit-scrollbar {
+      width: 0; /* Remove scrollbar space */
+      display: none;
+    }
   }
 
   .panel {
@@ -268,6 +265,9 @@
   #floatingbtns {
     display: none;
     visibility: hidden;
+  }
+  .list-group-item.selected {
+    font-weight: 800;
   }
 
   /* ==== color styles ==== */
@@ -305,6 +305,10 @@
     border-radius: 20px;
     font-size: 0.9em;
     line-height: 1em;
+    &.selected {
+      box-shadow: 0 0 5px 0 gray;
+      border: 1px solid black;
+    }
   }
   .tag:hover {
     color: #000;
@@ -422,28 +426,6 @@
       color: red;
       outline: none;
     }
-    .sortbutton {
-      display: block;
-      background: none;
-      outline: none;
-      border: none;
-      padding: 10px 0px;
-      color: #222;
-      font-size: 1em;
-    }
-    .sortbutton:hover {
-      outline: none;
-      color: rgb(255, 153, 0);
-      transition: 0.3s ease;
-    }
-    .sortbutton:focus {
-      outline: none;
-      color: #07830b;
-    }
-    .sortbutton::clicked {
-      outline: none;
-      color: #4eb852;
-    }
   }
 
   @media screen and (max-width: 425px) {
@@ -487,5 +469,33 @@
       width: 100%;
       margin: 0 auto;
     }
+  }
+}
+
+.modal .modal-body {
+  .sortbutton {
+    display: block;
+    background: none;
+    outline: none;
+    border: none;
+    padding: 10px 0px;
+    color: #222;
+    font-size: 1em;
+    &.selected {
+      font-weight: 800;
+    }
+  }
+  .sortbutton:hover {
+    outline: none;
+    color: rgb(255, 153, 0);
+    transition: 0.3s ease;
+  }
+  .sortbutton:focus {
+    outline: none;
+    color: #07830b;
+  }
+  .sortbutton::clicked {
+    outline: none;
+    color: #4eb852;
   }
 }
