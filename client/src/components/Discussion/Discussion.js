@@ -21,7 +21,7 @@ function Discussion(props) {
   //pagination
   const [totalItems, setTotalItems] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const [limit, setLimit] = useState(2);
+  const [limit, setLimit] = useState(5);
   const handlePageChange = (page) => {
     console.log(page);
     window.scrollTo(0, 0); //scrollTo top when page is changed;
