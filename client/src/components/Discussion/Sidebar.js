@@ -6,6 +6,9 @@ const Sidebar = ({
   setCategory = () => "",
   setTags,
   tags = [],
+  searchInputValue,
+  changeSearchInputValue,
+  handleSearch,
 }) => {
   const handleTagFilterChange = (newFilter) => {
     setTags((prev) => {
@@ -18,8 +21,13 @@ const Sidebar = ({
   return (
     <div id="qnasidebar" className="col-xs-12 col-lg-3 mt-20 ">
       <div className="search">
-        <form className="search-form">
-          <input type="text" placeholder="Search for categories and more.." />
+        <form className="search-form" onSubmit={handleSearch}>
+          <input
+            type="text"
+            placeholder="Search for categories and more.."
+            value={searchInputValue}
+            onChange={changeSearchInputValue}
+          />
           <input type="submit" value="submit" />
         </form>
       </div>

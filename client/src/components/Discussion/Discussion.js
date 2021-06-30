@@ -18,6 +18,33 @@ function Discussion(props) {
   const [tags, setTags] = useState([]);
   const [sort, setSort] = useState("");
   const [type, setType] = useState(""); //if type == 'Help Others' we'll get only unanswered questions
+  //search
+  const [searchInputValue, setSearchInputValue] = useState("");
+  const [searchFor, setSearchFor] = useState("");
+  const changeSearchInputValue = (e) => {
+    setSearchFor(""); //when user is typing in search field we don't need to append that value in our query string, since search will be appended in query string after clicking search button, and if user changed value after searching by clicking search button then we don't need to include search field in query string until they click search button again;
+    setSearchInputValue(e.target.value);
+  };
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setSearchFor(searchInputValue); //in this method we can't do get request using axios, because state is update asynchronously, so the app may request before state, i.e., searchFor gets changed;
+    //this is why below useEffect is used so that when searchFor is changed and has any value then only the app make a get request to backend
+  };
+  useEffect(() => {
+    if (searchFor) {
+      setLoading(true);
+      axios
+        .get("/api/doubts" + getQuery())
+        .then((res) => {
+          setPosts(res.data.doubts || []);
+          setTotalItems(res.data.totalItems);
+          setLoading(false);
+        })
+        .catch((err) => {
+          setLoading(false);
+        });
+    }
+  }, [searchFor]);
   //pagination
   const [totalItems, setTotalItems] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
@@ -33,7 +60,8 @@ function Discussion(props) {
     if (category) query += "category=" + category + "&";
     if (tags.length > 0) query += "tags=" + tags.join(",") + "&";
     if (sort) query += "sort=" + sort + "&";
-    if (type == "Help Others") query += "replyAdded=false";
+    if (type == "Help Others") query += "replyAdded=false&";
+    if (searchFor) query += "search=" + searchFor;
     return query;
   };
   useEffect(() => {
@@ -83,6 +111,9 @@ function Discussion(props) {
           setCategory={setCategory}
           tags={tags}
           setTags={setTags}
+          searchInputValue={searchInputValue}
+          changeSearchInputValue={changeSearchInputValue}
+          handleSearch={handleSearch}
         />
       </div>
       <FloatingButtons

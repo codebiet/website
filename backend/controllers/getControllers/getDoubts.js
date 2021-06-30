@@ -4,8 +4,20 @@ module.exports = async (req, res) => {
   try {
     //filters for returning doubts to render new doubts after adding...
     const dbFilters = {};
+    const search = req.query.search;
+    if (search)
+      dbFilters["$or"] = [
+        { queryTitle: new RegExp(search, "i") },
+        { queryDescription: new RegExp(search, "i") },
+        { "replies.replyTitle": new RegExp(search, "i") },
+        { "replies.replyDescription": new RegExp(search, "i") },
+        { "replies.tags": new RegExp(search, "i") },
+      ];
     if (req.query.category) dbFilters.category = req.query.category;
+    else if (search)
+      dbFilters["$or"].push({ category: new RegExp(search, "i") });
     if (req.query.tags) dbFilters.tags = { $in: req.query.tags.split(",") };
+    else if (search) dbFilters["$or"].push({ tags: new RegExp(search, "i") });
     if (req.query.replyAdded == "true") dbFilters.replyAdded = true;
     else if (req.query.replyAdded == "false") dbFilters.replyAdded = false;
     const page = (req.query.page && parseInt(req.query.page)) || 0;
