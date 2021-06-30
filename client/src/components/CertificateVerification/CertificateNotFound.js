@@ -14,7 +14,7 @@ const CertificateNotFound = (props) => {
         <p>There seems to be no Certificate with this number you provided</p>
       </div>
       <div className="button-container">
-        <button onClick={handleCheckAgain}>Check Again</button>
+        <button onClick={handleCheckAgain} className="default-btn round-corner">Check Again</button>
       </div>
     </div>
   );

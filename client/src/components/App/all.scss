@@ -1,7 +1,9 @@
-@import "~bootstrap/scss/bootstrap";
-// @import "~aos/src/sass/aos.scss";
-@import url("perfect-scrollbar/css/perfect-scrollbar.css");
+@import "~bootstrap/scss/bootstrap"; //styles need to be overwritten
+@import "../Dashboard_Profile/paper-dashboard.scss"; //some of the styles need to be overwritten;
+@import url("perfect-scrollbar/css/perfect-scrollbar.css"); //some of the styles need to be overwritten
+@import "../Home/Home.scss"; //some of the styles need to be overwritten
 
+@import "./theme.scss";
 @import "../About/about.scss";
 @import "../Executives/executives.scss";
 @import "../Values/values.scss";
@@ -18,8 +20,6 @@
 @import "../../styles/projects";
 // merged css files -- end
 @import "../EventCard/eventCard.scss";
-@import "./theme.scss";
-@import "../Dashboard_Profile/paper-dashboard.scss";
 @import "../Resume/resumeTemplate2.scss";
 //merged css files -- start
 @import "../Navbar/nav.scss";
@@ -39,7 +39,6 @@
 @import "../Dashboard_Articles/articles.scss";
 @import "../Dashboard_Competitions/competitions.scss";
 @import "../Dashboard_Projects/projects.scss";
-@import "../Home/Home.scss";
 @import "../Home/blogCardStyle.scss";
 @import "../Contact/contact.scss";
 @import "../Slider/slider.scss";

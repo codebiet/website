@@ -143,7 +143,9 @@ const Register = (props) => {
                   <img src={lock} alt="" />
                 </div> */}
                     <div className="button-container">
-                      <button type="submit">REGISTER</button>
+                      <button type="submit" className="default-btn">
+                        REGISTER
+                      </button>
                     </div>
                     <div>
                       <span

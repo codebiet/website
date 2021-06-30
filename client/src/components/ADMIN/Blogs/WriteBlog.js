@@ -161,7 +161,7 @@ const WriteBlog = (props) => {
                       width: "fit-content",
                     }}
                     onClick={(e) => handleSubmit(e)}
-                    className="form-control"
+                    className="form-control default-btn"
                   >
                     Publish
                   </Button>

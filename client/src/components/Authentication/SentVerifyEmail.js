@@ -59,12 +59,13 @@ const SentVerifyEmail = (props) => {
                   {msg}
                 </h1>
                 <form
-                  style={{ width: "100%",maxWidth:"unset",padding:0 }}
+                  style={{ width: "100%", maxWidth: "unset", padding: 0 }}
                   onSubmit={(e) => e.preventDefault()}
                 >
                   <div className="button-container">
                     {seconds > 0 ? (
                       <button
+                        className="default-btn"
                         style={{
                           background: "rgba(255, 155, 33,.5)",
                           color: "grey",
@@ -74,7 +75,9 @@ const SentVerifyEmail = (props) => {
                         RESEND IN {seconds}
                       </button>
                     ) : (
-                      <button onClick={handleClick}>SEND AGAIN!</button>
+                      <button onClick={handleClick} className="default-btn">
+                        SEND AGAIN!
+                      </button>
                     )}
                   </div>
                 </form>

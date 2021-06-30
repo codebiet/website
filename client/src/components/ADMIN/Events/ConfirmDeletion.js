@@ -6,7 +6,7 @@ const ConfirmDeletion = ({
   handleDelete,
   id,
   msg,
-  buttonContent
+  buttonContent,
 }) => {
   const toggle = () => {
     setModalOpen((prev) => !prev);
@@ -20,7 +20,11 @@ const ConfirmDeletion = ({
           : "This will be deleted permanently and can't be restored later. Are you sure you want to delete?"}
       </ModalBody>
       <ModalFooter>
-        <Button color="warning" onClick={() => handleDelete(id)}>
+        <Button
+          color="warning"
+          className="default-btn"
+          onClick={() => handleDelete(id)}
+        >
           {buttonContent ? buttonContent : "Delete"}
         </Button>
         <Button color="secondary" onClick={toggle}>

@@ -157,7 +157,9 @@ const forgotPassword = (props) => {
                   <img src={lock} alt="" />
                 </div>
                 <div className="button-container">
-                  <button type="submit">CHANGE PASSWORD</button>
+                  <button type="submit" className="default-btn">
+                    CHANGE PASSWORD
+                  </button>
                 </div>
                 {!auth.state.userLoggedIn && (
                   <div

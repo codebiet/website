@@ -25,7 +25,7 @@ const Newsletter = (props) => {
       );
     setLoading(true);
     axios
-      .post("/post/newsletter", {email})
+      .post("/post/newsletter", { email })
       .then((res) => {
         setEmail("");
         setLoading(false);
@@ -67,7 +67,11 @@ const Newsletter = (props) => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
-                  <button type="submit" disabled={loading ? true : false}>
+                  <button
+                    type="submit"
+                    className="default-btn round-corner"
+                    disabled={loading ? true : false}
+                  >
                     {loading ? (
                       <>Subscribing...</>
                     ) : (

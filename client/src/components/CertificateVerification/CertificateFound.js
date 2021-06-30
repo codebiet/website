@@ -24,7 +24,7 @@ const CertificateFound = React.forwardRef((props, ref) => {
         >
           {({ toPdf }) => (
             <div className="button-container" onClick={toPdf}>
-              <button>
+              <button className="default-btn round-corner">
                 Download<i className="fas fa-arrow-circle-down"></i>
               </button>
             </div>

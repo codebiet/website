@@ -196,7 +196,7 @@ const DiscardModal = ({
         </FormGroup>
       </ModalBody>
       <ModalFooter>
-        <Button color="warning" onClick={handleDiscard}>
+        <Button color="warning" className="default-btn" onClick={handleDiscard}>
           Discard
         </Button>
         <Button color="secondary" onClick={toggle}>

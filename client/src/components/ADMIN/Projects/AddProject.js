@@ -305,6 +305,7 @@ function Adminform() {
                   <FormGroup>
                     <Button
                       color="warning"
+                      className="default-btn"
                       type="submit"
                       onClick={handleSubmit}
                     >

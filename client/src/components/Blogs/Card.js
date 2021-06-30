@@ -44,7 +44,7 @@ const CardItem = (props) => {
           </div>
         </div>
         <div className="button" style={{ marginLeft: "20px" }}>
-          <button>Read more</button>
+          <button className="default-btn">Read more</button>
         </div>
       </Link>
     </div>

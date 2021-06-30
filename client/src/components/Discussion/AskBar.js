@@ -183,7 +183,7 @@ const AskBar = ({
                     To help people quicly see what you posted about
                   </small>
                 </div>
-                <button className="btn btn-primary" type="submit">
+                <button className="btn btn-primary default-btn" type="submit">
                   Submit your Question
                 </button>
               </form>

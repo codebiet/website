@@ -84,7 +84,7 @@ export const BlogCard = ({
           </div>
         </div>
         <div className="button">
-          <button>Read more</button>
+          <button className="default-btn">Read more</button>
         </div>
       </Link>
     </div>

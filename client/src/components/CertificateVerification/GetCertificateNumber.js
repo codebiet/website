@@ -16,12 +16,11 @@ const GetCertificateNumber = (props) => {
         <form
           className="check-form"
           onSubmit={(event) => props.handleSubmit(event)}
+          autoComplete="off"
         >
           <div className="input-container">
             <h2>Enter Certificate Number to Verify</h2>
-            <label
-              for="getCertificateNumber-certificateNumber"
-            >
+            <label for="getCertificateNumber-certificateNumber">
               Certificate Number:
             </label>
             <input
@@ -33,14 +32,12 @@ const GetCertificateNumber = (props) => {
             />
           </div>
 
-          <label for="get-certi-no-submit">
-            Let's Check:
-          </label>
+          <label for="get-certi-no-submit">Let's Check:</label>
           <input
             id="get-certi-no-submit"
             type="submit"
             value="CHECK"
-            className="button"
+            className="button default-btn round-corner"
           />
         </form>
       </div>

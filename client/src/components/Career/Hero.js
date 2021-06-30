@@ -16,7 +16,7 @@ const Hero = () => {
             </h2>
             <p>Work at the most dynamic and successful club of BIET.</p>
             <div class="join-box" id="mob-apply">
-              <button type="button" class="btn">
+              <button type="button" class="btn default-btn round-corner">
                 Apply Now
               </button>
             </div>

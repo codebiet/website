@@ -206,7 +206,11 @@ const AddUpdateSuggestionModal = ({
         )}
       </ModalBody>
       <ModalFooter>
-        <Button color="warning" onClick={() => handleSubmit()}>
+        <Button
+          color="warning"
+          className="default-btn"
+          onClick={() => handleSubmit()}
+        >
           {updating ? "Update" : approving ? "Approve" : "Add"}
         </Button>
         <Button color="secondary" onClick={toggle}>

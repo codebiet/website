@@ -91,6 +91,7 @@ const Home = (props) => {
                 <FormGroup>
                   <Button
                     type="email"
+                    className="default-btn"
                     color="warning"
                     placeholder="Enter admin Email"
                     onClick={addAdmin}

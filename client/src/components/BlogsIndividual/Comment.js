@@ -239,7 +239,7 @@ const Comment = ({ id, prevBlog, nextBlog }) => {
               </div> */}
                 <button
                   type="submit "
-                  className="btn-hover color-4"
+                  className="btn-hover color-4 default-btn"
                   onClick={handleComment}
                 >
                   Post Comment

@@ -86,7 +86,10 @@ export const Feedback = () => {
                       onChange={(e) => setFeedback(e.target.value)}
                     />
                   </FormGroup>
-                  <Button className="btnDefault" onClick={handleSubmit}>
+                  <Button
+                    className="btnDefault default-btn"
+                    onClick={handleSubmit}
+                  >
                     Submit
                   </Button>
                 </Form>

@@ -125,7 +125,7 @@ function Contact() {
                 value={msg}
                 onChange={(e) => setMsg(e.target.value)}
               ></textarea>
-              <button type="submit " className="btn-hover color-4">
+              <button type="submit " className="btn-hover color-4 default-btn">
                 Send message
               </button>
             </form>

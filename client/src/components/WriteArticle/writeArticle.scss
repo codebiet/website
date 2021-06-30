@@ -11,22 +11,22 @@
     animation: 1.5s shine linear infinite;
   }
   .btn {
-    background: $color-primary;
-    border: 2px solid $color-primary;
+    background: $color-primary!important;
+    border: 2px solid $color-primary!important;
     &:hover,
     &:active,
     &:focus {
-      background: $button-hover-color !important;
-      border: 2px solid $button-hover-color!important;
+      background: $color-secondary !important;
+      border: 2px solid $color-secondary!important;
     }
     &:last-child {
       background: transparent;
       color: $color-primary;
-      border: 2px solid $button-hover-color;
+      border: 2px solid $color-secondary!important;
       &:hover,
       &:active,
       &:focus {
-        color: $button-hover-color !important;
+        color: $color-secondary !important;
         border: 2px solid $color-primary!important;
         background: transparent!important;
       }

@@ -31,7 +31,9 @@ const Filter = (props) => {
           </div>
         </div>
         <div className="submitbtn">
-          <button type="submit">Search</button>
+          <button type="submit" className="default-btn">
+            Search
+          </button>
         </div>
       </form>
     </div>

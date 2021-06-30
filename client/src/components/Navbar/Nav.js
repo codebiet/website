@@ -191,7 +191,7 @@ function Nav() {
               <li>
                 <NavLink
                   to="/login"
-                  className="cta cta-1"
+                  className="cta cta-1 default-btn round-corner"
                   style={{ color: "#ec7c2d" }}
                 >
                   Login
@@ -200,7 +200,7 @@ function Nav() {
               <li>
                 <NavLink
                   to="/register"
-                  className="cta cta-2"
+                  className="cta cta-2 default-btn round-corner"
                   style={{ color: "white" }}
                 >
                   Join Now
