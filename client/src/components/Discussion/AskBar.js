@@ -5,7 +5,30 @@ import axios from "axios";
 import Tags from "@yaireo/tagify/dist/react.tagify";
 import { Modal, ModalHeader, ModalBody } from "reactstrap";
 //
-
+const whiteList = [
+  "OOPs",
+  "Polymorphism",
+  "Programming Languages",
+  "Interview Preparation",
+  "Gate Preparation",
+  "Dynamic Programming",
+  "Greedy Algorithms",
+  "Stack",
+  "Queues",
+  "Trees",
+  "Graph Theory",
+  "DFS",
+  "BFS",
+  "Deadlock",
+  "Javascript",
+  "HTML",
+  "CSS",
+  "React",
+  "Node.js",
+  "Express.js",
+  "Webpack",
+  "Mongodb",
+];
 const AskBar = ({
   setPosts = () => "",
   getQuery = () => "",
@@ -151,6 +174,8 @@ const AskBar = ({
                   <Tags
                     placeholder="Enter tag and press enter"
                     className="form-control"
+                    whitelist={whiteList}
+                    showDropdown={true}
                     value={tags.join(", ")}
                     onChange={(e) => handleTagChange(e.detail.value)}
                   />
