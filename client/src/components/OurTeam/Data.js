@@ -7,12 +7,12 @@ import Sweety from "../assets/operating/Sweety.jpg";
 import Simran from '../assets/operating/Simran.png';
 import Vaibhav from "../assets/operating/Vaibhav Dixit.png";
 import Prabhat from "../assets/operating/Prabhat.png";
-import Rishi from "../assets/operating/Rishi.png";
+import Rishi from "../assets/operating/rishi.png";
 import Arun from "../assets/operating/Arun.png"
 
 import ShivangiSingh from "../assets/Assistance/Shivangi_Singh.png";
 import Jeenesh from "../assets/Assistance/JeeneshKumar.png";
-import Arnika from "../assets/Assistance/Arnika_kaithwas.png";
+import Arnika from "../assets/Assistance/Arnika_Kaithwas.png";
 import Adarsh from "../assets/Assistance/Adarsh_Srivastava.png";
 import ShivangiShukla from "../assets/Assistance/Shivangi_Shukla.png";
 import Sumit from "../assets/Assistance/Sumit Kumar Singh.png";
