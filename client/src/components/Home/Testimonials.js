@@ -3,7 +3,7 @@ import AOS from "aos";
 import { Link } from "react-router-dom";
 import OwlCarousel from "react-owl-carousel";
 import abhinayDubey from "../assets/testimonials/abhinayDubey.jpg";
-import aman from "../assets/testimonials/aman.jpeg";
+import aman from "../assets/testimonials/amanGangwani.jpeg";
 import ashirvad from "../assets/testimonials/Ashirvad.jpeg";
 import kshitiz from "../assets/testimonials/kshitizSharma.jpeg";
 import prakhar from "../assets/testimonials/prakhar.jpeg";

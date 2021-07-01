@@ -1,3 +1,4 @@
+import { TrendingUp } from "@material-ui/icons";
 import React from "react";
 import { FcSupport } from "react-icons/fc";
 import { GrTechnology } from "react-icons/gr";

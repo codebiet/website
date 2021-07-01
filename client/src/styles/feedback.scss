@@ -1,5 +1,6 @@
 $font1: "Nunito", sans-serif;
 $font2: "Poppins", sans-serif;
+@import "../components/App/colors.scss";
 .feedback-main {
   .complete-screen {
     margin: 0px auto;
@@ -10,7 +11,8 @@ $font2: "Poppins", sans-serif;
 
   .feedbackHead {
     margin: 10px auto;
-    color: rgb(255, 177, 60);
+    color: $color-primary;
+    font-weight: 700;
     padding: 5px;
     text-align: center;
     border-radius: 5px;
@@ -101,13 +103,15 @@ $font2: "Poppins", sans-serif;
   .btnDefault {
     margin: 0px auto;
     margin-top: 20px;
-    background-color: #ec7c2d;
     width: 100%;
     border: none;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     font-family: $font2;
+    &:hover {
+      transform: scale(1.01);
+    }
   }
 
   /* Media Queries */

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import Slider from "@material-ui/core/Slider";
 
 const useStyles = makeStyles({
   root: {
-    color: "#F59F58",
+    color: "rgb(236, 140, 36)",
     height: "10px",
     width: "100%",
     margin: "0px auto",
@@ -21,7 +21,7 @@ const marks = [
     label: "1",
   },
   {
-    value: "2",
+    value: 2,
     label: "2",
   },
   {
@@ -58,10 +58,11 @@ const marks = [
   },
 ];
 
-function RangeSlider() {
+function RangeSlider({ setRating = () => "" }) {
   const classes = useStyles();
 
   function valuetext(value) {
+    setRating(parseInt(value));
     return `${value}`;
   }
 

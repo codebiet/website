@@ -17,7 +17,11 @@ const ConfirmDeletion = ({
       <ModalHeader toggle={toggle}>{modalHeader}</ModalHeader>
       <ModalBody>{msg}</ModalBody>
       <ModalFooter>
-        <Button color="warning" onClick={() => handleSubmit(id)}>
+        <Button
+          color="warning"
+          className="default-btn"
+          onClick={() => handleSubmit(id)}
+        >
           {buttonContent}
         </Button>
         <Button color="secondary" onClick={toggle}>

@@ -303,7 +303,7 @@ const EventFormView = React.forwardRef(
               <Row style={{ width: "100%", marginLeft: 0 }}>
                 <Col md="6">
                   <FormGroup>
-                    <Button type="file" className="btn" id="add-event">
+                    <Button className="btn default-btn" id="add-event">
                       {props.action}
                     </Button>
                   </FormGroup>

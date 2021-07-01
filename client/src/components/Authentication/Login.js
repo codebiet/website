@@ -58,7 +58,9 @@ const EmailForPasswordResetLink = ({ handleSubmit, setForgotPassword }) => {
               <img src={mail} alt="" />
             </div>
             <div className="button-container">
-              <button type="submit">GET THE LINK</button>
+              <button type="submit" className="default-btn">
+                GET THE LINK
+              </button>
             </div>
             <div
               style={{
@@ -187,10 +189,7 @@ const Login = (props) => {
         <React.Fragment>
           {auth.state.emailVerified ? (
             <Redirect
-              to={
-                (props.location.state && props.location.state.from) ||
-                "/"
-              }
+              to={(props.location.state && props.location.state.from) || "/"}
             />
           ) : (
             <React.Fragment>
@@ -231,7 +230,9 @@ const Login = (props) => {
                       <img src={lock} alt="" />
                     </div>
                     <div className="button-container">
-                      <button type="submit">LOGIN</button>
+                      <button type="submit" className="default-btn">
+                        LOGIN
+                      </button>
                     </div>
                     <div
                       style={{
@@ -242,13 +243,22 @@ const Login = (props) => {
                       }}
                     >
                       <div>
-                        <span style={{fontSize:"1rem"}}>Not Registered?</span>
-                        <Link className="link" to="/register" style={{fontSize:"1rem"}}>
+                        <span style={{ fontSize: "1rem" }}>
+                          Not Registered?
+                        </span>
+                        <Link
+                          className="link"
+                          to="/register"
+                          style={{ fontSize: "1rem" }}
+                        >
                           Join Us
                         </Link>
                       </div>
                       <div className="forget-password-container">
-                        <div onClick={(e) => setForgotPassword(true)} style={{fontSize:"1rem",fontWeight:"700"}}>
+                        <div
+                          onClick={(e) => setForgotPassword(true)}
+                          style={{ fontSize: "1rem", fontWeight: "700" }}
+                        >
                           Forgot Password?
                         </div>
                       </div>

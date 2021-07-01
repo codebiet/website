@@ -80,7 +80,7 @@
     transition: background 0.2s ease-in-out;
     margin-bottom: 1rem;
     &:hover {
-      background-color: $button-hover-color;
+      background-color: $color-secondary;
     }
     &:disabled{
       cursor: not-allowed;

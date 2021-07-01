@@ -120,6 +120,7 @@ const EventRegistrations = (props) => {
               <>
                 <Button
                   style={{ position: "absolute", right: "1rem", top: 0 }}
+                  className="default-btn"
                   onClick={() => setMsgOpen((prev) => !prev)}
                 >
                   Send Message

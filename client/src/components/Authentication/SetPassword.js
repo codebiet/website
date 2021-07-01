@@ -54,13 +54,10 @@ const SetPassword = (props) => {
       if (password == confirmPassword) {
         setLoading(true);
         axios
-          .post(
-            `/post/setPassword?id=${params.id}`,
-            {
-              password,
-              confirmPassword,
-            }
-          )
+          .post(`/post/setPassword?id=${params.id}`, {
+            password,
+            confirmPassword,
+          })
           .then((res) => {
             setLoading(false);
             if (res.data && res.data.msg == "success") {
@@ -114,23 +111,21 @@ const SetPassword = (props) => {
               <h1>SET YOUR PASSWORD</h1>
               <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="input-container">
-                  <label for="setPassword-password">
-                    Password:
-                  </label>
+                  <label for="setPassword-password">Password:</label>
                   {passwordInput}
                   <img src={lock} alt="" />
                 </div>
                 <div className="input-container">
-                  <label
-                    for="setPassword-confirmPassword"
-                  >
+                  <label for="setPassword-confirmPassword">
                     ConfirmPassword:
                   </label>
                   {confirmPasswordInput}
                   <img src={lock} alt="" />
                 </div>
                 <div className="button-container">
-                  <button type="submit">SET PASSWORD</button>
+                  <button type="submit" className="default-btn">
+                    SET PASSWORD
+                  </button>
                 </div>
               </form>
             </div>

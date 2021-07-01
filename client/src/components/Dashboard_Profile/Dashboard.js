@@ -221,11 +221,14 @@ const AddPhoneNumberModal = (props) => {
         </Row>
       </ModalBody>
       <ModalFooter>
-        <Button className="phone-button" onClick={handleSubmit}>
+        <Button className="phone-button default-btn" onClick={handleSubmit}>
           {otpSent ? "Verify" : "Update"}
         </Button>
         {otpSent && (
-          <Button className="phone-button" onClick={(e) => resendOtp(e)}>
+          <Button
+            className="phone-button default-btn"
+            onClick={(e) => resendOtp(e)}
+          >
             {seconds ? `Resend in ${seconds}` : "Resend"}
           </Button>
         )}
@@ -3586,7 +3589,7 @@ const Dashboard = (props) => {
                             <Col>
                               <div className="update ml-auto mr-auto">
                                 <Button
-                                  className="submit-button"
+                                  className="submit-button default-btn"
                                   color="warning"
                                   type="submit"
                                   onClick={(e) => handleSubmit(e)}

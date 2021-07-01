@@ -40,8 +40,8 @@ const CardItem = (props) => {
             ))}
           </div>
         </div>
-        <div className="button">
-          <button>Read more</button>
+        <div className="button default-btn">
+          <button className="default-btn">Read more</button>
         </div>
       </Link>
     </div>

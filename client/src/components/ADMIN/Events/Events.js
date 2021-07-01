@@ -119,6 +119,7 @@ const Events = () => {
   const [loading, setLoading] = useState(false);
   const [deleteConfirmationModalOpen, setDeleteCofirmationModalOpen] =
     useState(false);
+  const [eventIdToBeDeleted, setEventIdToBeDeleted] = useState("");
   const info = useContext(InfoContext);
   //managing pagination -- start
   const [currentPage, setCurrentPage] = useState(1);
@@ -169,6 +170,10 @@ const Events = () => {
     console.log(page);
     setCurrentPage(page);
   };
+  const changeEventIdToBeDeleted = (id) => {
+    setEventIdToBeDeleted(id);
+    setDeleteCofirmationModalOpen((prev) => !prev);
+  };
   return (
     <DashboardLayout routes={eventRoutes}>
       <FilterComponent
@@ -196,18 +201,10 @@ const Events = () => {
                     </Link>
                     <button
                       className="remove-button"
-                      onClick={() =>
-                        setDeleteCofirmationModalOpen((prev) => !prev)
-                      }
+                      onClick={() => changeEventIdToBeDeleted(event._id)}
                     >
                       <DeleteForeverRounded />
                     </button>
-                    <ConfirmDeletion
-                      modalOpen={deleteConfirmationModalOpen}
-                      setModalOpen={setDeleteCofirmationModalOpen}
-                      handleDelete={handleDelete}
-                      id={event._id}
-                    />
                   </div>
                 </div>
               );
@@ -236,6 +233,13 @@ const Events = () => {
           )}
         </Col>
       </Row>
+
+      <ConfirmDeletion
+        modalOpen={deleteConfirmationModalOpen}
+        setModalOpen={setDeleteCofirmationModalOpen}
+        handleDelete={handleDelete}
+        id={eventIdToBeDeleted}
+      />
       {totalItems > limit && (
         <Pagination
           totalItems={totalItems}

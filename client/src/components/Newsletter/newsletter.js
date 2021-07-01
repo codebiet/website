@@ -27,7 +27,7 @@ function Newsletter() {
               more than 1-2 times a month. You can unsubscribe anytime.
             </span>
             <br></br>
-            <button type="submit " className="buttonNewsletter">
+            <button type="submit" className="buttonNewsletter default-btn">
               Let's Connect
             </button>
           </form>

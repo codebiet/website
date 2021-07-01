@@ -123,7 +123,7 @@ const Community = (props) => {
               student passionate about development. We want to set up a
               supportive technical community that encourages innovative ideas.
             </p>
-            <Link className="btn btn-style mt-lg-5 mt-4" to="/about">
+            <Link className="btn btn-style mt-lg-5 mt-4 default-btn round-corner" to="/about">
               Wanna Know More?
             </Link>
           </div>

@@ -93,7 +93,11 @@ const SendMessageModal = ({ modalOpen, setModalOpen, eventId }) => {
         </FormGroup>
       </ModalBody>
       <ModalFooter>
-        <Button color="warning" onClick={() => sendMessage()}>
+        <Button
+          className="default-btn"
+          color="warning"
+          onClick={() => sendMessage()}
+        >
           Send Message
         </Button>
         <Button color="secondary" onClick={toggle}>

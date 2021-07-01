@@ -12,7 +12,11 @@ import {
   Button,
 } from "reactstrap";
 import { InfoContext } from "../../state/Store";
-import { generateError, clearEverything, generateSuccess} from "../../state/info/infoActions";
+import {
+  generateError,
+  clearEverything,
+  generateSuccess,
+} from "../../state/info/infoActions";
 import Cookies from "js-cookie";
 // const Loader = lazy(() => import("../Loader/Loader"));
 const months = [
@@ -101,7 +105,11 @@ const RegistrationModal = ({ modalOpen, setModalOpen, eventId, setAlert }) => {
         </FormGroup>
       </ModalBody>
       <ModalFooter>
-        <Button color="warning" onClick={handleRegister}>
+        <Button
+          color="warning"
+          className="default-btn"
+          onClick={handleRegister}
+        >
           Register
         </Button>
         <Button color="secondary" onClick={toggle}>
@@ -156,10 +164,10 @@ function Event_details(props) {
   const dt = starts.getDate();
   const date = dt < 10 ? "0" + dt : dt;
   const isRegisterDisabled = () => {
-    let disabled = new Date() >= new Date(event.startsOn) ? true : false;//verifying previus event;
+    let disabled = new Date() >= new Date(event.startsOn) ? true : false; //verifying previus event;
     disabled = disabled || Cookies.get(props.match.params.id);
     return disabled;
-  }
+  };
   return (
     <main className="event-details-main">
       <div className="eventDetails">
