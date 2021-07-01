@@ -13,7 +13,14 @@ function Error404() {
           <Nav />
           <div className="this">
             <div className="error404">
-              <div className="erro404Inner" style={{margin:"2rem auto 4rem auto"}}>
+              <div
+                className="erro404Inner"
+                style={{
+                  margin: "2rem auto 4rem auto",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
                 <img src={error} alt="404 error"></img>
               </div>
             </div>
