@@ -1,4 +1,6 @@
 import React from "react";
+import { FcSupport } from "react-icons/fc";
+import { GrTechnology } from "react-icons/gr";
 
 const Values = () => {
   return (
@@ -8,22 +10,28 @@ const Values = () => {
       </h1>
       <div className="valuesDiv">
         <div className="valueCard">
-          <span>🎯</span>Easy
+          <span>🎯</span>Best Mentorship
         </div>
         <div className="valueCard">
-          <span>🚀</span>Fast
+          <span>🚀</span>Open source environment
         </div>
         <div className="valueCard">
-          <span>📩</span>Deliver
+          <span>
+            <FcSupport />
+          </span>
+          Discussion Platform
         </div>
         <div className="valueCard">
           <span>💰</span>Free to join and Learn
         </div>
         <div className="valueCard">
-          <span>📡 </span>Edge c=Cutting tools
+          <span>
+            <GrTechnology />
+          </span>
+          Work on Trending Technologies
         </div>
         <div className="valueCard">
-          <span>❤️</span>Promisable
+          <span>❤️</span>Healthy competition
         </div>
       </div>
     </div>

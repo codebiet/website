@@ -1,23 +1,25 @@
 import PiyushSingh from "../assets/operating/piyush_singh.png";
-import Shashank from "../assets/operating/Shashank Kumar.png";
+import Shashank from "../assets/operating/Shashank.jpg";
 import Sooraj from "../assets/operating/Sooraj Shukla.png";
 import Sharad from "../assets/operating/Sharad.jpg";
-import Raveet from "../assets/operating/Raveet kumar.jpg";
-import Sweety from "../assets/operating/Sweety Sahu.png";
-import Simran from '../assets/operating/Simran Singh.png';
+import Raveet from "../assets/operating/Raveet.png";
+import Sweety from "../assets/operating/Sweety.jpg";
+import Simran from '../assets/operating/Simran.png';
 import Vaibhav from "../assets/operating/Vaibhav Dixit.png";
-import Prabhat from "../assets/operating/Prabhat Soni.png";
-import Rishi from "../assets/operating/photo - Rishi Bajpai.jpg";
-import ShivangiSingh from "../assets/Assistance/Shivangi singh.jpg";
-import Jeenesh from "../assets/Assistance/Jeenesh Kumar Chaudhary.jpg";
-import Arnika from "../assets/Assistance/Arnika kaithwas.png";
-import Adarsh from "../assets/Assistance/Adarsh Srivastava.png";
-import ShivangiShukla from "../assets/Assistance/Shivangi Shukla.png";
+import Prabhat from "../assets/operating/Prabhat.png";
+import Rishi from "../assets/operating/Rishi.png";
+import Arun from "../assets/operating/Arun.png"
+
+import ShivangiSingh from "../assets/Assistance/Shivangi_Singh.png";
+import Jeenesh from "../assets/Assistance/JeeneshKumar.png";
+import Arnika from "../assets/Assistance/Arnika_kaithwas.png";
+import Adarsh from "../assets/Assistance/Adarsh_Srivastava.png";
+import ShivangiShukla from "../assets/Assistance/Shivangi_Shukla.png";
 import Sumit from "../assets/Assistance/Sumit Kumar Singh.png";
-import Ayush from "../assets/Assistance/Ayush Kumar Shukla.png";
-import Shubham from "../assets/Assistance/Shubham Pathak.png";
-import Sanskar from "../assets/Assistance/Sanskar singh.png";
-import Hareesh from "../assets/Assistance/Hareesh Kumar.jpeg";
+import Ayush from "../assets/Assistance/Ayush_Kumar.png";
+import Shubham from "../assets/Assistance/Shubham_Phathak.png";
+import Sanskar from "../assets/Assistance/Sanskar_Singh.png";
+import Hareesh from "../assets/Assistance/Hareesh_Charchil.png";
 export default [
   {
     id: 1,
@@ -60,7 +62,7 @@ export default [
     category: "Operating Member",
     mail: "mailto:singhsharad529@gmail.com",
     fb_link: "https://www.facebook.com/sharad.singh.712714/",
-    lnkdin_link: "linkedin.com/in/ss529",
+    lnkdin_link: "https://www.linkedin.com/in/ss529",
   },
 
   {
@@ -127,7 +129,15 @@ export default [
     mail: "mailto:rrb24397@gmail.com",
     fb_link: "",
     lnkdin_link: "linkedin.com/in/rishi-bajpai",
-  },
+  },{
+  id: 11,
+  name: "Arun kumar Rajput",
+  image:Arun,
+  post: "Developer",
+  category: "Operating Member",
+  mail: "mailto:Ar1445942@gmail.com",
+  fb_link: "https://m.facebook.com/arap.rajput",
+  lnkdin_link: "https://www.linkedin.com/in/arun-kumar-rajput-697076170/",},
   {
     id: 11,
     name: "Shivangi Singh",
