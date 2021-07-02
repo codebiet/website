@@ -20,8 +20,8 @@
       border: 2px solid $color-secondary!important;
     }
     &:last-child {
-      background: transparent;
-      color: $color-primary;
+      background: transparent!important;
+      color: $color-primary!important;
       border: 2px solid $color-secondary!important;
       &:hover,
       &:active,

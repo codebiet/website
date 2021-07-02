@@ -81,7 +81,7 @@ export default (props) => {
             </h2>
             <Editor editorState={editorState} setEditorState={setEditorState} />
             <div className="button-container">
-              <Button onClick={(e) => submitForReview(e)} className="default-btn">
+              <Button onClick={(e) => submitForReview(e)}>
                 Submit for Review
               </Button>
               <Button onClick={(e) => saveAsDraft(e)}>Save As Draft</Button>
