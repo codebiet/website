@@ -6,7 +6,7 @@ import ReactDOM from "react-dom";
 import "aos/dist/aos.css";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import "./all.scss";
+// import "./all.scss";
 import ErrorBoundary from "../../HOC/ErrorBoundary";
 // import Register from "../Authentication/Register";
 // import SentVerifyEmail from "../Authentication/SentVerifyEmail";
