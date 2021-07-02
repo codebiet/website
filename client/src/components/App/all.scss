@@ -1,4 +1,7 @@
-@import "~bootstrap/scss/bootstrap"; //styles need to be overwritten
+@import url("aos/dist/aos.css");
+@import url("owl.carousel/dist/assets/owl.carousel.css");
+@import url("owl.carousel/dist/assets/owl.theme.default.css");
+@import "~bootstrap/scss/bootstrap.scss"; //styles need to be overwritten
 @import "../Dashboard_Profile/paper-dashboard.scss"; //some of the styles need to be overwritten;
 @import url("perfect-scrollbar/css/perfect-scrollbar.css"); //some of the styles need to be overwritten
 @import "../Home/Home.scss"; //some of the styles need to be overwritten
@@ -30,7 +33,6 @@
 @import "../Dashboard_Profile/demo.scss";
 @import "../Dashboard_Profile/dashboardSidebar.scss";
 @import "../Dashboard_Profile/dashboard.scss";
-@import "../Loader/loader.scss";
 @import "../Navbar/Navbar.scss";
 @import "../Resume/resume.scss";
 @import "../Resume/resumeTemplate1.scss";
