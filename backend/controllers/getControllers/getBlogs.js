@@ -6,7 +6,6 @@ const getUTCDate = (ISTDateString) => {
 module.exports = async (req, res) => {
   const filters = {
     state: (req.query.state && [req.query.state]) || [
-      "DRAFT",
       "PENDING",
       "DISCARDED",
       "APPROVED",
