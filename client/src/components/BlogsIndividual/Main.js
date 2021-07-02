@@ -159,7 +159,7 @@ const Main = (props) => {
               {recentBlogs.length > 0 && (
                 <div className="widget">
                   <h2 className="recent_widget recent_post">Recent Post</h2>
-                  <ul>
+                  <ul className="recent-blogs">
                     {recentBlogs &&
                       recentBlogs.map((blog) => {
                         return (

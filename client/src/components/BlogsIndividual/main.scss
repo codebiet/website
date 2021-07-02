@@ -340,9 +340,12 @@
     margin-top: 7px;
     font-size: 12px;
   }
-  ul {
+  ul.recent-blogs {
     list-style: none;
     padding-left: 0;
+  }
+  ul,ol{
+    margin-left:1.2rem;
   }
   #link::before {
     display: inline;
