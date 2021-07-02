@@ -133,7 +133,7 @@ const Hero = (props) => {
               </p>
               <div className="mt-md-5 mb-lg-0">
                 <a
-                  className="btn btn-style"
+                  className="btn btn-style default-btn"
                   href="https://drive.google.com/file/d/1nD_OfSQ70HxRf7SJKShOHcuiLiCX1rmd/view?usp=sharing"
                   style={{ fontWeight: 700, textTransform: "capitalize" }}
                   target="_blank"
