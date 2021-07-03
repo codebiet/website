@@ -137,6 +137,7 @@ const Hero = (props) => {
                   href="https://drive.google.com/file/d/1nD_OfSQ70HxRf7SJKShOHcuiLiCX1rmd/view?usp=sharing"
                   style={{ fontWeight: 700, textTransform: "capitalize" }}
                   target="_blank"
+                  rel="noopener"
                 >
                   View our Works
                 </a>

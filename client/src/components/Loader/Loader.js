@@ -1,5 +1,4 @@
 import React from "react";
-import "./loader.scss";
 function Loader({ fullPageLoader }) {
   return (
     <div

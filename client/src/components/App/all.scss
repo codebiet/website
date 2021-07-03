@@ -1,9 +1,9 @@
 @import url("aos/dist/aos.css");
-@import url("owl.carousel/dist/assets/owl.carousel.css");
-@import url("owl.carousel/dist/assets/owl.theme.default.css");
 @import "~bootstrap/scss/bootstrap.scss"; //styles need to be overwritten
 @import "../Dashboard_Profile/paper-dashboard.scss"; //some of the styles need to be overwritten;
 @import url("perfect-scrollbar/css/perfect-scrollbar.css"); //some of the styles need to be overwritten
+@import url("owl.carousel/dist/assets/owl.carousel.css");
+@import url("owl.carousel/dist/assets/owl.theme.default.css");
 @import "../Home/Home.scss"; //some of the styles need to be overwritten
 
 @import "./theme.scss";

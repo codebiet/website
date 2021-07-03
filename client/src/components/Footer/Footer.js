@@ -23,6 +23,7 @@ function Footer() {
                     href="mailto:code@bietjhs.ac.in"
                     className="mail"
                     target="_blank"
+                    rel="noopener"
                   >
                     code@bietjhs.ac.in
                   </a>
@@ -110,6 +111,7 @@ function Footer() {
                     <a
                       href="https://www.facebook.com/codebietjhs/"
                       target="_blank"
+                      rel="noopener"
                       className="socialIcon"
                     >
                       <img src="https://img.icons8.com/fluent/40/000000/facebook-new.png" />
@@ -117,6 +119,7 @@ function Footer() {
                     <a
                       href="https://t.me/joinchat/AAAAAFMLj2wLbN8JYCMtlg"
                       target="_blank"
+                      rel="noopener"
                       className="socialIcon"
                     >
                       <img src="https://img.icons8.com/fluent/40/000000/telegram-app.png" />
@@ -124,6 +127,7 @@ function Footer() {
                     <a
                       href="https://www.linkedin.com/company/codebiet/"
                       target="_blank"
+                      rel="noopener"
                       className="socialIcon"
                     >
                       <img src="https://img.icons8.com/fluent/40/000000/linkedin-circled.png" />
@@ -131,6 +135,7 @@ function Footer() {
                     <a
                       href="https://www.youtube.com/channel/UCgxZ9rqaWscw-kOfkj2F2lQ"
                       target="_blank"
+                      rel="noopener"
                       className="socialIcon"
                     >
                       <img src="https://img.icons8.com/fluent/40/000000/youtube-play.png" />

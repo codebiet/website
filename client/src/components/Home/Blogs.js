@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, lazy } from "react";
 import AOS from "aos";
 import { Link } from "react-router-dom";
 import like from "../assets/like.png";
 import user from "../assets/user.png";
 import calendar from "../assets/calendar.png";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import blogCardImg1 from "../assets/blogCardImg1.jpg";
 import blogCardImg2 from "../assets/blogCardImg2.jpg";
 import blogCardImg3 from "../assets/blogCardImg3.jpg";
@@ -57,7 +58,8 @@ export const BlogCard = ({
           data-category={category}
           style={{ marginRight: 0, marginLeft: 0, marginTop: 0 }}
         >
-          <img className="cards__item__img" alt="Image" src={blogImg} />
+          <LazyLoadImage alt="" src={blogImg} />
+          {/* <img className="cards__item__img" alt="Image" src={blogImg} /> */}
         </figure>
         <div className="cards__item__info">
           <div className="info-icons">

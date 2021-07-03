@@ -1,9 +1,10 @@
 import React, { useEffect, useState, lazy } from "react";
 import AOS from "aos";
 import OwlCarousel from "react-owl-carousel";
-// import EventCard from "../EventCard/EventCard";
+import EventCard from "../EventCard/EventCard";
+// const OwlCarousel = lazy(() => import("react-owl-carousel"));
 // import EventLoaderCard from "../EventCard/EventCardLoader";
-const EventCard = lazy(() => import("../EventCard/EventCard"));
+// const EventCard = lazy(() => import("../EventCard/EventCard"));
 const EventLoaderCard = lazy(() => import("../EventCard/EventCardLoader"));
 import { Container } from "reactstrap";
 import axios from "axios";
@@ -51,7 +52,7 @@ const Events = (props) => {
             </h3>
           </div>
           <Container className="py-md-5 events-container">
-            {eventsData.length && (
+            {eventsData.length && EventCard && (
               <OwlCarousel
                 items={3}
                 autoplay={true}
