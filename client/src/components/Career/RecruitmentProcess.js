@@ -11,15 +11,15 @@ const RecruitmentProcess = () => {
     AOS.refresh({ duration: 1000, once: true });
   }, []);
   return (
-    <section class="learn-process">
-      <div class="container">
+    <section className="learn-process">
+      <div className="container">
         <h1 data-aos="zoom-in" id="recruitment-text">
           Learn Our Recruitment <span id="changec">Process</span>
         </h1>
         <br />
-        <div class="row">
-          <div data-aos="fade-up" class="col-lg-3 col-md-6 col-sm-6 col-12">
-            <div class="learn-box">
+        <div className="row">
+          <div data-aos="fade-up" className="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div className="learn-box">
               <Image src={ip1} alt="" />
               <h2>CV Submission</h2>
               <p>
@@ -28,8 +28,8 @@ const RecruitmentProcess = () => {
               </p>
             </div>
           </div>
-          <div data-aos="fade-up" class="col-lg-3 col-md-6 col-sm-6 col-12">
-            <div class="learn-box">
+          <div data-aos="fade-up" className="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div className="learn-box">
               <Image src={ip2} alt="" />
               <h2>Phone Screening</h2>
               <p>
@@ -38,8 +38,8 @@ const RecruitmentProcess = () => {
               </p>
             </div>
           </div>
-          <div data-aos="fade-up" class="col-lg-3 col-md-6 col-sm-6 col-12">
-            <div class="learn-box">
+          <div data-aos="fade-up" className="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div className="learn-box">
               <Image src={ip3} alt="" />
               <h2>Skill Assessment</h2>
               <p>
@@ -48,8 +48,8 @@ const RecruitmentProcess = () => {
               </p>
             </div>
           </div>
-          <div data-aos="fade-up" class="col-lg-3 col-md-6 col-sm-6 col-12">
-            <div class="learn-box">
+          <div data-aos="fade-up" className="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div className="learn-box">
               <Image src={ip4} alt="" />
               <h2>Final Interview</h2>
               <p>

@@ -56,7 +56,7 @@ const Card = ({ suggestedBlogs }) => {
             <div className="card_cot cot">
               <div className="post">
                 <header className="header">
-                  <h2 class="block_title h3" style={{ marginLeft: 10 }}>
+                  <h2 className="block_title h3" style={{ marginLeft: 10 }}>
                     You might also enjoy
                   </h2>
                 </header>

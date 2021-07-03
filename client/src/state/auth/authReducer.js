@@ -40,7 +40,7 @@ const initialState = {
 };
 
 const authReducer = (state = initialState, action) => {
-  console.log(action);
+  // console.log(action);
   switch (action.type) {
     case LOAD_USER_REQUEST:
       return { ...state, userLoading: true };

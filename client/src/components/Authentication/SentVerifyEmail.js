@@ -23,8 +23,8 @@ const SentVerifyEmail = (props) => {
   useEffect(() => {
     axios
       .get("/api/sendVerificationEmail")
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
+      .then((res) => {})
+      .catch((err) => {});
   }, []);
   //reseting counter after sending the link again
   useEffect(() => {

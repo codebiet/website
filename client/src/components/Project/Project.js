@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const Project = (props) => {
+export default (props) => {
   const [lotus, setlotus] = useState("block");
   const [boat, setboat] = useState("none");
   const [leaves, setleaves] = useState("none");

@@ -1,19 +1,6 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  Container,
-} from "reactstrap";
-import logo from "../assets/logo_nobg.png";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import HomeIcon from "@material-ui/icons/Home";
-import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
-
+import { useLocation } from "react-router-dom";
+import { Navbar, NavbarBrand, NavItem, Container } from "reactstrap";
 function Header(props) {
   const [isOpen, setIsOpen] = React.useState(false);
   const [color, setColor] = React.useState("transparent");
@@ -74,9 +61,25 @@ function Header(props) {
             </button>
           </div>
           <NavbarBrand href="/">
-            <img src={logo} alt="" width="50px" />
+            <img
+              src="https://club-of-developers.s3.ap-south-1.amazonaws.com/codeLogo.png"
+              alt=""
+              width="50px"
+            />
           </NavbarBrand>
-          <NavItem className="pr-3 font-weight-bold" style={{listStyle:"none",margin:"0",padding:"0",marginLeft:".5rem",position:"relative",top:".2rem"}}>MEMBER DASHBOARD</NavItem>
+          <NavItem
+            className="pr-3 font-weight-bold"
+            style={{
+              listStyle: "none",
+              margin: "0",
+              padding: "0",
+              marginLeft: ".5rem",
+              position: "relative",
+              top: ".2rem",
+            }}
+          >
+            MEMBER DASHBOARD
+          </NavItem>
         </div>
         {/* <NavbarToggler onClick={toggle}>
           <span className="navbar-toggler-bar navbar-kebab" />

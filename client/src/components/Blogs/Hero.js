@@ -26,7 +26,7 @@ const Hero = (props) => {
                   <img src={blogs[0].cardImg} className="image1" />
                   <span className="blog-category">{blogs[0].category}</span>
                 </div>
-                <div class="example">
+                <div className="example">
                   <a>{blogs[0].title}</a>
                   <div className="tab_h">
                     {blogs[0].tags &&

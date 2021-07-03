@@ -72,8 +72,8 @@ const PostCard = ({ post = {}, setPosts = () => "", getQuery = () => "" }) => {
                 <h2>{post.queryTitle}</h2>
                 <p style={{ textAlign: "justify" }}>{post.queryDescription}</p>
                 <div className="tagContainer mt-20">
-                  {post.tags.map((tag) => (
-                    <a href="#" className="tag color1">
+                  {post.tags.map((tag, index) => (
+                    <a key={index} href="#" className="tag color1">
                       {tag}
                     </a>
                   ))}

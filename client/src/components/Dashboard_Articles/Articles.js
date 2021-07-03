@@ -1,14 +1,13 @@
 import React, { lazy, useState, useEffect, useContext } from "react";
-import { AuthContext, InfoContext } from "../../state/Store";
-const Loader = lazy(() => import("../Loader/Loader"));
+import { AuthContext } from "../../state/Store";
 const DemoNavbar = lazy(() =>
   import("../Dashboard_Profile/DashboardHeaderNav")
 );
 const Sidebar = lazy(() => import("../Dashboard_Profile/DashboardSidebar"));
 const Footer = lazy(() => import("../Dashboard_Profile/DashboardFooter"));
+const SuggestionCard = lazy(() => import("../ADMIN/Blogs/SuggestionCard"));
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import SuggestionCard from "../ADMIN/Blogs/SuggestionCard";
 const Articles = (props) => {
   const [loading, setLoading] = useState(false);
   const [articles, setArticles] = useState([]);
@@ -22,7 +21,7 @@ const Articles = (props) => {
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   }, []);
   return (

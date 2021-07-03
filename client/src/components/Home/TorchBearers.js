@@ -18,7 +18,7 @@ const partners = [civil, cossco, drones, eef, electronics, fee, findredd, mechan
 const PartnerCard = ({ img }) => {
   return (
     <div
-      class="partnericon"
+      className="partnericon"
       data-aos="fade-up"
       data-aos-delay="100"
       data-aos-duration="1000"
@@ -36,19 +36,19 @@ const TorchBearers = () => {
   }, []);
   return (
     <section
-      class="w3l-clients py-5 mt-4"
+      className="w3l-clients py-5 mt-4"
       data-aos="zoom-right"
       data-aos-delay="100"
       data-aos-duration="1000"
       data-aos-once={true}
     >
-      <div class="container">
+      <div className="container">
         <div
-          class="title-main text-center mx-auto mb-5"
+          className="title-main text-center mx-auto mb-5"
           style={{ maxWidth: "600px" }}
         >
-          <p class="mt-2">partners in change</p>
-          <h3 class="title-style title-style-torchbearers">
+          <p className="mt-2">partners in change</p>
+          <h3 className="title-style title-style-torchbearers">
             Our <span>Torchbearers</span>
           </h3>
         </div>

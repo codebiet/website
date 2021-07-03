@@ -54,7 +54,7 @@ const AskBar = ({
     let parsedValues = [];
     if (values) parsedValues = JSON.parse(values);
     parsedValues = parsedValues.map((tagObj) => tagObj.value);
-    console.log(parsedValues);
+    // console.log(parsedValues);
     setTags(parsedValues);
   };
 
@@ -76,7 +76,7 @@ const AskBar = ({
             "Your doubt has been posted. We'll notify you when someone replies on this."
           )
         );
-        console.log(res.data);
+        // console.log(res.data);
         setPosts(res.data.doubts);
         setTotalItems(res.data.totalItems);
       })

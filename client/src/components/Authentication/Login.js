@@ -99,7 +99,7 @@ const Login = (props) => {
   //Context
   const auth = useContext(AuthContext);
   const info = useContext(InfoContext);
-  console.log(auth.state);
+  // console.log(auth.state);
   //form values, useInput is the custom hook imported from register component
   const [email, emailInput] = useInput({
     type: "email",
@@ -157,7 +157,7 @@ const Login = (props) => {
   };
   //handles forgot password click
   const handleForgotPassword = (e, emailValue) => {
-    console.log("Is handle Forgot Password also run");
+    // console.log("Is handle Forgot Password also run");
     const re =
       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!emailValue)

@@ -89,9 +89,12 @@ const EventCard = ({
             </div>
             <div className="shortDescription">{shortDescription}</div>
             <div className="tagsContainer">
-              {tags.map((tag) => (
-                <div className="tags">{tag}</div>
-              ))}
+              {tags &&
+                tags.map((tag) => (
+                  <div key={tag} className="tags">
+                    {tag}
+                  </div>
+                ))}
             </div>
           </div>
         </div>

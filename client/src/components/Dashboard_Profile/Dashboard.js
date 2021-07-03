@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, lazy } from "react";
 import { Redirect } from "react-router-dom";
 import { AuthContext } from "../../state/Store";
 import { loadUser } from "../../state/auth/authActions";
@@ -27,9 +27,12 @@ import Typography from "@material-ui/core/Typography";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import DemoNavbar from "./DashboardHeaderNav";
-import Footer from "./DashboardFooter";
-import Sidebar from "./DashboardSidebar";
+// import DemoNavbar from "./DashboardHeaderNav";
+// import Footer from "./DashboardFooter";
+// import Sidebar from "./DashboardSidebar";
+const DemoNavbar = lazy(() => import("./DashboardHeaderNav"));
+const Footer = lazy(() => import("./DashboardFooter"));
+const Sidebar = lazy(() => import("./DashboardSidebar"));
 
 // reactstrap components
 import {
@@ -173,7 +176,7 @@ const AddPhoneNumberModal = (props) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("called");
+    // console.log("called");
     if (otpSent) {
       submitOtp();
     } else {
@@ -258,9 +261,6 @@ while (yearGeneratingNum >= -12) {
   yearGeneratingNum -= 1;
 }
 const TakeData = ({
-  degree,
-  setDegree,
-  college,
   setCollege,
   collegeCity,
   setCollegeCity,
@@ -303,10 +303,20 @@ const TakeData = ({
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes.heading}>Basic Information</Typography>
+          <Typography
+            component={"span"}
+            variant={"body2"}
+            className={classes.heading}
+          >
+            Basic Information
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography style={{ width: "100%" }}>
+          <Typography
+            component={"span"}
+            variant={"body2"}
+            style={{ width: "100%" }}
+          >
             <Row style={{ width: "100%" }}>
               <Col md="6" xs="11">
                 <FormGroup>
@@ -400,68 +410,31 @@ const TakeData = ({
 
       {academics.map((acad, index) => {
         return (
-          <>
-            <Accordion style={{ width: "100%" }}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
+          <Accordion key={index} style={{ width: "100%" }}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography
+                component={"span"}
+                variant={"body2"}
+                className={classes.heading}
               >
-                <Typography className={classes.heading}>
-                  {acad.degree + " Details"}
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography style={{ width: "100%" }}>
-                  <Row style={{ width: "100%" }} key={index}>
-                    {/* applicable for B.Tech only */}
-                    {index == 0 && (
-                      <>
-                        <Col md="4" xs="11">
-                          <FormGroup>
-                            <label
-                              className="fontType"
-                              htmlFor={"college-" + index}
-                            >
-                              College
-                            </label>
-                            <select
-                              id={`college-${index}`}
-                              className="form-control"
-                              value={acad.college}
-                              onChange={(e) => {
-                                setCollege(e.target.value);
-                                setAcademics((prev) => {
-                                  prev[index].college = e.target.value;
-                                  return [...prev];
-                                });
-                              }}
-                            >
-                              <option value="">College</option>
-                              <option value="BIET">BIET</option>
-                              <option value="OTHERS">OTHERS</option>
-                            </select>
-                          </FormGroup>
-                        </Col>
-                        <Col md="4" xs="11">
-                          <FormGroup>
-                            <label className="fontType" htmlFor="whatsapp">
-                              College City
-                            </label>
-                            <input
-                              className="form-control"
-                              type="text"
-                              placeholder="College City"
-                              value={collegeCity}
-                              onChange={(e) => setCollegeCity(e.target.value)}
-                            />
-                          </FormGroup>
-                        </Col>
-                      </>
-                    )}
-                    {/* applicable for 12th and 10th and not for B.tech */}
-                    {index != 0 && (
-                      <Col md="8" xs="11">
+                {acad.degree + " Details"}
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography
+                component={"span"}
+                variant={"body2"}
+                style={{ width: "100%" }}
+              >
+                <Row style={{ width: "100%" }} key={index}>
+                  {/* applicable for B.Tech only */}
+                  {index == 0 && (
+                    <>
+                      <Col md="4" xs="11">
                         <FormGroup>
                           <label
                             className="fontType"
@@ -469,189 +442,232 @@ const TakeData = ({
                           >
                             College
                           </label>
-                          <input
+                          <select
                             id={`college-${index}`}
-                            type="text"
                             className="form-control"
-                            placeholder="College"
                             value={acad.college}
-                            onChange={(e) =>
+                            onChange={(e) => {
+                              setCollege(e.target.value);
                               setAcademics((prev) => {
                                 prev[index].college = e.target.value;
+                                return [...prev];
+                              });
+                            }}
+                          >
+                            <option value="">College</option>
+                            <option value="BIET">BIET</option>
+                            <option value="OTHERS">OTHERS</option>
+                          </select>
+                        </FormGroup>
+                      </Col>
+                      <Col md="4" xs="11">
+                        <FormGroup>
+                          <label className="fontType" htmlFor="whatsapp">
+                            College City
+                          </label>
+                          <input
+                            className="form-control"
+                            type="text"
+                            placeholder="College City"
+                            value={collegeCity}
+                            onChange={(e) => setCollegeCity(e.target.value)}
+                          />
+                        </FormGroup>
+                      </Col>
+                    </>
+                  )}
+                  {/* applicable for 12th and 10th and not for B.tech */}
+                  {index != 0 && (
+                    <Col md="8" xs="11">
+                      <FormGroup>
+                        <label
+                          className="fontType"
+                          htmlFor={"college-" + index}
+                        >
+                          College
+                        </label>
+                        <input
+                          id={`college-${index}`}
+                          type="text"
+                          className="form-control"
+                          placeholder="College"
+                          value={acad.college}
+                          onChange={(e) =>
+                            setAcademics((prev) => {
+                              prev[index].college = e.target.value;
+                              return [...prev];
+                            })
+                          }
+                        />
+                      </FormGroup>
+                    </Col>
+                  )}
+                  <Col md="3" xs="11">
+                    <FormGroup>
+                      <label className="fontType" htmlFor={"degree-" + index}>
+                        Degree
+                      </label>
+                      <input
+                        id={`degree-${index}`}
+                        type="text"
+                        className="form-control"
+                        placeholder="Degree(Eg. B.Tech/XII/X)"
+                        value={acad.degree}
+                        disabled
+                      />
+                    </FormGroup>
+                  </Col>
+                </Row>
+                {/* applicable for B.tech only */}
+                {index == 0 && (
+                  <Row style={{ width: "100%" }}>
+                    <Col md="4" xs="11">
+                      <FormGroup>
+                        <label className="fontType" htmlFor="year">
+                          Year
+                        </label>
+                        <select
+                          className="form-control"
+                          value={year}
+                          onChange={(e) => setYear(e.target.value)}
+                        >
+                          <option value="">Choose Year</option>
+                          <option value="1">1st</option>
+                          <option value="2">2nd</option>
+                          <option value="3">3rd</option>
+                          <option value="4">4th</option>
+                        </select>
+                      </FormGroup>
+                    </Col>
+                    <Col md="4" xs="11">
+                      <FormGroup>
+                        <label className="fontType" htmlFor="branch">
+                          Branch
+                        </label>
+
+                        <select
+                          className="form-control"
+                          value={branch}
+                          onChange={(e) => setBranch(e.target.value)}
+                        >
+                          <option value="">Branch</option>
+                          <option value="Electrical Engineering">
+                            Electrical Engineering
+                          </option>
+                          <option value="Electronics and Communication">
+                            Electronics and Communication
+                          </option>
+                          <option value="Computer Science and Engineering">
+                            Computer Science and Engineering
+                          </option>
+                          <option value="Infomation Technology">
+                            Infomation Technology
+                          </option>
+                          <option value="Civil Engineering">
+                            Civil Engineering
+                          </option>
+                          <option value="Mechanical Engineering">
+                            Mechanical Engineering
+                          </option>
+                          <option value="Chemical Technology">
+                            Chemical Technology
+                          </option>
+                        </select>
+                      </FormGroup>
+                    </Col>
+                    <Col md="3" xs="11">
+                      <FormGroup>
+                        <label className="fontType" htmlFor="rollnumber">
+                          Roll Number
+                        </label>
+                        {rollNumberInput}
+                      </FormGroup>
+                    </Col>
+                  </Row>
+                )}
+                <Row style={{ width: "100%" }}>
+                  <Col md="8">
+                    <Row style={{ maxWidth: "100%", margin: 0 }}>
+                      <Col xs="8" style={{ paddingLeft: "0" }}>
+                        <FormGroup>
+                          <label
+                            className="fontType"
+                            htmlFor={"result-" + index}
+                          >
+                            GPA/Percentage
+                          </label>
+                          <input
+                            style={{ width: "99%" }}
+                            id={`result-${index}`}
+                            type="text"
+                            className="form-control"
+                            placeholder="GPA/Percentage"
+                            value={acad.result}
+                            onChange={(e) =>
+                              setAcademics((prev) => {
+                                prev[index].result = e.target.value;
                                 return [...prev];
                               })
                             }
                           />
                         </FormGroup>
                       </Col>
-                    )}
-                    <Col md="3" xs="11">
-                      <FormGroup>
-                        <label className="fontType" htmlFor={"degree-" + index}>
-                          Degree
-                        </label>
-                        <input
-                          id={`degree-${index}`}
-                          type="text"
-                          className="form-control"
-                          placeholder="Degree(Eg. B.Tech/XII/X)"
-                          value={acad.degree}
-                          disabled
-                        />
-                      </FormGroup>
-                    </Col>
-                  </Row>
-                  {/* applicable for B.tech only */}
-                  {index == 0 && (
-                    <Row style={{ width: "100%" }}>
-                      <Col md="4" xs="11">
-                        <FormGroup>
-                          <label className="fontType" htmlFor="year">
-                            Year
-                          </label>
-                          <select
-                            className="form-control"
-                            value={year}
-                            onChange={(e) => setYear(e.target.value)}
-                          >
-                            <option value="">Choose Year</option>
-                            <option value="1">1st</option>
-                            <option value="2">2nd</option>
-                            <option value="3">3rd</option>
-                            <option value="4">4th</option>
-                          </select>
-                        </FormGroup>
-                      </Col>
-                      <Col md="4" xs="11">
-                        <FormGroup>
-                          <label className="fontType" htmlFor="branch">
-                            Branch
-                          </label>
-
-                          <select
-                            className="form-control"
-                            value={branch}
-                            onChange={(e) => setBranch(e.target.value)}
-                          >
-                            <option value="">Branch</option>
-                            <option value="Electrical Engineering">
-                              Electrical Engineering
-                            </option>
-                            <option value="Electronics and Communication">
-                              Electronics and Communication
-                            </option>
-                            <option value="Computer Science and Engineering">
-                              Computer Science and Engineering
-                            </option>
-                            <option value="Infomation Technology">
-                              Infomation Technology
-                            </option>
-                            <option value="Civil Engineering">
-                              Civil Engineering
-                            </option>
-                            <option value="Mechanical Engineering">
-                              Mechanical Engineering
-                            </option>
-                            <option value="Chemical Technology">
-                              Chemical Technology
-                            </option>
-                          </select>
-                        </FormGroup>
-                      </Col>
-                      <Col md="3" xs="11">
-                        <FormGroup>
-                          <label className="fontType" htmlFor="rollnumber">
-                            Roll Number
-                          </label>
-                          {rollNumberInput}
-                        </FormGroup>
-                      </Col>
-                    </Row>
-                  )}
-                  <Row style={{ width: "100%" }}>
-                    <Col md="8">
-                      <Row style={{ maxWidth: "100%", margin: 0 }}>
-                        <Col xs="8" style={{ paddingLeft: "0" }}>
-                          <FormGroup>
-                            <label
-                              className="fontType"
-                              htmlFor={"result-" + index}
-                            >
-                              GPA/Percentage
-                            </label>
-                            <input
-                              style={{ width: "99%" }}
-                              id={`result-${index}`}
-                              type="text"
-                              className="form-control"
-                              placeholder="GPA/Percentage"
-                              value={acad.result}
-                              onChange={(e) =>
-                                setAcademics((prev) => {
-                                  prev[index].result = e.target.value;
-                                  return [...prev];
-                                })
-                              }
-                            />
-                          </FormGroup>
-                        </Col>
-                        <Col xs="3" md="4" style={{ paddingRight: 0 }}>
-                          <label
-                            className="fontType"
-                            htmlFor={"result-type-" + index}
-                          >
-                            Type
-                          </label>
-                          <select
-                            id={"result-type-" + index}
-                            className="form-control"
-                            value={acad.type}
-                            onChange={(e) =>
-                              setAcademics((prev) => {
-                                prev[index].type = e.target.value;
-                                return [...prev];
-                              })
-                            }
-                          >
-                            <option value="GPA">GPA</option>
-                            <option value="PERCENTAGE">Percentage</option>
-                          </select>
-                        </Col>
-                      </Row>
-                    </Col>
-                    <Col md="3" xs="11">
-                      <FormGroup>
-                        <label className="fontType" htmlFor={"year-" + index}>
-                          Passing/Expected Passing Year
+                      <Col xs="3" md="4" style={{ paddingRight: 0 }}>
+                        <label
+                          className="fontType"
+                          htmlFor={"result-type-" + index}
+                        >
+                          Type
                         </label>
                         <select
-                          id={`year-${index}`}
-                          type="text"
+                          id={"result-type-" + index}
                           className="form-control"
-                          placeholder="Passing Year"
-                          value={acad.year}
+                          value={acad.type}
                           onChange={(e) =>
                             setAcademics((prev) => {
-                              prev[index].year = e.target.value;
+                              prev[index].type = e.target.value;
                               return [...prev];
                             })
                           }
                         >
-                          {years.map((year) => {
-                            return (
-                              <option key={year} value={year}>
-                                {year || "Year"}
-                              </option>
-                            );
-                          })}
+                          <option value="GPA">GPA</option>
+                          <option value="PERCENTAGE">Percentage</option>
                         </select>
-                      </FormGroup>
-                    </Col>
-                  </Row>
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          </>
+                      </Col>
+                    </Row>
+                  </Col>
+                  <Col md="3" xs="11">
+                    <FormGroup>
+                      <label className="fontType" htmlFor={"year-" + index}>
+                        Passing/Expected Passing Year
+                      </label>
+                      <select
+                        id={`year-${index}`}
+                        type="text"
+                        className="form-control"
+                        placeholder="Passing Year"
+                        value={acad.year}
+                        onChange={(e) =>
+                          setAcademics((prev) => {
+                            prev[index].year = e.target.value;
+                            return [...prev];
+                          })
+                        }
+                      >
+                        {years.map((year) => {
+                          return (
+                            <option key={year} value={year}>
+                              {year || "Year"}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </FormGroup>
+                  </Col>
+                </Row>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
         );
       })}
       <Accordion style={{ width: "100%" }}>
@@ -660,58 +676,66 @@ const TakeData = ({
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes.heading}>Achievements</Typography>
+          <Typography
+            component={"span"}
+            variant={"body2"}
+            className={classes.heading}
+          >
+            Achievements
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography style={{ width: "100%" }}>
+          <Typography
+            component={"span"}
+            variant={"body2"}
+            style={{ width: "100%" }}
+          >
             {achievements.map((ach, index) => {
               return (
-                <>
-                  <Row style={{ width: "100%" }} key={index}>
-                    <Col xs="11">
-                      <FormGroup>
-                        <label
-                          className="fontType"
-                          htmlFor={"achievement-" + index}
-                        >{`Achievement-${index + 1}`}</label>
-                        <input
-                          id={`achievement-${index}`}
-                          type="text"
-                          className="form-control"
-                          placeholder={"Achievement - " + (index + 1)}
-                          value={ach}
-                          onChange={(e) =>
-                            setAchievements((prev) => {
-                              prev[index] = e.target.value;
-                              return [...prev];
-                            })
-                          }
-                          disabled={index < achievements.length - 1}
-                        />
-                      </FormGroup>
-                    </Col>
-                    {index < achievements.length - 1 && (
-                      <Col
-                        xs="1"
+                <Row key={ach + index} style={{ width: "100%" }} key={index}>
+                  <Col xs="11">
+                    <FormGroup>
+                      <label
+                        className="fontType"
+                        htmlFor={"achievement-" + index}
+                      >{`Achievement-${index + 1}`}</label>
+                      <input
+                        id={`achievement-${index}`}
+                        type="text"
+                        className="form-control"
+                        placeholder={"Achievement - " + (index + 1)}
+                        value={ach}
+                        onChange={(e) =>
+                          setAchievements((prev) => {
+                            prev[index] = e.target.value;
+                            return [...prev];
+                          })
+                        }
+                        disabled={index < achievements.length - 1}
+                      />
+                    </FormGroup>
+                  </Col>
+                  {index < achievements.length - 1 && (
+                    <Col
+                      xs="1"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <DeleteForeverOutlined
                         style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
+                          color: "#fd2f00",
+                          cursor: "pointer",
                         }}
-                      >
-                        <DeleteForeverOutlined
-                          style={{
-                            color: "#fd2f00",
-                            cursor: "pointer",
-                          }}
-                          onClick={() =>
-                            deleteThingWithoutOptions(setAchievements, index)
-                          }
-                        />
-                      </Col>
-                    )}
-                  </Row>
-                </>
+                        onClick={() =>
+                          deleteThingWithoutOptions(setAchievements, index)
+                        }
+                      />
+                    </Col>
+                  )}
+                </Row>
               );
             })}
             <Row>
@@ -843,7 +867,7 @@ const Dashboard = (props) => {
         setDefaultValues(res.data);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
     return () => info.dispatch(clearEverything());
   }, []);
@@ -1335,7 +1359,7 @@ const Dashboard = (props) => {
   const handleSubmit = (e) => {
     // throw e;
     e.preventDefault();
-    console.log("updating the profile!");
+    // console.log("updating the profile!");
     info.dispatch(clearEverything());
     let error = false;
     let reformedAcademics = [];
@@ -1511,7 +1535,7 @@ const Dashboard = (props) => {
         if (err.response && err.response.data && err.response.data.userData)
           setDefaultValues(err.response.data.userData);
         setLoading(false);
-        console.log(err);
+        // console.log(err);
       });
   };
   return (
@@ -1578,12 +1602,12 @@ const Dashboard = (props) => {
                               aria-controls="panel1a-content"
                               id="panel1a-header"
                             >
-                              <Typography className={classes.heading}>
+                              <Typography component={'span'} variant={'body2'} className={classes.heading}>
                                 Basic Information
                               </Typography>
                             </AccordionSummary>
                             <AccordionDetails>
-                              <Typography>
+                              <Typography component={'span'} variant={'body2'}>
                                 <Row style={{ width: "100%" }}>
                                   <Col md="6">
                                     <FormGroup>
@@ -1821,110 +1845,113 @@ const Dashboard = (props) => {
                                   aria-controls="panel1a-content"
                                   id="panel1a-header"
                                 >
-                                  <Typography className={classes.heading}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    className={classes.heading}
+                                  >
                                     Programming Languages
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography style={{ width: "100%" }}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    style={{ width: "100%" }}
+                                  >
                                     {programmingLanguages.map((lang, index) => {
                                       return (
-                                        <>
-                                          <Row
-                                            style={{ width: "100%" }}
-                                            key={index}
+                                        <Row
+                                          style={{ width: "100%" }}
+                                          key={index}
+                                        >
+                                          <Col
+                                            xs="7"
+                                            style={{ paddingRight: "4px" }}
                                           >
-                                            <Col
-                                              xs="7"
-                                              style={{ paddingRight: "4px" }}
-                                            >
-                                              <FormGroup>
-                                                <select
-                                                  className="form-control"
-                                                  value={lang.name}
-                                                  onChange={(e) =>
-                                                    handleLangChange(
-                                                      e,
-                                                      index,
-                                                      "name"
-                                                    )
-                                                  }
-                                                  disabled={
-                                                    index <
-                                                    programmingLanguages.length -
-                                                      1
-                                                  }
-                                                >
-                                                  {lang.name && (
-                                                    <option value={lang.name}>
-                                                      {lang.name}
+                                            <FormGroup>
+                                              <select
+                                                className="form-control"
+                                                value={lang.name}
+                                                onChange={(e) =>
+                                                  handleLangChange(
+                                                    e,
+                                                    index,
+                                                    "name"
+                                                  )
+                                                }
+                                                disabled={
+                                                  index <
+                                                  programmingLanguages.length -
+                                                    1
+                                                }
+                                              >
+                                                {lang.name && (
+                                                  <option value={lang.name}>
+                                                    {lang.name}
+                                                  </option>
+                                                )}
+                                                <option value="">
+                                                  Language
+                                                </option>
+                                                {programmingLangOptions.map(
+                                                  (op) => (
+                                                    <option key={op} value={op}>
+                                                      {op}
                                                     </option>
-                                                  )}
-                                                  <option value="">
-                                                    Language
-                                                  </option>
-                                                  {programmingLangOptions.map(
-                                                    (op) => (
-                                                      <option value={op}>
-                                                        {op}
-                                                      </option>
-                                                    )
-                                                  )}
-                                                </select>
-                                              </FormGroup>
+                                                  )
+                                                )}
+                                              </select>
+                                            </FormGroup>
+                                          </Col>
+                                          <Col xs="4">
+                                            <FormGroup>
+                                              <select
+                                                className="form-control"
+                                                value={lang.level}
+                                                onChange={(e) =>
+                                                  handleLangChange(
+                                                    e,
+                                                    index,
+                                                    "level"
+                                                  )
+                                                }
+                                              >
+                                                <option value="">Level</option>
+                                                <option value="Beginner">
+                                                  Beginner
+                                                </option>
+                                                <option value="Intermediate">
+                                                  Intermediate
+                                                </option>
+                                                <option value="Expert">
+                                                  Expert
+                                                </option>
+                                              </select>
+                                            </FormGroup>
+                                          </Col>
+                                          {index <
+                                            programmingLanguages.length - 1 && (
+                                            <Col xs="1">
+                                              <DeleteForeverOutlined
+                                                style={{
+                                                  color: "#fd2f00",
+                                                  position: "absolute",
+                                                  right: 0,
+                                                  top: "12%",
+                                                  cursor: "pointer",
+                                                }}
+                                                onClick={() =>
+                                                  deleteThingWithOptions(
+                                                    setProgrammingLanguages,
+                                                    setProgrammingLangOptions,
+                                                    index
+                                                  )
+                                                }
+                                              />
                                             </Col>
-                                            <Col xs="4">
-                                              <FormGroup>
-                                                <select
-                                                  className="form-control"
-                                                  value={lang.level}
-                                                  onChange={(e) =>
-                                                    handleLangChange(
-                                                      e,
-                                                      index,
-                                                      "level"
-                                                    )
-                                                  }
-                                                >
-                                                  <option value="">
-                                                    Level
-                                                  </option>
-                                                  <option value="Beginner">
-                                                    Beginner
-                                                  </option>
-                                                  <option value="Intermediate">
-                                                    Intermediate
-                                                  </option>
-                                                  <option value="Expert">
-                                                    Expert
-                                                  </option>
-                                                </select>
-                                              </FormGroup>
-                                            </Col>
-                                            {index <
-                                              programmingLanguages.length -
-                                                1 && (
-                                              <Col xs="1">
-                                                <DeleteForeverOutlined
-                                                  style={{
-                                                    color: "#fd2f00",
-                                                    position: "absolute",
-                                                    right: 0,
-                                                    top: "12%",
-                                                    cursor: "pointer",
-                                                  }}
-                                                  onClick={() =>
-                                                    deleteThingWithOptions(
-                                                      setProgrammingLanguages,
-                                                      setProgrammingLangOptions,
-                                                      index
-                                                    )
-                                                  }
-                                                />
-                                              </Col>
-                                            )}
-                                          </Row>
-                                        </>
+                                          )}
+                                        </Row>
                                       );
                                     })}
                                     <Row>
@@ -1958,108 +1985,112 @@ const Dashboard = (props) => {
                                   aria-controls="panel1a-content"
                                   id="panel1a-header"
                                 >
-                                  <Typography className={classes.heading}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    className={classes.heading}
+                                  >
                                     Web Technologies
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography style={{ width: "100%" }}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    style={{ width: "100%" }}
+                                  >
                                     {webTechnologies.map((lang, index) => {
                                       return (
-                                        <>
-                                          <Row
-                                            style={{ width: "100%" }}
-                                            key={index}
+                                        <Row
+                                          style={{ width: "100%" }}
+                                          key={index}
+                                        >
+                                          <Col
+                                            xs="7"
+                                            style={{ paddingRight: "4px" }}
                                           >
-                                            <Col
-                                              xs="7"
-                                              style={{ paddingRight: "4px" }}
-                                            >
-                                              <FormGroup>
-                                                <select
-                                                  className="form-control"
-                                                  value={lang.name}
-                                                  onChange={(e) =>
-                                                    handleWebTechChange(
-                                                      e,
-                                                      index,
-                                                      "name"
-                                                    )
-                                                  }
-                                                  disabled={
-                                                    index <
-                                                    webTechnologies.length - 1
-                                                  }
-                                                >
-                                                  {lang.name && (
-                                                    <option value={lang.name}>
-                                                      {lang.name}
+                                            <FormGroup>
+                                              <select
+                                                className="form-control"
+                                                value={lang.name}
+                                                onChange={(e) =>
+                                                  handleWebTechChange(
+                                                    e,
+                                                    index,
+                                                    "name"
+                                                  )
+                                                }
+                                                disabled={
+                                                  index <
+                                                  webTechnologies.length - 1
+                                                }
+                                              >
+                                                {lang.name && (
+                                                  <option value={lang.name}>
+                                                    {lang.name}
+                                                  </option>
+                                                )}
+                                                <option value="">
+                                                  Web Technologies
+                                                </option>
+                                                {webTechnologiesOptions.map(
+                                                  (op) => (
+                                                    <option key={op} value={op}>
+                                                      {op}
                                                     </option>
-                                                  )}
-                                                  <option value="">
-                                                    Web Technologies
-                                                  </option>
-                                                  {webTechnologiesOptions.map(
-                                                    (op) => (
-                                                      <option value={op}>
-                                                        {op}
-                                                      </option>
-                                                    )
-                                                  )}
-                                                </select>
-                                              </FormGroup>
+                                                  )
+                                                )}
+                                              </select>
+                                            </FormGroup>
+                                          </Col>
+                                          <Col xs="4">
+                                            <FormGroup>
+                                              <select
+                                                className="form-control"
+                                                value={lang.level}
+                                                onChange={(e) =>
+                                                  handleWebTechChange(
+                                                    e,
+                                                    index,
+                                                    "level"
+                                                  )
+                                                }
+                                              >
+                                                <option value="">Level</option>
+                                                <option value="Beginner">
+                                                  Beginner
+                                                </option>
+                                                <option value="Intermediate">
+                                                  Intermediate
+                                                </option>
+                                                <option value="Expert">
+                                                  Expert
+                                                </option>
+                                              </select>
+                                            </FormGroup>
+                                          </Col>
+                                          {index <
+                                            webTechnologies.length - 1 && (
+                                            <Col xs="1">
+                                              <DeleteForeverOutlined
+                                                style={{
+                                                  color: "#fd2f00",
+                                                  position: "absolute",
+                                                  right: 0,
+                                                  top: "12%",
+                                                  cursor: "pointer",
+                                                }}
+                                                onClick={() =>
+                                                  deleteThingWithOptions(
+                                                    setWebTechnologies,
+                                                    setWebFrameworksOptions,
+                                                    index
+                                                  )
+                                                }
+                                              />
                                             </Col>
-                                            <Col xs="4">
-                                              <FormGroup>
-                                                <select
-                                                  className="form-control"
-                                                  value={lang.level}
-                                                  onChange={(e) =>
-                                                    handleWebTechChange(
-                                                      e,
-                                                      index,
-                                                      "level"
-                                                    )
-                                                  }
-                                                >
-                                                  <option value="">
-                                                    Level
-                                                  </option>
-                                                  <option value="Beginner">
-                                                    Beginner
-                                                  </option>
-                                                  <option value="Intermediate">
-                                                    Intermediate
-                                                  </option>
-                                                  <option value="Expert">
-                                                    Expert
-                                                  </option>
-                                                </select>
-                                              </FormGroup>
-                                            </Col>
-                                            {index <
-                                              webTechnologies.length - 1 && (
-                                              <Col xs="1">
-                                                <DeleteForeverOutlined
-                                                  style={{
-                                                    color: "#fd2f00",
-                                                    position: "absolute",
-                                                    right: 0,
-                                                    top: "12%",
-                                                    cursor: "pointer",
-                                                  }}
-                                                  onClick={() =>
-                                                    deleteThingWithOptions(
-                                                      setWebTechnologies,
-                                                      setWebFrameworksOptions,
-                                                      index
-                                                    )
-                                                  }
-                                                />
-                                              </Col>
-                                            )}
-                                          </Row>
-                                        </>
+                                          )}
+                                        </Row>
                                       );
                                     })}
                                     <Row>
@@ -2091,108 +2122,111 @@ const Dashboard = (props) => {
                                   aria-controls="panel1a-content"
                                   id="panel1a-header"
                                 >
-                                  <Typography className={classes.heading}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    className={classes.heading}
+                                  >
                                     Web Frameworks
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography style={{ width: "100%" }}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    style={{ width: "100%" }}
+                                  >
                                     {webFrameworks.map((lang, index) => {
                                       return (
-                                        <>
-                                          <Row
-                                            style={{ width: "100%" }}
-                                            key={index}
+                                        <Row
+                                          style={{ width: "100%" }}
+                                          key={index}
+                                        >
+                                          <Col
+                                            xs="7"
+                                            style={{ paddingRight: "4px" }}
                                           >
-                                            <Col
-                                              xs="7"
-                                              style={{ paddingRight: "4px" }}
-                                            >
-                                              <FormGroup>
-                                                <select
-                                                  className="form-control"
-                                                  value={lang.name}
-                                                  onChange={(e) =>
-                                                    handleWebFrameworkChange(
-                                                      e,
-                                                      index,
-                                                      "name"
-                                                    )
-                                                  }
-                                                  disabled={
-                                                    index <
-                                                    webFrameworks.length - 1
-                                                  }
-                                                >
-                                                  {lang.name && (
-                                                    <option value={lang.name}>
-                                                      {lang.name}
+                                            <FormGroup>
+                                              <select
+                                                className="form-control"
+                                                value={lang.name}
+                                                onChange={(e) =>
+                                                  handleWebFrameworkChange(
+                                                    e,
+                                                    index,
+                                                    "name"
+                                                  )
+                                                }
+                                                disabled={
+                                                  index <
+                                                  webFrameworks.length - 1
+                                                }
+                                              >
+                                                {lang.name && (
+                                                  <option value={lang.name}>
+                                                    {lang.name}
+                                                  </option>
+                                                )}
+                                                <option value="">
+                                                  Web Frameworks
+                                                </option>
+                                                {webFrameworksOptions.map(
+                                                  (op) => (
+                                                    <option key={op} value={op}>
+                                                      {op}
                                                     </option>
-                                                  )}
-                                                  <option value="">
-                                                    Web Frameworks
-                                                  </option>
-                                                  {webFrameworksOptions.map(
-                                                    (op) => (
-                                                      <option value={op}>
-                                                        {op}
-                                                      </option>
-                                                    )
-                                                  )}
-                                                </select>
-                                              </FormGroup>
+                                                  )
+                                                )}
+                                              </select>
+                                            </FormGroup>
+                                          </Col>
+                                          <Col xs="4">
+                                            <FormGroup>
+                                              <select
+                                                className="form-control"
+                                                value={lang.level}
+                                                onChange={(e) =>
+                                                  handleWebFrameworkChange(
+                                                    e,
+                                                    index,
+                                                    "level"
+                                                  )
+                                                }
+                                              >
+                                                <option value="">Level</option>
+                                                <option value="Beginner">
+                                                  Beginner
+                                                </option>
+                                                <option value="Intermediate">
+                                                  Intermediate
+                                                </option>
+                                                <option value="Expert">
+                                                  Expert
+                                                </option>
+                                              </select>
+                                            </FormGroup>
+                                          </Col>
+                                          {index < webFrameworks.length - 1 && (
+                                            <Col xs="1">
+                                              <DeleteForeverOutlined
+                                                style={{
+                                                  color: "#fd2f00",
+                                                  position: "absolute",
+                                                  right: 0,
+                                                  top: "12%",
+                                                  cursor: "pointer",
+                                                }}
+                                                onClick={() =>
+                                                  deleteThingWithOptions(
+                                                    setWebFrameworks,
+                                                    setWebFrameworksOptions,
+                                                    index
+                                                  )
+                                                }
+                                              />
                                             </Col>
-                                            <Col xs="4">
-                                              <FormGroup>
-                                                <select
-                                                  className="form-control"
-                                                  value={lang.level}
-                                                  onChange={(e) =>
-                                                    handleWebFrameworkChange(
-                                                      e,
-                                                      index,
-                                                      "level"
-                                                    )
-                                                  }
-                                                >
-                                                  <option value="">
-                                                    Level
-                                                  </option>
-                                                  <option value="Beginner">
-                                                    Beginner
-                                                  </option>
-                                                  <option value="Intermediate">
-                                                    Intermediate
-                                                  </option>
-                                                  <option value="Expert">
-                                                    Expert
-                                                  </option>
-                                                </select>
-                                              </FormGroup>
-                                            </Col>
-                                            {index <
-                                              webFrameworks.length - 1 && (
-                                              <Col xs="1">
-                                                <DeleteForeverOutlined
-                                                  style={{
-                                                    color: "#fd2f00",
-                                                    position: "absolute",
-                                                    right: 0,
-                                                    top: "12%",
-                                                    cursor: "pointer",
-                                                  }}
-                                                  onClick={() =>
-                                                    deleteThingWithOptions(
-                                                      setWebFrameworks,
-                                                      setWebFrameworksOptions,
-                                                      index
-                                                    )
-                                                  }
-                                                />
-                                              </Col>
-                                            )}
-                                          </Row>
-                                        </>
+                                          )}
+                                        </Row>
                                       );
                                     })}
                                     <Row>
@@ -2226,104 +2260,108 @@ const Dashboard = (props) => {
                                   aria-controls="panel1a-content"
                                   id="panel1a-header"
                                 >
-                                  <Typography className={classes.heading}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    className={classes.heading}
+                                  >
                                     Database
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography style={{ width: "100%" }}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    style={{ width: "100%" }}
+                                  >
                                     {dbms.map((lang, index) => {
                                       return (
-                                        <>
-                                          <Row
-                                            style={{ width: "100%" }}
-                                            key={index}
+                                        <Row
+                                          style={{ width: "100%" }}
+                                          key={index}
+                                        >
+                                          <Col
+                                            xs="7"
+                                            style={{ paddingRight: "4px" }}
                                           >
-                                            <Col
-                                              xs="7"
-                                              style={{ paddingRight: "4px" }}
-                                            >
-                                              <FormGroup>
-                                                <select
-                                                  className="form-control"
-                                                  value={lang.name}
-                                                  onChange={(e) =>
-                                                    handleDbmsChange(
-                                                      e,
-                                                      index,
-                                                      "name"
-                                                    )
-                                                  }
-                                                  disabled={
-                                                    index < dbms.length - 1
-                                                  }
-                                                >
-                                                  {lang.name && (
-                                                    <option value={lang.name}>
-                                                      {lang.name}
-                                                    </option>
-                                                  )}
-                                                  <option value="">
-                                                    Database
+                                            <FormGroup>
+                                              <select
+                                                className="form-control"
+                                                value={lang.name}
+                                                onChange={(e) =>
+                                                  handleDbmsChange(
+                                                    e,
+                                                    index,
+                                                    "name"
+                                                  )
+                                                }
+                                                disabled={
+                                                  index < dbms.length - 1
+                                                }
+                                              >
+                                                {lang.name && (
+                                                  <option value={lang.name}>
+                                                    {lang.name}
                                                   </option>
-                                                  {dbmsOptions.map((op) => (
-                                                    <option value={op}>
-                                                      {op}
-                                                    </option>
-                                                  ))}
-                                                </select>
-                                              </FormGroup>
+                                                )}
+                                                <option value="">
+                                                  Database
+                                                </option>
+                                                {dbmsOptions.map((op) => (
+                                                  <option key={op} value={op}>
+                                                    {op}
+                                                  </option>
+                                                ))}
+                                              </select>
+                                            </FormGroup>
+                                          </Col>
+                                          <Col xs="4">
+                                            <FormGroup>
+                                              <select
+                                                className="form-control"
+                                                value={lang.level}
+                                                onChange={(e) =>
+                                                  handleDbmsChange(
+                                                    e,
+                                                    index,
+                                                    "level"
+                                                  )
+                                                }
+                                              >
+                                                <option value="">Level</option>
+                                                <option value="Beginner">
+                                                  Beginner
+                                                </option>
+                                                <option value="Intermediate">
+                                                  Intermediate
+                                                </option>
+                                                <option value="Expert">
+                                                  Expert
+                                                </option>
+                                              </select>
+                                            </FormGroup>
+                                          </Col>
+                                          {index < dbms.length - 1 && (
+                                            <Col xs="1">
+                                              <DeleteForeverOutlined
+                                                style={{
+                                                  color: "#fd2f00",
+                                                  position: "absolute",
+                                                  right: 0,
+                                                  top: "12%",
+                                                  cursor: "pointer",
+                                                }}
+                                                onClick={() =>
+                                                  deleteThingWithOptions(
+                                                    setDbms,
+                                                    setDbmsOptions,
+                                                    index
+                                                  )
+                                                }
+                                              />
                                             </Col>
-                                            <Col xs="4">
-                                              <FormGroup>
-                                                <select
-                                                  className="form-control"
-                                                  value={lang.level}
-                                                  onChange={(e) =>
-                                                    handleDbmsChange(
-                                                      e,
-                                                      index,
-                                                      "level"
-                                                    )
-                                                  }
-                                                >
-                                                  <option value="">
-                                                    Level
-                                                  </option>
-                                                  <option value="Beginner">
-                                                    Beginner
-                                                  </option>
-                                                  <option value="Intermediate">
-                                                    Intermediate
-                                                  </option>
-                                                  <option value="Expert">
-                                                    Expert
-                                                  </option>
-                                                </select>
-                                              </FormGroup>
-                                            </Col>
-                                            {index < dbms.length - 1 && (
-                                              <Col xs="1">
-                                                <DeleteForeverOutlined
-                                                  style={{
-                                                    color: "#fd2f00",
-                                                    position: "absolute",
-                                                    right: 0,
-                                                    top: "12%",
-                                                    cursor: "pointer",
-                                                  }}
-                                                  onClick={() =>
-                                                    deleteThingWithOptions(
-                                                      setDbms,
-                                                      setDbmsOptions,
-                                                      index
-                                                    )
-                                                  }
-                                                />
-                                              </Col>
-                                            )}
-                                          </Row>
-                                        </>
+                                          )}
+                                        </Row>
                                       );
                                     })}
                                     <Row>
@@ -2355,104 +2393,106 @@ const Dashboard = (props) => {
                                   aria-controls="panel1a-content"
                                   id="panel1a-header"
                                 >
-                                  <Typography className={classes.heading}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    className={classes.heading}
+                                  >
                                     Operating System
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography style={{ width: "100%" }}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    style={{ width: "100%" }}
+                                  >
                                     {os.map((lang, index) => {
                                       return (
-                                        <>
-                                          <Row
-                                            style={{ width: "100%" }}
-                                            key={index}
+                                        <Row
+                                          style={{ width: "100%" }}
+                                          key={index}
+                                        >
+                                          <Col
+                                            xs="7"
+                                            style={{ paddingRight: "4px" }}
                                           >
-                                            <Col
-                                              xs="7"
-                                              style={{ paddingRight: "4px" }}
-                                            >
-                                              <FormGroup>
-                                                <select
-                                                  className="form-control"
-                                                  value={lang.name}
-                                                  onChange={(e) =>
-                                                    handleOsChange(
-                                                      e,
-                                                      index,
-                                                      "name"
-                                                    )
-                                                  }
-                                                  disabled={
-                                                    index < os.length - 1
-                                                  }
-                                                >
-                                                  {lang.name && (
-                                                    <option value={lang.name}>
-                                                      {lang.name}
-                                                    </option>
-                                                  )}
-                                                  <option value="">
-                                                    Operating System
+                                            <FormGroup>
+                                              <select
+                                                className="form-control"
+                                                value={lang.name}
+                                                onChange={(e) =>
+                                                  handleOsChange(
+                                                    e,
+                                                    index,
+                                                    "name"
+                                                  )
+                                                }
+                                                disabled={index < os.length - 1}
+                                              >
+                                                {lang.name && (
+                                                  <option value={lang.name}>
+                                                    {lang.name}
                                                   </option>
-                                                  {osOptions.map((op) => (
-                                                    <option value={op}>
-                                                      {op}
-                                                    </option>
-                                                  ))}
-                                                </select>
-                                              </FormGroup>
+                                                )}
+                                                <option value="">
+                                                  Operating System
+                                                </option>
+                                                {osOptions.map((op) => (
+                                                  <option key={op} value={op}>
+                                                    {op}
+                                                  </option>
+                                                ))}
+                                              </select>
+                                            </FormGroup>
+                                          </Col>
+                                          <Col xs="4">
+                                            <FormGroup>
+                                              <select
+                                                className="form-control"
+                                                value={lang.level}
+                                                onChange={(e) =>
+                                                  handleOsChange(
+                                                    e,
+                                                    index,
+                                                    "level"
+                                                  )
+                                                }
+                                              >
+                                                <option value="">Level</option>
+                                                <option value="Beginner">
+                                                  Beginner
+                                                </option>
+                                                <option value="Intermediate">
+                                                  Intermediate
+                                                </option>
+                                                <option value="Expert">
+                                                  Expert
+                                                </option>
+                                              </select>
+                                            </FormGroup>
+                                          </Col>
+                                          {index < os.length - 1 && (
+                                            <Col xs="1">
+                                              <DeleteForeverOutlined
+                                                style={{
+                                                  color: "#fd2f00",
+                                                  position: "absolute",
+                                                  right: 0,
+                                                  top: "12%",
+                                                  cursor: "pointer",
+                                                }}
+                                                onClick={() =>
+                                                  deleteThingWithOptions(
+                                                    setOs,
+                                                    setOsOptions,
+                                                    index
+                                                  )
+                                                }
+                                              />
                                             </Col>
-                                            <Col xs="4">
-                                              <FormGroup>
-                                                <select
-                                                  className="form-control"
-                                                  value={lang.level}
-                                                  onChange={(e) =>
-                                                    handleOsChange(
-                                                      e,
-                                                      index,
-                                                      "level"
-                                                    )
-                                                  }
-                                                >
-                                                  <option value="">
-                                                    Level
-                                                  </option>
-                                                  <option value="Beginner">
-                                                    Beginner
-                                                  </option>
-                                                  <option value="Intermediate">
-                                                    Intermediate
-                                                  </option>
-                                                  <option value="Expert">
-                                                    Expert
-                                                  </option>
-                                                </select>
-                                              </FormGroup>
-                                            </Col>
-                                            {index < os.length - 1 && (
-                                              <Col xs="1">
-                                                <DeleteForeverOutlined
-                                                  style={{
-                                                    color: "#fd2f00",
-                                                    position: "absolute",
-                                                    right: 0,
-                                                    top: "12%",
-                                                    cursor: "pointer",
-                                                  }}
-                                                  onClick={() =>
-                                                    deleteThingWithOptions(
-                                                      setOs,
-                                                      setOsOptions,
-                                                      index
-                                                    )
-                                                  }
-                                                />
-                                              </Col>
-                                            )}
-                                          </Row>
-                                        </>
+                                          )}
+                                        </Row>
                                       );
                                     })}
                                     <Row>
@@ -2484,104 +2524,108 @@ const Dashboard = (props) => {
                                   aria-controls="panel1a-content"
                                   id="panel1a-header"
                                 >
-                                  <Typography className={classes.heading}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    className={classes.heading}
+                                  >
                                     Technologies
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography style={{ width: "100%" }}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    style={{ width: "100%" }}
+                                  >
                                     {techs.map((lang, index) => {
                                       return (
-                                        <>
-                                          <Row
-                                            style={{ width: "100%" }}
-                                            key={index}
+                                        <Row
+                                          style={{ width: "100%" }}
+                                          key={index}
+                                        >
+                                          <Col
+                                            xs="7"
+                                            style={{ paddingRight: "4px" }}
                                           >
-                                            <Col
-                                              xs="7"
-                                              style={{ paddingRight: "4px" }}
-                                            >
-                                              <FormGroup>
-                                                <select
-                                                  className="form-control"
-                                                  value={lang.name}
-                                                  onChange={(e) =>
-                                                    handleTechChange(
-                                                      e,
-                                                      index,
-                                                      "name"
-                                                    )
-                                                  }
-                                                  disabled={
-                                                    index < techs.length - 1
-                                                  }
-                                                >
-                                                  {lang.name && (
-                                                    <option value={lang.name}>
-                                                      {lang.name}
-                                                    </option>
-                                                  )}
-                                                  <option value="">
-                                                    Technologies
+                                            <FormGroup>
+                                              <select
+                                                className="form-control"
+                                                value={lang.name}
+                                                onChange={(e) =>
+                                                  handleTechChange(
+                                                    e,
+                                                    index,
+                                                    "name"
+                                                  )
+                                                }
+                                                disabled={
+                                                  index < techs.length - 1
+                                                }
+                                              >
+                                                {lang.name && (
+                                                  <option value={lang.name}>
+                                                    {lang.name}
                                                   </option>
-                                                  {techsOptions.map((op) => (
-                                                    <option value={op}>
-                                                      {op}
-                                                    </option>
-                                                  ))}
-                                                </select>
-                                              </FormGroup>
+                                                )}
+                                                <option value="">
+                                                  Technologies
+                                                </option>
+                                                {techsOptions.map((op) => (
+                                                  <option key={op} value={op}>
+                                                    {op}
+                                                  </option>
+                                                ))}
+                                              </select>
+                                            </FormGroup>
+                                          </Col>
+                                          <Col xs="4">
+                                            <FormGroup>
+                                              <select
+                                                className="form-control"
+                                                value={lang.level}
+                                                onChange={(e) =>
+                                                  handleTechChange(
+                                                    e,
+                                                    index,
+                                                    "level"
+                                                  )
+                                                }
+                                              >
+                                                <option value="">Level</option>
+                                                <option value="Beginner">
+                                                  Beginner
+                                                </option>
+                                                <option value="Intermediate">
+                                                  Intermediate
+                                                </option>
+                                                <option value="Expert">
+                                                  Expert
+                                                </option>
+                                              </select>
+                                            </FormGroup>
+                                          </Col>
+                                          {index < techs.length - 1 && (
+                                            <Col xs="1">
+                                              <DeleteForeverOutlined
+                                                style={{
+                                                  color: "#fd2f00",
+                                                  position: "absolute",
+                                                  right: 0,
+                                                  top: "12%",
+                                                  cursor: "pointer",
+                                                }}
+                                                onClick={() =>
+                                                  deleteThingWithOptions(
+                                                    setTechs,
+                                                    setTechsOptions,
+                                                    index
+                                                  )
+                                                }
+                                              />
                                             </Col>
-                                            <Col xs="4">
-                                              <FormGroup>
-                                                <select
-                                                  className="form-control"
-                                                  value={lang.level}
-                                                  onChange={(e) =>
-                                                    handleTechChange(
-                                                      e,
-                                                      index,
-                                                      "level"
-                                                    )
-                                                  }
-                                                >
-                                                  <option value="">
-                                                    Level
-                                                  </option>
-                                                  <option value="Beginner">
-                                                    Beginner
-                                                  </option>
-                                                  <option value="Intermediate">
-                                                    Intermediate
-                                                  </option>
-                                                  <option value="Expert">
-                                                    Expert
-                                                  </option>
-                                                </select>
-                                              </FormGroup>
-                                            </Col>
-                                            {index < techs.length - 1 && (
-                                              <Col xs="1">
-                                                <DeleteForeverOutlined
-                                                  style={{
-                                                    color: "#fd2f00",
-                                                    position: "absolute",
-                                                    right: 0,
-                                                    top: "12%",
-                                                    cursor: "pointer",
-                                                  }}
-                                                  onClick={() =>
-                                                    deleteThingWithOptions(
-                                                      setTechs,
-                                                      setTechsOptions,
-                                                      index
-                                                    )
-                                                  }
-                                                />
-                                              </Col>
-                                            )}
-                                          </Row>
-                                        </>
+                                          )}
+                                        </Row>
                                       );
                                     })}
                                     <Row>
@@ -2613,12 +2657,19 @@ const Dashboard = (props) => {
                                   aria-controls="panel2a-content"
                                   id="panel2a-header"
                                 >
-                                  <Typography className={classes.heading}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    className={classes.heading}
+                                  >
                                     Hosting Platforms
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                  >
                                     <FormGroup>
                                       <div
                                         className="pl-2"
@@ -2832,59 +2883,64 @@ const Dashboard = (props) => {
                                   aria-controls="panel2a-content"
                                   id="panel2a-header"
                                 >
-                                  <Typography className={classes.heading}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    className={classes.heading}
+                                  >
                                     Other Skills
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography style={{ width: "100%" }}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    style={{ width: "100%" }}
+                                  >
                                     {otherSkills.map((lang, index) => {
                                       return (
-                                        <>
-                                          <Row
-                                            style={{ width: "100%" }}
-                                            key={index}
-                                          >
-                                            <Col xs="11">
-                                              <FormGroup>
-                                                <input
-                                                  type="text"
-                                                  className="form-control"
-                                                  value={lang}
-                                                  onChange={(e) =>
-                                                    handleOtherSkillsChange(
-                                                      e,
-                                                      index
-                                                    )
-                                                  }
-                                                  disabled={
-                                                    index <
-                                                    otherSkills.length - 1
-                                                  }
-                                                />
-                                              </FormGroup>
+                                        <Row
+                                          style={{ width: "100%" }}
+                                          key={index}
+                                        >
+                                          <Col xs="11">
+                                            <FormGroup>
+                                              <input
+                                                type="text"
+                                                className="form-control"
+                                                value={lang}
+                                                onChange={(e) =>
+                                                  handleOtherSkillsChange(
+                                                    e,
+                                                    index
+                                                  )
+                                                }
+                                                disabled={
+                                                  index < otherSkills.length - 1
+                                                }
+                                              />
+                                            </FormGroup>
+                                          </Col>
+                                          {index < otherSkills.length - 1 && (
+                                            <Col xs="1">
+                                              <DeleteForeverOutlined
+                                                style={{
+                                                  color: "#fd2f00",
+                                                  position: "absolute",
+                                                  right: 0,
+                                                  top: "12%",
+                                                  cursor: "pointer",
+                                                }}
+                                                onClick={() =>
+                                                  deleteThingWithoutOptions(
+                                                    setOtherSkills,
+                                                    index
+                                                  )
+                                                }
+                                              />
                                             </Col>
-                                            {index < otherSkills.length - 1 && (
-                                              <Col xs="1">
-                                                <DeleteForeverOutlined
-                                                  style={{
-                                                    color: "#fd2f00",
-                                                    position: "absolute",
-                                                    right: 0,
-                                                    top: "12%",
-                                                    cursor: "pointer",
-                                                  }}
-                                                  onClick={() =>
-                                                    deleteThingWithoutOptions(
-                                                      setOtherSkills,
-                                                      index
-                                                    )
-                                                  }
-                                                />
-                                              </Col>
-                                            )}
-                                          </Row>
-                                        </>
+                                          )}
+                                        </Row>
                                       );
                                     })}
                                     <Row>
@@ -2917,12 +2973,20 @@ const Dashboard = (props) => {
                                   aria-controls="panel2a-content"
                                   id="panel2a-header"
                                 >
-                                  <Typography className={classes.heading}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    className={classes.heading}
+                                  >
                                     Interest
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography style={{ width: "100%" }}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    style={{ width: "100%" }}
+                                  >
                                     <Row style={{ width: "100%" }}>
                                       <Col md="4">
                                         <FormGroup>
@@ -3075,12 +3139,20 @@ const Dashboard = (props) => {
                                   aria-controls="panel2a-content"
                                   id="panel2a-header"
                                 >
-                                  <Typography className={classes.heading}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    className={classes.heading}
+                                  >
                                     Internships
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography style={{ width: "100%" }}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    style={{ width: "100%" }}
+                                  >
                                     {internships.map((lang, index) => {
                                       return (
                                         <Row
@@ -3260,12 +3332,20 @@ const Dashboard = (props) => {
                                   aria-controls="panel2a-content"
                                   id="panel2a-header"
                                 >
-                                  <Typography className={classes.heading}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    className={classes.heading}
+                                  >
                                     Project
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography style={{ width: "100%" }}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    style={{ width: "100%" }}
+                                  >
                                     {projects.map((lang, index) => {
                                       return (
                                         <Row
@@ -3446,83 +3526,89 @@ const Dashboard = (props) => {
                                   aria-controls="panel2a-content"
                                   id="panel2a-header"
                                 >
-                                  <Typography className={classes.heading}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    className={classes.heading}
+                                  >
                                     Trainings
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography style={{ width: "100%" }}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    style={{ width: "100%" }}
+                                  >
                                     {trainings.map((lang, index) => {
                                       return (
-                                        <>
-                                          <Row
-                                            style={{ width: "100%" }}
-                                            key={index}
+                                        <Row
+                                          style={{ width: "100%" }}
+                                          key={index}
+                                        >
+                                          <Col
+                                            xs="7"
+                                            style={{ paddingRight: "4px" }}
                                           >
-                                            <Col
-                                              xs="7"
-                                              style={{ paddingRight: "4px" }}
-                                            >
-                                              <FormGroup>
-                                                <input
-                                                  type="text"
-                                                  placeholder="Title(Eg: Python for Everybody from Coursera)"
-                                                  className="form-control"
-                                                  value={lang.name}
-                                                  onChange={(e) =>
-                                                    handleTrainingsChange(
-                                                      e,
-                                                      index,
-                                                      "name"
-                                                    )
-                                                  }
-                                                  disabled={
-                                                    index < trainings.length - 1
-                                                  }
-                                                />
-                                              </FormGroup>
+                                            <FormGroup>
+                                              <input
+                                                type="text"
+                                                placeholder="Title(Eg: Python for Everybody from Coursera)"
+                                                className="form-control"
+                                                value={lang.name}
+                                                onChange={(e) =>
+                                                  handleTrainingsChange(
+                                                    e,
+                                                    index,
+                                                    "name"
+                                                  )
+                                                }
+                                                disabled={
+                                                  index < trainings.length - 1
+                                                }
+                                              />
+                                            </FormGroup>
+                                          </Col>
+                                          <Col xs="4">
+                                            <FormGroup>
+                                              <input
+                                                type="text"
+                                                placeholder="Credentials(https://somewhere.com/....)"
+                                                className="form-control"
+                                                value={lang.credentials}
+                                                onChange={(e) =>
+                                                  handleTrainingsChange(
+                                                    e,
+                                                    index,
+                                                    "credentials"
+                                                  )
+                                                }
+                                                disabled={
+                                                  index < trainings.length - 1
+                                                }
+                                              />
+                                            </FormGroup>
+                                          </Col>
+                                          {index < trainings.length - 1 && (
+                                            <Col xs="1">
+                                              <DeleteForeverOutlined
+                                                style={{
+                                                  color: "#fd2f00",
+                                                  position: "absolute",
+                                                  right: 0,
+                                                  top: "12%",
+                                                  cursor: "pointer",
+                                                }}
+                                                onClick={() =>
+                                                  deleteThingWithoutOptions(
+                                                    setTrainings,
+                                                    index
+                                                  )
+                                                }
+                                              />
                                             </Col>
-                                            <Col xs="4">
-                                              <FormGroup>
-                                                <input
-                                                  type="text"
-                                                  placeholder="Credentials(https://somewhere.com/....)"
-                                                  className="form-control"
-                                                  value={lang.credentials}
-                                                  onChange={(e) =>
-                                                    handleTrainingsChange(
-                                                      e,
-                                                      index,
-                                                      "credentials"
-                                                    )
-                                                  }
-                                                  disabled={
-                                                    index < trainings.length - 1
-                                                  }
-                                                />
-                                              </FormGroup>
-                                            </Col>
-                                            {index < trainings.length - 1 && (
-                                              <Col xs="1">
-                                                <DeleteForeverOutlined
-                                                  style={{
-                                                    color: "#fd2f00",
-                                                    position: "absolute",
-                                                    right: 0,
-                                                    top: "12%",
-                                                    cursor: "pointer",
-                                                  }}
-                                                  onClick={() =>
-                                                    deleteThingWithoutOptions(
-                                                      setTrainings,
-                                                      index
-                                                    )
-                                                  }
-                                                />
-                                              </Col>
-                                            )}
-                                          </Row>
-                                        </>
+                                          )}
+                                        </Row>
                                       );
                                     })}
                                     <Row>
@@ -3555,12 +3641,19 @@ const Dashboard = (props) => {
                                   aria-controls="panel2a-content"
                                   id="panel2a-header"
                                 >
-                                  <Typography className={classes.heading}>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                    className={classes.heading}
+                                  >
                                     Resume
                                   </Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <Typography>
+                                  <Typography
+                                    component={"span"}
+                                    variant={"body2"}
+                                  >
                                     <FormGroup>
                                       <label
                                         className="fontType"

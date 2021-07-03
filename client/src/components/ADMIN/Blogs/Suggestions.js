@@ -149,7 +149,6 @@ const Suggestions = (props) => {
   const [totalItems, setTotalItems] = useState(5);
   //for pagination purpose;
   const handlePageChange = (page) => {
-    console.log(page);
     setCurrentPage(page);
   };
   const queryString = () => {
@@ -169,7 +168,6 @@ const Suggestions = (props) => {
         setTotalItems(res.data.totalItems);
       })
       .catch((err) => {
-        console.log(err);
       });
   }, [currentPage, currentDurationFilters, currentTypeFilters]);
   return (

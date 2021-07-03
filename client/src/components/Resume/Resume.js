@@ -106,7 +106,7 @@ const TakeData = ({ setLoading, setProfileImg, setDataTaken }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(dataUpdated);
+    // console.log(dataUpdated);
     if (!dataUpdated && degree && college && collegeCity && objective)
       return setDataTaken(true); //if data is already added and not updated then don't make request to backend when user clicks on Proceed button.
     info.dispatch(clearEverything());
@@ -167,7 +167,7 @@ const TakeData = ({ setLoading, setProfileImg, setDataTaken }) => {
         if (err.response && err.response.data && err.response.data.userData)
           setDefaultValues(err.response.data.userData);
         setLoading(false);
-        console.log(err);
+        // console.log(err);
       });
   };
   return (

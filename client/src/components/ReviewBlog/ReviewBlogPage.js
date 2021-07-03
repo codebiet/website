@@ -5,13 +5,11 @@ import axios from "axios";
 import { AuthContext } from "../../state/Store";
 import { Redirect } from "react-router-dom";
 import Loader from "../Loader/Loader";
-import Nav from "../Navbar/Nav";
-import Footer from "../Footer/Footer";
 const Main = (props) => {
   const [blog, setBlog] = useState({});
   const [loading, setLoading] = useState(false);
   const auth = useContext(AuthContext);
-  console.log(auth.state.userLoggedIn);
+  // console.log(auth.state.userLoggedIn);
   useEffect(() => {
     if (!props.match.params.id) props.history.push("/page-not-found");
     setLoading(true);
@@ -20,7 +18,7 @@ const Main = (props) => {
       .then((res) => {
         setLoading(false);
         setBlog(res.data.blog);
-        console.log(res.data.blog);
+        // console.log(res.data.blog);
       })
       .catch((err) => {
         if (err.response && err.response.status == 404)
@@ -43,7 +41,6 @@ const Main = (props) => {
         />
       ) : (
         <>
-          <Nav />
           <main className="blogs-individual-container-main" style={{marginBottom:"2rem"}}>
             <div className="ll">
               <div className=" l container">
@@ -51,7 +48,7 @@ const Main = (props) => {
                   <div className="content">
                     <header className="header1 header2">
                       <aside className="cat_position cat_info">
-                        <a class="catagory" href="">
+                        <a className="catagory" href="">
                           {blog.category}
                         </a>
                       </aside>
@@ -66,7 +63,7 @@ const Main = (props) => {
                   <div className="l">
                     <img src={image}></img>
                   </div>
-                  <span class="image_caption overlay">
+                  <span className="image_caption overlay">
                     Code gives you wings
                   </span>
                 </div> */}
@@ -102,7 +99,6 @@ const Main = (props) => {
               </div>
             </div>
           </main>
-          <Footer />
         </>
       )}
       {loading && <Loader />}

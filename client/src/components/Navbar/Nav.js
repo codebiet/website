@@ -46,7 +46,7 @@ function Nav() {
         </label>
         <input type="checkbox" name="" id="toggle" />
         {/* <!-- navigation menu --> */}
-        <div id="menu" className={isOpen && "menu-open"}>
+        <div id="menu" className={isOpen ? "menu-open" : ""}>
           <ul className="nav">
             <li>
               <NavLink to="/">Home</NavLink>

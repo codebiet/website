@@ -1,7 +1,7 @@
 import axios from "axios";
 const noImageUrl =
-  "https://res.cloudinary.com/dxioxeyua/image/upload/v1623558704/project_ss/Transposagen-Biopharmaceuticals-SIC-Pharma-20142_news_large_zyqkzb.jpg";
-export function GetProjects() {
+  "https://club-of-developers.s3.ap-south-1.amazonaws.com/img-na-text.jpg";
+export default () => {
   return new Promise((resolve, reject) => {
     axios
       .get("/api/projects")
@@ -34,4 +34,4 @@ export function GetProjects() {
         reject(err);
       });
   });
-}
+};

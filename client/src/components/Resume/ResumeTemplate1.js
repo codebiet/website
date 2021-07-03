@@ -14,7 +14,7 @@ const ResumeTemplate1 = React.forwardRef(({}, ref) => {
     axios
       .get("/api/resumeData")
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setResumeData(res.data);
         setLoading(false);
       })

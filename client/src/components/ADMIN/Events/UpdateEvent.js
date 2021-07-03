@@ -65,7 +65,7 @@ const UpdateEvent = (props) => {
     let parsedValues = [];
     if (values) parsedValues = JSON.parse(values);
     parsedValues = parsedValues.map((tagObj) => tagObj.value);
-    console.log(parsedValues);
+    // console.log(parsedValues);
     setTags(parsedValues);
   };
   const handleSubmit = (e) => {
@@ -116,7 +116,7 @@ const UpdateEvent = (props) => {
       })
       .catch((err) => {
         setLoading(false);
-        console.log(err);
+        // console.log(err);
         if (err.response && err.response.data)
           info.dispatch(generateError(err.response.data.errorMsg));
         else info.dispatch(generateError("Something went wrong!"));

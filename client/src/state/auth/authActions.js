@@ -99,12 +99,12 @@ export const loginUser = (dispatch, body) => {
     .post(`${END_POINT}/post/login`, body)
     .then((response) => {
       const userData = response.data;
-      console.log(userData);
+      // console.log(userData);
       dispatch(loginSuccess(userData));
     })
     .catch((err) => {
       if (err.response) {
-        console.log(err.response);
+        // console.log(err.response);
         dispatch(loginError(err.response.data.errorMsg));
       } else dispatch(loginError("Something went wrong"));
     });
@@ -116,12 +116,12 @@ export const signupUser = (dispatch, body) => {
     .post(`${END_POINT}/post/register`, body)
     .then((response) => {
       const userData = response.data;
-      console.log(userData);
+      // console.log(userData);
       dispatch(signupSuccess(userData));
     })
     .catch((err) => {
       if (err.response) {
-        console.log(err.response);
+        // console.log(err.response);
         dispatch(signupError(err.response.data.errorMsg));
       } else dispatch(signupError("Something went wrong!"));
       // console.log("err.response : ",err.response," err.response.data ",err.response.data," err.response.data.errorMsg ",err.response.data.errorMsg," and error is : ",err);
@@ -136,7 +136,7 @@ export const sendVerificationEmail = (dispatch) => {
       dispatch(sendVerificationEmailSuccess());
     })
     .catch((err) => {
-      console.log(err);
+      // console.log(err);
     });
 };
 

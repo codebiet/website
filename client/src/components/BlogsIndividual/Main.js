@@ -47,7 +47,7 @@ const Main = (props) => {
               <div className="content">
                 <header className="header1 header2">
                   <aside className="cat_position cat_info">
-                    <Link class="catagory" to="#">
+                    <Link className="catagory" to="#">
                       {blog.category}
                     </Link>
                   </aside>
@@ -66,7 +66,7 @@ const Main = (props) => {
                   <div className="l">
                     <img src={blog.cardImg}></img>
                   </div>
-                  <span class="image_caption overlay">
+                  <span className="image_caption overlay">
                     Code gives you wings
                   </span>
                 </div> */}

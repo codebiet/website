@@ -55,7 +55,7 @@ function Sidebar(props) {
       </div>
       <div className="sidebar-wrapper" ref={sidebar}>
         <Nav>
-          <li className={location.pathname == "/dashboard" && "active"}>
+          <li className={location.pathname == "/dashboard" ? "active" : ""}>
             <NavLink
               to="/dashboard"
               className="btn btn-default "
@@ -68,7 +68,7 @@ function Sidebar(props) {
             <p>ARTICLES</p>
           </li>
           <Collapse isOpen={articleSubmenuOpen}>
-            <li className={location.pathname == "/articles" && "active"}>
+            <li className={location.pathname == "/articles" ? "active" : ""}>
               <NavLink
                 to="/articles"
                 className="btn btn-default "
@@ -77,7 +77,7 @@ function Sidebar(props) {
                 <p>Your Articles</p>
               </NavLink>
             </li>
-            <li className={location.pathname == "/suggestions" && "active"}>
+            <li className={location.pathname == "/suggestions" ? "active" : ""}>
               <NavLink
                 to="/suggestions"
                 className="btn btn-default "
@@ -87,7 +87,7 @@ function Sidebar(props) {
               </NavLink>
             </li>
           </Collapse>
-          <li className={location.pathname == "/user-projects" && "active"}>
+          <li className={location.pathname == "/user-projects" ? "active" : ""}>
             <NavLink
               to="/user-projects"
               className="btn btn-default "
@@ -96,7 +96,7 @@ function Sidebar(props) {
               <p>PROJECTS</p>
             </NavLink>
           </li>
-          <li className={location.pathname == "/competitions" && "active"}>
+          <li className={location.pathname == "/competitions" ? "active" : ""}>
             <NavLink
               to="/competitions"
               className="btn btn-default "
@@ -105,7 +105,7 @@ function Sidebar(props) {
               <p>COMPETITIONS</p>
             </NavLink>
           </li>
-          <li className={location.pathname == "/logout" && "active"}>
+          <li className={location.pathname == "/logout" ? "active" : ""}>
             <NavLink
               to="/logout"
               className="btn btn-default "

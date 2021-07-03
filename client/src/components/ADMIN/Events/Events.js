@@ -132,7 +132,7 @@ const Events = () => {
     setLoading(true);
     //scroll to top when mounted;
     const queryString = getFilters(filter);
-    console.log(queryString);
+    // console.log(queryString);
     window.scrollTo(0, 0);
     axios
       .get(`/api/events/?limit=${limit}&page=${currentPage - 1}&${queryString}`)
@@ -142,7 +142,7 @@ const Events = () => {
         setEvents(res.data.events);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   }, [currentPage, filter]);
 
@@ -152,7 +152,7 @@ const Events = () => {
     axios
       .delete(`/delete/event/${id}`)
       .then((res) => {
-        console.log(res.data.events);
+        // console.log(res.data.events);
         setLoading(false);
         setEvents(res.data.events);
         info.dispatch(generateSuccess("Delete Successfully!"));
@@ -167,7 +167,7 @@ const Events = () => {
       });
   };
   const handlePageChange = (page) => {
-    console.log(page);
+    // console.log(page);
     setCurrentPage(page);
   };
   const changeEventIdToBeDeleted = (id) => {

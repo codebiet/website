@@ -54,15 +54,15 @@ const MainTab = (props) => {
           </NavLink>
         </NavItem>
       </Nav>
-      <TabContent className='event-primary-tab-content' activeTab={activeTab}>
+      <TabContent className="event-primary-tab-content" activeTab={activeTab}>
         <TabPane tabId="1">
-          <EventSecondaryTab activeMainTab={activeTab} />
+          <EventSecondaryTab activeMainTab={activeTab} mainTab="1" />
         </TabPane>
         <TabPane tabId="2">
-          <EventSecondaryTab activeMainTab={activeTab} />
+          <EventSecondaryTab activeMainTab={activeTab} mainTab="2" />
         </TabPane>
         <TabPane tabId="3">
-          <EventSecondaryTab activeMainTab={activeTab} />
+          <EventSecondaryTab activeMainTab={activeTab} mainTab="3" />
         </TabPane>
       </TabContent>
     </Container>

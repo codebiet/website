@@ -14,7 +14,7 @@ const Assistant = ({ name, im, post, mail, fb_link, lnkdin_link }) => {
             <div style={{padding:'0px 0px 5px 0px'}} className='desm'>
                 <a className='icnm'><i className="fab fa-facebook"></i></a>
                 <a className='icnm'><i className="fab fa-linkedin"></i></a>
-                <a className='icnm'><i class="fas fa-envelope-square"></i></a>
+                <a className='icnm'><i className="fas fa-envelope-square"></i></a>
             </div>
         </div>
      

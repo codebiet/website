@@ -1,9 +1,18 @@
-import React, { useContext, useState, useEffect,lazy } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../state/Store";
 import { logOutUser } from "../../state/auth/authActions";
 // const codeImage = lazy(()=>import("../assets/codeLogo.jpg"));
-import codeImage from "../assets/code.jpeg";
+// import codeImage from "../assets/code.jpeg";
+// const imgSrc = "";
+// import("../assets/codeLogo.jpg")
+//   .then((res) => {
+//     console.log("result of image upload is : ", res);
+//     imgSrc = res;
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 const Navbar = () => {
   const auth = useContext(AuthContext);
   const location = useLocation();
@@ -25,7 +34,11 @@ const Navbar = () => {
   return (
     <React.Fragment>
       <nav className="nav-bar">
-        <img className="code-img" src={codeImage} alt="" />
+        <img
+          className="code-img"
+          src="https://club-of-developers.s3.ap-south-1.amazonaws.com/codeLogo.png"
+          alt=""
+        />
         <div className="join-us-hamburger-container">
           {auth.state.userLoggedIn ? (
             <button className="join-us" onClick={() => handleLogout()}>

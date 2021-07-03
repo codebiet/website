@@ -21,7 +21,7 @@ const EditorComponent = ({ editorState, setEditorState }) => {
           resolve(res.data);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
           if (err.response && err.response.data)
             info.dispatch(generateError(err.response.data.errorMsg));
           else info.dispatch(generateError("Something went wrong!"));

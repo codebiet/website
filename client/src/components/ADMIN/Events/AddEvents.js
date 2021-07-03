@@ -33,7 +33,6 @@ const AddEvents = (props) => {
     let parsedValues = [];
     if (values) parsedValues = JSON.parse(values);
     parsedValues = parsedValues.map((tagObj) => tagObj.value);
-    console.log(parsedValues);
     setTags(parsedValues);
   };
   const handleSubmit = (e) => {

@@ -7,7 +7,7 @@ const initialState = {
 }
 
 const infoReducer = (state = initialState,action) => {
-    console.log(action);
+    // console.log(action);
     switch(action.type){
         case GENERATE_ERROR_MSG:
             return {warning:'',success:'',error:action.payload};

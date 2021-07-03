@@ -64,6 +64,7 @@
     "react-dom": "^17.0.2",
     "react-draft-wysiwyg": "^1.14.7",
     "react-icons": "^4.2.0",
+    "react-lazy-load-image-component": "^1.5.1",
     "react-owl-carousel": "^2.3.3",
     "react-reactstrap-pagination": "^2.0.3",
     "react-router-dom": "^5.2.0",

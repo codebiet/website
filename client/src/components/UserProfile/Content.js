@@ -95,7 +95,7 @@ const Content = (props) => {
             <div className="common hobbies">
               <div className="mainHeading">
                 <h1>
-                  <i class="fas fa-star icon"></i>
+                  <i className="fas fa-star icon"></i>
                   hobbies & interest
                 </h1>
               </div>
@@ -146,7 +146,7 @@ const Content = (props) => {
             <div className="common experience">
               <div className="mainHeading">
                 <h1>
-                  <i class="fas fa-tools icon"></i>
+                  <i className="fas fa-tools icon"></i>
                   experience
                 </h1>
               </div>

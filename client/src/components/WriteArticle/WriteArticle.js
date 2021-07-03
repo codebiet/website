@@ -5,8 +5,6 @@ import Editor from "../Editor/Editor";
 import { Container, Button } from "reactstrap";
 import { EditorState, convertToRaw, convertFromRaw } from "draft-js";
 import { Redirect } from "react-router-dom";
-import Nav from "../Navbar/Nav";
-import Footer from "../Footer/Footer";
 import axios from "axios";
 export default (props) => {
   const auth = useContext(AuthContext);
@@ -32,7 +30,7 @@ export default (props) => {
           );
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   }, []);
   const getContent = () => {
@@ -71,7 +69,6 @@ export default (props) => {
     <>
       {auth.state.userLoggedIn && (
         <>
-          <Nav />
           <Container
             style={{ margin: "4rem auto" }}
             className="write-article-container"
@@ -87,7 +84,6 @@ export default (props) => {
               <Button onClick={(e) => saveAsDraft(e)}>Save As Draft</Button>
             </div>
           </Container>
-          <Footer />
         </>
       )}
       {!auth.state.userLoggedIn && (

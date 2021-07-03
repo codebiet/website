@@ -30,12 +30,12 @@ const Template3 = React.forwardRef(({}, ref) => {
     axios
       .get("/api/resumeData")
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setResumeData(res.data);
         setLoading(false);
       })
       .catch((err) => {
-        console.log("error occured : ", err);
+        // console.log("error occured : ", err);
         if (err.response && err.response.data && err.response.data.errorMsg)
           info.dispatch(generateError(err.response.data.errorMsg));
         setLoading(false);

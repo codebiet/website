@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useRef, useState } from "react";
+import React, { useEffect, useContext, useRef, useState, lazy,Suspense } from "react";
 import axios from "axios";
 import { InfoContext, AuthContext } from "../../state/Store";
 import "regenerator-runtime/runtime";
@@ -12,9 +12,21 @@ import queryString from "query-string";
 import Loader from "../Loader/Loader";
 import setPasswordImage from "../assets/setPassword.jpg";
 import lock from "../assets/lock.svg";
+// const Navbar = lazy(() => import("../Navbar/Navbar"));
 import Navbar from "../Navbar/Navbar";
-import { useInput } from "./Register";
-
+const useInput = ({ type, placeholder, id }) => {
+  const [value, setValue] = useState("");
+  const input = (
+    <input
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      type={type}
+      placeholder={placeholder}
+      id={id}
+    />
+  );
+  return [value, input];
+};
 const SetPassword = (props) => {
   const params = queryString.parse(props.location.search);
   const info = useContext(InfoContext);
@@ -96,43 +108,45 @@ const SetPassword = (props) => {
   //view
   //================================================================================
   return (
-    <React.Fragment>
-      {auth.state.userLoggedIn && props.history.goBack()}
-      {loading && <Loader />}
-      {redirectTo && <Redirect to={redirectTo} />}
-      {!loading && !redirectTo && (
-        <React.Fragment>
-          <Navbar />
-          <div className="register-main-container">
-            <div className="img-container">
-              <img className="register-image" src={setPasswordImage} alt="" />
+    <Suspense fallback={<></>}>
+      <React.Fragment>
+        {auth.state.userLoggedIn && props.history.goBack()}
+        {loading && <Loader />}
+        {redirectTo && <Redirect to={redirectTo} />}
+        {!loading && !redirectTo && (
+          <React.Fragment>
+            <Navbar />
+            <div className="register-main-container">
+              <div className="img-container">
+                <img className="register-image" src={setPasswordImage} alt="" />
+              </div>
+              <div className="form-container">
+                <h1>SET YOUR PASSWORD</h1>
+                <form onSubmit={(e) => handleSubmit(e)}>
+                  <div className="input-container">
+                    <label for="setPassword-password">Password:</label>
+                    {passwordInput}
+                    <img src={lock} alt="" />
+                  </div>
+                  <div className="input-container">
+                    <label for="setPassword-confirmPassword">
+                      ConfirmPassword:
+                    </label>
+                    {confirmPasswordInput}
+                    <img src={lock} alt="" />
+                  </div>
+                  <div className="button-container">
+                    <button type="submit" className="default-btn">
+                      SET PASSWORD
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
-            <div className="form-container">
-              <h1>SET YOUR PASSWORD</h1>
-              <form onSubmit={(e) => handleSubmit(e)}>
-                <div className="input-container">
-                  <label for="setPassword-password">Password:</label>
-                  {passwordInput}
-                  <img src={lock} alt="" />
-                </div>
-                <div className="input-container">
-                  <label for="setPassword-confirmPassword">
-                    ConfirmPassword:
-                  </label>
-                  {confirmPasswordInput}
-                  <img src={lock} alt="" />
-                </div>
-                <div className="button-container">
-                  <button type="submit" className="default-btn">
-                    SET PASSWORD
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </React.Fragment>
-      )}
-    </React.Fragment>
+          </React.Fragment>
+        )}
+      </React.Fragment>
+    </Suspense>
   );
 };
 

@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useContext, lazy } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-const Nav = lazy(() => import("../Navbar/Nav"));
-import Footer from "../Footer/Footer";
 import { InfoContext } from "../../state/Store";
 import {
   generateError,
@@ -36,7 +34,7 @@ const CertificateVerification = (props) => {
           certificateNumber,
         })
         .then((res) => {
-          console.log("res.data.certificateData : ", res.data.certificateData);
+          // console.log("res.data.certificateData : ", res.data.certificateData);
           setCertificateData(res.data.certificateData);
           setCertificateFound(true);
           setShowResult(true);
@@ -44,7 +42,7 @@ const CertificateVerification = (props) => {
         })
         .catch((err) => {
           setLoading(false);
-          console.log(err.response);
+          // console.log(err.response);
           if (err.response.status == 500) {
             info.dispatch(
               generateError("Internal Server Error! Please try again.")
@@ -59,7 +57,6 @@ const CertificateVerification = (props) => {
   };
   return (
     <React.Fragment>
-      <Nav />
       {showResult && (
         <div className="verification-result-container">
           {certificateFound && (
@@ -86,10 +83,12 @@ const CertificateVerification = (props) => {
       {loading && <Loader />}
       {certificateFound && (
         <div className="verfication-report-container">
-          <CertificateVerificationReport ref={ref} certificateData={certificateData} />
+          <CertificateVerificationReport
+            ref={ref}
+            certificateData={certificateData}
+          />
         </div>
       )}
-      <Footer />
     </React.Fragment>
   );
 };

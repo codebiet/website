@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy } from "react";
 import {
   TabContent,
   TabPane,
@@ -9,8 +9,8 @@ import {
 } from "reactstrap";
 import classnames from "classnames";
 import axios from "axios";
-import EventCard from "../EventCard/EventCard";
-import EventCardLoading from "../EventCard/EventCardLoader";
+const EventCard = lazy(() => import("../EventCard/EventCard"));
+const EventCardLoading = lazy(() => import("../EventCard/EventCardLoader"));
 
 const getQuery = (activePrimaryTab, activeSecTab) => {
   let query = "";
@@ -20,25 +20,29 @@ const getQuery = (activePrimaryTab, activeSecTab) => {
   else if (activeSecTab == 3) query = query + "lt=" + new Date(Date.now());
   return query;
 };
-const SecondaryTab = ({ activeMainTab }) => {
+const SecondaryTab = ({ activeMainTab, mainTab }) => {
   const [activeTab, setActiveTab] = useState("1");
   const [events, setEvents] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true); //since initially events will be loaded from backend, that's why setting it to true so that EventCard component don't get rendered initially otherwise that will give an error, since tags will be undefined since events has no data and in EventCard component we've use tags.map(), EventCard gets rendered only after loading == false
   const toggle = (tab) => {
     if (activeTab !== tab) setActiveTab(tab);
   };
   useEffect(() => {
-    setLoading(true);
-    const query = getQuery(activeMainTab, activeTab);
-    axios
-      .get(`/api/events?${query}`)
-      .then((res) => {
-        setLoading(false);
-        setEvents(res.data.events);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (activeMainTab == mainTab) {
+      setLoading(true);
+      const query = getQuery(activeMainTab, activeTab);
+      axios
+        .get(`/api/events?${query}`)
+        .then((res) => {
+          console.log("setting events to :", res.data.events);
+          setEvents(res.data.events);
+          console.log("setting loading to false: ", false);
+          setLoading(false);
+        })
+        .catch((err) => {
+          // console.log(err);
+        });
+    }
   }, [activeMainTab, activeTab]);
   return (
     <Container className="event-primary-tab-inner">

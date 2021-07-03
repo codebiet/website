@@ -137,7 +137,7 @@ function Event_details(props) {
     axios
       .get(`/api/events/${props.match.params.id}`)
       .then((res) => {
-        console.log(res.data.event);
+        // console.log(res.data.event);
         setLoading(false);
         setEvent(res.data.event);
       })

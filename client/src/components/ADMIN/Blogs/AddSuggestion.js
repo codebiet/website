@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, lazy } from "react";
 import { InfoContext } from "../../../state/Store";
 import {
   generateError,
@@ -7,6 +7,7 @@ import {
 } from "../../../state/info/infoActions";
 import { AddCircle } from "@material-ui/icons";
 import AddSuggestionModal from "./AddUpdateSuggestionModal";
+// const AddSuggestionModal = lazy(() => import("./AddUpdateSuggestionModal"));
 
 const AddSuggestion = ({
   setSuggestions = () => "",

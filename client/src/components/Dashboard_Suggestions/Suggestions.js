@@ -1,15 +1,23 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, lazy } from "react";
 import { AuthContext } from "../../state/Store";
-import Loader from "../Loader/Loader";
 import axios from "axios";
-import DemoNavbar from "../Dashboard_Profile/DashboardHeaderNav";
-import Sidebar from "../Dashboard_Profile/DashboardSidebar";
-import Footer from "../Dashboard_Profile/DashboardFooter";
-import SuggestionCard from "../ADMIN/Blogs/SuggestionCard";
-import { Redirect } from "react-router-dom";
-import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
-import AddSuggestion from "../ADMIN/Blogs/AddSuggestion";
-import { Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
+// import DemoNavbar from "../Dashboard_Profile/DashboardHeaderNav";
+// import Sidebar from "../Dashboard_Profile/DashboardSidebar";
+// import Footer from "../Dashboard_Profile/DashboardFooter";
+// import SuggestionCard from "../ADMIN/Blogs/SuggestionCard";
+// import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
+// import AddSuggestion from "../ADMIN/Blogs/AddSuggestion";
+const DemoNavbar = lazy(() =>
+  import("../Dashboard_Profile/DashboardHeaderNav")
+);
+const Sidebar = lazy(() => import("../Dashboard_Profile/DashboardSidebar"));
+const Footer = lazy(() => import("../Dashboard_Profile/DashboardFooter"));
+const SuggestionCard = lazy(() => import("../ADMIN/Blogs/SuggestionCard"));
+const AddSuggestion = lazy(() => import("../ADMIN/Blogs/AddSuggestion"));
+const ConfirmationModal = lazy(() =>
+  import("../ConfirmationModal/ConfirmationModal")
+);
 const PickArticle = ({ id, setUpdated }) => {
   const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
   const handlePickArticle = (id) => {
@@ -20,7 +28,7 @@ const PickArticle = ({ id, setUpdated }) => {
       })
       .catch((err) => {
         setUpdated(true);
-        console.log(err);
+        // console.log(err);
       });
   };
   return (
@@ -81,17 +89,17 @@ const Suggestions = (props) => {
           setPickedLoading(false);
         })
         .catch((err) => {
-          console.log(err);
+          //  console.log (err);
         });
       axios
         .get("/api/blogs/suggestions?state=AVAILABLE&approvedSuggestion=true")
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           setSuggestions(res.data.suggestions);
           setAvailableLoading(false);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
         });
       setMounted(false);
       setUpdated(false);

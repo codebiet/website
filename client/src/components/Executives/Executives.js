@@ -43,7 +43,7 @@ function Executives() {
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis ex
         mol
       </p>
-      <div class="executives">
+      <div className="executives">
         <ExecutiveItem
           src={Manal}
           name="Manal Jain"

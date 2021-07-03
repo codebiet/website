@@ -117,9 +117,10 @@ const Blogs = (props) => {
           </h3>
         </div>
         <div className="row blog-cards-container">
-          {blogsData.map((data) => {
+          {blogsData.map((data, index) => {
             return (
               <div
+                key={index}
                 className="col-lg-4 col-md-6 col-sm-12 col-xs-12 blog-card"
                 data-aos="zoom-in"
                 data-aos-delay="100"

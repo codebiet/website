@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy } from "react";
+import axios from "axios";
 import AskBar from "./AskBar";
 import SwitchBar from "./SwitchBar";
 import PostCard from "./PostCard";
 import HorizontalBar from "./HorizontalBar";
 import Sidebar from "./Sidebar";
 import FloatingButtons from "./FloatingButtons";
-import axios from "axios";
 import Loader from "../Loader/Loader";
-import Pagination from "../Pagination/Pagination";
+// import Pagination from "../Pagination/Pagination";
+const Pagination = lazy(() => import("../Pagination/Pagination"));
 function Discussion(props) {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -50,7 +51,7 @@ function Discussion(props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [limit, setLimit] = useState(5);
   const handlePageChange = (page) => {
-    console.log(page);
+    // console.log(page);
     window.scrollTo(0, 0); //scrollTo top when page is changed;
     setCurrentPage(page);
   };
@@ -78,14 +79,14 @@ function Discussion(props) {
       })
       .catch((err) => {
         setMounted(true);
-        console.log(err);
+        // console.log(err);
       });
   }, [currentPage, category, tags, sort, type]);
   return (
     <main className="discussion-container-main">
       {topLoader && <div className="scroller"></div>}
-      <div id="qna-wrapper" class="row">
-        <div id="qnasection" class="col-xs-12 col-sm-12 col-lg-9">
+      <div id="qna-wrapper" className="row">
+        <div id="qnasection" className="col-xs-12 col-sm-12 col-lg-9">
           <div id="discussPanel">
             <AskBar
               setPosts={setPosts}
@@ -98,8 +99,13 @@ function Discussion(props) {
               setType={setType}
               setCurrentPage={setCurrentPage}
             />
-            {posts.map((post) => (
-              <PostCard post={post} getQuery={getQuery} setPosts={setPosts} />
+            {posts.map((post, index) => (
+              <PostCard
+                key={index}
+                post={post}
+                getQuery={getQuery}
+                setPosts={setPosts}
+              />
             ))}
             {totalItems > limit && (
               <Pagination
