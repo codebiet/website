@@ -214,10 +214,6 @@ export default (props) => {
                     props.data.tags.map((tag) => (
                       <span className="round-tab_h">{tag}</span>
                     ))}
-                  {/* <span className="round-tab_h">Designing</span>
-                <span className="round-tab_h">Web development</span>
-                <span className="round-tab_h">Coding</span> 
-                <span className="round-tab_h">React</span>  */}
                 </div>
                 <div className="btn-group m-1">
                   <a href={props.data.github} target="_blank">

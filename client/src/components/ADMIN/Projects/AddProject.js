@@ -1,9 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
+import "regenerator-runtime/runtime";
 import DashboardLayout from "../Dashboard/DashboardLayout";
+import Loader from "../../Loader/Loader";
 import projectRoutes from "./projectRoutes";
 import { InfoContext } from "../../../state/Store";
-import Loader from "../../Loader/Loader";
 import {
   generateError,
   clearEverything,
@@ -29,7 +30,6 @@ function Adminform() {
   const [documentationUrl, setDocumenationUrl] = useState("");
   const [stack, setStack] = useState("");
   const [tags, setTags] = useState([]);
-  const [selectedFiles, setSelectedFiles] = useState([]);
   const img1Ref = React.createRef();
   const img2Ref = React.createRef();
   const img3Ref = React.createRef();
@@ -37,7 +37,6 @@ function Adminform() {
   const [loading, setLoading] = useState(false);
   const info = useContext(InfoContext);
   function resetStates() {
-    setSelectedFiles([]);
     setDeveloperName("");
     setProjectName("");
     setDescription("");
@@ -56,11 +55,6 @@ function Adminform() {
     parsedValues = parsedValues.map((tagObj) => tagObj.value);
     setTags(parsedValues);
   };
-  function handleImageInput(event) {
-    const file = event.target.files[0];
-    const newSelectedFiles = [...selectedFiles, file];
-    setSelectedFiles(newSelectedFiles);
-  }
   const handleSubmit = async (event) => {
     event.preventDefault();
     let user = {
@@ -105,7 +99,7 @@ function Adminform() {
       data.append("images", img3Ref.current.files[0]);
     if (img4Ref.current.files && img4Ref.current.files[0])
       data.append("images", img4Ref.current.files[0]);
-    data.append("tags", tags);
+    data.append("tags", JSON.stringify(tags));
     for (const property in user) {
       data.append(property, user[property]);
     }

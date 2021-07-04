@@ -22,7 +22,7 @@ module.exports = async (req, res) => {
     developerName: req.body.developer_name,
     mainStack: req.body.main_stack,
     description: req.body.description,
-    tags: req.body.tags,
+    tags: JSON.parse(req.body.tags),
     demoUrl: req.body.demo_url,
     repoUrl: req.body.repo_url,
     imgUrls: imageUrls,
