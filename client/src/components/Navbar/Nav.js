@@ -56,13 +56,13 @@ function Nav() {
               ref={resourcesRef}
               onTouchStart={(e) => touchHandler(e, resourcesRef, actionsRef)}
             >
-              <NavLink to="#">
+              <button>
                 Resources{" "}
                 <img
                   src="https://img.icons8.com/metro/26/000000/sort-down.png"
                   alt=""
                 />
-              </NavLink>
+              </button>
               <div className="expand">
                 <div className="nav-column">
                   <ul>
@@ -133,13 +133,13 @@ function Nav() {
               ref={actionsRef}
               onTouchStart={(e) => touchHandler(e, actionsRef, resourcesRef)}
             >
-              <NavLink to="#">
+              <button>
                 Actions{" "}
                 <img
                   src="https://img.icons8.com/metro/26/000000/sort-down.png"
                   alt=""
                 />
-              </NavLink>
+              </button>
               <div className="expand">
                 <div className="nav-column">
                   <ul>
