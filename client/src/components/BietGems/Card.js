@@ -1,140 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
 import FilterForm from "./FilterForm";
 import user_image from "../assets/boy.png";
 import { Link } from "react-router-dom";
-const userData = [
-  {
-    id: 1,
-    name: "Sooraj Shukla",
-    branch: "CSE",
-    facebook: "https://www.facebook.com/sooraj.shukla.395/",
-    linkedin: "https://linkedin.com/soorajshukla974",
-    github: "https://github.com/soorajarsn",
-  },
-  {
-    id: 2,
-    name: "Sooraj Shukla",
-    branch: "CSE",
-    facebook: "https://www.facebook.com/sooraj.shukla.395/",
-    linkedin: "https://linkedin.com/soorajshukla974",
-    github: "https://github.com/soorajarsn",
-  },
-  {
-    id: 3,
-    name: "Sooraj Shukla",
-    branch: "CSE",
-    facebook: "https://www.facebook.com/sooraj.shukla.395/",
-    linkedin: "https://linkedin.com/soorajshukla974",
-    github: "https://github.com/soorajarsn",
-  },
-  {
-    id: 4,
-    name: "Sooraj Shukla",
-    branch: "CSE",
-    facebook: "https://www.facebook.com/sooraj.shukla.395/",
-    linkedin: "https://linkedin.com/soorajshukla974",
-    github: "https://github.com/soorajarsn",
-  },
-  {
-    id: 5,
-    name: "Sooraj Shukla",
-    branch: "CSE",
-    facebook: "https://www.facebook.com/sooraj.shukla.395/",
-    linkedin: "https://linkedin.com/soorajshukla974",
-    github: "https://github.com/soorajarsn",
-  },
-  {
-    id: 6,
-    name: "Sooraj Shukla",
-    branch: "CSE",
-    facebook: "https://www.facebook.com/sooraj.shukla.395/",
-    linkedin: "https://linkedin.com/soorajshukla974",
-    github: "https://github.com/soorajarsn",
-  },
-  {
-    id: 7,
-    name: "Sooraj Shukla",
-    branch: "CSE",
-    facebook: "https://www.facebook.com/sooraj.shukla.395/",
-    linkedin: "https://linkedin.com/soorajshukla974",
-    github: "https://github.com/soorajarsn",
-  },
-  {
-    id: 8,
-    name: "Sooraj Shukla",
-    branch: "CSE",
-    facebook: "https://www.facebook.com/sooraj.shukla.395/",
-    linkedin: "https://linkedin.com/soorajshukla974",
-    github: "https://github.com/soorajarsn",
-  },
-  {
-    id: 9,
-    name: "Sooraj Shukla",
-    branch: "CSE",
-    facebook: "https://www.facebook.com/sooraj.shukla.395/",
-    linkedin: "https://linkedin.com/soorajshukla974",
-    github: "https://github.com/soorajarsn",
-  },
-  {
-    id: 10,
-    name: "Sooraj Shukla",
-    branch: "CSE",
-    facebook: "https://www.facebook.com/sooraj.shukla.395/",
-    linkedin: "https://linkedin.com/soorajshukla974",
-    github: "https://github.com/soorajarsn",
-  },
-  {
-    id: 11,
-    name: "Sooraj Shukla",
-    branch: "CSE",
-    facebook: "https://www.facebook.com/sooraj.shukla.395/",
-    linkedin: "https://linkedin.com/soorajshukla974",
-    github: "https://github.com/soorajarsn",
-  },
-  {
-    id: 12,
-    name: "Sooraj Shukla",
-    branch: "CSE",
-    facebook: "https://www.facebook.com/sooraj.shukla.395/",
-    linkedin: "https://linkedin.com/soorajshukla974",
-    github: "https://github.com/soorajarsn",
-  },
-  {
-    id: 13,
-    name: "Sooraj Shukla",
-    branch: "CSE",
-    facebook: "https://www.facebook.com/sooraj.shukla.395/",
-    linkedin: "https://linkedin.com/soorajshukla974",
-    github: "https://github.com/soorajarsn",
-  },
-  {
-    id: 14,
-    name: "Sooraj Shukla",
-    branch: "CSE",
-    facebook: "https://www.facebook.com/sooraj.shukla.395/",
-    linkedin: "https://linkedin.com/soorajshukla974",
-    github: "https://github.com/soorajarsn",
-  },
-  {
-    id: 5,
-    name: "Sooraj Shukla",
-    branch: "CSE",
-    facebook: "https://www.facebook.com/sooraj.shukla.395/",
-    linkedin: "https://linkedin.com/soorajshukla974",
-    github: "https://github.com/soorajarsn",
-  },
-  {
-    id: 16,
-    name: "Sooraj Shukla",
-    branch: "CSE",
-    facebook: "https://www.facebook.com/sooraj.shukla.395/",
-    linkedin: "https://linkedin.com/soorajshukla974",
-    github: "https://github.com/soorajarsn",
-  },
-];
+import axios from "axios";
+
 const CardItem = ({ id, name, branch, facebook, linkedin, github }) => {
   return (
-    <Link to={`/userProfile/${id}`} style={{textDecoration:"none"}}>
+    <Link to={`/userProfile/${id}`} style={{ textDecoration: "none" }}>
       <div className="profile-card">
         <div className="card-header">
           <div className="pic">
@@ -153,9 +26,35 @@ const CardItem = ({ id, name, branch, facebook, linkedin, github }) => {
   );
 };
 const Card = (props) => {
+  const [userData, setUserData] = useState([]);
+  const [year, setYear] = useState("");
+  const [branch, setBranch] = useState("");
+  const [profession, setProfession] = useState("");
+
+  useEffect(() => {
+    // setLoading(true);
+    window.scrollTo(0, 0);
+
+    axios
+      .get(`/api/gems?year=${year}&branch=${branch}&profession=${profession}`)
+      .then((res) => {
+        setUserData(res.data.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [year, branch,profession]);
+
   return (
     <div className="card_main_cot">
-      <FilterForm />
+      <FilterForm
+        year={year}
+        setYear={setYear}
+        branch={branch}
+        setBranch={setBranch}
+        setProfession={setProfession}
+      />
       <div className="c card_cot">
         <div className="card_wrapper">
           {userData.map((dt, index) => (

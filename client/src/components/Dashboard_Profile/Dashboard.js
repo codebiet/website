@@ -554,14 +554,14 @@ const TakeData = ({
                           <option value="Electrical Engineering">
                             Electrical Engineering
                           </option>
-                          <option value="Electronics and Communication">
-                            Electronics and Communication
+                          <option value="Electronics and Communication Engineering">
+                            Electronics and Communication Engineering
                           </option>
                           <option value="Computer Science and Engineering">
                             Computer Science and Engineering
                           </option>
-                          <option value="Infomation Technology">
-                            Infomation Technology
+                          <option value="Information Technology">
+                            Information Technology
                           </option>
                           <option value="Civil Engineering">
                             Civil Engineering
@@ -569,8 +569,8 @@ const TakeData = ({
                           <option value="Mechanical Engineering">
                             Mechanical Engineering
                           </option>
-                          <option value="Chemical Technology">
-                            Chemical Technology
+                          <option value="Chemical Engineering">
+                            Chemical Engineering
                           </option>
                         </select>
                       </FormGroup>
