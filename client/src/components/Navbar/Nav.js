@@ -106,6 +106,16 @@ function Nav() {
                         Projects
                       </NavLink>
                     </li>
+                    <li>
+                      <NavLink to="/discussion-forum">
+                        <img
+                          src="https://img.icons8.com/metro/26/000000/sort-down.png"
+                          className="elevated"
+                          alt=""
+                        />{" "}
+                        Discussion-forum
+                      </NavLink>
+                    </li>
                     {/* <li>
                       <NavLink to="#">
                         <img
@@ -144,6 +154,16 @@ function Nav() {
                 <div className="nav-column">
                   <ul>
                     <li>
+                      <NavLink to="/suggestions">
+                        <img
+                          src="https://img.icons8.com/metro/26/000000/sort-down.png"
+                          className="elevated"
+                          alt=""
+                        />{" "}
+                        Write a Blog
+                      </NavLink>
+                    </li>
+                    <li>
                       <NavLink to="/careers">
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
@@ -161,16 +181,6 @@ function Nav() {
                           alt=""
                         />{" "}
                         Give Suggestions
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/about">
-                        <img
-                          src="https://img.icons8.com/metro/26/000000/sort-down.png"
-                          className="elevated"
-                          alt=""
-                        />{" "}
-                        About Us
                       </NavLink>
                     </li>
                     <li>
