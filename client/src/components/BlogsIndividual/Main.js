@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
-import Comment from "./Comment";
-import axios from "axios";
-import Loader from "../Loader/Loader";
-import draftToHtml from "draftjs-to-html";
+import React, { useState, useEffect, lazy } from "react";
 import DOMPurify from "dompurify";
-import Card from "./Card";
+import axios from "axios";
+import draftToHtml from "draftjs-to-html";
 import { Link } from "react-router-dom";
+// import Card from "./Card";
+import Loader from "../Loader/Loader";
+// import Comment from "./Comment";
+const Card = lazy(() => import("./Card"));
+// const Loader = lazy(() => import("../Loader/Loader"));
+const Comment = lazy(() => import("./Comment"));
 const Main = (props) => {
   const [blog, setBlog] = useState({});
   const [prevBlog, setPrevBlog] = useState({});
@@ -40,7 +43,7 @@ const Main = (props) => {
   }, [props.match.params.url]);
   return (
     <main className="blogs-individual-container-main">
-      <div className="ll" style={{maxWidth:"100vw"}}>
+      <div className="ll" style={{ maxWidth: "100vw" }}>
         <div className=" l container">
           <div className="blogs-and-resent-blogs-container">
             <div className="main_container">
