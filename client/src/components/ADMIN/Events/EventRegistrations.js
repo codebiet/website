@@ -1,15 +1,17 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, lazy } from "react";
 import eventRoutes from "./eventRoutes";
-import DashboardLayout from "../Dashboard/DashboardLayout";
 import { Button, Card, CardBody, CardHeader } from "reactstrap";
 import axios from "axios";
-import PaginationComponent from "../../Pagination/Pagination";
 import { InfoContext } from "../../../state/Store";
 import {
   generateError,
   clearEverything,
 } from "../../../state/info/infoActions";
-import SendMessageModal from "./SendMessageModal";
+import DashboardLayout from "../Dashboard/DashboardLayout";
+// import PaginationComponent from "../../Pagination/Pagination";
+// import SendMessageModal from "./SendMessageModal";
+const PaginationComponent = lazy(() => import("../../Pagination/Pagination"));
+const SendMessageModal = lazy(() => import("./SendMessageModal"));
 const UserCard = ({ user }) => {
   return (
     <Card className="user">

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, lazy } from "react";
 import {
   Container,
   Modal,
@@ -23,9 +23,12 @@ import {
 import axios from "axios";
 import blogRoutes from "./blogRoutes";
 import DashboardLayout from "../Dashboard/DashboardLayout";
-import SuggestionCard from "./SuggestionCard";
-import Pagination from "../../Pagination/Pagination";
-import Loader from "../../Loader/Loader";
+// import SuggestionCard from "./SuggestionCard";
+// import Pagination from "../../Pagination/Pagination";
+// import Loader from "../../Loader/Loader";
+const SuggestionCard = lazy(() => import("./SuggestionCard"));
+const Pagination = lazy(() => import("../../Pagination/Pagination"));
+const Loader = lazy(() => import("../../Loader/Loader"));
 const typeFilters = [
   { title: "All", value: "All" },
   { title: "Pending", value: "PENDING" },

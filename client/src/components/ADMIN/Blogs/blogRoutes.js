@@ -1,7 +1,10 @@
-import React from "react";
-import Suggestions from "./Suggestions";
-import Blogs from "./Blogs";
-import WriteBlog from "./WriteBlog";
+import { lazy } from "react";
+// import Suggestions from "./Suggestions";
+// import Blogs from "./Blogs";
+// import WriteBlog from "./WriteBlog";
+const Suggestions = lazy(() => import("./Suggestions"));
+const Blogs = lazy(() => import("./Blogs"));
+const WriteBlog = lazy(() => import("./WriteBlog"));
 const eventRoutes = [
   {
     path: "/admin/blogs/suggestions",

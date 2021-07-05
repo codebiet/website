@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import employeeDiscussingImg from "../assets/employee-discussing-strategy-in-the-office-2127132.png";
 import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 const stats = [
   {
     fontawesomeIconClass: "fa fa-users",
@@ -123,7 +124,10 @@ const Community = (props) => {
               student passionate about development. We want to set up a
               supportive technical community that encourages innovative ideas.
             </p>
-            <Link className="btn btn-style mt-lg-5 mt-4 default-btn round-corner" to="/about">
+            <Link
+              className="btn btn-style mt-lg-5 mt-4 default-btn round-corner"
+              to="/about"
+            >
               Wanna Know More?
             </Link>
           </div>
@@ -134,9 +138,9 @@ const Community = (props) => {
             data-aos-once={true}
             data-aos-duration="1000"
           >
-            <img
-              src={employeeDiscussingImg}
+            <LazyLoadImage
               alt="product"
+              src={employeeDiscussingImg}
               className="img-responsive"
             />
           </div>

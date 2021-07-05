@@ -3,9 +3,9 @@ import AOS from "aos";
 import OwlCarousel from "react-owl-carousel";
 import EventCard from "../EventCard/EventCard";
 // const OwlCarousel = lazy(() => import("react-owl-carousel"));
-// import EventLoaderCard from "../EventCard/EventCardLoader";
+import EventLoaderCard from "../EventCard/EventCardLoader";
 // const EventCard = lazy(() => import("../EventCard/EventCard"));
-const EventLoaderCard = lazy(() => import("../EventCard/EventCardLoader"));
+// const EventLoaderCard = lazy(() => import("../EventCard/EventCardLoader"));
 import { Container } from "reactstrap";
 import axios from "axios";
 const Events = (props) => {
@@ -65,6 +65,7 @@ const Events = (props) => {
                 }}
                 id="events"
                 className="owl-theme mt-4 py-md-2"
+                lazyLoad={true}
               >
                 {eventsData.map((eventData) => (
                   <EventCard key={eventData._id} {...eventData} />

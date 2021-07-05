@@ -5,6 +5,7 @@ import { loadUser } from "../../state/auth/authActions";
 import ReactDOM from "react-dom";
 import ErrorBoundary from "../../HOC/ErrorBoundary";
 import Toaster from "../Toaster/Toaster";
+import "regenerator-runtime/runtime";
 // import Register from "../../pages/Register";
 // import SentVerifyEmail from "../../pages/SentVerifyEmail";
 // import Login from "../../pages/Login";
@@ -34,6 +35,7 @@ import Toaster from "../Toaster/Toaster";
 // import Discussion from "../../pages/Discussion";
 // import ReviewBlog from "../../pages/ReviewBlog";
 // import Logout from "../../pages/Logout";
+// import AdminRoutes from "../ADMIN/routes/AdminRoutes";
 import Loader from "../Loader/Loader";
 const Register = lazy(() => import("../../pages/Register"));
 const SentVerifyEmail = lazy(() => import("../../pages/SentVerifyEmail"));
@@ -70,7 +72,7 @@ const Career = lazy(() => import("../../pages/Career"));
 const Discussion = lazy(() => import("../../pages/Discussion"));
 const ReviewBlog = lazy(() => import("../../pages/ReviewBlog"));
 const Logout = lazy(() => import("../../pages/Logout"));
-// import AdminRoutes from "../ADMIN/routes/AdminRoutes";
+const AdminRoutes = lazy(() => import("../ADMIN/routes/AdminRoutes"));
 function App() {
   const auth = useContext(AuthContext);
   const info = useContext(InfoContext);
@@ -199,23 +201,12 @@ function App() {
                 path="/discussion-forum"
                 render={(props) => <Discussion {...props} />}
               />
-
-              {/* Admin routes */}
-              {/* {AdminRoutes.map((adminRoute) => {
-                return (
-                  <Route
-                    key={adminRoute.path}
-                    exact={true}
-                    path={adminRoute.path}
-                    render={(props) => <adminRoute.Component {...props} />}
-                  />
-                );
-              })} */}
               <Route
                 exact={true}
                 path="/internalServerError"
                 render={() => <h1>Status-Code 500: Internal Server Error!</h1>}
               />
+              <AdminRoutes />
               <Route path="*" render={() => <Error404 />} />
             </Switch>
           </Router>

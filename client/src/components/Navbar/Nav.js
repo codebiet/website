@@ -58,7 +58,10 @@ function Nav() {
             >
               <NavLink to="#">
                 Resources{" "}
-                <img src="https://img.icons8.com/metro/26/000000/sort-down.png" />
+                <img
+                  src="https://img.icons8.com/metro/26/000000/sort-down.png"
+                  alt=""
+                />
               </NavLink>
               <div className="expand">
                 <div className="nav-column">
@@ -68,6 +71,7 @@ function Nav() {
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
+                          alt=""
                         />{" "}
                         Blogs
                       </NavLink>
@@ -77,6 +81,7 @@ function Nav() {
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
+                          alt=""
                         />{" "}
                         Our Team
                       </NavLink>
@@ -86,6 +91,7 @@ function Nav() {
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
+                          alt=""
                         />{" "}
                         Events
                       </NavLink>
@@ -95,6 +101,7 @@ function Nav() {
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
+                          alt=""
                         />{" "}
                         Projects
                       </NavLink>
@@ -128,7 +135,10 @@ function Nav() {
             >
               <NavLink to="#">
                 Actions{" "}
-                <img src="https://img.icons8.com/metro/26/000000/sort-down.png" />
+                <img
+                  src="https://img.icons8.com/metro/26/000000/sort-down.png"
+                  alt=""
+                />
               </NavLink>
               <div className="expand">
                 <div className="nav-column">
@@ -138,6 +148,7 @@ function Nav() {
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
+                          alt=""
                         />{" "}
                         Work with Us
                       </NavLink>
@@ -147,6 +158,7 @@ function Nav() {
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
+                          alt=""
                         />{" "}
                         Give Suggestions
                       </NavLink>
@@ -156,6 +168,7 @@ function Nav() {
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
+                          alt=""
                         />{" "}
                         About Us
                       </NavLink>
@@ -165,6 +178,7 @@ function Nav() {
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
+                          alt=""
                         />{" "}
                         Certificate Verification
                       </NavLink>
@@ -174,6 +188,7 @@ function Nav() {
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"
                           className="elevated"
+                          alt=""
                         />{" "}
                         Report a Bug ?
                       </NavLink>

@@ -13,6 +13,7 @@ const getRoutes = require("./backend/routes/getRoutes");
 const postRoutes = require("./backend/routes/postRoutes");
 const deleteRoutes = require("./backend/routes/deleteRoutes");
 const patchRoutes = require("./backend/routes/patchRoutes");
+const fs = require("fs");
 const app = express();
 const multer = require("multer");
 const multerUpload = multer();
@@ -48,6 +49,13 @@ app.use("/patch", patchRoutes);
 app.get("/robots.txt", function (req, res) {
   res.type("text/plain");
   res.send("User-agent: *\nAllow: /");
+});
+app.get("/manifest.json", function (req, res) {
+  res.type("application/json");
+  fs.readFile("./client/public/manifest.json", function (err, data) {
+    if (err) res.status(500).send({ errorMsg: "Something went wrong!" });
+    res.send(data);
+  });
 });
 //frontend routes
 app.get("*", (req, res) => {

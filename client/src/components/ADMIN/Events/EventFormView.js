@@ -1,5 +1,4 @@
-import React from "react";
-import DashboardLayout from "../Dashboard/DashboardLayout";
+import React, { lazy } from "react";
 import eventRoutes from "./eventRoutes";
 import DateFnsUtils from "@date-io/date-fns";
 import {
@@ -20,7 +19,9 @@ import {
   Col,
   Form,
 } from "reactstrap";
-import EditorComponent from "../../Editor/Editor";
+import DashboardLayout from "../Dashboard/DashboardLayout";
+// import EditorComponent from "../../Editor/Editor";
+const EditorComponent = lazy(() => import("../../Editor/Editor"));
 const EventFormView = React.forwardRef(
   (
     {

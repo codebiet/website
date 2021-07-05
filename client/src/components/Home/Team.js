@@ -60,7 +60,7 @@ const TeamMember = ({ name, description, img, detailedText,fbLink,lnkdinLink,ema
                 </h4>
                 <p className="card-text">{description}</p>
                 <Link to="#" className="flip">
-                  <img src="https://img.icons8.com/android/24/000000/right3.png" />
+                  <img src="https://img.icons8.com/android/24/000000/right3.png" alt=""/>
                 </Link>
               </div>
             </div>
@@ -72,14 +72,14 @@ const TeamMember = ({ name, description, img, detailedText,fbLink,lnkdinLink,ema
                   {name}
                 </h4>
                 <p className="card-text">{detailedText}</p>
-                <ul className="list-inline">
+                {/* <ul className="list-inline">
                   <li className="list-inline-item">
                     <a
                       className="social-icon text-xs-center"
                       target="_blank"
                       href={fbLink}
                     >
-                      <img src="https://img.icons8.com/fluent/32/000000/facebook-new.png" />
+                      <img src="https://img.icons8.com/fluent/32/000000/facebook-new.png" alt="" />
                     </a>
                   </li>
                   <li className="list-inline-item">
@@ -88,7 +88,7 @@ const TeamMember = ({ name, description, img, detailedText,fbLink,lnkdinLink,ema
                       target="_blank"
                       href="#"
                     >
-                      <img src="https://img.icons8.com/color/32/000000/twitter-circled.png" />
+                      <img src="https://img.icons8.com/color/32/000000/twitter-circled.png" alt="" />
                     </a>
                   </li>
                   <li className="list-inline-item">
@@ -97,7 +97,7 @@ const TeamMember = ({ name, description, img, detailedText,fbLink,lnkdinLink,ema
                       target="_blank"
                       href={lnkdinLink}
                     >
-                      <img src="https://img.icons8.com/fluent/32/000000/linkedin.png" />
+                      <img src="https://img.icons8.com/fluent/32/000000/linkedin.png" alt="" />
                     </a>
                   </li>
                   <li className="list-inline-item">
@@ -106,10 +106,11 @@ const TeamMember = ({ name, description, img, detailedText,fbLink,lnkdinLink,ema
                       target="_blank"
                       href="#"
                     >
-                      <img src="https://img.icons8.com/fluent/32/000000/instagram-new.png" />
+                      <img src="https://img.icons8.com/fluent/32/000000/instagram-new.png" alt="" />
                     </a>
                   </li>
                 </ul>
+               */}
               </div>
             </div>
           </div>

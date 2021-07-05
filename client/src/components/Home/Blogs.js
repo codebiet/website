@@ -1,4 +1,4 @@
-import React, { useEffect, lazy } from "react";
+import React, { useEffect } from "react";
 import AOS from "aos";
 import { Link } from "react-router-dom";
 import like from "../assets/like.png";
@@ -64,15 +64,15 @@ export const BlogCard = ({
         <div className="cards__item__info">
           <div className="info-icons">
             <div className=" icon-s">
-              <img className="icon" src={user} />
+              <img className="icon" src={user} alt="" />
               <span className="icon-name">{writer}</span>
             </div>
             <div className=" icon-s">
-              <img className="icon" src={like} />
+              <img className="icon" src={like} alt="" />
               <span className="icon-name">{likes}</span>
             </div>
             <div className=" icon-s">
-              <img className="icon" src={calendar} />
+              <img className="icon" src={calendar} alt="" />
               <span className="icon-name">{publishedOn}</span>
             </div>
           </div>
@@ -86,7 +86,9 @@ export const BlogCard = ({
           </div>
         </div>
         <div className="button">
-          <button className="default-btn">Read more</button>
+          <button className="default-btn" aria-label="read-complete-blog">
+            Read more
+          </button>
         </div>
       </Link>
     </div>

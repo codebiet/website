@@ -1,7 +1,12 @@
-import Events from "./Events";
-import AddEvents from "./AddEvents";
-import UpdateEvent from "./UpdateEvent";
-import EventRegistrations from "./EventRegistrations";
+import {lazy} from "react";
+// import Events from "./Events";
+// import AddEvents from "./AddEvents";
+// import UpdateEvent from "./UpdateEvent";
+// import EventRegistrations from "./EventRegistrations";
+const Events = lazy(() => import("./Events"));
+const AddEvents = lazy(() => import("./AddEvents"));
+const UpdateEvent = lazy(() => import("./UpdateEvent"));
+const EventRegistrations = lazy(() => import("./EventRegistrations"));
 const eventRoutes = [
   {
     path: "/admin/events",

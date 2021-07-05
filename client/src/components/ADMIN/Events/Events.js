@@ -1,9 +1,7 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, lazy } from "react";
 import eventRoutes from "./eventRoutes";
-import DashboardLayout from "../Dashboard/DashboardLayout";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import ContentLoaderSvg from "../../EventCard/EventCardLoader";
 import {
   Row,
   Col,
@@ -14,7 +12,6 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
-import EventCard from "../../EventCard/EventCard";
 import {
   DeleteForeverRounded,
   EditTwoTone,
@@ -25,8 +22,16 @@ import {
   generateSuccess,
   generateError,
 } from "../../../state/info/infoActions";
-import Pagination from "../../Pagination/Pagination";
-import ConfirmDeletion from "./ConfirmDeletion";
+// import EventCard from "../../EventCard/EventCard";
+import DashboardLayout from "../Dashboard/DashboardLayout";
+// import ContentLoaderSvg from "../../EventCard/EventCardLoader";
+// import Pagination from "../../Pagination/Pagination";
+// import ConfirmDeletion from "./ConfirmDeletion";
+const EventCard = lazy(() => import("../../EventCard/EventCard"));
+// const DashboardLayout = lazy(() => import("../Dashboard/DashboardLayout"));
+const ContentLoaderSvg = lazy(() => import("../../EventCard/EventCardLoader"));
+const Pagination = lazy(() => import("../../Pagination/Pagination"));
+const ConfirmDeletion = lazy(() => import("./ConfirmDeletion"));
 const FilterComponent = ({ filter, setFilter, setPage }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const changeFilter = (newFilter) => {

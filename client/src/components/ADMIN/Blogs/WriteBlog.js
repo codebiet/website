@@ -1,16 +1,20 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, lazy } from "react";
 import { InfoContext } from "../../../state/Store";
 import {
   clearEverything,
   generateSuccess,
   generateError,
 } from "../../../state/info/infoActions";
-import Editor from "../../Editor/Editor";
+import "regenerator-runtime/runtime";
 import { EditorState, convertToRaw } from "draft-js";
-import Loader from "../../Loader/Loader";
-import Tags from "@yaireo/tagify/dist/react.tagify";
-import DashboardLayout from "../Dashboard/DashboardLayout";
 import blogRoutes from "./blogRoutes";
+import DashboardLayout from "../Dashboard/DashboardLayout";
+// import Editor from "../../Editor/Editor";
+// import Loader from "../../Loader/Loader";
+// import Tags from "@yaireo/tagify/dist/react.tagify";
+const Editor = lazy(() => import("../../Editor/Editor"));
+const Loader = lazy(() => import("../../Loader/Loader"));
+const Tags = lazy(() => import("@yaireo/tagify/dist/react.tagify"));
 import {
   Card,
   CardBody,

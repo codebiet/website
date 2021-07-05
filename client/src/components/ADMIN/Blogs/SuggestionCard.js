@@ -1,5 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
-import UpdateSuggestionModal from "./AddUpdateSuggestionModal";
+import React, { useState, useContext, useEffect, lazy } from "react";
 import { InfoContext } from "../../../state/Store";
 import {
   generateError,
@@ -15,9 +14,12 @@ import {
   HelpOutline,
   Visibility,
 } from "@material-ui/icons";
-import ConfirmDeletion from "../Events/ConfirmDeletion";
-import axios from "axios";
 import { UncontrolledTooltip } from "reactstrap";
+import axios from "axios";
+// import ConfirmDeletion from "../Events/ConfirmDeletion";
+// import UpdateSuggestionModal from "./AddUpdateSuggestionModal";
+const ConfirmDeletion = lazy(() => import("../Events/ConfirmDeletion"));
+const UpdateSuggestionModal = lazy(() => import("./AddUpdateSuggestionModal"));
 const DiscardReason = ({ reason, articleId }) => {
   return (
     <>

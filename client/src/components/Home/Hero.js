@@ -147,7 +147,7 @@ const Hero = (props) => {
               <img
                 className="img-fluid"
                 src={undraw_Code_thinking_re_gka2}
-                alt=" "
+                alt=""
               />
             </div>
           </div>
