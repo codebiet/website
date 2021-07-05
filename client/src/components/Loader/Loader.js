@@ -1,5 +1,5 @@
 import React from "react";
-// import "./loader.scss";
+import "./loader.scss";
 function Loader({ fullPageLoader }) {
   return (
     <div

@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy } from "react";
 import date from "../assets/date.png";
 import user from "../assets/user.png";
 import like from "../assets/like.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Pagination from "../Pagination/Pagination";
+// import Pagination from "../Pagination/Pagination";
+const Pagination = lazy(() => import("../Pagination/Pagination"));
 import Loader from "../Loader/Loader";
 const CardItem = (props) => {
   return (

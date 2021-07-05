@@ -3,6 +3,7 @@ import Loader from "../components/Loader/Loader";
 const Nav = lazy(() => import("../components/Navbar/Nav"));
 const Footer = lazy(() => import("../components/Footer/Footer"));
 const Card = lazy(() => import("../components/Blogs/Card"));
+// import Card from "../components/Blogs/Card";
 const Hero = lazy(() => import("../components/Blogs/Hero"));
 function Blogs() {
   useEffect(() => {
