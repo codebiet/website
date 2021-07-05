@@ -154,7 +154,7 @@
       transition: 0.3s ease-in;
     }
     .nav {
-      .expand-on-hover {
+      .expand-on-hover:hover {
         .expand {
           //
           position: absolute;
@@ -298,7 +298,7 @@
             }
           }
         }
-        &.hovered > button {
+        &:hover > button {
           background: linear-gradient(
             45deg,
             #fbbb3b,
@@ -310,7 +310,7 @@
           border-radius: 10px;
           transition: 0.4s ease-in;
         }
-        &.hovered {
+        &:hover {
           .expand {
             max-height: 300px;
             transition: max-height 0.3s ease-in-out;
