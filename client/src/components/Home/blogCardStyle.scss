@@ -25,6 +25,7 @@
   .cards__items {
     margin-bottom: 24px;
     display: flex;
+    justify-content: space-between;
   }
 
   .cards__item {
@@ -35,6 +36,8 @@
     margin: 0 1rem;
     background:white;
     border-radius: 10px;
+    min-width: 300px;
+    height: 500px;
   }
 
   .cards__item__link {
@@ -187,5 +190,17 @@
     .cards__item {
       margin-bottom: 2rem;
     }
+
+  @media only screen and (max-width:375px) {
+    .cards__item{
+      min-width: unset;
+      height: unset;
+      width: 100%;
+      margin-right: 0px;
+      margin-left: 0px;
+    }
+  }  
+
+
   }
 }
