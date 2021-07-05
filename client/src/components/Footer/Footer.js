@@ -62,50 +62,6 @@ function Footer() {
                     Projects
                   </Link>
                 </li>
-                {/* <li className="links">
-                  <Link to="#">
-                    <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
-                    Achievements
-                  </Link>
-                </li> */}
-                <li className="links">
-                  <Link to="/blogs">
-                    <img
-                      src="https://img.icons8.com/metro/12/000000/chevron-right.png"
-                      alt=""
-                    />
-                    Blog
-                  </Link>
-                </li>
-                {/* <li className="links">
-                  <Link to="#">
-                    <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
-                    Image Gallery
-                  </Link>
-                </li> */}
-              </ul>
-            </div>
-            <div className="menu">
-              <h3 className="menu-head">Actions</h3>
-              <ul className="submenu">
-                <li className="links">
-                  <Link to="/careers">
-                    <img
-                      src="https://img.icons8.com/metro/12/000000/chevron-right.png"
-                      alt=""
-                    />
-                    Work with Us
-                  </Link>
-                </li>
-                <li className="links">
-                  <Link to="/contact">
-                    <img
-                      src="https://img.icons8.com/metro/12/000000/chevron-right.png"
-                      alt=""
-                    />
-                    Suggestions
-                  </Link>
-                </li>
                 <li className="links">
                   <Link to="/about">
                     <img
@@ -122,6 +78,68 @@ function Footer() {
                       alt=""
                     />
                     BIET Gems
+                  </Link>
+                </li>
+                <li className="links">
+                  <Link to="/discussion-forum">
+                    <img
+                      src="https://img.icons8.com/metro/12/000000/chevron-right.png"
+                      alt=""
+                    />
+                    Discussion Forum
+                  </Link>
+                </li>
+                {/* <li className="links">
+                  <Link to="#">
+                    <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
+                    Achievements
+                  </Link>
+                </li> */}
+                <li className="links">
+                  <Link to="/blogs">
+                    <img
+                      src="https://img.icons8.com/metro/12/000000/chevron-right.png"
+                      alt=""
+                    />
+                    Blogs
+                  </Link>
+                </li>
+                {/* <li className="links">
+                  <Link to="#">
+                    <img src="https://img.icons8.com/metro/12/000000/chevron-right.png" />
+                    Image Gallery
+                  </Link>
+                </li> */}
+              </ul>
+            </div>
+            <div className="menu">
+              <h3 className="menu-head">Actions</h3>
+              <ul className="submenu">
+              <li className="links">
+                  <Link to="/suggestions">
+                    <img
+                      src="https://img.icons8.com/metro/12/000000/chevron-right.png"
+                      alt=""
+                    />
+                    Write a Blog
+                  </Link>
+                </li>
+                <li className="links">
+                  <Link to="/careers">
+                    <img
+                      src="https://img.icons8.com/metro/12/000000/chevron-right.png"
+                      alt=""
+                    />
+                    Work with Us
+                  </Link>
+                </li>
+                <li className="links">
+                  <Link to="/contact">
+                    <img
+                      src="https://img.icons8.com/metro/12/000000/chevron-right.png"
+                      alt=""
+                    />
+                    Give Suggestions
                   </Link>
                 </li>
                 <li className="links">
