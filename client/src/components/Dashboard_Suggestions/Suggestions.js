@@ -168,6 +168,11 @@ const Suggestions = (props) => {
                       <SuggestionCard actions={false} />
                     </>
                   )}
+                  {!availableLoading && availableLoading.length == 0 && (
+                    <p className="no-picked">
+                      Currectly We don't have any available topics.
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -178,7 +183,7 @@ const Suggestions = (props) => {
         </React.Fragment>
       ) : (
         <Redirect
-          to={{ pathname: "/login", state: { from: "/user-projects" } }}
+          to={{ pathname: "/login", state: { from: "/suggestions" } }}
         />
       )}
     </React.Fragment>
