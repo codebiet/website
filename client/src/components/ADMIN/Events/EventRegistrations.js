@@ -7,9 +7,10 @@ import {
   generateError,
   clearEverything,
 } from "../../../state/info/infoActions";
-import DashboardLayout from "../Dashboard/DashboardLayout";
+// import DashboardLayout from "../Dashboard/DashboardLayout";
 // import PaginationComponent from "../../Pagination/Pagination";
 // import SendMessageModal from "./SendMessageModal";
+const DashboardLayout = lazy(() => import("../Dashboard/DashboardLayout"));
 const PaginationComponent = lazy(() => import("../../Pagination/Pagination"));
 const SendMessageModal = lazy(() => import("./SendMessageModal"));
 const UserCard = ({ user }) => {

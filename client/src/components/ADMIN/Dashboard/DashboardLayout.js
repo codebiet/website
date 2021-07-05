@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
-import Sidebar from "./DashboardSidebar";
-import DashboardHeaderNav from "./DashboardHeaderNav";
+import React, { useState, useEffect, useContext, lazy } from "react";
 import { AuthContext } from "../../../state/Store";
 import { Redirect, useLocation } from "react-router-dom";
 import Loader from "../../Loader/Loader";
+const DashboardHeaderNav = lazy(() => import("./DashboardHeaderNav"));
+const Sidebar = lazy(() => import("./DashboardSidebar"));
 const Dashboard = ({ routes, profileImg, ...props }) => {
   const auth = useContext(AuthContext);
   const location = useLocation();

@@ -22,7 +22,8 @@ import {
 } from "../../../state/info/infoActions";
 import axios from "axios";
 import blogRoutes from "./blogRoutes";
-import DashboardLayout from "../Dashboard/DashboardLayout";
+// import DashboardLayout from "../Dashboard/DashboardLayout";
+const DashboardLayout = lazy(() => import("../Dashboard/DashboardLayout"));
 // import SuggestionCard from "./SuggestionCard";
 // import Pagination from "../../Pagination/Pagination";
 // import Loader from "../../Loader/Loader";

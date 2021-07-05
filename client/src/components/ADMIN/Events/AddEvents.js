@@ -1,6 +1,5 @@
 import "date-fns";
 import React, { useState, useContext, useEffect, lazy } from "react";
-import AddEventsView from "./EventFormView";
 import axios from "axios";
 import { InfoContext } from "../../../state/Store";
 import {
@@ -12,7 +11,9 @@ import {
 import "regenerator-runtime/runtime";
 import { EditorState, convertToRaw } from "draft-js";
 // import Loader from "../../Loader/Loader";
+// import AddEventsView from "./EventFormView";
 const Loader = lazy(() => import("../../Loader/Loader"));
+const AddEventsView = lazy(() => import("./EventFormView"));
 const AddEvents = (props) => {
   const info = useContext(InfoContext);
   const [eventName, setEventName] = useState("");

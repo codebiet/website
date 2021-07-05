@@ -1,9 +1,6 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, lazy } from "react";
 import axios from "axios";
 import "regenerator-runtime/runtime";
-import DashboardLayout from "../Dashboard/DashboardLayout";
-import Loader from "../../Loader/Loader";
-import projectRoutes from "./projectRoutes";
 import { InfoContext } from "../../../state/Store";
 import {
   generateError,
@@ -20,7 +17,12 @@ import {
   Col,
   Button,
 } from "reactstrap";
-import Tags from "@yaireo/tagify/dist/react.tagify";
+// import Tags from "@yaireo/tagify/dist/react.tagify";
+// import DashboardLayout from "../Dashboard/DashboardLayout";
+import Loader from "../../Loader/Loader";
+import projectRoutes from "./projectRoutes";
+const Tags = lazy(() => import("@yaireo/tagify/dist/react.tagify"));
+const DashboardLayout = lazy(() => import("../Dashboard/DashboardLayout"));
 function Adminform() {
   const [developerName, setDeveloperName] = useState("");
   const [projectName, setProjectName] = useState("");

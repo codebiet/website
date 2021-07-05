@@ -8,10 +8,11 @@ import {
 import "regenerator-runtime/runtime";
 import { EditorState, convertToRaw } from "draft-js";
 import blogRoutes from "./blogRoutes";
-import DashboardLayout from "../Dashboard/DashboardLayout";
+// import DashboardLayout from "../Dashboard/DashboardLayout";
 // import Editor from "../../Editor/Editor";
 // import Loader from "../../Loader/Loader";
 // import Tags from "@yaireo/tagify/dist/react.tagify";
+const DashboardLayout = lazy(() => import("../Dashboard/DashboardLayout"));
 const Editor = lazy(() => import("../../Editor/Editor"));
 const Loader = lazy(() => import("../../Loader/Loader"));
 const Tags = lazy(() => import("@yaireo/tagify/dist/react.tagify"));

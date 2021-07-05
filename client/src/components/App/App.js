@@ -21,7 +21,7 @@ import "regenerator-runtime/runtime";
 // import CertificateVerification from "../../pages/CertificateVerification";
 // import About from "../../pages/About";
 // import Contact from "../../pages/Feedback";
-// import Home from "../../pages/Home";
+import Home from "../../pages/Home";
 // import Error404 from "../../pages/404";
 // import Events from "../../pages/events";
 // import ProjectsPage from "../../pages/projects";
@@ -35,7 +35,7 @@ import BlogsIndividual from "../../pages/Blogs_Individual";
 // import Discussion from "../../pages/Discussion";
 // import ReviewBlog from "../../pages/ReviewBlog";
 // import Logout from "../../pages/Logout";
-// import AdminRoutes from "../ADMIN/routes/AdminRoutes";
+import AdminRoutes from "../ADMIN/routes/AdminRoutes";
 import Loader from "../Loader/Loader";
 const Register = lazy(() => import("../../pages/Register"));
 const SentVerifyEmail = lazy(() => import("../../pages/SentVerifyEmail"));
@@ -58,7 +58,7 @@ const CertificateVerification = lazy(() =>
 );
 const About = lazy(() => import("../../pages/About"));
 const Contact = lazy(() => import("../../pages/Feedback"));
-const Home = lazy(() => import("../../pages/Home"));
+// const Home = lazy(() => import("../../pages/Home"));
 const Error404 = lazy(() => import("../../pages/404"));
 const Events = lazy(() => import("../../pages/events"));
 const ProjectsPage = lazy(() => import("../../pages/projects"));
@@ -72,7 +72,6 @@ const Career = lazy(() => import("../../pages/Career"));
 const Discussion = lazy(() => import("../../pages/Discussion"));
 const ReviewBlog = lazy(() => import("../../pages/ReviewBlog"));
 const Logout = lazy(() => import("../../pages/Logout"));
-const AdminRoutes = lazy(() => import("../ADMIN/routes/AdminRoutes"));
 function App() {
   const auth = useContext(AuthContext);
   const info = useContext(InfoContext);
@@ -206,7 +205,16 @@ function App() {
                 path="/internalServerError"
                 render={() => <h1>Status-Code 500: Internal Server Error!</h1>}
               />
-              <AdminRoutes />
+              {AdminRoutes.map((adminRoute) => {
+                return (
+                  <Route
+                    key={adminRoute.path}
+                    exact={true}
+                    path={adminRoute.path}
+                    render={(props) => <adminRoute.Component {...props} />}
+                  />
+                );
+              })}
               <Route path="*" render={() => <Error404 />} />
             </Switch>
           </Router>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext, lazy } from "react";
-import eventRoutes from "./eventRoutes";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import {
@@ -23,12 +22,13 @@ import {
   generateError,
 } from "../../../state/info/infoActions";
 // import EventCard from "../../EventCard/EventCard";
-import DashboardLayout from "../Dashboard/DashboardLayout";
+// import DashboardLayout from "../Dashboard/DashboardLayout";
 // import ContentLoaderSvg from "../../EventCard/EventCardLoader";
 // import Pagination from "../../Pagination/Pagination";
 // import ConfirmDeletion from "./ConfirmDeletion";
+import eventRoutes from "./eventRoutes";
+const DashboardLayout = lazy(() => import("../Dashboard/DashboardLayout"));
 const EventCard = lazy(() => import("../../EventCard/EventCard"));
-// const DashboardLayout = lazy(() => import("../Dashboard/DashboardLayout"));
 const ContentLoaderSvg = lazy(() => import("../../EventCard/EventCardLoader"));
 const Pagination = lazy(() => import("../../Pagination/Pagination"));
 const ConfirmDeletion = lazy(() => import("./ConfirmDeletion"));

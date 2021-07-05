@@ -1,23 +1,13 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, lazy } from "react";
 import { InfoContext } from "../../../state/Store";
-import {
-  generateSuccess,
-  generateError,
-  clearEverything,
-} from "../../../state/info/infoActions";
-import DashboardLayout from "../Dashboard/DashboardLayout";
+import { generateError } from "../../../state/info/infoActions";
 import homeRoutes from "./homeRoutes";
-import {
-  Form,
-  FormGroup,
-  Button,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-} from "reactstrap";
+import { Card, CardBody } from "reactstrap";
 import axios from "axios";
-import Loader from "../../Loader/Loader";
+// import Loader from "../../Loader/Loader";
+// import DashboardLayout from "../Dashboard/DashboardLayout";
+const DashboardLayout = lazy(() => import("../Dashboard/DashboardLayout"));
+const Loader = lazy(() => import("../../Loader/Loader"));
 import { DeleteForeverOutlined } from "@material-ui/icons";
 const AdminCard = ({
   email,

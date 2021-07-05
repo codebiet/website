@@ -1,11 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, lazy } from "react";
 import { InfoContext } from "../../../state/Store";
 import {
   generateSuccess,
   generateError,
   clearEverything,
 } from "../../../state/info/infoActions";
-import DashboardLayout from "../Dashboard/DashboardLayout";
+// import DashboardLayout from "../Dashboard/DashboardLayout";
+// import Loader from "../../Loader/Loader";
+const DashboardLayout = lazy(() => import("../Dashboard/DashboardLayout"));
+const Loader = lazy(() => import("../../Loader/Loader"));
 import homeRoutes from "./homeRoutes";
 import {
   Row,
@@ -19,7 +22,6 @@ import {
   CardFooter,
 } from "reactstrap";
 import axios from "axios";
-import Loader from "../../Loader/Loader";
 const Home = (props) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");

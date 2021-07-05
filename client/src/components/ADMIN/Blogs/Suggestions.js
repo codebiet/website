@@ -9,11 +9,12 @@ import {
 } from "reactstrap";
 import { Container } from "reactstrap";
 import axios from "axios";
-import DashboardLayout from "../Dashboard/DashboardLayout";
+// import DashboardLayout from "../Dashboard/DashboardLayout";
 import blogRoutes from "./blogRoutes";
 // import AddSuggestion from "./AddSuggestion";
 // import Pagination from "../../Pagination/Pagination";
 // import SuggestionCard from "./SuggestionCard";
+const DashboardLayout = lazy(() => import("../Dashboard/DashboardLayout"));
 const AddSuggestion = lazy(() => import("./AddSuggestion"));
 const Pagination = lazy(() => import("../../Pagination/Pagination"));
 const SuggestionCard = lazy(() => import("./SuggestionCard"));

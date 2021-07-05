@@ -52,7 +52,7 @@ const Events = (props) => {
             </h3>
           </div>
           <Container className="py-md-5 events-container">
-            {eventsData.length && EventCard && (
+            {eventsData.length && (
               <OwlCarousel
                 items={3}
                 autoplay={true}
