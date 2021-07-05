@@ -39,10 +39,10 @@ const Card = (props) => {
       .get(`/api/gems?year=${year}&branch=${branch}&profession=${profession}`)
       .then((res) => {
         setUserData(res.data.data);
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   }, [year, branch,profession]);
 
