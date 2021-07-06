@@ -86,3 +86,15 @@ li {
   left: 0;
   animation: scroll 1.2s linear infinite;
 }
+.tags-input {
+  .tagify {
+    --tags-focus-border-color: #dddddd !important;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    .tagify__input {
+      padding-left: 5px;
+      padding: 10px;
+    }
+  }
+}

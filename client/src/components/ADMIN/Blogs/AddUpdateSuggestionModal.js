@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy } from "react";
 import {
   Modal,
   ModalHeader,
@@ -7,7 +7,8 @@ import {
   FormGroup,
   Button,
 } from "reactstrap";
-import Tags from "@yaireo/tagify/dist/react.tagify";
+// import Tags from "@yaireo/tagify/dist/react.tagify";
+const Tags = lazy(() => import("@yaireo/tagify/dist/react.tagify"));
 import axios from "axios";
 const AddUpdateSuggestionModal = ({
   modalOpen,

@@ -1,11 +1,13 @@
-import React, { useState, useContext } from "react";
-import ReplyCard from "./ReplyCard";
-import ReplyModal from "./ReplyModal";
+import React, { useState, useContext, lazy } from "react";
 import noUserImg from "../assets/user.svg";
 import axios from "axios";
 import { InfoContext, AuthContext } from "../../state/Store";
 import { generateError } from "../../state/info/infoActions";
 import { Redirect, useLocation } from "react-router-dom";
+// import ReplyCard from "./ReplyCard";
+// import ReplyModal from "./ReplyModal";
+const ReplyCard = lazy(() => import("./ReplyCard"));
+const ReplyModal = lazy(() => import("./ReplyModal"));
 const PostCard = ({ post = {}, setPosts = () => "", getQuery = () => "" }) => {
   const [replyModalOpen, setReplyModalOpen] = useState(false);
   const [redirect, setRedirect] = useState(false);

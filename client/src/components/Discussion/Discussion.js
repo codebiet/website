@@ -1,13 +1,19 @@
 import React, { useState, useEffect, lazy } from "react";
 import axios from "axios";
-import AskBar from "./AskBar";
-import SwitchBar from "./SwitchBar";
-import PostCard from "./PostCard";
-import HorizontalBar from "./HorizontalBar";
-import Sidebar from "./Sidebar";
-import FloatingButtons from "./FloatingButtons";
+// import AskBar from "./AskBar";
+// import SwitchBar from "./SwitchBar";
+// import PostCard from "./PostCard";
+// import HorizontalBar from "./HorizontalBar";
+// import Sidebar from "./Sidebar";
+// import FloatingButtons from "./FloatingButtons";
 import Loader from "../Loader/Loader";
 // import Pagination from "../Pagination/Pagination";
+const AskBar = lazy(() => import("./AskBar"));
+const SwitchBar = lazy(() => import("./SwitchBar"));
+const PostCard = lazy(() => import("./PostCard"));
+const HorizontalBar = lazy(() => import("./HorizontalBar"));
+const Sidebar = lazy(() => import("./Sidebar"));
+const FloatingButtons = lazy(() => import("./FloatingButtons"));
 const Pagination = lazy(() => import("../Pagination/Pagination"));
 function Discussion(props) {
   const [posts, setPosts] = useState([]);

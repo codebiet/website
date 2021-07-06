@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, lazy } from "react";
 import { InfoContext } from "../../state/Store";
 import { generateSuccess } from "../../state/info/infoActions";
 import axios from "axios";
-import Tags from "@yaireo/tagify/dist/react.tagify";
+// import Tags from "@yaireo/tagify/dist/react.tagify";
 import { Modal, ModalHeader, ModalBody } from "reactstrap";
+const Tags = lazy(() => import("@yaireo/tagify/dist/react.tagify"));
 //
 const whiteList = [
   "OOPs",
