@@ -24,6 +24,7 @@ const Hero = (props) => {
               <div id="containr" className="cards__item__pic-wrap1">
                 <div style={{ position: "relative", height: "100%" }}>
                   <img src={blogs[0].cardImg} className="image1" />
+                  <div class="content"></div>
                   <span className="blog-category">{blogs[0].category}</span>
                 </div>
                 <div className="example">
@@ -46,10 +47,11 @@ const Hero = (props) => {
                 className="recent_card  cards__item__pic-wrap1"
                 id="container"
               >
-                <span className="d">
+                <div className="d">
                   <img src={blogs[1].cardImg} className="image2" />
+                  <div class="content"></div>
                   <span className="blog-category">{blogs[1].category}</span>
-                </span>
+                </div>
                 <div className="text_overlay ">
                   <a>{blogs[1].title}</a>
                   <div className="tab_h">
@@ -70,6 +72,7 @@ const Hero = (props) => {
               >
                 <div className="d">
                   <img src={blogs[2].cardImg} className="image2" />
+                  <div class="content"></div>
                   <span className="blog-category">{blogs[2].category}</span>
                 </div>
                 <div className="text_overlay">
