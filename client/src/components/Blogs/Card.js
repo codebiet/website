@@ -7,6 +7,7 @@ import axios from "axios";
 // import Pagination from "../Pagination/Pagination";
 const Pagination = lazy(() => import("../Pagination/Pagination"));
 import Loader from "../Loader/Loader";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 const CardItem = (props) => {
   return (
     <div className="cards__item">
@@ -16,7 +17,11 @@ const CardItem = (props) => {
           data-category={props.category}
           style={{ marginRight: 0, marginLeft: 0, marginTop: 0 }}
         >
-          <img className="cards__item__img" alt="Image" src={props.src} />
+          <LazyLoadImage
+            className="cards__item__img"
+            alt="Image"
+            src={props.src}
+          />
         </figure>
         <div className="cards__item__info">
           <div className="info-icons">
