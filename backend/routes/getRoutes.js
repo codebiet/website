@@ -63,8 +63,7 @@ router
   .route("/doubts")
   .get(getUserId, require("../controllers/getControllers/getDoubts"));
 
-router
-    .route("/gems").get(require("../controllers/getControllers/getGems"));
+router.route("/gems").get(require("../controllers/getControllers/getGems"));
 //-------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------
 //------------------------------------ADMIN--------------------------------------
@@ -76,4 +75,7 @@ router
 router
   .route("/admin/events/:id/registrations/")
   .get(require("../controllers/getControllers/admin/registrations"));
+router
+  .route("/admin/feedbacks")
+  .get(require("../controllers/getControllers/admin/feedbacks"));
 module.exports = router;
