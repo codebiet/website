@@ -145,7 +145,7 @@
   }
 
   /* Menu Dropdown */
-  @media (min-width: 951px) {
+  @media (min-width: 1100px) {
     .nav > li:hover > button,
     .nav > li:hover > a {
       color: #000;
@@ -256,7 +256,7 @@
   }
 
   /* responsive design */
-  @media screen and (max-width: 950px) {
+  @media screen and (max-width: 1099px) {
     nav #logo > img {
       width: 80px;
     }
