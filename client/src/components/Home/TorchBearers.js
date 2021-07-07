@@ -14,6 +14,7 @@ import swizzle from "../assets/torchBearers/Swizzle.png";
 import tdl from "../assets/torchBearers/tdl.png";
 import unknown1 from "../assets/torchBearers/unknown1.jpeg";
 import unknown2 from "../assets/torchBearers/unknown2.jpeg";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 const partners = [
   civil,
   cossco,
@@ -38,7 +39,7 @@ const PartnerCard = ({ img }) => {
       data-aos-duration="1000"
       data-aos-once={true}
     >
-      <img src={img} width="90" alt="" />
+      <LazyLoadImage src={img} width="90" alt="" />
     </div>
   );
 };

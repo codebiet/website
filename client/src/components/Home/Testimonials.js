@@ -8,6 +8,7 @@ import ashirvad from "../assets/testimonials/Ashirvad.jpeg";
 import kshitiz from "../assets/testimonials/kshitizSharma.jpeg";
 import prakhar from "../assets/testimonials/prakhar.jpeg";
 import siddhantMishra from "../assets/testimonials/siddhantMishra.jpeg";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 const usertestimonialsData = [
   {
     heading: "Straightforward Learning Platform",
@@ -76,7 +77,7 @@ const UserTestimonial = ({ heading, content, userImg, name, branch, year }) => {
         </div>
         <div className="bottom-info mt-4">
           <Link className="comment-img" to="">
-            <img src={userImg} className="img-responsive" alt="User Image" />
+            <LazyLoadImage src={userImg} className="img-responsive" alt="User Image" />
           </Link>
           <div className="people-info align-self">
             <h3>{name}</h3>

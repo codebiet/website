@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import undraw_Code_thinking_re_gka2 from "../assets/undraw_Code_thinking_re_gka2.svg";
 import AOS from "aos";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 const toBeTyped = [
   "L",
   "Le",
@@ -144,7 +144,7 @@ const Hero = (props) => {
               </div>
             </div>
             <div className="col-md-6 banner-right mt-lg-4 mt-0 text-right offset-lg-1">
-              <img
+              <LazyLoadImage
                 className="img-fluid"
                 src={undraw_Code_thinking_re_gka2}
                 alt=""

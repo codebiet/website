@@ -83,7 +83,7 @@ const Card = ({ iconClass, iconStyling, heading, description, linkTo }) => {
           <i className={iconClass} style={iconStyling.color}></i>
         </div>
         <h4 className="title">
-          <Link to={linkTo}>{heading}</Link>
+          <p>{heading}</p>
         </h4>
         <p className="description">{description}</p>
       </div>
