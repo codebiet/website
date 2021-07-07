@@ -210,7 +210,7 @@ function Nav() {
             <li>
               <NavLink to="/about">About Us</NavLink>
             </li>
-            <li style={{marginRight:"1rem"}}>
+            <li style={{ marginRight: "1rem" }}>
               <NavLink to="/contact">Contact Us</NavLink>
             </li>
           </ul>
@@ -237,7 +237,11 @@ function Nav() {
             </ul>
           )}
           {auth.state.userLoggedIn && (
-            <NavLink to="/dashboard" className="nav-user-container">
+            <NavLink
+              to="/dashboard"
+              className="nav-user-container"
+              style={{ marginRight: "1rem" }}
+            >
               <img className="avtar-img" src={auth.state.profileImg} alt="" />
               <span>{auth.state.userName}</span>
             </NavLink>
