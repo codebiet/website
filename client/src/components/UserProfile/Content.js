@@ -1,5 +1,13 @@
-import React from "react";
+import React ,{useEffect} from "react";
+
+
+
 const Content = (props) => {
+console.log(props);
+console.log(props.user);
+// let p1 = props.user.academics.0;
+// console.log(p1);
+
   return (
     <div className="content-container">
       <div className="ll">
@@ -15,12 +23,7 @@ const Content = (props) => {
               <hr />
 
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-                rutrum congue nulla, eget eleifend metus ullamcorper ultricies.
-                Etiam convallis, nunc quis varius interdum, justo metus bibendum
-                leo, nec eleifend odio dolor viverra dolor. Maecenas id feugiat
-                nulla. Donec malesuada dui cursus turpis laoreet, et mattis enim
-                rhoncus.
+              {props.user.about}
               </p>
             </div>
             {/* education */}
@@ -38,14 +41,14 @@ const Content = (props) => {
               <div className="vtl">
                 <div className="event">
                   <h4>
-                    <span style={{ float: "left" }}>University of chicago</span>{" "}
+                    <span style={{ float: "left" }}>{props.user.academics && props.user.academics[0].college}</span>{" "}
                     <span className="year" style={{ float: "right" }}>
-                      2007-2008
+                    {props.user.academics && props.user.academics[0].year}
                     </span>
                   </h4>
                   <br />
                   <div className="post">
-                    <h5>Master of design</h5>
+                    <h5>{props.user.academics && props.user.academics[0].degree}</h5>
                   </div>
                   <p className="etxt">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. In
@@ -55,14 +58,14 @@ const Content = (props) => {
                 </div>
                 <div className="event">
                   <h4>
-                    <span style={{ float: "left" }}>University of chicago</span>{" "}
+                    <span style={{ float: "left" }}>{props.user.academics && props.user.academics[1].college}</span>{" "}
                     <span className="year" style={{ float: "right" }}>
-                      2007-2008
+                    {props.user.academics && props.user.academics[0].year}
                     </span>
                   </h4>
                   <br />
                   <div className="post">
-                    <h5>Master of design</h5>
+                    <h5>{props.user.academics && props.user.academics[1].degree}</h5>
                   </div>
                   <p className="etxt">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. In
@@ -72,14 +75,14 @@ const Content = (props) => {
                 </div>
                 <div className="event">
                   <h4>
-                    <span style={{ float: "left" }}>University of chicago</span>{" "}
+                    <span style={{ float: "left" }}>{props.user.academics && props.user.academics[2].college}</span>{" "}
                     <span className="year" style={{ float: "right" }}>
-                      2007-2008
+                    {props.user.academics && props.user.academics[2].year}
                     </span>
                   </h4>
                   <br />
                   <div className="post">
-                    <h5>Master of design</h5>
+                    <h5>{props.user.academics && props.user.academics[2].degree}</h5>
                   </div>
                   <p className="etxt">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. In
@@ -104,13 +107,13 @@ const Content = (props) => {
 
               <ul className="hobbiesList">
                 <li>
-                  <h3>Singing</h3>
+                  <h3>{props.user.interest && props.user.interest.preference1}</h3>
                 </li>
                 <li>
-                  <h3>Dancing</h3>
+                  <h3>{props.user.interest && props.user.interest.preference2}</h3>
                 </li>
                 <li>
-                  <h3>Coding</h3>
+                  <h3>{props.user.interest && props.user.interest.preference3}</h3>
                 </li>
               </ul>
             </div>
