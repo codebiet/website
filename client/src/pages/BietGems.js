@@ -16,7 +16,7 @@ const BietGems = (props) => {
       <main className="biet-gems-main">
         <Hero />
         <Card />
-        <Pagination {...props} />
+
       </main>
       <Footer />
     </Suspense>
