@@ -1,4 +1,5 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 const months = [
   "JAN",
@@ -37,7 +38,11 @@ const EventCard = ({
         <div className="card">
           <div className="cardHeader">
             <div className="cardHeaderInner">
-              <img src={cardImg} alt="cardimage" className="cardImage"></img>
+              <LazyLoadImage
+                src={cardImg}
+                alt="cardimage"
+                className="cardImage"
+              />
             </div>
           </div>
 
