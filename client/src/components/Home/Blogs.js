@@ -5,42 +5,7 @@ import like from "../assets/like.png";
 import user from "../assets/user.png";
 import calendar from "../assets/calendar.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import blogCardImg1 from "../assets/blogCardImg1.jpg";
-import blogCardImg2 from "../assets/blogCardImg2.jpg";
-import blogCardImg3 from "../assets/blogCardImg3.jpg";
 import axios from "axios";
-const blogsData = [
-  {
-    writer: "Sooraj",
-    likes: "26",
-    publishedOn: "May-20",
-    path: "#",
-    category: "Web Development",
-    tags: ["Web Development", "React", "React-To-Pdf"],
-    blogImg: blogCardImg1,
-    description: "How to generate pdf of a react component?",
-  },
-  {
-    writer: "Sooraj",
-    likes: "56",
-    publishedOn: "May-25",
-    path: "#",
-    category: "Web Development",
-    tags: ["Web Development", "Node.js", "Express.js", "ReactJs", "MongoDB"],
-    blogImg: blogCardImg2,
-    description: "Getting Started with MERN Stack!",
-  },
-  {
-    writer: "Sooraj",
-    likes: "10",
-    publishedOn: "June-01",
-    path: "#",
-    category: "Web Development",
-    tags: ["Node.js", "Express.js", "file-upload", "AWS-SDK", "S3"],
-    blogImg: blogCardImg3,
-    description: "Uploading files to AWS S3 using ExpressJS",
-  },
-];
 export const BlogCard = ({ blog }) => {
   return (
     <div className="cards__item">
