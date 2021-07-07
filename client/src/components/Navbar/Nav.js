@@ -208,6 +208,9 @@ function Nav() {
               </div>
             </li>
             <li>
+              <NavLink to="/about">About Us</NavLink>
+            </li>
+            <li style={{marginRight:"1rem"}}>
               <NavLink to="/contact">Contact Us</NavLink>
             </li>
           </ul>
@@ -222,7 +225,7 @@ function Nav() {
                   Login
                 </NavLink>
               </li>
-              <li>
+              <li style={{ marginRight: "2rem" }}>
                 <NavLink
                   to="/register"
                   className="cta cta-2 default-btn round-corner"

@@ -1,36 +1,5 @@
-import React, { useContext, useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { AuthContext } from "../../state/Store";
-import { logOutUser } from "../../state/auth/authActions";
-// const codeImage = lazy(()=>import("../assets/codeLogo.jpg"));
-// import codeImage from "../assets/code.jpeg";
-// const imgSrc = "";
-// import("../assets/codeLogo.jpg")
-//   .then((res) => {
-//     console.log("result of image upload is : ", res);
-//     imgSrc = res;
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
-const Navbar = () => {
-  const auth = useContext(AuthContext);
-  const location = useLocation();
-  const [showExtraInfoInNavbar, setShowExtraInfoInNavbar] = useState(false);
-  useEffect(() => {
-    if (
-      location.pathname != "/login" &&
-      location.pathname != "/register" &&
-      location.pathname != "/setPassword" &&
-      location.pathname != "/forgotPassword" &&
-      location.pathname != "/sentVerifyEmail"
-    ) {
-      setShowExtraInfoInNavbar(true);
-    }
-  }, []);
-  const handleLogout = () => {
-    logOutUser(auth.dispatch);
-  };
+import React from "react";
+const NavbarForLogin = () => {
   return (
     <React.Fragment>
       <nav className="nav-bar">
@@ -39,30 +8,8 @@ const Navbar = () => {
           src="https://club-of-developers.s3.ap-south-1.amazonaws.com/codeLogo.png"
           alt=""
         />
-        <div className="join-us-hamburger-container">
-          {auth.state.userLoggedIn ? (
-            <button className="join-us" onClick={() => handleLogout()}>
-              LOGOUT
-            </button>
-          ) : showExtraInfoInNavbar ? (
-            <Link to="/register" className="join-us">
-              JOIN US
-            </Link>
-          ) : (
-            location.pathname == "/regiser" && (
-              <Link to="/login" className="join-us">
-                LOGIN
-              </Link>
-            )
-          )}
-          {showExtraInfoInNavbar && (
-            <button className="hamburger-container">
-              <i className="fas fa-bars"></i>
-            </button>
-          )}
-        </div>
       </nav>
     </React.Fragment>
   );
 };
-export default Navbar;
+export default NavbarForLogin;
