@@ -41,6 +41,12 @@ router
     authAdminOrUser,
     require("../controllers/patchControllers/likeDoubtPost")
   );
+router
+  .route("/projects/:id/rateProject")
+  .patch(
+    authAdminOrUser,
+    require("../controllers/patchControllers/rateProject")
+  );
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 //-------------------------------------admin routes-------------------------------------------

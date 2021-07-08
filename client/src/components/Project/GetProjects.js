@@ -24,6 +24,8 @@ export default () => {
             pic2: proj.imgUrls[1] ? proj.imgUrls[1] : noImageUrl,
             pic3: proj.imgUrls[2] ? proj.imgUrls[2] : noImageUrl,
             pic4: proj.imgUrls[3] ? proj.imgUrls[3] : noImageUrl,
+            avgRating: proj.avgRating || 0,
+            userRating: proj.userRating || 0,
           };
           return p;
         });

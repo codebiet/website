@@ -58,7 +58,7 @@ router
   .get(require("../controllers/getControllers/comments"));
 router
   .route("/projects")
-  .get(require("../controllers/getControllers/getProjects"));
+  .get(getUserId, require("../controllers/getControllers/getProjects"));
 router
   .route("/doubts")
   .get(getUserId, require("../controllers/getControllers/getDoubts"));

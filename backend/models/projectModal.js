@@ -36,5 +36,14 @@ const projSchema = new mongoose.Schema({
     type: String,
     // required:true
   },
+  ratings: {
+    type: [
+      {
+        rater: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
+        rating: { type: Number, required: true },
+      },
+    ],
+  },
+  avgRating: { type: Number, default: 0 },
 });
 module.exports = mongoose.model("Project", projSchema);
