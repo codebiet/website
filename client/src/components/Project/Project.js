@@ -159,9 +159,8 @@ export default (props) => {
                   </div>
                 </div>
                 <div className="row pt-0 pb-4 no-gutters mt-2">
-                  <div className="col">
+                  <div className="col img-select">
                     <button
-                      className="myhover"
                       style={{
                         border: "1px solid #d1d0cd",
                         background: "none",
@@ -183,9 +182,8 @@ export default (props) => {
                       />
                     </button>
                   </div>
-                  <div className="col">
+                  <div className="col img-select">
                     <button
-                      className="myhover"
                       style={{
                         border: "1px solid #d1d0cd",
                         background: "none",
@@ -207,9 +205,8 @@ export default (props) => {
                       />
                     </button>
                   </div>
-                  <div className="col">
+                  <div className="col img-select">
                     <button
-                      className="myhover"
                       style={{
                         border: "1px solid #d1d0cd",
                         background: "none",
@@ -231,9 +228,8 @@ export default (props) => {
                       />
                     </button>
                   </div>
-                  <div className="col">
+                  <div className="col img-select">
                     <button
-                      className="myhover"
                       style={{
                         border: "1px solid #d1d0cd",
                         background: "none",

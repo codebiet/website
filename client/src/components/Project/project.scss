@@ -1,3 +1,4 @@
+@import url("../App/colors.scss");
 .project-container-main {
   .container {
     padding: 5vw 10vw;
@@ -15,11 +16,14 @@
     font-weight: 700;
   }
   .checked {
-    color: orange;
+    color: $color-primary;
   }
-  .myhover:hover {
+  .img-select {
+    margin: 0.2rem;
+  }
+  .img-select:hover {
     opacity: 0.8;
-    margin: 10px !important;
+    transform: scale(0.9);
   }
 
   .tab_h {
@@ -39,18 +43,18 @@
     padding: 8px 12px;
     color: #1f1e1d;
     font-weight: bold;
-    background-color: #f0a500;
+    background-color: $color-primary;
   }
 
   .btn {
-    background-color: #cf7500;
+    background-color: $color-primary;
     color: #ffffff;
     padding: 8px 12px;
   }
 
   .btn:hover {
-    padding: 10px 15px;
-    background-color: #290001;
+    padding: 8px 12px;
+    background-color: $color-secondary!important;
     color: #ffffff;
   }
 }
