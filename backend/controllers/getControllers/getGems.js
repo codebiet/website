@@ -31,38 +31,37 @@ module.exports = async (req, res) => {
     //   queryObj.branch = req.query.branch;
     //   }
 
-      if (req.query.profession) {
-        queryObj.role = req.query.profession;
-      }
-      if(req.query.year){
+    if (req.query.profession) {
+      queryObj.role = req.query.profession;
+    }
+    if (req.query.year) {
       if (req.query.year == "Passout") {
         queryObj.role = "Professional";
       } else {
-        queryObj.year =parseInt(req.query.year);
+        queryObj.year = parseInt(req.query.year);
       }
     }
 
-      if (req.query.branch) {
-        queryObj.branch = req.query.branch;
-      }
-
+    if (req.query.branch) {
+      queryObj.branch = req.query.branch;
+    }
+    // queryObj.phoneNumberVerified=true;
+    queryObj.emailVerified=true;
 
     let { page, size } = req.query;
     if (!page) {
       page = 1;
     }
     if (!size) {
-      size = 100;
+      size = 5;
     }
     const limit = parseInt(size);
     const skip = (page - 1) * size;
+    console.log(queryObj);
+    let totalItems = await User.countDocuments({ ...queryObj });
+    let Users = await User.find(queryObj).limit(limit).skip(skip);
 
-    let Users = filter
-      ? await User.find().limit(limit).skip(skip)
-      : await User.find(queryObj).limit(limit).skip(skip);
-
-    // let result = await User.find({name:"gauti"});
-    return res.status(200).send({ data: Users });
+    return res.status(200).send({ totalItems, page, size, data: Users });
   } catch (err) {
     return res.status(500).send({ errorMsg: err.message });
   }

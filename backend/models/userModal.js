@@ -18,16 +18,6 @@ const phoneNumberValidatorWithMsg = [
   "Invalid `{PATH}`! Please check your phone Number.",
 ];
 
-const githubUserNameValidator = (username) => {
-  if (!username) return true;
-  const re = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i;
-  return re.test(username);
-};
-const githubUserNameValidatorWithMsg = [
-  githubUserNameValidator,
-  "Invalid `{PATH}`! Please check your username",
-];
-
 const passwordValidator = (password) => {
   return password.length >= 8;
 };
@@ -69,7 +59,7 @@ const userSchema = new mongoose.Schema({
   year: { type: Number },
   branch: { type: String },
   rollNum: { type: String },
-  githubUserName: { type: String, validate: githubUserNameValidatorWithMsg },
+  githubUserName: { type: String },
   programmingLanguages: [
     {
       name: { type: String, required: true },

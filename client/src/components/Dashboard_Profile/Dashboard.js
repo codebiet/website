@@ -383,7 +383,7 @@ const TakeData = ({
               <Col md="11" xs="11">
                 <FormGroup>
                   <label className="fontType" htmlFor="github">
-                    GitHub Username
+                    GitHub Profile Link
                   </label>
                   {githubUserInput}
                 </FormGroup>
@@ -793,7 +793,7 @@ const Dashboard = (props) => {
     type: "text",
     name: "githubUserName",
     id: "github-user",
-    placeholder: "Github Username",
+    placeholder: "Github Profile Link",
   });
   const [rollNumberInput, rollNumber, setRollNumber] = useInput({
     type: "number",

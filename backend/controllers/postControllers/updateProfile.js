@@ -201,6 +201,7 @@ const updateProfile = async (req, res) => {
         savedUser = await user.save();
         userData = { ...savedUser._doc };
       } catch (err) {
+        console.log(err);
         errorMsg = "Status-Code: 500, Internal Server Error";
         userData = { ...user._doc };
       }
