@@ -16,6 +16,7 @@ const PostCard = ({ post = {}, setPosts = () => "", getQuery = () => "" }) => {
   const auth = useContext(AuthContext);
   //toggle reply modal on clicking reply button;
   const toggleReplyModalOpen = () => {
+    if (!auth.state.userLoggedIn) return setRedirect(true);
     setReplyModalOpen((prev) => !prev);
   };
   const changeLike = () => {
@@ -97,28 +98,27 @@ const PostCard = ({ post = {}, setPosts = () => "", getQuery = () => "" }) => {
                     <span className="align-middle">{post.likes}</span>
                   </a>
                 </div>
-                {post.replies.length == 0 && ( //for now, in this version, only one reply per question can be added
-                  <>
-                    <div className="px-4 pt-3">
-                      <button
-                        type="button"
-                        className="btn btn-primary"
-                        onClick={() => toggleReplyModalOpen((prev) => !prev)}
-                      >
-                        <i className="fa fa-pencil"></i>&nbsp; Reply
-                      </button>
-                    </div>
-                    <ReplyModal
-                      replyModalOpen={replyModalOpen}
-                      toggleReplyModalOpen={toggleReplyModalOpen}
-                      setPosts={setPosts}
-                      getQuery={getQuery}
-                      doubtId={post._id}
-                    />
-                  </>
-                )}
+                <div className="px-4 pt-3">
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => toggleReplyModalOpen((prev) => !prev)}
+                  >
+                    <i className="fa fa-pencil"></i>&nbsp; Reply
+                  </button>
+                </div>
+                <ReplyModal
+                  replyModalOpen={replyModalOpen}
+                  toggleReplyModalOpen={toggleReplyModalOpen}
+                  setPosts={setPosts}
+                  getQuery={getQuery}
+                  doubtId={post._id}
+                />
               </div>
-              {post.replies.length > 0 && <ReplyCard reply={post.replies[0]} />}
+              {post.replies.length > 0 &&
+                post.replies.map((reply) => (
+                  <ReplyCard key={reply._id} reply={reply} />
+                ))}
             </div>
           </div>
         </div>
