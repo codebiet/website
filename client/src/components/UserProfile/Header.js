@@ -1,6 +1,12 @@
-import React from "react";
+import React,{useEffect} from "react";
 import user_image from "../assets/userProfileImg.jpg";
+
+
 const Header = (props) => {
+
+
+
+
   return (
     <div className="header-container">
       <div className="outerContainer">
@@ -9,7 +15,7 @@ const Header = (props) => {
             <div className="common">
               <div>
                 <img
-                  src={user_image}
+                  src={props.user.profilePhoto}
                   className="head_image"
                   width="140px"
                   height="150px"
@@ -24,14 +30,14 @@ const Header = (props) => {
             <div className="common ">
               <div className="containerInside2">
                 <div className="startName">
-                  <p className="name">HENNA BEKAR</p>
-                  <p className="designation">Graphic Designer</p>
+                  <p className="name">{props.user.name}</p>
+                  <p className="designation">{props.user.role}</p>
                 </div>
 
                 <div className="mainDetails">
                   <p>
                     <i className="containerIcon fas fa-phone-alt"></i>
-                    +91-9878564589
+                    {props.user.whatsAppPhoneNumber}
                   </p>
 
                   <p>
@@ -44,7 +50,7 @@ const Header = (props) => {
                   </p>
                   <p>
                     <i className="containerIcon fas fa-envelope"></i>
-                    singhsharad529@gmail.com
+                    {props.user.email}
                   </p>
                 </div>
               </div>

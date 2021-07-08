@@ -63,8 +63,8 @@ router
   .route("/doubts")
   .get(getUserId, require("../controllers/getControllers/getDoubts"));
 
-router
-    .route("/gems").get(require("../controllers/getControllers/getGems"));
+router.route("/gems").get(require("../controllers/getControllers/getGems"));
+router.route("/gems/:id").get(require("../controllers/getControllers/gemsById"));
 //-------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------
 //------------------------------------ADMIN--------------------------------------

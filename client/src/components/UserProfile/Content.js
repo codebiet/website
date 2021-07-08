@@ -1,5 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
+
 const Content = (props) => {
+  console.log(props);
+  console.log(props.user);
+
+
   return (
     <div className="content-container">
       <div className="ll">
@@ -14,14 +19,7 @@ const Content = (props) => {
               </div>
               <hr />
 
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-                rutrum congue nulla, eget eleifend metus ullamcorper ultricies.
-                Etiam convallis, nunc quis varius interdum, justo metus bibendum
-                leo, nec eleifend odio dolor viverra dolor. Maecenas id feugiat
-                nulla. Donec malesuada dui cursus turpis laoreet, et mattis enim
-                rhoncus.
-              </p>
+              <p>{props.user.about}</p>
             </div>
             {/* education */}
 
@@ -38,14 +36,18 @@ const Content = (props) => {
               <div className="vtl">
                 <div className="event">
                   <h4>
-                    <span style={{ float: "left" }}>University of chicago</span>{" "}
+                    <span style={{ float: "left" }}>
+                      {props.user.academics && props.user.academics.length>0 && props.user.academics[0].college}
+                    </span>{" "}
                     <span className="year" style={{ float: "right" }}>
-                      2007-2008
+                      {props.user.academics && props.user.academics.length>0 && props.user.academics[0].year}
                     </span>
                   </h4>
                   <br />
                   <div className="post">
-                    <h5>Master of design</h5>
+                    <h5>
+                      {props.user.academics && props.user.academics.length>0 && props.user.academics[0].degree}
+                    </h5>
                   </div>
                   <p className="etxt">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. In
@@ -55,14 +57,18 @@ const Content = (props) => {
                 </div>
                 <div className="event">
                   <h4>
-                    <span style={{ float: "left" }}>University of chicago</span>{" "}
+                    <span style={{ float: "left" }}>
+                      {props.user.academics && props.user.academics.length>0 && props.user.academics[1].college}
+                    </span>{" "}
                     <span className="year" style={{ float: "right" }}>
-                      2007-2008
+                      {props.user.academics && props.user.academics.length>0 && props.user.academics[0].year}
                     </span>
                   </h4>
                   <br />
                   <div className="post">
-                    <h5>Master of design</h5>
+                    <h5>
+                      {props.user.academics && props.user.academics.length>0 && props.user.academics[1].degree}
+                    </h5>
                   </div>
                   <p className="etxt">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. In
@@ -72,14 +78,18 @@ const Content = (props) => {
                 </div>
                 <div className="event">
                   <h4>
-                    <span style={{ float: "left" }}>University of chicago</span>{" "}
+                    <span style={{ float: "left" }}>
+                      {props.user.academics && props.user.academics.length>0 && props.user.academics[2].college}
+                    </span>{" "}
                     <span className="year" style={{ float: "right" }}>
-                      2007-2008
+                      {props.user.academics && props.user.academics.length>0 && props.user.academics[2].year}
                     </span>
                   </h4>
                   <br />
                   <div className="post">
-                    <h5>Master of design</h5>
+                    <h5>
+                      {props.user.academics && props.user.academics.length>0 && props.user.academics[2].degree}
+                    </h5>
                   </div>
                   <p className="etxt">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. In
@@ -104,13 +114,19 @@ const Content = (props) => {
 
               <ul className="hobbiesList">
                 <li>
-                  <h3>Singing</h3>
+                  <h3>
+                    {props.user.interest && props.user.interest.preference1}
+                  </h3>
                 </li>
                 <li>
-                  <h3>Dancing</h3>
+                  <h3>
+                    {props.user.interest && props.user.interest.preference2}
+                  </h3>
                 </li>
                 <li>
-                  <h3>Coding</h3>
+                  <h3>
+                    {props.user.interest && props.user.interest.preference3}
+                  </h3>
                 </li>
               </ul>
             </div>
@@ -130,7 +146,27 @@ const Content = (props) => {
               <hr />
 
               <div className="tab_h">
-                <span className="round-tab_h">Designing</span>
+             {props.user.programmingLanguages && props.user.programmingLanguages.map((da) => (
+                <span className="round-tab_h">{da.name}</span>
+              ))}
+              {props.user.webTechnologies && props.user.webTechnologies.map((da) => (
+                <span className="round-tab_h">{da.name}</span>
+              ))}
+              {props.user.webFrameworks && props.user.webFrameworks.map((da) => (
+                <span className="round-tab_h">{da.name}</span>
+              ))}
+              {props.user.dbms && props.user.dbms.map((da) => (
+                <span className="round-tab_h">{da.name}</span>
+              ))}
+              {props.user.technologies && props.user.technologies.map((da) => (
+                <span className="round-tab_h">{da.name}</span>
+              ))}
+              {props.user.operatingSystem && props.user.operatingSystem.map((da) => (
+                <span className="round-tab_h">{da.name}</span>
+              ))}
+
+
+                {/*<span className="round-tab_h">Designing</span>
                 <span className="round-tab_h">Web development</span>
                 <span className="round-tab_h">Coding</span>
                 <span className="round-tab_h">Designing</span>
@@ -138,7 +174,7 @@ const Content = (props) => {
                 <span className="round-tab_h">Coding</span>
                 <span className="round-tab_h">Designing</span>
                 <span className="round-tab_h">Web development</span>
-                <span className="round-tab_h">Coding</span>
+              <span className="round-tab_h">Coding</span>*/}
               </div>
             </div>
 
@@ -156,57 +192,69 @@ const Content = (props) => {
               <div className="vtl">
                 <div className="event">
                   <h4>
-                    <span style={{ float: "left" }}>Web Development Ltd.</span>{" "}
-                    <span className="year" style={{ float: "right" }}>
-                      2007-2008
-                    </span>
+                  {props.user.internships && props.user.internships.map((da) => (
+                    <span style={{ float: "left" }}>{da.title}<span className="year" style={{ float: "right" }}>
+                    {da.type}
+                    </span></span>
+
+                  ))}
                   </h4>
                   <br />
-                  <div className="post">
-                    <h5>Chief Designer</h5>
-                  </div>
-                  <p className="etxt">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. In
-                    nihil architecto adipisci quibusdam, In nihil architecto
-                    adipisci quibusdam{" "}
-                  </p>
-                </div>
-                <div className="event">
-                  <h4>
-                    <span style={{ float: "left" }}>Web Development Ltd.</span>{" "}
-                    <span className="year" style={{ float: "right" }}>
-                      2007-2008
-                    </span>
-                  </h4>
-                  <br />
-                  <div className="post">
-                    <h5>Chief Designer</h5>
-                  </div>
-                  <p className="etxt">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. In
-                    nihil architecto adipisci quibusdam, In nihil architecto
-                    adipisci quibusdam{" "}
-                  </p>
-                </div>
-                <div className="event">
-                  <h4>
-                    <span style={{ float: "left" }}>Web Development Ltd.</span>{" "}
-                    <span className="year" style={{ float: "right" }}>
-                      2007-2008
-                    </span>
-                  </h4>
-                  <br />
-                  <div className="post">
-                    <h5>Chief Designer</h5>
-                  </div>
-                  <p className="etxt">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. In
-                    nihil architecto adipisci quibusdam, In nihil architecto
-                    adipisci quibusdam{" "}
-                  </p>
                 </div>
               </div>
             </div>
+
+            <div className="common experience">
+              <div className="mainHeading">
+                <h1>
+                  <i class="fas fa-tools icon"></i>
+                  Projects
+                </h1>
+              </div>
+              <hr />
+              {/* timeline */}
+
+              <div className="vtl">
+                <div className="event">
+                  <h4>
+                  {props.user.projects && props.user.projects.map((da) => (
+                    <span style={{ float: "left" }}>{da.name}<span className="year" style={{ float: "right" }}>
+                    {da.type}
+                    </span></span>
+
+                  ))}
+                  </h4>
+                  <br />
+                </div>
+              </div>
+            </div>
+
+            <div className="common experience">
+              <div className="mainHeading">
+                <h1>
+                  <i class="fas fa-tools icon"></i>
+                 Trainings
+                </h1>
+              </div>
+              <hr />
+              {/* timeline */}
+
+              <div className="vtl">
+                <div className="event">
+                  <h4>
+                  {props.user.trainings && props.user.trainings.map((da) => (
+                    <span style={{ float: "left" }}>{da.name}<span className="year" style={{ float: "right" }}>
+                    {da.credentials}
+                    </span></span>
+
+                  ))}
+                  </h4>
+                  <br />
+                </div>
+              </div>
+            </div>
+
+
 
             {/* Awards */}
             <div className="common awards">
@@ -222,13 +270,14 @@ const Content = (props) => {
 
               <ul className="rewardList">
                 <li>
+                {props.user.achievements && props.user.achievements.map((dt, index) => (
+                  <h3 key={index} {...dt} />
+                ))}
+                </li>
+                {/*<li>
                   <h3>WEB DEVELOPERS OF THIS YEAR</h3>
                   <p>Abc Creative Studio / 2018</p>
-                </li>
-                <li>
-                  <h3>WEB DEVELOPERS OF THIS YEAR</h3>
-                  <p>Abc Creative Studio / 2018</p>
-                </li>
+                </li>*/}
               </ul>
             </div>
           </div>

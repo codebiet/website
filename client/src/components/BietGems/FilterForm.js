@@ -12,6 +12,7 @@ const Filter = (props) => {
               value={props.year}
               onChange={(e) => {
                 props.setYear(e.target.value);
+                props.setPage(1);
               }}
             >
               <option value="" selected="selected">
@@ -30,6 +31,7 @@ const Filter = (props) => {
               id="Branch"
               value={props.branch}
               onChange={(e) => {
+                props.setPage(1);
                 props.setBranch(e.target.value);
               }}
             >
@@ -52,10 +54,15 @@ const Filter = (props) => {
             </select>
           </div>
           <div className="FilterItem">
-            <select name="profession" id="profession" value={props.profession}
-            onChange={(e) => {
-              props.setProfession(e.target.value);
-            }}>
+            <select
+              name="profession"
+              id="profession"
+              value={props.profession}
+              onChange={(e) => {
+                props.setPage(1);
+                props.setProfession(e.target.value);
+              }}
+            >
               <option value="" selected="selected">
                 Select Profession
               </option>

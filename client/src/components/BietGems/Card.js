@@ -5,9 +5,11 @@ import user_image from "../assets/boy.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const CardItem = ({ id, name, branch, facebook, linkedin, github }) => {
+import Pagination from '../Pagination/Pagination';
+
+const CardItem = ({ _id, name, branch, facebook, linkedin, github }) => {
   return (
-    <Link to={`/userProfile/${id}`} style={{ textDecoration: "none" }}>
+    <Link to={`/userProfile/${_id}`} style={{ textDecoration: "none" }}>
       <div className="profile-card">
         <div className="card-header">
           <div className="pic">
@@ -31,20 +33,31 @@ const Card = (props) => {
   const [branch, setBranch] = useState("");
   const [profession, setProfession] = useState("");
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalItems, setTotalItems] = useState(6);
+  const [limit, setLimit] = useState(6);
+  // const [status, setStatus] = useState("")
+
   useEffect(() => {
     // setLoading(true);
     window.scrollTo(0, 0);
 
     axios
-      .get(`/api/gems?year=${year}&branch=${branch}&profession=${profession}`)
+      .get(`/api/gems?year=${year}&branch=${branch}&profession=${profession}&page=${currentPage}&size=${limit}`)
       .then((res) => {
         setUserData(res.data.data);
         console.log(res.data);
+        setTotalItems(res.data.totalItems)
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [year, branch,profession]);
+  }, [currentPage,year, branch,profession]);
+
+  const handlePageChange = (page) => {
+    console.log(page);
+    setCurrentPage(page);
+  };
 
   return (
     <div className="card_main_cot">
@@ -54,6 +67,7 @@ const Card = (props) => {
         branch={branch}
         setBranch={setBranch}
         setProfession={setProfession}
+        setPage={setCurrentPage}
       />
       <div className="c card_cot">
         <div className="card_wrapper">
@@ -62,6 +76,13 @@ const Card = (props) => {
           ))}
         </div>
       </div>
+      {totalItems > limit && (
+        <Pagination
+          totalItems={totalItems}
+          pageSize={limit}
+          handlePageChange={handlePageChange}
+        />
+      )}
     </div>
   );
 };
