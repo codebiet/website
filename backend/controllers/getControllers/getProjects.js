@@ -1,4 +1,3 @@
-const { template } = require("babel-core");
 const Project = require("../../models/projectModal");
 
 module.exports = async (req, res) => {
