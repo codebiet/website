@@ -65,7 +65,7 @@ const Blogs = (props) => {
   const [blogs, setBlogs] = useState([]);
   useEffect(() => {
     axios
-      .get("/api/blogs?page=0&limit=3")
+      .get("/api/blogs?state=APPROVED&page=0&limit=3")
       .then((res) => {
         setBlogs(res.data.blogs);
       })
