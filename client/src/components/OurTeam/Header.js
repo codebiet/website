@@ -7,7 +7,7 @@ function Header() {
         <h1 className="leader">Club Of DEvelopers</h1>
         <p>
           Fuelled by the passion to learn, build and innovate, we are a family
-          of 300+ active members. Harnessing the energy of young minds, we have
+          of 450+ active members. Harnessing the energy of young minds, we have
           3 executive members responsible for plan execution. There are 11
           operating members, 10 members in assistance and 20 dedicated mentors
           for the technical guidance.

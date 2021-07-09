@@ -1,5 +1,5 @@
 import PiyushSingh from "../assets/operating/piyush_singh.png";
-import Shashank from "../assets/operating/Shashank.jpg";
+import Shashank from "../assets/operating/Shashank_Kumar.png";
 import Sooraj from "../assets/operating/Sooraj Shukla.png";
 import Sharad from "../assets/operating/Sharad.jpg";
 import Raveet from "../assets/operating/Raveet.png";

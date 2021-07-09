@@ -32,19 +32,22 @@
 
   .banner .image {
     max-width: 350px;
+    margin-top: 30%;
     /* margin-left: 50px; */
   }
 
   .t {
     margin: 10px 0px;
     margin-left: 20px;
+    min-width: 510px;
   }
   .t h1 {
     letter-spacing: 2px;
     text-align: center;
   }
   .t p {
-    text-align: center;
+    text-align: justify;
+    margin: 10px;
   }
   @media only screen and (max-width: 872px) {
     .banner .content {

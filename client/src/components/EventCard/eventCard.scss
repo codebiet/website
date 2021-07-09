@@ -46,7 +46,7 @@
     position: relative;
   }
   .cardImage {
-    object-fit: cover;
+    object-fit:cover;
     width: 100%;
     height: 100%;
     border-top-left-radius: 5px;
@@ -59,7 +59,7 @@
   .cardMain > p {
     padding-left: 0;
     color: #111111;
-    font-weight: 600;
+    font-weight: 650;
   }
   .eventDetails {
     display: flex;
@@ -71,6 +71,9 @@
     display: flex;
     flex-direction: column;
     margin-right: 16px;
+  }
+  .eventInfo b{
+    font-weight: 1000;
   }
   .eventInfo p {
     font-size: 12px;

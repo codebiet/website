@@ -24,7 +24,13 @@ $font2: "Poppins", sans-serif;
 
   @media screen and (max-width: 500px) {
     .Sliderdiv {
-      width: 90%;
+      width: 95%;
+    }
+  }
+  @media screen and (max-width: 420px) {
+    .Sliderdiv {
+      width: 95%;
+
     }
   }
 }

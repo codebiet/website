@@ -13,9 +13,13 @@ function Hero() {
           <div className="t">
             <h1>Meet our Gems!</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Temporibus amet, porro unde nihil blanditiis harum corporis
-              accusantium magnam nesciunt ad
+              BIET Jhansi is one of the top engineering colleges under AKTU and
+              students of our college always outshine by placing in top
+              companies or by getting top ranks in GATE Exams. Here we are
+              sharing a list of some famous BIET Alumni who really made it big
+              and made our college proud of them. It wouldn’t be possible to
+              mention all the names here, but We’d be listing the names who are
+              quite popular and really making a difference.
             </p>
           </div>
         </div>

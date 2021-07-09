@@ -29,28 +29,43 @@ const Values = () => {
       </h1>
       <div className="valuesDiv">
         <div className="valueCard">
+          <p>
           <span>🎯</span>Best Mentorship
+          </p>
         </div>
         <div className="valueCard">
+          <p>
+
           <span>🚀</span>Open source environment
+          </p>
         </div>
         <div className="valueCard">
-          <span>
+          <p><span>
             <Build />
           </span>
-          Discussion Platform
+          Discussion Platform</p>
+          
         </div>
         <div className="valueCard">
+          <p>
           <span>💰</span>Free to join and Learn
+          </p>
+          
         </div>
         <div className="valueCard">
+          <p>
           <span>
             <TrendingUp />
           </span>
           Work on Trending Technologies
+          </p>
+          
         </div>
         <div className="valueCard">
+          <p>
           <span>❤️</span>Healthy competition
+          </p>
+          
         </div>
       </div>
     </div>

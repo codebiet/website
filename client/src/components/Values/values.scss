@@ -13,7 +13,7 @@
 
   .valueCard {
     align-items: center;
-    text-align: left;
+    text-align: center;
     box-shadow: 0px 0px 8px 0px #c3c0c0;
     padding: 16px;
     margin-top: 3%;
@@ -25,13 +25,25 @@
     width: 330px;
   }
 
-  @media only screen and (max-width: 860px) {
-    .valueCard {
-      width: 250px;
-    }
+  .valueCard p span{
+    text-align: left;
+    margin-right:10px ;
   }
 
-  @media only screen and (max-width: 760px) {
+  @media only screen and (max-width: 860px) {
+    .valuesDiv{
+      justify-content: space-between;
+    }
+    
+    .valueCard{
+      padding-right: 8px;
+      padding-left: 8px;
+    }
+
+
+  }
+
+  @media only screen and (max-width: 795px) {
     .valueCard {
       min-width: 250px;
       width: 90%;
