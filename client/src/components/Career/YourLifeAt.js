@@ -13,13 +13,13 @@ const YourLife = () => {
     AOS.refresh({ duration: 1000, once: true });
   }, []);
   return (
-    <section className="your-life">
-      <div data-aos="fade-up" className="container">
-        <div className="row middel-flex">
-          <div className="col-md-6 col-sm-12">
-            <div className="row">
-              <div className="col-md-6 col-sm-6 col-12">
-                <div data-aos="fade-up" className="your-box">
+    <section class="your-life">
+      <div data-aos="fade-up" class="container">
+        <div class="row middel-flex">
+          <div class="col-md-6 col-sm-12">
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-12">
+                <div data-aos="fade-up" class="your-box">
                   <Image src={ij1} alt="" />
                   <h3>Large Beautiful Office</h3>
                   <p>
@@ -28,8 +28,8 @@ const YourLife = () => {
                   </p>
                 </div>
               </div>
-              <div className="col-md-6 col-sm-6 col-12">
-                <div data-aos="fade-up" className="your-box marg-top">
+              <div class="col-md-6 col-sm-6 col-12">
+                <div data-aos="fade-up" class="your-box marg-top">
                   <Image src={ij2} alt="" />
                   <h3>Great Co-Workers</h3>
                   <p>
@@ -39,9 +39,9 @@ const YourLife = () => {
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-md-6 col-sm-6 col-12">
-                <div data-aos="fade-up" className="your-box">
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-12">
+                <div data-aos="fade-up" class="your-box">
                   <Image src={ij3} alt="" />
                   <h3>Easy Location</h3>
                   <p>
@@ -50,8 +50,8 @@ const YourLife = () => {
                   </p>
                 </div>
               </div>
-              <div className="col-md-6 col-sm-6 col-12">
-                <div data-aos="fade-up" className="your-box marg-top">
+              <div class="col-md-6 col-sm-6 col-12">
+                <div data-aos="fade-up" class="your-box marg-top">
                   <Image src={ij4} alt="" />
                   <h3>Education Opportunity</h3>
                   <p>
@@ -61,9 +61,9 @@ const YourLife = () => {
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-md-6 col-sm-6 col-12">
-                <div data-aos="fade-up" className="your-box">
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-12">
+                <div data-aos="fade-up" class="your-box">
                   <Image src={ij5} alt="" />
                   <h3>Performance Award</h3>
                   <p>
@@ -72,8 +72,8 @@ const YourLife = () => {
                   </p>
                 </div>
               </div>
-              <div className="col-md-6 col-sm-6 col-12">
-                <div data-aos="fade-up" className="your-box marg-top">
+              <div class="col-md-6 col-sm-6 col-12">
+                <div data-aos="fade-up" class="your-box marg-top">
                   <Image src={ij6} alt="" />
                   <h3>Free Lunch and Snacks</h3>
                   <p>
@@ -84,7 +84,7 @@ const YourLife = () => {
               </div>
             </div>
           </div>
-          <div className="col-md-6 col-sm-12" id="your-life-class">
+          <div class="col-md-6 col-sm-12" id="your-life-class">
             <h2>
               Your Life At <br />
               <span>CODE</span>
@@ -102,8 +102,8 @@ const YourLife = () => {
             </p>
             <br />
             <br />
-            <div className="join-box">
-              <button type="button" className="btn default-btn round-corner">
+            <div class="join-box">
+              <button type="button" class="btn">
                 Apply Now
               </button>
             </div>

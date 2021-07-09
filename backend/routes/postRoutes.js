@@ -74,4 +74,7 @@ router
 router
   .route("/admin/addproject")
   .post(require("../controllers/postControllers/addProject"));
+router
+  .route("/admin/addjob")
+  .post(require("../controllers/postControllers/admin/addJobs"));
 module.exports = router;

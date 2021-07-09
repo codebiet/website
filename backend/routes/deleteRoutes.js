@@ -19,4 +19,8 @@ router
     authAdmin,
     require("../controllers/deleteControllers/admin/blogSuggestion")
   );
+router
+  .route("/job/:id")
+  .delete(require("../controllers/deleteControllers/admin/deleteJobs"));
+
 module.exports = router;

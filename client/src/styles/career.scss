@@ -1,18 +1,18 @@
-$color-primary:rgb(236, 124, 45);
+$color-primary: rgb(236, 124, 45);
 .career-main-container {
-    font-family:"Nunito",sans-serif;
-    font-size:1.2rem;
-    @media (max-width:500px){
-        font-size:1rem;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.2rem;
+  @media (max-width: 500px) {
+    font-size: 1rem;
+  }
+  .hero-heading {
+    font-weight: 800;
+    span {
+      color: $color-primary;
     }
-   .hero-heading{
-       font-weight: 800;
-       span{
-           color:$color-primary;
-       }
-   } 
+  }
   .font-op {
-    font-family: "Nunito",sans-serif;
+    font-family: "Nunito", sans-serif;
   }
   #stats {
     background-color: $color-primary;
@@ -66,8 +66,8 @@ $color-primary:rgb(236, 124, 45);
 
   .your-life {
     padding: 100px 0px;
-    @media (max-width:600px){
-        padding-top:0;
+    @media (max-width: 600px) {
+      padding-top: 0;
     }
   }
   .your-box {
@@ -85,19 +85,34 @@ $color-primary:rgb(236, 124, 45);
   }
 
   .your-box-job {
+    display: flex;
+    flex-wrap: wrap;
     background-color: #fff;
     margin-top: 15px;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0px 0px 10px #ececec;
+    cursor: pointer;
   }
   .your-box-job h3 {
-    font-size: 18px;
+    width: 100%;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
   }
   .your-box-job p {
     font-size: 14px;
+    color: rgba(18, 18, 18, 0.6);
   }
-
+  a {
+    cursor: pointer;
+    &:hover,
+    &:active,
+    &:visited {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
   .marg-top {
     margin-top: 50px;
   }
@@ -122,14 +137,40 @@ $color-primary:rgb(236, 124, 45);
     font-weight: 600;
     color: $color-primary;
   }
-
+  .eventDetails {
+    width: 33%;
+    margin-bottom: 0.5rem;
+  }
+  .tagsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0.1rem;
+    width: 100%;
+    margin-bottom: 0.3rem;
+  }
+  .tags {
+    height: fit-content;
+    margin-right: 8px;
+    margin-bottom: 4px;
+    color: #616161;
+    background: #eee;
+    border-radius: 25px;
+    padding: 4px 14px;
+    font-size: 12px;
+  }
+  .skills {
+    width: 100%;
+  }
+  .join-box {
+    width: 100%;
+  }
   .join-box button {
-    font-size: 14px;
+    font-size: 13px;
     color: #fff;
     background-color: $color-primary;
     border: none;
     border-radius: 25px;
-    padding: 12px 30px;
+    padding: 10px 25px;
     display: inline-block;
     transition: 0.9s;
   }
@@ -140,10 +181,10 @@ $color-primary:rgb(236, 124, 45);
 
   .learn-process {
     padding: 100px 0px;
-    .learn-box{
-        p{
-            font-size:1rem;
-        }
+    .learn-box {
+      p {
+        font-size: 1rem;
+      }
     }
   }
   .learn-process h1 {

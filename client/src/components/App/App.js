@@ -35,6 +35,7 @@ import BlogsIndividual from "../../pages/Blogs_Individual";
 // import Discussion from "../../pages/Discussion";
 // import ReviewBlog from "../../pages/ReviewBlog";
 // import Logout from "../../pages/Logout";
+// import JobDetails from "../../pages/Job_Individual";
 import AdminRoutes from "../ADMIN/routes/AdminRoutes";
 import Loader from "../Loader/Loader";
 const Register = lazy(() => import("../../pages/Register"));
@@ -71,6 +72,7 @@ const OurTeam = lazy(() => import("../../pages/OurTeam"));
 const Career = lazy(() => import("../../pages/Career"));
 const Discussion = lazy(() => import("../../pages/Discussion"));
 const ReviewBlog = lazy(() => import("../../pages/ReviewBlog"));
+const JobDetails = lazy(() => import("../../pages/Job_Individual"));
 const Logout = lazy(() => import("../../pages/Logout"));
 function App() {
   const auth = useContext(AuthContext);
@@ -169,6 +171,11 @@ function App() {
                 exact
                 path="/events/:id"
                 render={(props) => <EventDetails {...props} />}
+              />
+              <Route
+                exact
+                path="/jobs/:id"
+                render={(props) => <JobDetails {...props} />}
               />
               <Route
                 exact

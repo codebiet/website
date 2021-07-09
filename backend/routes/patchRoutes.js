@@ -85,4 +85,7 @@ router
     authAdmin,
     require("../controllers/patchControllers/admin/discardBlog")
   );
+router
+  .route("/job/:id")
+  .patch(require("../controllers/patchControllers/admin/job"));
 module.exports = router;

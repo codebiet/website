@@ -64,7 +64,13 @@ router
   .get(getUserId, require("../controllers/getControllers/getDoubts"));
 
 router.route("/gems").get(require("../controllers/getControllers/getGems"));
-router.route("/gems/:id").get(require("../controllers/getControllers/gemsById"));
+router
+  .route("/gems/:id")
+  .get(require("../controllers/getControllers/gemsById"));
+router.route("/jobs").get(require("../controllers/getControllers/getJobs"));
+router
+  .route("/jobs/:id")
+  .get(require("../controllers/getControllers/getJobsbyID"));
 //-------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------
 //------------------------------------ADMIN--------------------------------------
@@ -79,4 +85,7 @@ router
 router
   .route("/admin/feedbacks")
   .get(require("../controllers/getControllers/admin/feedbacks"));
+router
+  .route("/admin/jobs/:id/applications")
+  .get(require("../controllers/getControllers/admin/jobApplications"));
 module.exports = router;
