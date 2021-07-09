@@ -94,7 +94,7 @@ const JobCard = ({
                   ></i>
                   <b>Duration</b>
                 </p>
-                <p>{duration}</p>
+                <p>{duration ? duration : "--"}</p>
               </div>
               <div className="eventInfo">
                 <p className="eventInfo-header">
@@ -104,7 +104,7 @@ const JobCard = ({
                   ></i>
                   <b>Stipend</b>
                 </p>
-                <p> {stipend} </p>
+                <p> {stipend ? stipend : "Unpaid"} </p>
               </div>
               <div className="eventInfo ">
                 <p className="eventInfo-header">
@@ -123,10 +123,10 @@ const JobCard = ({
                 <b>Skills</b>
               </p>
               <div className="tagsContainer">
-              {JSON.parse(skills).map((skill) => (
-                <div className="tags">{skill}</div>
-              ))}
-            </div>
+                {JSON.parse(skills).map((skill) => (
+                  <div className="tags">{skill}</div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

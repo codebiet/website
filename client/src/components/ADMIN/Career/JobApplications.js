@@ -13,21 +13,36 @@ const PaginationComponent = lazy(() => import("../../Pagination/Pagination"));
 const DashboardLayout = lazy(() => import("../Dashboard/DashboardLayout"));
 // import SendMessageModal from "./SendMessageModal";
 const UserCard = ({ user }) => {
+  if (!user) {
+    return <></>;
+  }
   return (
     <Card className="user">
       <CardBody>
         <ul style={{ listStyleType: "none" }}>
           <li>
-            <strong>Name : </strong>{" "}
-            {(user && user.userName) || <ContentLoaderSvg invert />}
+            <strong>Name : </strong> {user.name}
           </li>
           <li>
             <strong>Email : </strong>
-            {(user && user.email) || <ContentLoaderSvg invert />}
+            {user.email}
           </li>
           <li>
-            <strong>Contact Nubmer : </strong>
-            {(user && user.contactNumber) || <ContentLoaderSvg invert />}
+            <strong>Resume Link : </strong>
+            {user.resume && (
+              <a href={user.resume} target="_blank">
+                Resume Link
+              </a>
+            )}
+            {!user.resume && "Not Uploaded"}
+          </li>
+          <li>
+            <strong>User Profile : </strong>
+            {
+              <a href={`/userProfile/${user._id}`} target="_blank">
+                Profile Link
+              </a>
+            }
           </li>
         </ul>
       </CardBody>
@@ -141,7 +156,9 @@ const JobApplicatons = (props) => {
             )} */}
           </div>
           {!loading &&
-            users.map((user) => <UserCard key={user.email} user={user} />)}
+            users.map((user) => (
+              <UserCard key={user.userId.email} user={user.userId} />
+            ))}
           {!loading && users.length == 0 && <h6>No Applications Yet</h6>}
           {loading && (
             <>

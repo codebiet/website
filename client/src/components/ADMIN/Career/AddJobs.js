@@ -25,6 +25,7 @@ const AddJobs = (props) => {
   const [tags, setTags] = useState([]);
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     return () => info.dispatch(clearEverything());
   }, []);
@@ -63,6 +64,10 @@ const AddJobs = (props) => {
       );
     }
 
+    if (!stipend || isNaN(stipend)) {
+      stipend = 0;
+    }
+
     data.append("title", jobTitle);
     data.append("department", department);
     data.append("workType", workType);
@@ -82,7 +87,6 @@ const AddJobs = (props) => {
     data.forEach(function (value, key) {
       object[key] = value;
     });
-    console.log("datgatata", object);
 
     axios
       .post("/post/admin/addjob", { job: object })

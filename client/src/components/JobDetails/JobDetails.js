@@ -27,15 +27,34 @@ const months = [
   "NOV",
   "DEC",
 ];
-const RegistrationModal = ({ modalOpen, setModalOpen }) => {
+const RegistrationModal = ({ modalOpen, setModalOpen, jobId, setAlert }) => {
   const [error, setError] = useState("");
   const [registering, setRegistering] = useState(false);
-  function handleApplyNow() {
-    toggle();
-  }
+
+  const handleRegister = () => {
+    setRegistering(true);
+    axios
+      .post(`/post/job/${jobId}/register`)
+      .then((res) => {
+        setRegistering(false);
+        setAlert({ type: "SUCCESS", msg: "Applied successfully!" });
+        setModalOpen(false);
+      })
+      .catch((err) => {
+        setRegistering(false);
+        if (err.response && err.response.data)
+          setAlert({ type: "FAILURE", msg: err.response.data.errorMsg });
+        else setAlert({ type: "FAILURE", msg: "Something went wrong!" });
+        setModalOpen(false);
+      });
+  };
   const toggle = () => {
     setModalOpen((prev) => !prev);
   };
+  function handleApplyNow() {
+    handleRegister();
+    toggle();
+  }
 
   return (
     <Modal isOpen={modalOpen} toggle={toggle} className="registration-modal">
@@ -165,6 +184,18 @@ function JobDetails(props) {
                         </p>
                         <p>{job.workType}</p>
                       </div>
+                      <div className="event">
+                        <p>
+                          <strong> Work Place </strong>
+                        </p>
+                        <p>{job.remote ? "Remote" : "Office"}</p>
+                      </div>
+                      <div className="event">
+                        <p>
+                          <strong> Stipend </strong>
+                        </p>
+                        <p>{job.stipend}</p>
+                      </div>
                     </div>
                     <div
                       className="detailedContent"
@@ -172,17 +203,6 @@ function JobDetails(props) {
                         draftToHtml(JSON.parse(job.jobDescription || "{}"))
                       )}
                     ></div>
-                  </div>
-                  <div>
-                    <p>
-                      <strong> Work Place </strong>{" "}
-                      {job.remote ? "Remote" : "Office"}
-                    </p>
-                  </div>
-                  <div>
-                    <p>
-                      <strong> Stipend </strong> {job.stipend}
-                    </p>
                   </div>
                 </div>
               </div>

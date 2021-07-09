@@ -106,6 +106,8 @@ $color-primary: rgb(236, 124, 45);
   }
   a {
     cursor: pointer;
+    text-decoration: none;
+    color: inherit;
     &:hover,
     &:active,
     &:visited {

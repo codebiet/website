@@ -32,32 +32,25 @@ const JobOpenings = () => {
   const [remoteOnly, setRemoteOnly] = useState(false);
 
   useEffect(() => {
-    console.log("remote only:", remoteOnly);
-  }, [remoteOnly]);
-
-  useEffect(() => {
     setLoading(true);
-    console.log("domain ", domain, workType);
     axios
       .get(
         `/api/jobs?filter=${domain}&workType=${workType}&remoteOnly=${remoteOnly}&size=10000&status=Active`
       )
       .then((res) => {
         setJobs(res.data.data);
-        console.log(res.data);
         setLoading(false);
       })
       .catch((err) => {
         setLoading(false);
-        console.log(err);
       });
   }, [domain, workType, remoteOnly]);
 
   const ParseTime = (startedBy) => {
     const starts = new Date(startedBy);
-    const hour = starts.getHours() % 12 == 0 ? 12 : starts.getHours() % 12;
-    const minutes = starts.getMinutes();
-    const AM_PM = starts.getHours() < 12 ? "AM" : "PM";
+    // const hour = starts.getHours() % 12 == 0 ? 12 : starts.getHours() % 12;
+    // const minutes = starts.getMinutes();
+    // const AM_PM = starts.getHours() < 12 ? "AM" : "PM";
     const year = starts.getFullYear();
     const date = starts.getDate();
     const month = months[starts.getMonth()];
@@ -160,7 +153,7 @@ const JobOpenings = () => {
                   data-aos="fade-up-right"
                   class="col-lg-6 col-md-12 col-sm-12 col-12"
                 >
-                  <Link to={"/jobs/" + job._id} style={{color:"black"}}>
+                  <Link to={"/jobs/" + job._id}>
                     <div className="your-box-job">
                       <h3>{job.title}</h3>
                       <div className="eventDetails">
@@ -223,7 +216,7 @@ const JobOpenings = () => {
                             ></i>
                             <b>Stipend</b>
                           </p>
-                          <p>{job.stipend ? job.stipend : "--"}</p>
+                          <p>{job.stipend ? job.stipend : "Unpaid"}</p>
                         </div>
                       </div>
 

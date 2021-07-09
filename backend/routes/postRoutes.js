@@ -40,6 +40,12 @@ router
   .route("/event/:id/register")
   .post(require("../controllers/postControllers/eventRegistration"));
 router
+  .route("/job/:id/register")
+  .post(
+    authAdminOrUser,
+    require("../controllers/postControllers/jobRegistration")
+  );
+router
   .route("/blogs/addSuggestion")
   .post(
     authAdminOrUser,

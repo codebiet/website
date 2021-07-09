@@ -46,12 +46,10 @@ const UpdateJob = (props) => {
   };
 
   useEffect(() => {
-    console.log(props);
     setLoading(true);
     axios
       .get(`/api/jobs/${props.match.params.id}`)
       .then((res) => {
-        console.log(res.data);
         setDefaultValues(res.data);
         setLoading(false);
       })
@@ -68,7 +66,7 @@ const UpdateJob = (props) => {
     let parsedValues = [];
     if (values) parsedValues = JSON.parse(values);
     parsedValues = parsedValues.map((tagObj) => tagObj.value);
-    console.log(parsedValues);
+    // console.log(parsedValues);
     setTags(parsedValues);
   };
   const handleSubmit = (e) => {
@@ -88,6 +86,19 @@ const UpdateJob = (props) => {
           "All the fields are required. Please fill in the fields!"
         )
       );
+
+    if (
+      totalOpenings &&
+      (!parseInt(totalOpenings) || parseInt(totalOpenings) <= 0)
+    ) {
+      return info.dispatch(
+        generateWarning("Total Openings should be integer greater than 0")
+      );
+    }
+
+    if (!stipend || isNaN(stipend)) {
+      stipend = 0;
+    }
 
     data.append("title", jobTitle);
     data.append("department", department);
@@ -120,7 +131,7 @@ const UpdateJob = (props) => {
       })
       .catch((err) => {
         setLoading(false);
-        console.log(err);
+        // console.log(err);
         if (err.response && err.response.data)
           info.dispatch(generateError(err.response.data.errorMsg));
         else info.dispatch(generateError("Something went wrong!"));
