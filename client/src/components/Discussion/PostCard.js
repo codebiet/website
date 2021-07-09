@@ -115,9 +115,13 @@ const PostCard = ({ post = {}, setPosts = () => "", getQuery = () => "" }) => {
                   doubtId={post._id}
                 />
               </div>
+              {post.replies.length > 0 && <hr />}
               {post.replies.length > 0 &&
-                post.replies.map((reply) => (
-                  <ReplyCard key={reply._id} reply={reply} />
+                post.replies.map((reply, index) => (
+                  <>
+                    <ReplyCard key={reply._id} reply={reply} />
+                    {post.replies.length > index + 1 && <hr />}
+                  </>
                 ))}
             </div>
           </div>
