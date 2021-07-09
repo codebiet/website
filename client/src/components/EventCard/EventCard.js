@@ -47,7 +47,7 @@ const EventCard = ({
           </div>
 
           <div className="cardMain">
-            <p>{name}</p>
+            <p className="event-title">{name}</p>
             <div className="eventDetails">
               <div className="eventInfo">
                 <p className="eventInfo-header">
