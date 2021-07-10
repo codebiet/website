@@ -71,6 +71,12 @@ router.route("/jobs").get(require("../controllers/getControllers/getJobs"));
 router
   .route("/jobs/:id")
   .get(require("../controllers/getControllers/getJobsbyID"));
+router
+  .route("/jobs/isRegistered/:id")
+  .get(
+    authAdminOrUser,
+    require("../controllers/getControllers/isJobRegistered")
+  );
 //-------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------
 //------------------------------------ADMIN--------------------------------------

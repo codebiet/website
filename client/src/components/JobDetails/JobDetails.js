@@ -27,7 +27,13 @@ const months = [
   "NOV",
   "DEC",
 ];
-const RegistrationModal = ({ modalOpen, setModalOpen, jobId, setAlert }) => {
+const RegistrationModal = ({
+  modalOpen,
+  setModalOpen,
+  jobId,
+  setAlert,
+  setAlreadyApplied,
+}) => {
   const [error, setError] = useState("");
   const [registering, setRegistering] = useState(false);
 
@@ -38,6 +44,7 @@ const RegistrationModal = ({ modalOpen, setModalOpen, jobId, setAlert }) => {
       .then((res) => {
         setRegistering(false);
         setAlert({ type: "SUCCESS", msg: "Applied successfully!" });
+        setAlreadyApplied(true);
         setModalOpen(false);
       })
       .catch((err) => {
@@ -85,9 +92,11 @@ function JobDetails(props) {
 
   const [job, setJob] = useState({});
   const [registrationModalOpen, setRegistrationModalOpen] = useState(false);
+  const [alreadyApplied, setAlreadyApplied] = useState(false);
   const [alert, setAlert] = useState({});
   const [loading, setLoading] = useState(false);
   const info = useContext(InfoContext);
+
   useEffect(() => {
     if (alert.msg) {
       if (alert.type == "SUCCESS") info.dispatch(generateSuccess(alert.msg));
@@ -95,6 +104,7 @@ function JobDetails(props) {
     }
     return () => info.dispatch(clearEverything());
   }, [alert]);
+
   useEffect(() => {
     setLoading(true);
     axios
@@ -108,6 +118,16 @@ function JobDetails(props) {
         setLoading(false);
         if (err.response && err.response.status == 404)
           props.history.push("/error404");
+      });
+
+    axios
+      .get(`/api/jobs/isRegistered/${props.match.params.id}`)
+      .then((res) => {
+        console.log("checking if logged id", res.data);
+        setAlreadyApplied(res.data.registered);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }, []);
 
@@ -155,15 +175,16 @@ function JobDetails(props) {
                         <button
                           className="registerButton"
                           onClick={toggleApplicationModal}
-                          disabled={isRegisterDisabled()}
+                          disabled={isRegisterDisabled() || alreadyApplied}
                         >
-                          Apply Now
+                          {alreadyApplied ? "Applied" : "Apply Now"}
                         </button>
                         <RegistrationModal
                           modalOpen={registrationModalOpen}
                           setModalOpen={setRegistrationModalOpen}
                           jobId={props.match.params.id}
                           setAlert={setAlert}
+                          setAlreadyApplied={setAlreadyApplied}
                         />
                       </>
                       <div className="event">
@@ -194,7 +215,7 @@ function JobDetails(props) {
                         <p>
                           <strong> Stipend </strong>
                         </p>
-                        <p>{job.stipend}</p>
+                        <p>{job.stipend ? job.stipend : "Unpaid"}</p>
                       </div>
                     </div>
                     <div

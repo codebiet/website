@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
       applications: { $elemMatch: { userId: req.body.userId } },
     });
     if (alreadyReg.applications.length) {
-      return res.status(409).send({ errorMsg: "Already registerd" });
+      return res.status(409).send({ errorMsg: "Already registered" });
     }
     await Job.findByIdAndUpdate(
       id,
