@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
-import Loader from "../Loader/Loader";
+import React, { useState, useEffect, useContext, lazy } from "react";
 import { AuthContext } from "../../state/Store";
-import Editor from "../Editor/Editor";
 import { Container, Button } from "reactstrap";
 import { EditorState, convertToRaw, convertFromRaw } from "draft-js";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
+import Loader from "../Loader/Loader";
+// import Editor from "../Editor/Editor";
+const Editor = lazy(() => import("../Editor/Editor"));
 export default (props) => {
   const auth = useContext(AuthContext);
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
