@@ -3,6 +3,10 @@
   margin: 0 auto;
   .l {
     position: relative;
+    border-top: 2px solid #ec7c2d ;
+    padding-top: 40px;
+
+
   }
   .ll {
     height: auto;
@@ -13,7 +17,7 @@
     padding-left: 20px;
     padding-right: 20px;
     margin: 0 auto;
-    margin-top: -103px;
+    margin-top: -130px;
   }
   .container {
     margin: 0 auto;
@@ -28,7 +32,7 @@
     width: 100%;
     height: 10px;
     background-color: transparent;
-    background-image: radial-gradient(#000066 2px, transparent 1px);
+      // background-image: radial-gradient(#000066 2px, transparent 1px);
     background-position: 1px 1px;
     background-size: 5px 5px;
     content: "";
@@ -41,7 +45,7 @@
     width: 50%;
     padding-right: 150px;
     align-items: flex-start;
-    color: #000066;
+    color: #290001;
   }
 
   .common {
@@ -50,6 +54,7 @@
     align-items: baseline;
     float: left;
     flex-direction: column;
+    margin-bottom: 40px;
   }
   .heading {
     display: flex;
@@ -95,7 +100,7 @@
 
     align-items: flex-start;
 
-    color: #000066;
+    color: #290001;
   }
 
   .mainHeading {
@@ -117,17 +122,18 @@
     margin-bottom: 6px;
     margin-right: 8px;
     border-radius: 25px;
-    padding: 2px 7px;
+    padding: 6px 12px;
+    font-size: 18px;
     color: #eceae7;
 
-    background-color: #000066;
+    background-color: #290001;
   }
 
   .year {
     padding: 6px;
     border-radius: 3px;
     font-size: 12px;
-    background-color: #000066;
+    background-color: #290001;
     color: white;
   }
 
@@ -162,7 +168,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 15px;
+    left: 11px;
   }
 
   /* (C) STYLES FOR THE EVENTS */

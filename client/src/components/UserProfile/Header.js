@@ -35,14 +35,14 @@ const Header = (props) => {
                     {props.user.whatsAppPhoneNumber}
                   </p>
 
-                  <p>
+                  {/* <p>
                     <i className="containerIcon fas fa-location-arrow"></i>
                     570, Sector-31 Noida
                   </p>
                   <p>
                     <i className="containerIcon fas fa-globe"></i>
                     www.codebietjh.com
-                  </p>
+                 </p>*/}
                   <p>
                     <i className="containerIcon fas fa-envelope"></i>
                     {props.user.email}

@@ -9,19 +9,19 @@
     height: auto;
     display: block;
     max-width: 1200px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 30px;
     margin: 0 auto;
     margin-top: -135px;
   }
   .firstContainer {
     margin: 0 auto;
     display: flex;
+    align-items: center;
     margin-top: 150px;
   }
 
   .head_image {
-    border-radius: 6px;
+    border-radius: 50%;
   }
 
   .containerInside2 {
@@ -78,8 +78,9 @@
   }
 
   .name {
-    font-size: 30px;
+    font-size: 36px;
     margin-bottom: -10px;
+    font-weight: 600;
   }
 
   .designation {

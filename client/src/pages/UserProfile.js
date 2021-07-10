@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect,useState } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 const Nav = lazy(() => import("../components/Navbar/Nav"));
 const Footer = lazy(() => import("../components/Footer/Footer"));
 const Content = lazy(() => import("../components/UserProfile/Content"));
@@ -23,20 +23,18 @@ function UserProfile(props) {
       .then((res) => {
         setUserData(res.data.gems);
         // console.log(res.data.gems);
-
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-
   return (
     <Suspense fallback={<Loader />}>
       <Nav />
       <main>
-        {userData && <Header user={userData}/>}
-        {userData && <Content user={userData}/>}
+        {userData && <Header user={userData} />}
+        {userData && <Content user={userData} />}
       </main>
       <Footer />
     </Suspense>

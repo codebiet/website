@@ -19,9 +19,9 @@ const CardItem = ({ _id, name, branch, facebook, linkedin, github }) => {
           <div className="name">{name}</div>
           <div className="desc">{branch}</div>
           <div className="sm">
-            <Link to={facebook} className="fab fa-facebook"></Link>
+            {/* <Link to={facebook} className="fab fa-facebook"></Link>
             <Link to={linkedin} className="fab fa-linkedin"></Link>
-            <Link to={github} className="fab fa-github"></Link>
+  <Link to={github} className="fab fa-github"></Link>*/}
           </div>
         </div>
       </div>
