@@ -95,17 +95,12 @@ const UpdateJob = (props) => {
         generateWarning("Total Openings should be integer greater than 0")
       );
     }
-
-    if (!stipend || isNaN(stipend)) {
-      stipend = 0;
-    }
-
     data.append("title", jobTitle);
     data.append("department", department);
     data.append("workType", workType);
     data.append("remote", remote === "Remote");
     data.append("duration", duration);
-    data.append("stipend", parseInt(stipend));
+    data.append("stipend", !stipend || isNaN(stipend) ? 0 : parseInt(stipend));
     data.append("applyBy", applyBy);
     data.append("totalOpening", parseInt(totalOpenings));
     data.append("skills", JSON.stringify(tags));
