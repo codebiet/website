@@ -6,11 +6,11 @@ const WriteArticle = lazy(() =>
 const Nav = lazy(() => import("../components/Navbar/Nav"));
 const Footer = lazy(() => import("../components/Footer/Footer"));
 // import WriteArticle from "../components/WriteArticle/WriteArticle";
-const WriteArticlePage = () => {
+const WriteArticlePage = (props) => {
   return (
     <Suspense fallback={<Loader />}>
       <Nav />
-      <WriteArticle />
+      <WriteArticle {...props} />
       <Footer />
     </Suspense>
   );
