@@ -9,11 +9,10 @@ function AboutCode() {
         </div>
         <div className="aboutHead">
           <h1 className="BlockHeading">
-            About <span className="Headingspan">C.O.D.E</span>{" "}
+            About <span className="Headingspan">CODE</span>{" "}
           </h1>
           <p>
-            "Club of Developers is an initiative of The Department of Computer
-            Science & Engineering, BIET Jhansi"
+            "Club Of DEvelopers is an initiative of the students of Computer science and Engineering department, Biet Jhansi"
             <br />
             <br /> CODE aims to establish a coding culture on campus, reaching
             every student passionate about development.

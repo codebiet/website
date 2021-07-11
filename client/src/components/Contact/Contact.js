@@ -134,7 +134,7 @@ function Contact() {
         <br></br>
         <p className="Infotext">
           Don't worry, no spam here! Your information will only be used for
-          C.O.D.E and Chrome related updates<br></br> and our emails are
+          CODE and Chrome related updates<br></br> and our emails are
           typically no more than 1-2 times a month. You can unsubscribe anytime.
         </p>
         <br></br>

@@ -10,7 +10,7 @@ function Mission() {
         </div>
         <div className="aboutHead">
           <h1 className="BlockHeading">
-            Why we are building <span className="Headingspan">C.O.D.E</span>
+            Why we are building <span className="Headingspan">CODE</span>
           </h1>
           <ul id="Visionlist">
             <li className="VisionlistItems">

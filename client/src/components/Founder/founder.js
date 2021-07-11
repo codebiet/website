@@ -55,7 +55,7 @@ function Founder() {
             <p>
               You need to change yourself and adapt if you want to survive in a
               fast-changing world.
-              <br /> This makes the Club of Developers one of the most important
+              <br /> This makes the Club of DEvelopers one of the most important
               clubs in the institute "
             </p>
           </div>

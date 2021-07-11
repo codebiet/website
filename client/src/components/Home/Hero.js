@@ -124,8 +124,8 @@ const Hero = (props) => {
             <div className="col-lg-5 col-md-6 pt-md-0 pt-4">
               <h2 id="typewriter">{typed.text.trim()}</h2>
               <p>
-                Club of Developers is an initiative of The Department of
-                Computer Science & Engineering, BIET Jhansi. CODE aims to
+                Club Of DEvelopers is an initiative of the students of 
+                Computer Science & Engineering department, BIET Jhansi. CODE aims to
                 establish a coding culture on campus, reaching every student
                 passionate about development. The club's motto is to
                 Learn-Build-Innovate. CODE is for everyone, regardless of their
