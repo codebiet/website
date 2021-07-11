@@ -16,7 +16,7 @@ const faqsData = [
     header:
       "Can students of other colleges also participate in the events conducted under the club ?",
     description:
-      "Yes, any college student can participate in the events which we conduct. However, only the students of BIET, Jhansi will be eligible to become a part of the club as well as for the rewards.",
+      "Yes, any college student can become a member of the Club of Developers. All students irrespective of college or branch can participate in each of the events conducted by the club.      ",
   },
 ];
 const FaqAccordion = ({ header, description }) => {
