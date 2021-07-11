@@ -115,7 +115,7 @@ function Footer() {
             <div className="menu">
               <h3 className="menu-head">Actions</h3>
               <ul className="submenu">
-              <li className="links">
+                <li className="links">
                   <Link to="/suggestions">
                     <img
                       src="https://img.icons8.com/metro/12/000000/chevron-right.png"
@@ -185,7 +185,7 @@ function Footer() {
                     >
                       <span style={{ display: "none" }}>LinkedIn</span>
                       <img
-                        src="https://img.icons8.com/fluent/40/000000/linkedin-circled.png"
+                        src="https://img.icons8.com/color/48/000000/linkedin.png"
                         alt=""
                       />
                     </a>

@@ -3,9 +3,9 @@ import AOS from "aos";
 import { Collapse } from "reactstrap";
 const faqsData = [
   {
-    header: "Who can join the Club of Developers?",
+    header: "Who can join the Club Of DEvelopers?",
     description:
-      "Club of Developers is for everyone, regardless of their field of study or their current level of knowledge. The only criteria  is passion to learn, build and innovate.",
+      "Club Of DEvelopers is for everyone, regardless of their field of study or their current level of knowledge. The only criteria  is passion to learn, build and innovate.",
   },
   {
     header: "What are the types of events in CODE?",

@@ -40,8 +40,8 @@ function Executives() {
         Our <span className="Headingspan">Executives</span>
       </h1>
       <p exe_tag>
-        To provide strategic and operational leadership to the company, the Club
-        of Developers has an amazing team of executives. This team sets goals,
+        To provide strategic and operational leadership to the organisation, the Club
+        of DEvelopers has an amazing team of Executives. This team sets goals,
         develops strategies, and ensures its proper execution.
       </p>
       <div className="executives">
