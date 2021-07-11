@@ -22,10 +22,10 @@ router
   );
 router
   .route("/blogs/:id/comment")
-  .patch(authAdmin, require("../controllers/patchControllers/comment"));
+  .patch(authAdminOrUser, require("../controllers/patchControllers/comment"));
 router
   .route("/blogs/:blogId/comment/:id/reply")
-  .patch(authAdmin, require("../controllers/patchControllers/commentReply"));
+  .patch(authAdminOrUser, require("../controllers/patchControllers/commentReply"));
 router
   .route("/updateproject/:project_id")
   .patch(require("../controllers/patchControllers/updateProject"));
