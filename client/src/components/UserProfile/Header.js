@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import user_image from "../assets/boy.png";
 
 const Header = (props) => {
