@@ -8,13 +8,22 @@ import Loader from "../Loader/Loader";
 const Pagination = lazy(() => import("../Pagination/Pagination"));
 const FilterForm = lazy(() => import("./FilterForm"));
 
-const CardItem = ({ _id, name, branch, facebook, linkedin, github }) => {
+const CardItem = ({
+  _id,
+  name,
+  branch,
+  profilePhoto,
+  facebook,
+  linkedin,
+  github,
+}) => {
   return (
     <Link to={`/userProfile/${_id}`} style={{ textDecoration: "none" }}>
       <div className="profile-card">
         <div className="card-header">
           <div className="pic">
-            <img src={user_image} alt="" />
+            {profilePhoto && <img src={profilePhoto} alt="" />}
+            {!profilePhoto && <img src={user_image} alt="" />}
           </div>
           <div className="name">{name}</div>
           <div className="desc">{branch}</div>
