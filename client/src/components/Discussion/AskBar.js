@@ -163,11 +163,8 @@ const AskBar = ({
                     <option value="Operating Systems">Operating Systems</option>
                     <option value="DBMS">DBMS</option>
                     <option value="Web Development">Web Development</option>
-                    <option value="Android Development"></option>
+                    <option value="Android Development">Android Development</option>
                     <option value="ML and AI">ML & AI</option>
-                    <option value="Interview Preparation">
-                      Interview Preparation
-                    </option>
                     <option value="Others">Others</option>
                   </select>
                 </div>

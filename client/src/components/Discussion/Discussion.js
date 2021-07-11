@@ -99,7 +99,7 @@ function Discussion(props) {
               getQuery={getQuery}
               setTotalItems={setTotalItems}
             />
-            <HorizontalBar />
+            <HorizontalBar setCategory={setCategory} />
             <SwitchBar
               setSort={setSort}
               setType={setType}
