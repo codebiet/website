@@ -46,8 +46,25 @@ const Card = (props) => {
   const [totalItems, setTotalItems] = useState(19);
   const [limit, setLimit] = useState(20);
   const [loading, setLoading] = useState(false);
-  // const [name, setName] = useState("");
+  const [name, setName] = useState("");
   console.log(props);
+
+  const handleNameSearch = (e) => {
+    e.preventDefault();
+    axios
+      .get(
+        `/api/gems?year=${year}&branch=${branch}&profession=${profession}&page=${currentPage}&size=${limit}&name=${name}`
+      )
+      .then((res) => {
+        setLoading(false);
+        setUserData(res.data.data);
+        setTotalItems(res.data.totalItems);
+      })
+      .catch((err) => {
+        // console.log(err);
+        setLoading(false);
+      });
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -78,9 +95,12 @@ const Card = (props) => {
         year={year}
         setYear={setYear}
         branch={branch}
+        name={name}
         setBranch={setBranch}
         setProfession={setProfession}
         setPage={setCurrentPage}
+        setName={setName}
+        handleNameSearch={handleNameSearch}
       />
       <div className="c card_cot">
         <div className="card_wrapper">

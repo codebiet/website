@@ -71,7 +71,7 @@ const Content = (props) => {
                       <span className="year" style={{ float: "right" }}>
                         {props.user.academics &&
                           props.user.academics.length > 0 &&
-                          props.user.academics[0].year}
+                          props.user.academics[1].year}
                       </span>
                     </h4>
                     <br />
