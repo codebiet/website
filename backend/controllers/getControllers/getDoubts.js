@@ -57,7 +57,8 @@ module.exports = async (req, res) => {
         .find(dbFilters)
         .skip(page * limit)
         .limit(limit)
-        .populate("postedBy", "name profilePhoto", Users);
+        .populate("postedBy", "name profilePhoto", Users)
+        .populate("replies.repliedBy", "name profilePhoto", Users);
     posts = posts.map((post) => {
       post = {
         ...post._doc,
