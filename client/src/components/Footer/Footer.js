@@ -41,7 +41,7 @@ function Footer() {
                       src="https://img.icons8.com/metro/12/000000/chevron-right.png"
                       alt=""
                     />
-                    CODE Family
+                    Our Team
                   </Link>
                 </li>
                 <li className="links">

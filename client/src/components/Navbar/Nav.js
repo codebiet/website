@@ -6,16 +6,18 @@ import { UncontrolledPopover, PopoverHeader, PopoverBody } from "reactstrap";
 const ProfilePopover = () => {
   return (
     <UncontrolledPopover
-      trigger="focus"
+      trigger="legacy"
+      className="nav-profile-popover"
       placement="bottom"
-      target="profile-popoper"
+      target="profile-popoper" 
+      style={{border:'none'}}
     >
-      <PopoverHeader>
-        <NavLink to="/dashboard">Go to Your Profile</NavLink>
-      </PopoverHeader>
-      <PopoverBody>
-        <NavLink to="/logout">Logout</NavLink>
-      </PopoverBody>
+      <NavLink className="popover-link" to="/dashboard">
+        Go to Your Profile
+      </NavLink>
+      <NavLink className="popover-link" to="/logout">
+        Logout
+      </NavLink>
     </UncontrolledPopover>
   );
 };
@@ -100,7 +102,7 @@ function Nav() {
                           className="elevated"
                           alt=""
                         />{" "}
-                        CODE Family
+                        Our Team
                       </NavLink>
                     </li>
                     <li>
@@ -237,7 +239,7 @@ function Nav() {
             {auth.state.userLoggedIn && (
               <>
                 <li className="profile-link">
-                  <NavLink to="/dashobard">Profile</NavLink>
+                  <NavLink to="/dashboard">Profile</NavLink>
                 </li>
                 <li className="logout-link">
                   <NavLink to="/logout">Logout</NavLink>
