@@ -37,6 +37,8 @@ const Card = (props) => {
   const [totalItems, setTotalItems] = useState(19);
   const [limit, setLimit] = useState(20);
   const [loading, setLoading] = useState(false);
+  // const [name, setName] = useState("");
+  console.log(props);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -62,7 +64,7 @@ const Card = (props) => {
   };
 
   return (
-    <div className="card_main_cot" style={{marginBottom:"3rem"}}>
+    <div className="card_main_cot" style={{ marginBottom: "3rem" }}>
       <FilterForm
         year={year}
         setYear={setYear}

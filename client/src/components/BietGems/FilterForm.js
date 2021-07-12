@@ -3,6 +3,16 @@ const Filter = (props) => {
   return (
     <div className="FilterDiv">
       <h2>Find Here</h2>
+      <form className="form" id="addItemForm">
+        <input
+          type="text"
+          className="input"
+          id="addInput"
+          placeholder="Enter the name"
+        />
+        <button className="button is-info">Search</button>
+      </form>
+
       <form onSubmit={(e) => e.preventDefault()}>
         <div className="Filters">
           <div className="FilterItem">
