@@ -4,7 +4,7 @@ function Header() {
   return (
     <div className="banner">
       <div className="content">
-        <h1 className="leader">Club Of DEvelopers</h1>
+        <h1 className="leader">Our Team</h1>
         <p>
           Fuelled by the passion to learn, build and innovate, we are a family
           of 450+ active members. Harnessing the energy of young minds, we have

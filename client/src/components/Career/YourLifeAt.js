@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
-import ij1 from "../assets/job_1.png";
-import ij2 from "../assets/job_2.png";
-import ij3 from "../assets/job_3.png";
-import ij4 from "../assets/job_4.png";
+import "./career.css";
+import ij1 from "../assets/opportunity.png";
+import ij2 from "../assets/team.png";
+import ij3 from "../assets/goal.svg";
+import ij4 from "../assets/tech.png";
 import ij5 from "../assets/job_5.png";
-import ij6 from "../assets/job_6.png";
+import ij6 from "../assets/collaborate.png";
 import { Image } from "react-bootstrap";
 const YourLife = () => {
   useEffect(() => {
@@ -20,18 +21,17 @@ const YourLife = () => {
             <div class="row">
               <div class="col-md-6 col-sm-6 col-12">
                 <div data-aos="fade-up" class="your-box">
-                  <Image src={ij1} alt="" />
-                  <h3>Large Beautiful Office</h3>
+                <Image src={ij1} alt=""/>
+                  <h3>Learning Opportunities</h3>
                   <p>
-                    Enjoy a comfortable office enviroment with the most modern
-                    and stylish furnishing.
+                  Various technologies to learn in different fields of programming and development.
                   </p>
                 </div>
               </div>
               <div class="col-md-6 col-sm-6 col-12">
                 <div data-aos="fade-up" class="your-box marg-top">
                   <Image src={ij2} alt="" />
-                  <h3>Great Co-Workers</h3>
+                  <h3>Work with Bright Minds</h3>
                   <p>
                     Work with some of the best talents in the industry and
                     connect with them through us.
@@ -43,20 +43,18 @@ const YourLife = () => {
               <div class="col-md-6 col-sm-6 col-12">
                 <div data-aos="fade-up" class="your-box">
                   <Image src={ij3} alt="" />
-                  <h3>Easy Location</h3>
+                  <h3>Career Guidance</h3>
                   <p>
-                    Commute easily to work at your convinience and enjoy
-                    compensession for transport costs.
+                  Know the right track to focus from the well placed seniors in various companies.
                   </p>
                 </div>
               </div>
               <div class="col-md-6 col-sm-6 col-12">
                 <div data-aos="fade-up" class="your-box marg-top">
                   <Image src={ij4} alt="" />
-                  <h3>Education Opportunity</h3>
+                  <h3>Work on new Technologies</h3>
                   <p>
-                    Get resources for develop your skills and knowledge to
-                    kickstart your carrer.
+                  With a motto of Learn, build and innovate, CODE provides a learning environment to master new technologies.
                   </p>
                 </div>
               </div>
@@ -64,21 +62,19 @@ const YourLife = () => {
             <div class="row">
               <div class="col-md-6 col-sm-6 col-12">
                 <div data-aos="fade-up" class="your-box">
-                  <Image src={ij5} alt="" />
-                  <h3>Performance Award</h3>
+                <Image src={ij6} alt="" />
+                  <h3>Collaborate with Others</h3>
                   <p>
-                    Get awarded for better performance in every 6 months and
-                    recognized for your work.
+                  Work on different projects and participate in various events in collaboration with your friends and colleagues.
                   </p>
                 </div>
               </div>
               <div class="col-md-6 col-sm-6 col-12">
                 <div data-aos="fade-up" class="your-box marg-top">
-                  <Image src={ij6} alt="" />
-                  <h3>Free Lunch and Snacks</h3>
+                  <Image src={ij5} alt="" />
+                  <h3>Rewards</h3>
                   <p>
-                    Enjoy free delicious meals prepared by our trusted vendors
-                    for lunch and snaks.
+                    We belive that rewarding our co-workers would increase their productivity , You'll rewarded for your performance .
                   </p>
                 </div>
               </div>
