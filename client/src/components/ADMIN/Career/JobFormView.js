@@ -87,6 +87,9 @@ const JobFormView = ({
                     <option value="Android">Android</option>
                     <option value="Blockchain">Blockchain</option>
                     <option value="Content Writing">Content Writing</option>
+                    <option value="Graphics Designing">
+                      Graphics Designing
+                    </option>
                     <option value="Cyber Security">Cyber Security</option>
                     <option value="IOT">IOT</option>
                     <option value="ML/AI">ML/AI</option>
