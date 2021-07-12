@@ -4,6 +4,7 @@ import { generateSuccess } from "../../state/info/infoActions";
 import axios from "axios";
 // import Tags from "@yaireo/tagify/dist/react.tagify";
 import { Modal, ModalHeader, ModalBody } from "reactstrap";
+import { set } from "js-cookie";
 const Tags = lazy(() => import("@yaireo/tagify/dist/react.tagify"));
 //
 const whiteList = [
@@ -72,6 +73,10 @@ const AskBar = ({
       .then((res) => {
         setLoading(false);
         setModalOpen(false);
+        setQueryTitle("");
+        setQueryDescription("");
+        setcategory("Java");
+        setTags([]);
         info.dispatch(
           generateSuccess(
             "Your doubt has been posted. We'll notify you when someone replies on this."
@@ -163,7 +168,9 @@ const AskBar = ({
                     <option value="Operating Systems">Operating Systems</option>
                     <option value="DBMS">DBMS</option>
                     <option value="Web Development">Web Development</option>
-                    <option value="Android Development">Android Development</option>
+                    <option value="Android Development">
+                      Android Development
+                    </option>
                     <option value="ML and AI">ML & AI</option>
                     <option value="Others">Others</option>
                   </select>

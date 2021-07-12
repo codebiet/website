@@ -344,9 +344,10 @@
       transition: 0.3s ease;
     }
   }
-  .profile-link,.logout-link {
+  .profile-link,
+  .logout-link {
     @media (min-width: 1100px) {
-      display: none!important;
+      display: none !important;
     }
   }
   .nav-user-container {
@@ -369,5 +370,35 @@
       color: #ec7c2d;
       font-weight: 800;
     }
+  }
+}
+
+.nav-profile-popover {
+  border: none;
+}
+.popover-link {
+  color: black;
+  font-weight: 500;
+  width: 11rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  padding-left: .8rem;
+  &:first-child{
+    border-bottom: 1px solid #dddddd;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  display: block;
+  background: white;
+  text-align: left;
+  font-size: 1rem;
+  border-radius: 8px;
+  &:visited {
+    color: black;
+  }
+  &:hover,
+  &:active {
+    text-decoration: none;
+    color: $color-primary;
   }
 }

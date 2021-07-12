@@ -6,6 +6,7 @@ import { Redirect } from "react-router-dom";
 import { AuthContext, InfoContext } from "../../state/Store";
 import { generateError, clearEverything } from "../../state/info/infoActions";
 import { useLocation } from "react-router-dom";
+import noUserImg from "../assets/user.svg";
 const CommentItem = ({ blogId, defaultComment }) => {
   const [replyInputVisible, setReplyInputVisible] = useState(false);
   const [reply, setReply] = useState("");
@@ -44,7 +45,7 @@ const CommentItem = ({ blogId, defaultComment }) => {
       )}
       <div className="comment">
         <div className="comment-user-img">
-          <img src={comment.commentedBy.profilePhoto} alt="" />
+          <img src={comment.commentedBy.profilePhoto || noUserImg} alt="" />
         </div>
         <div className="content-with-username">
           <div className="username">{comment.commentedBy.name}</div>
@@ -56,7 +57,10 @@ const CommentItem = ({ blogId, defaultComment }) => {
                   return (
                     <div className="comment" key={reply._id}>
                       <div className="comment-user-img">
-                        <img src={reply.repliedBy.profilePhoto} alt="" />
+                        <img
+                          src={reply.repliedBy.profilePhoto || noUserImg}
+                          alt=""
+                        />
                       </div>
                       <div className="content-with-username">
                         <div className="username">{reply.repliedBy.name}</div>
