@@ -1,11 +1,11 @@
 .FilterDiv {
   box-shadow: 0px 0px 8px rgba(46, 45, 45, 0.658);
-  margin: 20px 0px;
+  margin: 20px auto;
   margin-top: 50px;
   padding: 10px;
   border-radius: 8px;
   width: 100%;
-
+}
   h2 {
     /* font-weight:300; */
     margin: 10px;
@@ -73,14 +73,10 @@
     .submitbtn {
       width: 95%;
     }
-  }
-
-  @media only screen and (max-width: 650px) {
-    .Filters .FilterItem {
+    .FilterDiv{
+      margin: auto 10px;
       width: 95%;
-      min-width: 200px;
     }
-  }
 }
 
 
@@ -112,9 +108,14 @@ form.example button:hover {
   background: #0b7dda;
 }
 
-/* Clear floats */
-form.example::after {
-  content: "";
-  clear: both;
-  display: table;
-}
+// /* Clear floats */
+// form.example::after {
+//   content: "";
+//   clear: both;
+//   display: table;
+// @media only screen and (max-width: 350px) {
+//     .Filters .FilterItem{
+//       min-width: 0px;
+//       width: 100%;
+//     }
+// }

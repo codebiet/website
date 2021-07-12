@@ -2,7 +2,7 @@ import React from "react";
 import Ritesh from "../assets/final Year/ritesh_rai_sir_1.jpg";
 import Samarth from "../assets/final Year/Samarth_Agarwal_Sir.jpg";
 import Rajat from "../assets/final Year/Rajat Saxena.jpg";
-const CardFounder = ({ quote, name, img, fbLink, lnkdinLink, email }) => {
+const CardFounder = ({ quote, name, img, fbLink, lnkdinLink, email , branch }) => {
   return (
     <div className="cardFounder">
       <p id="quoteFounder">{quote}</p>
@@ -28,7 +28,7 @@ const CardFounder = ({ quote, name, img, fbLink, lnkdinLink, email }) => {
       </div>
       <div className="FounderDesc">
         Founder | CODE<br></br>
-        B.Tech | CSE |2017-21
+        B.Tech | {branch} |2017-21
         <br></br>
         BIET JHANSI
       </div>
@@ -67,6 +67,7 @@ function Founder() {
               fbLink="https://www.facebook.com/profile.php?id=100023781995286"
               lnkdinLink="https://www.linkedin.com/in/ritesh-rai-3741ba178"
               email="riteshrai447@gmail.com"
+              branch="CSE"
             />
             <CardFounder
               name="Samarth Agarwal"
@@ -77,6 +78,7 @@ function Founder() {
               fbLink="https://www.facebook.com/samarthagarwal1414/"
               lnkdinLink="https://www.linkedin.com/in/samarth-agarwal-545429133/"
               email="samarthagarwal1414@gmail.com"
+              branch="CSE"
             />
             <CardFounder
               name="Rajat Saxena"
@@ -87,6 +89,7 @@ function Founder() {
               fbLink="https://www.facebook.com/rajat.saxena.90410"
               lnkdinLink="https://www.linkedin.com/in/rajat-saxena-54509a15b/"
               email="saxena1975sanjeev@gmail.com"
+              branch="ECE"
             />
           </div>
         </div>
