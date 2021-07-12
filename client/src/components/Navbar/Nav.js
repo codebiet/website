@@ -2,6 +2,23 @@ import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../state/Store";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/codelogo.png";
+import { UncontrolledPopover, PopoverHeader, PopoverBody } from "reactstrap";
+const ProfilePopover = () => {
+  return (
+    <UncontrolledPopover
+      trigger="focus"
+      placement="bottom"
+      target="profile-popoper"
+    >
+      <PopoverHeader>
+        <NavLink to="/dashboard">Go to Your Profile</NavLink>
+      </PopoverHeader>
+      <PopoverBody>
+        <NavLink to="/logout">Logout</NavLink>
+      </PopoverBody>
+    </UncontrolledPopover>
+  );
+};
 function Nav() {
   const auth = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
@@ -83,7 +100,7 @@ function Nav() {
                           className="elevated"
                           alt=""
                         />{" "}
-                        Our Team
+                        CODE Family
                       </NavLink>
                     </li>
                     <li>
@@ -216,6 +233,17 @@ function Nav() {
             <li style={{ marginRight: "1rem" }}>
               <NavLink to="/contact">Contact Us</NavLink>
             </li>
+            {/* the below two for mobile view */}
+            {auth.state.userLoggedIn && (
+              <>
+                <li className="profile-link">
+                  <NavLink to="/dashobard">Profile</NavLink>
+                </li>
+                <li className="logout-link">
+                  <NavLink to="/logout">Logout</NavLink>
+                </li>
+              </>
+            )}
           </ul>
           {!auth.state.userLoggedIn && (
             <ul className="cta-bar" style={{ margin: "1rem 0" }}>
@@ -239,15 +267,19 @@ function Nav() {
               </li>
             </ul>
           )}
+          {/* for desktop view */}
           {auth.state.userLoggedIn && (
-            <NavLink
-              to="/dashboard"
-              className="nav-user-container"
-              style={{ marginRight: "1rem" }}
-            >
-              <img className="avtar-img" src={auth.state.profileImg} alt="" />
-              <span>{auth.state.userName}</span>
-            </NavLink>
+            <>
+              <button
+                id="profile-popoper"
+                className="nav-user-container"
+                style={{ marginRight: "1rem" }}
+              >
+                <img className="avtar-img" src={auth.state.profileImg} alt="" />
+                <span>{auth.state.userName}</span>
+              </button>
+              <ProfilePopover />
+            </>
           )}
         </div>
       </nav>

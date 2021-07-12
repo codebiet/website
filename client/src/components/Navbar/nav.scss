@@ -62,7 +62,7 @@
     padding: 20px;
   }
   #menu.menu-open {
-    @media (max-width: 950px) {
+    @media (max-width: 1099px) {
       position: fixed;
       min-height: 100vh;
       z-index: 1250;
@@ -344,8 +344,19 @@
       transition: 0.3s ease;
     }
   }
+  .profile-link,.logout-link {
+    @media (min-width: 1100px) {
+      display: none!important;
+    }
+  }
   .nav-user-container {
     text-decoration: none;
+    background: transparent;
+    border: none;
+    outline: none;
+    @media (max-width: 1099px) {
+      display: none;
+    }
     .avtar-img {
       width: 50px;
       height: 50px;
