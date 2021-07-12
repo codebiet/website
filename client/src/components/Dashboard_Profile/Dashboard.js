@@ -285,6 +285,12 @@ const TakeData = ({
   setBranch,
   rollNumberInput,
   deleteThingWithoutOptions,
+  companiesWorked,
+  setCompaniesWorked,
+  role,
+  setRole,
+  addMoreCompanies,
+  isAddMoreDisabled,
 }) => {
   const classes = useStyles();
   const addMore = () => {
@@ -382,12 +388,28 @@ const TakeData = ({
             </Row>
 
             <Row style={{ width: "100%" }}>
-              <Col md="11" xs="11">
+              <Col md="6" xs="11">
                 <FormGroup>
                   <label className="fontType" htmlFor="github">
                     GitHub Profile Link
                   </label>
                   {githubUserInput}
+                </FormGroup>
+              </Col>
+              <Col md="5" xs="11">
+                <FormGroup>
+                  <label className="fontType" htmlFor="role">
+                    Role
+                  </label>
+                  <select
+                    id="role"
+                    className="form-control"
+                    value={role}
+                    onChange={(e) => setRole(e.target.value)}
+                  >
+                    <option value="Student">Student</option>
+                    <option value="Professional">Professional</option>
+                  </select>
                 </FormGroup>
               </Col>
             </Row>
@@ -409,6 +431,210 @@ const TakeData = ({
           </Typography>
         </AccordionDetails>
       </Accordion>
+      {role == "Professional" && (
+        <Accordion style={{ width: "100%" }}>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography
+              component={"span"}
+              variant={"body2"}
+              className={classes.heading}
+            >
+              Work Experience
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography
+              component={"span"}
+              variant={"body2"}
+              style={{ width: "100%" }}
+            >
+              {companiesWorked.map((company, index) => {
+                return (
+                  <Row
+                    key={index}
+                    style={{
+                      width: "100%",
+                      marginTop: index > 0 ? "2rem" : "0",
+                    }}
+                  >
+                    <Col xs="11">
+                      <Row>
+                        <Col xs="6">
+                          <FormGroup>
+                            <label
+                              className="fontType"
+                              htmlFor={"company-name" + index}
+                            >
+                              Company Name
+                            </label>
+                            <input
+                              id={"company-name" + index}
+                              type="text"
+                              className="form-control"
+                              placeholder="Company Name"
+                              value={company.companyName}
+                              onChange={(e) =>
+                                setCompaniesWorked((prev) => {
+                                  prev[index].companyName = e.target.value;
+                                  return [...prev];
+                                })
+                              }
+                            />
+                          </FormGroup>
+                        </Col>
+                        <Col xs="6">
+                          <FormGroup>
+                            <label
+                              className="fontType"
+                              htmlFor={"job-title" + index}
+                            >
+                              Job Title
+                            </label>
+                            <input
+                              id={"job-title" + index}
+                              type="text"
+                              className="form-control"
+                              placeholder="Job Title"
+                              value={company.jobTitle}
+                              onChange={(e) =>
+                                setCompaniesWorked((prev) => {
+                                  prev[index].jobTitle = e.target.value;
+                                  return [...prev];
+                                })
+                              }
+                            />
+                          </FormGroup>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col xs="6">
+                          <FormGroup>
+                            <label
+                              className="fontType"
+                              htmlFor={"job-start" + index}
+                            >
+                              Start Date
+                            </label>
+                            <input
+                              id={"job-title" + index}
+                              type="date"
+                              className="form-control"
+                              value={new Date(company.startedFrom || Date.now()).toISOString().substring(0,10)}
+                              onChange={(e) =>
+                                setCompaniesWorked((prev) => {
+                                  prev[index].startedFrom = e.target.value;
+                                  return [...prev];
+                                })
+                              }
+                            />
+                          </FormGroup>
+                        </Col>
+                        <Col xs="6" style={{ position: "relative" }}>
+                          <FormGroup>
+                            <label
+                              className="fontType"
+                              htmlFor={"end-date" + index}
+                            >
+                              End Date
+                            </label>
+                            <input
+                              id={"end-date" + index}
+                              type="date"
+                              className="form-control"
+                              disabled={company.currentlyWorking}
+                              value={new Date(company.endedOn || Date.now()).toISOString().substring(0,10)}
+                              onChange={(e) =>
+                                setCompaniesWorked((prev) => {
+                                  prev[index].endedOn = e.target.value;
+                                  return [...prev];
+                                })
+                              }
+                            />
+                          </FormGroup>
+                          <div
+                            style={{
+                              position: "absolute",
+                              top: "4.6rem",
+                              left: "1.1rem",
+                              display: "flex",
+                              alignItems: "center",
+                            }}
+                          >
+                            <input
+                              id={"currently-working" + index}
+                              type="checkbox"
+                              checked={company.currentlyWorking}
+                              onChange={(e) =>
+                                setCompaniesWorked((prev) => {
+                                  prev[index].currentlyWorking =
+                                    !prev[index].currentlyWorking;
+                                  return [...prev];
+                                })
+                              }
+                            />
+                            <label
+                              htmlFor={"currently-working" + index}
+                              className="fontType"
+                              style={{
+                                fontSize: "1rem",
+                                margin: ".1rem 0 0 .5rem",
+                              }}
+                            >
+                              Currently Working here
+                            </label>
+                          </div>
+                        </Col>
+                      </Row>
+                    </Col>
+                    {index < companiesWorked.length - 1 && (
+                      <Col
+                        xs="1"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <DeleteForeverOutlined
+                          style={{
+                            color: "#fd2f00",
+                            cursor: "pointer",
+                          }}
+                          onClick={() =>
+                            deleteThingWithoutOptions(setCompaniesWorked, index)
+                          }
+                        />
+                      </Col>
+                    )}
+                  </Row>
+                );
+              })}
+              <Row>
+                {/* <Col> */}
+                <div className="update ml-auto mr-auto">
+                  <div
+                    className={
+                      isAddMoreDisabled("companies")
+                        ? "btn btn-success disabled"
+                        : "btn btn-success"
+                    }
+                    style={{ margin: "0" }}
+                    onClick={() => addMoreCompanies("companies")}
+                  >
+                    Add more
+                  </div>
+                </div>
+                {/* </Col> */}
+              </Row>
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+      )}
+
       {/* details for higher studies */}
       <Accordion style={{ width: "100%" }}>
         <AccordionSummary
@@ -837,7 +1063,7 @@ const TakeData = ({
           >
             {achievements.map((ach, index) => {
               return (
-                <Row key={ach + index} style={{ width: "100%" }} key={index}>
+                <Row style={{ width: "100%" }} key={index}>
                   <Col xs="11">
                     <FormGroup>
                       <label
@@ -1011,6 +1237,16 @@ const Dashboard = (props) => {
     { year: "", degree: "X", college: "", result: "", type: "GPA" },
   ]);
   const [achievements, setAchievements] = useState([""]);
+  const [role, setRole] = useState("Student");
+  const [companiesWorked, setCompaniesWorked] = useState([
+    {
+      companyName: "",
+      jobTitle: "",
+      startedFrom: "",
+      endedOn: "",
+      currentlyWorking: false,
+    },
+  ]);
   useEffect(() => {
     setLoading(true);
     axios
@@ -1066,6 +1302,17 @@ const Dashboard = (props) => {
         setInternships((prev) => [
           ...prev,
           { title: "", type: "", credentials: "", technologies: "" },
+        ]);
+      case "companies":
+        setCompaniesWorked((prev) => [
+          ...prev,
+          {
+            companyName: "",
+            jobTitle: "",
+            startedFrom: "",
+            endedOn: "",
+            currentlyWorking: false,
+          },
         ]);
     }
   };
@@ -1124,6 +1371,17 @@ const Dashboard = (props) => {
         )
           return true;
         else if (last && !urlRegex.test(last.credentials)) return true;
+        else return false;
+      case "companies":
+        last = companiesWorked[companiesWorked.length - 1];
+        if (
+          last &&
+          (!last.companyName ||
+            !last.jobTitle ||
+            !last.startedFrom ||
+            (!last.endedOn && !last.currentlyWorking))
+        )
+          return true;
         else return false;
     }
   };
@@ -1383,6 +1641,11 @@ const Dashboard = (props) => {
   };
   const [loading, setLoading] = useState(false);
   const setDefaultValues = (data) => {
+    setRole(data.role);
+    setCompaniesWorked(prev => {
+      let res = data.companiesWorked && data.companiesWorked.length > 0 ? data.companiesWorked : prev;
+      return [...res];
+    });
     setProfileImg(data.profilePhoto);
     setResumeUrl(data.resume);
     setName(data.name);
@@ -1540,6 +1803,30 @@ const Dashboard = (props) => {
     e.preventDefault();
     // console.log("updating the profile!");
     info.dispatch(clearEverything());
+    if (role == "Professional") {
+      if (
+        !companiesWorked[companiesWorked.length - 1].companyName ||
+        !companiesWorked[companiesWorked.length - 1].jobTitle ||
+        !companiesWorked[companiesWorked.length - 1].startedFrom ||
+        (!companiesWorked[companiesWorked.length - 1].endedOn &&
+          !companiesWorked[companiesWorked.length - 1].currentlyWorking)
+      ) {
+        if (companiesWorked.length == 1) {
+          //the information of the first job was not filled, no job information given
+          return info.dispatch(
+            generateWarning(
+              "You have selected your role as a Professional, so you're required to give information for atleast one job."
+            )
+          );
+        } else {
+          //remove last item, it is just added using add more and not filled;
+          setCompaniesWorked((prev) => {
+            prev.pop();
+            return [...prev];
+          });
+        }
+      }
+    }
     let error = false;
     let reformedAcademics = [];
     if (
@@ -1674,6 +1961,9 @@ const Dashboard = (props) => {
         cloudPlatforms.push(hostingPlatforms[key].name);
       }
     }
+    data.append("role", role);
+    if (role == "Professional")
+      data.append("companiesWorked", JSON.stringify(companiesWorked));
     data.append("degree", degree);
     data.append("college", college);
     data.append("city", collegeCity);
@@ -2025,6 +2315,12 @@ const Dashboard = (props) => {
                             deleteThingWithoutOptions={
                               deleteThingWithoutOptions
                             }
+                            companiesWorked={companiesWorked}
+                            setCompaniesWorked={setCompaniesWorked}
+                            role={role}
+                            setRole={setRole}
+                            addMoreCompanies={addMore}
+                            isAddMoreDisabled={isdisabled}
                           />
                           {callingPhoneNum &&
                             callingVerified &&

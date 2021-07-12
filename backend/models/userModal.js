@@ -59,6 +59,15 @@ const userSchema = new mongoose.Schema({
       },
     },
   ],
+  companiesWorked: [
+    {
+      companyName: String,
+      jobTitle: String,
+      startedFrom: Date,
+      endedOn: Date,
+      currentlyWorking: Boolean,
+    },
+  ],
   achievements: [String],
   about: String,
   callingPhoneNumber: { type: String, validate: phoneNumberValidatorWithMsg },

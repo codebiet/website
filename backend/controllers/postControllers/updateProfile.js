@@ -34,7 +34,7 @@ const updateProfile = async (req, res) => {
     //higherStudy is sent in request payload only if it has valid value
     if (higherStudy) {
       higherStudy = JSON.parse(higherStudy);
-      higherStudy.resultType = higherStudy.type;//since type can't be used as field in mongoose
+      higherStudy.resultType = higherStudy.type; //since type can't be used as field in mongoose
       delete higherStudy.type;
     }
     //if higher study included in payload, means contains a valid value
@@ -92,6 +92,8 @@ const updateProfile = async (req, res) => {
   if (req.body.updatingFor != "RESUME" || true) {
     //both blocks(above and this) need to run, since now all the data is comming from profile update;
     let {
+      role,
+      companiesWorked,
       callingPhoneNumber,
       whatsAppPhoneNumber,
       year,
@@ -111,6 +113,10 @@ const updateProfile = async (req, res) => {
       projects,
       trainings,
     } = req.body;
+    console.log("role is ", role);
+    if (role == "Professional") companiesWorked = JSON.parse(companiesWorked);
+    else companiesWorked = [];
+    console.log(companiesWorked);
     programmingLanguages = JSON.parse(programmingLanguages);
     console.log(webTechnologies);
     webTechnologies = JSON.parse(webTechnologies);
@@ -144,6 +150,8 @@ const updateProfile = async (req, res) => {
     if (year) user.year = year;
     if (branch) user.branch = branch;
     if (rollNum) user.rollNum = rollNum;
+    user.role = role;
+    user.companiesWorked = companiesWorked;
     user.githubUserName = githubUserName;
     user.programmingLanguages = programmingLanguages;
     user.webTechnologies = webTechnologies;
@@ -224,7 +232,6 @@ const updateProfile = async (req, res) => {
     }
     delete userData.password;
     delete userData._id;
-    delete userData.role;
     delete userData.emailVerified;
     if (errorMsg) return res.status(400).send({ errorMsg, userData: userData });
     else return res.status(200).send({ ...userData });
