@@ -1,3 +1,4 @@
+
 .about-us-hero-container {
   font-family: "Poppins", sans-serif;
   .banner {
@@ -8,6 +9,9 @@
     margin-top: 20px;
     width: 100%;
   }
+
+
+
 
   .banner .content {
     /* max-width: 700px; */
@@ -49,7 +53,7 @@
     text-align: justify;
     margin: 10px;
   }
-  @media only screen and (max-width: 872px) {
+  @media only screen and (max-width: 920px) {
     .banner .content {
       flex-direction: column;
       justify-content: center;
@@ -70,6 +74,14 @@
       height: auto;
       margin-left: 0px;
     }
+    .t {
+      margin-left: unset;
+      margin: 10px;
+      min-width: unset;
+      width: 95%;
+      text-align: center;
+    }
+
   }
 
   @media only screen and (max-width: 500px) {
