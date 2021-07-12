@@ -1,10 +1,9 @@
 const User = require("../../models/userModal");
 const jwt = require("jsonwebtoken");
 const { v4: uuid } = require("uuid");
-const uploadS3 = require('../../utils/uploadS3');
+const uploadS3 = require("../../utils/uploadS3");
 const updateProfile = async (req, res) => {
   const token = req.cookies["token"];
-  console.log(req.cookies);
   if (!token) return res.status(401).send({ errorMsg: "Unauthorized!" });
   let decoded;
   try {
@@ -22,19 +21,35 @@ const updateProfile = async (req, res) => {
     return res.status(500).send({ errorMsg: "Internal Server Error!" });
   }
   if (req.body.updatingFor == "RESUME" || true) {
-    let { degree, college, city, academics, achievements, objective } =
-      req.body;
-    let saved_user, user_data, error;
-    academics = JSON.parse(academics);
-    achievements = JSON.parse(achievements);
-    console.log({
+    let {
       degree,
       college,
       city,
+      higherStudy,
       academics,
       achievements,
       objective,
-    });
+    } = req.body;
+    let saved_user, user_data, error;
+    //higherStudy is sent in request payload only if it has valid value
+    if (higherStudy) {
+      higherStudy = JSON.parse(higherStudy);
+      higherStudy.resultType = higherStudy.type;//since type can't be used as field in mongoose
+      delete higherStudy.type;
+    }
+    //if higher study included in payload, means contains a valid value
+    else
+      higherStudy = {
+        //if not included in request payload then it means either it is reset or isn't updated yet.
+        year: "",
+        degree: "",
+        college: "",
+        result: "",
+        resultType: "",
+      };
+    academics = JSON.parse(academics);
+    achievements = JSON.parse(achievements);
+    console.log(higherStudy);
     if (!degree || !college || !city || academics.length < 3 || !objective)
       return res.status(400).send({
         errorMsg:
@@ -46,6 +61,7 @@ const updateProfile = async (req, res) => {
     user.collegeCity = city;
     user.about = objective;
     user.academics = academics;
+    user.higherStudy = higherStudy;
     user.achievements = achievements;
     // try{
     //   saved_user = await user.save();
@@ -114,14 +130,14 @@ const updateProfile = async (req, res) => {
     if (callingPhoneNumber.length >= 10) {
       user.callingPhoneNumber =
         "91" + callingPhoneNumber.slice(callingPhoneNumber.length - 10);
-      user.callingVerified = true;//to be removed for otp verification
+      user.callingVerified = true; //to be removed for otp verification
     } else {
       errorMsg = "Invalid Calling Phone Number";
     }
     if (whatsAppPhoneNumber.length >= 10) {
       user.whatsAppPhoneNumber =
         "91" + whatsAppPhoneNumber.slice(whatsAppPhoneNumber.length - 10);
-      user.whatsAppVerified = true;//to be removed for otp verification;
+      user.whatsAppVerified = true; //to be removed for otp verification;
     } else {
       errorMsg = "Invalid Whatsapp Number";
     }
