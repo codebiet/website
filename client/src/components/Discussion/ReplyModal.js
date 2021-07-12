@@ -1,4 +1,4 @@
-import React, { useState, useContext,lazy } from "react";
+import React, { useState, useContext, lazy } from "react";
 import { Modal, ModalHeader, ModalBody } from "reactstrap";
 import { InfoContext } from "../../state/Store";
 import { generateError } from "../../state/info/infoActions";
@@ -36,8 +36,12 @@ const ReplyModal = ({
         tags: JSON.stringify(tags),
       })
       .then((res) => {
+        setAnswer("");
+        setAnswerTitle("");
+        setTags([]);
         setLoading(false);
         setPosts(res.data.doubts);
+        toggleReplyModalOpen();
       })
       .catch((err) => {
         setLoading(false);

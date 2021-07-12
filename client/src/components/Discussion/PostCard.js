@@ -11,6 +11,7 @@ const ReplyModal = lazy(() => import("./ReplyModal"));
 const PostCard = ({ post = {}, setPosts = () => "", getQuery = () => "" }) => {
   const [replyModalOpen, setReplyModalOpen] = useState(false);
   const [redirect, setRedirect] = useState(false);
+  const [showMore, setShowMore] = useState(false);
   const location = useLocation();
   const info = useContext(InfoContext);
   const auth = useContext(AuthContext);
@@ -116,13 +117,27 @@ const PostCard = ({ post = {}, setPosts = () => "", getQuery = () => "" }) => {
                 />
               </div>
               {post.replies.length > 0 && <hr />}
-              {post.replies.length > 0 &&
-                post.replies.map((reply, index) => (
+              {/* show the first reply if it is there */}
+              {post.replies.length > 0 && <ReplyCard reply={post.replies[0]} />}
+              {/* if more replies and are shown, we need an hr */}
+              {post.replies.length > 1 && showMore && <hr />}
+              {/* show more replies if user selects show more */}
+              {post.replies.length > 1 &&
+                showMore &&
+                post.replies.slice(1).map((reply, index) => (
                   <>
                     <ReplyCard key={reply._id} reply={reply} />
-                    {post.replies.length > index + 1 && <hr />}
+                    {post.replies.slice(1).length > index + 1 && <hr />}
                   </>
                 ))}
+              {post.replies.length > 1 && (
+                <button
+                  className="show-more-replies-btn"
+                  onClick={() => setShowMore((prev) => !prev)}
+                >
+                  {showMore ? "Show Less Replies" : "Show More Replies"}
+                </button>
+              )}
             </div>
           </div>
         </div>
