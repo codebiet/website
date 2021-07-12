@@ -6,7 +6,7 @@ import { UncontrolledPopover, PopoverHeader, PopoverBody } from "reactstrap";
 const ProfilePopover = () => {
   return (
     <UncontrolledPopover
-      trigger="focus"
+      trigger="legacy"
       className="nav-profile-popover"
       placement="bottom"
       target="profile-popoper" 
