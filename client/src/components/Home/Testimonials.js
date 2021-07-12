@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import { Link } from "react-router-dom";
 import OwlCarousel from "react-owl-carousel";
+import shivank from "../assets/testimonials/shivank.png";
+import vikas from "../assets/testimonials/vikas.jpeg";
 import abhinayDubey from "../assets/testimonials/abhinayDubey.jpg";
 import aman from "../assets/testimonials/amanGangwani.jpeg";
 import ashirvad from "../assets/testimonials/Ashirvad.jpeg";
@@ -10,6 +12,32 @@ import prakhar from "../assets/testimonials/prakhar.jpeg";
 import siddhantMishra from "../assets/testimonials/siddhantMishra.jpeg";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 const usertestimonialsData = [
+  {
+    heading: "Plenty of Learning Opportunities",
+    content: `The webinars organized by CODE are very helpful in constantly motivating towards your learning goal.`,
+    userImg: shivank,
+    name: "Shivank",
+    branch: "CSE",
+    year: 3,
+  },
+  {
+    heading: "Recommended for Everyone",
+    content:
+      "CODE is a place where you can broaden your mind with practical and beneficial web development projects. Highly recommend it to anyone who wants to reach the cutting edge of the web.",
+    userImg: vikas,
+    name: "Vikas Singh Patel",
+    branch: "CSE",
+    year: 3,
+  },
+  {
+    heading: "Straightforward Learning Platform",
+    content: `It's always been useful and interesting to learn new things and their implementation in real world projects too and CODE has helped me a lot in this.
+      It has an awesome interactive environment which is easy to use without facing any difficulty.`,
+    userImg: abhinayDubey,
+    name: "Abhinay Dubey",
+    branch: "ECE",
+    year: 2,
+  },
   {
     heading: "Straightforward Learning Platform",
     content: `It's always been useful and interesting to learn new things and their implementation in real world projects too and CODE has helped me a lot in this.
@@ -77,7 +105,11 @@ const UserTestimonial = ({ heading, content, userImg, name, branch, year }) => {
         </div>
         <div className="bottom-info mt-4">
           <Link className="comment-img" to="">
-            <LazyLoadImage src={userImg} className="img-responsive" alt="User Image" />
+            <LazyLoadImage
+              src={userImg}
+              className="img-responsive"
+              alt="User Image"
+            />
           </Link>
           <div className="people-info align-self">
             <h3>{name}</h3>
@@ -125,6 +157,7 @@ const Testimonials = (props) => {
           items={2}
           autoplay={true}
           autoplayHoverPause={true}
+          rewind={true}
           margin={50}
           responsive={{ 0: { items: 1 }, 1000: { items: 2 } }}
           id="owl-demo2"

@@ -72,6 +72,7 @@ const TorchBearers = () => {
           autoplay={true}
           autoplayHoverPause={true}
           margin={50}
+          rewind={true}
           responsive={{
             0: { items: 1 },
             320: { items: 2 },
