@@ -30,28 +30,32 @@ module.exports = async (req, res) => {
         .sort({ postedAt: 1 })
         .skip(page * limit)
         .limit(limit)
-        .populate("postedBy", "name profilePhoto", Users);
+        .populate("postedBy", "name profilePhoto", Users)
+        .populate("replies.repliedBy", "name profilePhoto", Users);
     else if (req.query.sort == "latest")
       posts = await doubts
         .find(dbFilters)
         .sort({ postedAt: -1 })
         .skip(page * limit)
         .limit(limit)
-        .populate("postedBy", "name profilePhoto", Users);
+        .populate("postedBy", "name profilePhoto", Users)
+        .populate("replies.repliedBy", "name profilePhoto", Users);
     else if (req.query.sort == "likes")
       posts = await doubts
         .find(dbFilters)
         .sort({ likes: -1 })
         .skip(page * limit)
         .limit(limit)
-        .populate("postedBy", "name profilePhoto", Users);
+        .populate("postedBy", "name profilePhoto", Users)
+        .populate("replies.repliedBy", "name profilePhoto", Users);
     else if (req.query.sort == "alphabetically")
       posts = await doubts
         .find(dbFilters)
         .sort({ category: -1 })
         .skip(page * limit)
         .limit(limit)
-        .populate("postedBy", "name profilePhoto", Users);
+        .populate("postedBy", "name profilePhoto", Users)
+        .populate("replies.repliedBy", "name profilePhoto", Users);
     else
       posts = await doubts
         .find(dbFilters)
