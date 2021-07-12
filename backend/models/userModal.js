@@ -41,6 +41,13 @@ const userSchema = new mongoose.Schema({
   degree: String,
   college: String,
   collegeCity: String,
+  higherStudy: {
+    year: { type: String },
+    degree: { type: String },
+    college: { type: String },
+    result: { type: String },
+    resultType: { type: String },
+  },
   academics: [
     {
       year: String,
@@ -136,6 +143,10 @@ const userSchema = new mongoose.Schema({
         "Data Science and Data Analysis",
         "Computer Software",
         "Game development",
+        "Matlab",
+        "Arduino",
+        "PLC Automation",
+        "AutoCAD, Solidworks and Analysis",
       ],
     },
     preference2: {
@@ -151,6 +162,10 @@ const userSchema = new mongoose.Schema({
         "Data Science and Data Analysis",
         "Computer Software",
         "Game development",
+        "Matlab",
+        "Arduino",
+        "PLC Automation",
+        "AutoCAD, Solidworks and Analysis",
       ],
     },
     preference3: {
@@ -166,6 +181,10 @@ const userSchema = new mongoose.Schema({
         "Data Science and Data Analysis",
         "Computer Software",
         "Game development",
+        "Matlab",
+        "Arduino",
+        "PLC Automation",
+        "AutoCAD, Solidworks and Analysis",
       ],
     },
   },

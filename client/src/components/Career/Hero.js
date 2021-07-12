@@ -15,11 +15,6 @@ const Hero = () => {
               Join Our Team At <span>CODE</span>
             </h2>
             <p>Work at the most dynamic and successful club of BIET.</p>
-            <div class="join-box" id="mob-apply">
-              <button type="button" class="btn">
-                Apply Now
-              </button>
-            </div>
           </div>
           <div class="col-sm-6 col-12">
             <img src={HeroImg} style={{ width: "100%" }} alt="" />

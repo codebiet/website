@@ -58,6 +58,7 @@ const Events = (props) => {
                 autoplay={true}
                 autoplayHoverPause={true}
                 margin={50}
+                rewind={true}
                 responsive={{
                   0: { items: 1 },
                   1000: { items: 2 },

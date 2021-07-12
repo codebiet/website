@@ -17,6 +17,7 @@ export const options_WebTechnologies = [
   "CSS",
   "Bootstrap",
   "DOM",
+  "React",
   "AJAX",
   "XML",
 ];
@@ -28,7 +29,6 @@ export const options_WebFrameworks = [
   "Angular",
   "Express",
   "Meteor",
-  "React",
   "ASP",
   "Laravel",
   "Flutter",

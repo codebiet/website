@@ -266,6 +266,8 @@ const TakeData = ({
   setCollegeCity,
   objective,
   setObjective,
+  higherStudy,
+  setHigherStudy,
   academics,
   setAcademics,
   achievements,
@@ -401,6 +403,149 @@ const TakeData = ({
                     value={objective}
                     onChange={(e) => setObjective(e.target.value)}
                   ></textarea>
+                </FormGroup>
+              </Col>
+            </Row>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      {/* details for higher studies */}
+      <Accordion style={{ width: "100%" }}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography
+            component={"span"}
+            variant={"body2"}
+            className={classes.heading}
+          >
+            Higher Studies Details
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography
+            component={"span"}
+            variant={"body2"}
+            style={{ width: "100%" }}
+          >
+            <Row style={{ width: "100%" }}>
+              <Col md="8" xs="11">
+                <FormGroup>
+                  <label className="fontType" htmlFor="hs-college">
+                    College
+                  </label>
+                  <input
+                    id="hs-college"
+                    type="text"
+                    className="form-control"
+                    placeholder="College"
+                    value={higherStudy.college}
+                    onChange={(e) =>
+                      setHigherStudy((prev) => {
+                        prev.college = e.target.value;
+                        return { ...prev };
+                      })
+                    }
+                  />
+                </FormGroup>
+              </Col>
+              <Col md="3" xs="11">
+                <FormGroup>
+                  <label className="fontType" htmlFor="hs-degree">
+                    Degree
+                  </label>
+                  <select
+                    id="hs-degree"
+                    type="text"
+                    className="form-control"
+                    value={higherStudy.degree}
+                    onChange={(e) =>
+                      setHigherStudy((prev) => {
+                        prev.degree = e.target.value;
+                        return { ...prev };
+                      })
+                    }
+                  >
+                    <option value="M.Tech">M.Tech</option>
+                    <option value="MS">MS</option>
+                    <option value="MBA">MBA</option>
+                  </select>
+                </FormGroup>
+              </Col>
+            </Row>
+            <Row style={{ width: "100%" }}>
+              <Col md="8">
+                <Row style={{ maxWidth: "100%", margin: 0 }}>
+                  <Col xs="8" style={{ paddingLeft: "0" }}>
+                    <FormGroup>
+                      <label className="fontType" htmlFor="hs-percentage">
+                        GPA/Percentage
+                      </label>
+                      <input
+                        style={{ width: "99%" }}
+                        id="hs-percentage"
+                        type="text"
+                        className="form-control"
+                        placeholder="GPA/Percentage"
+                        value={higherStudy.result}
+                        onChange={(e) =>
+                          setHigherStudy((prev) => {
+                            prev.result = e.target.value;
+                            return { ...prev };
+                          })
+                        }
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col xs="3" md="4" style={{ paddingRight: 0 }}>
+                    <label className="fontType" htmlFor="hs-type">
+                      Type
+                    </label>
+                    <select
+                      id="hs-type"
+                      className="form-control"
+                      value={higherStudy.type}
+                      onChange={(e) =>
+                        setHigherStudy((prev) => {
+                          prev.type = e.target.value;
+                          return { ...prev };
+                        })
+                      }
+                    >
+                      <option value="GPA">GPA</option>
+                      <option value="PERCENTAGE">Percentage</option>
+                    </select>
+                  </Col>
+                </Row>
+              </Col>
+              <Col md="3" xs="11">
+                <FormGroup>
+                  <label className="fontType" htmlFor="hs-year">
+                    Passing/Expected Passing Year
+                  </label>
+                  <select
+                    id="hs-year"
+                    type="text"
+                    className="form-control"
+                    placeholder="Passing Year"
+                    value={higherStudy.year}
+                    onChange={(e) =>
+                      setHigherStudy((prev) => {
+                        prev.year = e.target.value;
+                        return { ...prev };
+                      })
+                    }
+                  >
+                    {years.map((year) => {
+                      return (
+                        <option key={year} value={year}>
+                          {year || "Year"}
+                        </option>
+                      );
+                    })}
+                  </select>
                 </FormGroup>
               </Col>
             </Row>
@@ -852,8 +997,16 @@ const Dashboard = (props) => {
   const [college, setCollege] = useState("");
   const [collegeCity, setCollegeCity] = useState("");
   const [objective, setObjective] = useState("");
+  const [higherStudy, setHigherStudy] = useState({
+    year: "",
+    degree: "M.Tech",
+    college: "",
+    result: "",
+    type: "GPA",
+  });
   const [academics, setAcademics] = useState([
     { year: "", degree: "B.Tech", college: "", result: "", type: "GPA" },
+    { year: "", degree: "Diploma", college: "", result: "", type: "GPA" },
     { year: "", degree: "XII", college: "", result: "", type: "GPA" },
     { year: "", degree: "X", college: "", result: "", type: "GPA" },
   ]);
@@ -1331,9 +1484,24 @@ const Dashboard = (props) => {
     setCollege(data.college || "");
     setCollegeCity(data.collegeCity || "");
     setObjective(data.about || "");
+    setHigherStudy((prev) => {
+      if (
+        data.higherStudy.college &&
+        data.higherStudy.degree &&
+        data.higherStudy.result &&
+        data.higherStudy.resultType &&
+        data.higherStudy.year
+      ) {
+        let hs = data.higherStudy;
+        hs.type = hs.resultType;
+        delete hs.resultType;
+        return hs;
+      } else return prev;
+    });
     setAcademics((prev) => {
+      let parsedAcademics;
       if (data.academics && data.academics.length > 0) {
-        return data.academics.map((item) => {
+        parsedAcademics = data.academics.map((item) => {
           delete item._id;
           if (item.result.percentage != 0) {
             item.result = item.result.percentage;
@@ -1344,6 +1512,17 @@ const Dashboard = (props) => {
           }
           return item;
         });
+        if (parsedAcademics.length == 3) {
+          //diploma field was left blank, so to inlcude that field in UI, we need to add this field...(since academic details' fields are render depending upon this array, i.e. academics)
+          parsedAcademics.splice(1, 0, {
+            year: "",
+            degree: "Diploma",
+            college: "",
+            result: "",
+            type: "GPA",
+          });
+        }
+        return parsedAcademics;
       } else return prev;
     });
     setAchievements(
@@ -1382,16 +1561,17 @@ const Dashboard = (props) => {
         generateError("Please enter a valid 10 digit number")
       );
     }
-    for (var i = 0; i < 3; i++) {
+    for (var i = 0; i < 4; i++) {
       let passingYear = academics[i].year;
       let deg = academics[i].degree;
       let clg = academics[i].college;
       let reslt = academics[i].result;
       let type = academics[i].type;
-      if (!passingYear || !deg || !reslt || !clg) {
+      if (i != 1 && (!passingYear || !deg || !reslt || !clg)) {
+        //check for B.Tech(academics[0]), 12th(academics[2]), 10th(academics[3]);
         error = true;
         break;
-      } else {
+      } else if (passingYear && deg && reslt && clg) {
         let gpa = 0;
         let percentage = 0;
         if (type == "GPA") gpa = reslt;
@@ -1408,7 +1588,7 @@ const Dashboard = (props) => {
       window.scrollTo(0, 0);
       return info.dispatch(
         generateWarning(
-          "All the fields under Basic Information and Academics section are required!"
+          "All the fields under Basic Information and Academics section (except diploma and higher studies details) are required!"
         )
       );
     }
@@ -1498,6 +1678,15 @@ const Dashboard = (props) => {
     data.append("college", college);
     data.append("city", collegeCity);
     data.append("objective", objective);
+    if (
+      higherStudy.college &&
+      higherStudy.degree &&
+      higherStudy.result &&
+      higherStudy.type &&
+      higherStudy.year
+    )
+      //if all the details of higher Study are given then only update higher study section
+      data.append("higherStudy", JSON.stringify(higherStudy));
     data.append("academics", JSON.stringify(reformedAcademics));
     data.append("achievements", JSON.stringify(achievements));
     data.append("callingPhoneNumber", callingPhoneNum);
@@ -1815,6 +2004,8 @@ const Dashboard = (props) => {
                             setCollegeCity={setCollegeCity}
                             objective={objective}
                             setObjective={setObjective}
+                            higherStudy={higherStudy}
+                            setHigherStudy={setHigherStudy}
                             academics={academics}
                             setAcademics={setAcademics}
                             achievements={achievements}
@@ -3030,6 +3221,18 @@ const Dashboard = (props) => {
                                             <option value="Game development">
                                               Game development
                                             </option>
+                                            <option value="Matlab">
+                                              Matlab
+                                            </option>
+                                            <option value="Arduino">
+                                              Arduino
+                                            </option>
+                                            <option value="PLC Automation">
+                                              PLC Automation
+                                            </option>
+                                            <option value="AutoCAD, Solidworks and Analysis">
+                                              AutoCAD, Solidworks and Analysis
+                                            </option>
                                           </select>
                                         </FormGroup>
                                       </Col>
@@ -3075,6 +3278,18 @@ const Dashboard = (props) => {
                                             <option value="Game development">
                                               Game development
                                             </option>
+                                            <option value="Matlab">
+                                              Matlab
+                                            </option>
+                                            <option value="Arduino">
+                                              Arduino
+                                            </option>
+                                            <option value="PLC Automation">
+                                              PLC Automation
+                                            </option>
+                                            <option value="AutoCAD, Solidworks and Analysis">
+                                              AutoCAD, Solidworks and Analysis
+                                            </option>
                                           </select>
                                         </FormGroup>
                                       </Col>
@@ -3119,6 +3334,18 @@ const Dashboard = (props) => {
                                             </option>
                                             <option value="Game development">
                                               Game development
+                                            </option>
+                                            <option value="Matlab">
+                                              Matlab
+                                            </option>
+                                            <option value="Arduino">
+                                              Arduino
+                                            </option>
+                                            <option value="PLC Automation">
+                                              PLC Automation
+                                            </option>
+                                            <option value="AutoCAD, Solidworks and Analysis">
+                                              AutoCAD, Solidworks and Analysis
                                             </option>
                                           </select>
                                         </FormGroup>

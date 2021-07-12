@@ -94,6 +94,9 @@ const JobOpenings = () => {
                     <option value="All">Department</option>
                     <option value="All">All</option>
                     <option value="Android">Android</option>
+                    <option value="Graphics Designing">
+                      Graphics Designing
+                    </option>
                     <option value="Blockchain">Blockchain</option>
                     <option value="Content Writing">Content Writing</option>
                     <option value="Cyber Security">Cyber Security</option>

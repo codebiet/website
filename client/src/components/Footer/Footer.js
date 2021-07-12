@@ -41,7 +41,7 @@ function Footer() {
                       src="https://img.icons8.com/metro/12/000000/chevron-right.png"
                       alt=""
                     />
-                    Our Team
+                    CODE Family
                   </Link>
                 </li>
                 <li className="links">
@@ -166,14 +166,14 @@ function Footer() {
                       />
                     </a>
                     <a
-                      href="https://t.me/joinchat/AAAAAFMLj2wLbN8JYCMtlg"
+                      href="https://chat.whatsapp.com/GgbBW3sDiCnAiq9SBFQau0"
                       target="_blank"
                       rel="noopener"
                       className="socialIcon"
                     >
                       <span style={{ display: "none" }}>telegram</span>
                       <img
-                        src="https://img.icons8.com/fluent/40/000000/telegram-app.png"
+                        src="https://img.icons8.com/color/40/000000/whatsapp--v1.png"
                         alt=""
                       />
                     </a>
@@ -185,7 +185,7 @@ function Footer() {
                     >
                       <span style={{ display: "none" }}>LinkedIn</span>
                       <img
-                        src="https://img.icons8.com/color/48/000000/linkedin.png"
+                        src="https://img.icons8.com/color/40/000000/linkedin.png"
                         alt=""
                       />
                     </a>

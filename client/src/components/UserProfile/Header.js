@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import user_image from "../assets/userProfileImg.jpg";
+import React from "react";
+import user_image from "../assets/boy.png";
 
 const Header = (props) => {
   return (
@@ -9,14 +9,28 @@ const Header = (props) => {
           <div className="side1Container">
             <div className="common">
               <div>
-                <img
-                  src={props.user.profilePhoto}
-                  className="head_image"
-                  width="140px"
-                  height="150px"
-                  alt=""
-                  style={{ maxWidth: "unset" }}
-                />
+                {props.user.profilePhoto && (
+                  <img
+                    src={props.user.profilePhoto}
+                    className="head_image"
+                    width="140px"
+                    height="150px"
+                    alt=""
+                    style={{ maxWidth: "unset" }}
+                    alt=""
+                  />
+                )}
+                {!props.user.profilePhoto && (
+                  <img
+                    src={user_image}
+                    className="head_image"
+                    width="140px"
+                    height="150px"
+                    alt=""
+                    style={{ maxWidth: "unset" }}
+                    alt=""
+                  />
+                )}
               </div>
             </div>
           </div>
