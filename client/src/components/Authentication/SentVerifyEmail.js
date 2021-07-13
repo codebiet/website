@@ -10,7 +10,7 @@ const SentVerifyEmail = (props) => {
   const auth = useContext(AuthContext);
   const [seconds, setSeconds] = useState(59);
   const [msg, setMsg] = useState(
-    "A verification link has been sent to your registered Email Address. Click on the link to verify your Email Address."
+    "A verification link has been sent to your registered Email Address(Inbox/Spam). Click on the link to verify your Email Address."
   );
   useEffect(() => {
     let timer = setTimeout(() => {
@@ -33,7 +33,7 @@ const SentVerifyEmail = (props) => {
   const handleClick = () => {
     sendVerificationEmail(auth.dispatch);
     setMsg(
-      "A verification link has been sent to your registered Email Again. Follow the link to verify your email address"
+      "A verification link has been sent to your registered Email Again(Inbox/Spam). Follow the link to verify your email address"
     );
   };
   return (

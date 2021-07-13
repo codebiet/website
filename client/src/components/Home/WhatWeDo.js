@@ -43,7 +43,7 @@ const cardsData = [
     },
     heading: "GATE",
     description:
-      "Taking students' GATE preparation to the next level by providing them with resources and guidance for their GATE exam.We not only focused on",
+      "Taking students' GATE preparation to the next level by providing them with resources and guidance for their GATE exam.",
     linkTo: "",
   },
   {
