@@ -8,29 +8,6 @@ module.exports = async (req, res) => {
   try {
     let queryObj = {};
 
-    // if (req.query.year == "1") {
-    //   queryObj.year = 1;
-    // }
-    // if (req.query.year == "2") {
-    //   queryObj.year = 2;
-    // }
-    // if (req.query.year == "3") {
-    //   queryObj.year = 3;
-    // }
-    // if (req.query.year == "4") {
-    //   queryObj.year = 4;
-    // }
-    // if (req.query.profession == "Student") {
-    //   queryObj.role = "Student";
-    // }
-    // if (req.query.year == "Passout" || req.query.profession == "Professional") {
-    //   queryObj.role = "Professional";
-    // }
-
-    // if(req.query.branch){
-    //   queryObj.branch = req.query.branch;
-    //   }
-
     if (req.query.profession) {
       queryObj.role = req.query.profession;
     }
@@ -45,8 +22,12 @@ module.exports = async (req, res) => {
     if (req.query.branch) {
       queryObj.branch = req.query.branch;
     }
+
+    if (req.query.name) {
+      queryObj.name = { $regex: req.query.name, $options: "i" };
+    }
     // queryObj.phoneNumberVerified=true;
-    queryObj.emailVerified=true;
+    queryObj.emailVerified = true;
 
     let { page, size } = req.query;
     if (!page) {
@@ -60,6 +41,11 @@ module.exports = async (req, res) => {
     console.log(queryObj);
     let totalItems = await User.countDocuments({ ...queryObj });
     let Users = await User.find(queryObj).limit(limit).skip(skip);
+    // let Users1 = await User.find({
+    //   name: { $regex: "soo", $options: "ix" },
+    // })
+    //   .limit(limit)
+    //   .skip(skip);
 
     return res.status(200).send({ totalItems, page, size, data: Users });
   } catch (err) {

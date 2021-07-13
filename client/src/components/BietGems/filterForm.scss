@@ -78,9 +78,46 @@
       width: 95%;
     }
 }
+
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid black;
+  border-radius: 4px 0px 0px 4px;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+/* Style the submit button */
+form.example button {
+  float: left;
+  width: 20%;
+   border-radius: 0px 4px 4px 0px;
+  padding: 10px;
+  background: #ec7c2d;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+/* Clear floats */
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
 @media only screen and (max-width: 350px) {
     .Filters .FilterItem{
       min-width: 0px;
       width: 100%;
     }
+  }
 }

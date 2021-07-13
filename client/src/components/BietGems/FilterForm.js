@@ -3,6 +3,18 @@ const Filter = (props) => {
   return (
     <div className="FilterDiv">
       <h2>Find Here</h2>
+      <form onSubmit={props.handleNameSearch} class="example">
+        <input
+          type="text"
+          placeholder="Search By Name ..."
+          value={props.name}
+          onChange={(e) => props.setName(e.target.value)}
+        ></input>
+        <button type="submit">
+          <i class="fa fa-search"></i>
+        </button>
+      </form>
+
       <form onSubmit={(e) => e.preventDefault()}>
         <div className="Filters">
           <div className="FilterItem">
