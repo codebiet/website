@@ -28,6 +28,7 @@ module.exports = async (req, res) => {
     }
     // queryObj.phoneNumberVerified=true;
     queryObj.emailVerified = true;
+    queryObj.college = "BIET";
 
     let { page, size } = req.query;
     if (!page) {
@@ -41,11 +42,7 @@ module.exports = async (req, res) => {
     console.log(queryObj);
     let totalItems = await User.countDocuments({ ...queryObj });
     let Users = await User.find(queryObj).limit(limit).skip(skip);
-    // let Users1 = await User.find({
-    //   name: { $regex: "soo", $options: "ix" },
-    // })
-    //   .limit(limit)
-    //   .skip(skip);
+    // console.log(Users);
 
     return res.status(200).send({ totalItems, page, size, data: Users });
   } catch (err) {
