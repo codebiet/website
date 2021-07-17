@@ -13,7 +13,20 @@ import Loader from "../Loader/Loader";
 import forgotPasswordImage from "../assets/forgotPassword.png";
 import lock from "../assets/lock.svg";
 import Navbar from "../Navbar/Navbar";
-import { useInput } from "./Register";
+
+const useInput = ({ type, placeholder, id }) => {
+  const [value, setValue] = useState("");
+  const input = (
+    <input
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      type={type}
+      placeholder={placeholder}
+      id={id}
+    />
+  );
+  return [value, input];
+};
 
 const forgotPassword = (props) => {
   const params = queryString.parse(props.location.search);
