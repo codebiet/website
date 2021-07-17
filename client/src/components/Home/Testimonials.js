@@ -39,15 +39,6 @@ const usertestimonialsData = [
     year: 2,
   },
   {
-    heading: "Straightforward Learning Platform",
-    content: `It's always been useful and interesting to learn new things and their implementation in real world projects too and CODE has helped me a lot in this.
-      It has an awesome interactive environment which is easy to use without facing any difficulty.`,
-    userImg: abhinayDubey,
-    name: "Abhinay Dubey",
-    branch: "ECE",
-    year: 2,
-  },
-  {
     heading: "Learner to Earner",
     content: `CODE really helped me a lot in exploring something new and keeping updated about the latest technologies as well as sharing of knowledge keeps everyone boost up.
     Overall CODE is one stop solution of our journey from learner to earner.`,
