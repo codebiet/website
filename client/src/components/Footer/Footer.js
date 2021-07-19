@@ -166,12 +166,24 @@ function Footer() {
                       />
                     </a>
                     <a
+                      href="https://t.me/joinchat/AAAAAFMLj2wLbN8JYCMtlg"
+                      target="_blank"
+                      rel="noopener"
+                      className="socialIcon"
+                    >
+                      <span style={{ display: "none" }}>whatsapp</span>
+                      <img
+                        src="https://img.icons8.com/color/48/000000/telegram-app.png"
+                        alt=""
+                      />
+                    </a>
+                    <a
                       href="https://chat.whatsapp.com/GgbBW3sDiCnAiq9SBFQau0"
                       target="_blank"
                       rel="noopener"
                       className="socialIcon"
                     >
-                      <span style={{ display: "none" }}>telegram</span>
+                      <span style={{ display: "none" }}>whatsapp</span>
                       <img
                         src="https://img.icons8.com/color/40/000000/whatsapp--v1.png"
                         alt=""
@@ -198,6 +210,18 @@ function Footer() {
                       <span style={{ display: "none" }}>Youtube</span>
                       <img
                         src="https://img.icons8.com/fluent/40/000000/youtube-play.png"
+                        alt=""
+                      />
+                    </a>
+                    <a
+                      href="https://github.com/codebiet"
+                      target="_blank"
+                      rel="noopener"
+                      className="socialIcon"
+                    >
+                      <span style={{ display: "none" }}>whatsapp</span>
+                      <img
+                        src="https://img.icons8.com/material-rounded/48/000000/github.png"
                         alt=""
                       />
                     </a>
