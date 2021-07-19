@@ -11,6 +11,7 @@ const smtpTransport = nodemailer.createTransport({
 });
 
 function sendMail(mailOptions){
+    mailOptions = {...mailOptions,from:"Info@ourcode.in"};
     return new Promise((resolve,reject)=>{
         smtpTransport.sendMail(mailOptions, function(error,response){
             if(error){
