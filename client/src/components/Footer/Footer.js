@@ -171,7 +171,7 @@ function Footer() {
                       rel="noopener"
                       className="socialIcon"
                     >
-                      <span style={{ display: "none" }}>whatsapp</span>
+                      <span style={{ display: "none" }}>telegram</span>
                       <img
                         src="https://img.icons8.com/color/48/000000/telegram-app.png"
                         alt=""
@@ -219,7 +219,7 @@ function Footer() {
                       rel="noopener"
                       className="socialIcon"
                     >
-                      <span style={{ display: "none" }}>whatsapp</span>
+                      <span style={{ display: "none" }}>github</span>
                       <img
                         src="https://img.icons8.com/material-rounded/48/000000/github.png"
                         alt=""
