@@ -4,7 +4,7 @@ const encrypt = (text) => {
     process.env.ENCRYPTION_ALGO,
     process.env.CRYPTOJS_SECRET
   );
-  var encrypted = cipher.update(text, "utf8", "hex") + cipher.final("hex");
+  var encrypted = cipher.update(text.toString(), "utf8", "hex") + cipher.final("hex");
   return encrypted;
 };
 module.exports = encrypt;

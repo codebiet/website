@@ -23,10 +23,7 @@ router
   .get(authLogin, require("../controllers/getControllers/verifyEmailAndPhone"));
 router
   .route("/sendVerificationEmail")
-  .get(
-    authLogin,
-    require("../controllers/getControllers/sendVerificationEmail")
-  );
+  .get(require("../controllers/getControllers/sendVerificationEmail"));
 router
   .route("/verifyEmail")
   .get(require("../controllers/getControllers/verifyEmail"));

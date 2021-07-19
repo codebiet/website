@@ -15,11 +15,12 @@ function Hero() {
             <p>
               BIET Jhansi is one of the top engineering colleges under AKTU and
               students of our college always outshine by placing in top
-              companies or by getting top ranks in GATE Exams. Here we are
-              sharing a list of some famous BIET Alumni who really made it big
-              and made our college proud of them. It wouldn’t be possible to
-              mention all the names here, but We’d be listing the names who are
-              quite popular and really making a difference.
+              companies or by getting top ranks in GATE Exams. We are a family
+              of more than 450 members and everyone’s contribution to this club
+              is invaluable. We all have a spirit to make a difference and
+              follow a common tradition of peer encouragement. Here we have
+              listed all the proud member’s profiles of BIET Jhansi and we
+              always welcome others to be a part of our Club.
             </p>
           </div>
         </div>

@@ -1,7 +1,9 @@
 const nodemailer = require('nodemailer');
 
 const smtpTransport = nodemailer.createTransport({
-    service: 'gmail',
+    // service: 'gmail',
+    host:'ourcode.in',
+    secure:true,
     auth:{
         user: process.env.GMAIL_USER_ID,
         pass: process.env.GMAIL_PASSWORD
@@ -9,6 +11,7 @@ const smtpTransport = nodemailer.createTransport({
 });
 
 function sendMail(mailOptions){
+    mailOptions = {...mailOptions,from:"Info@ourcode.in"};
     return new Promise((resolve,reject)=>{
         smtpTransport.sendMail(mailOptions, function(error,response){
             if(error){

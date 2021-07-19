@@ -21,20 +21,22 @@
     width: 100%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center!important;
     flex-wrap: wrap;
   }
 
   .profile-card {
-    width: 300px; 
+    width: 395px;
+    @media (max-width:450px){
+      max-width: 90vw;
+    } 
     text-align: center;
-
     box-shadow: 0 6px 20px rgba(35, 44, 49, 0.17);
     border-radius: 6px;
     -webkit-filter: drop-shadow(0 6px 20px rgba(79, 240, 39, 0.017));
     filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     overflow: hidden;
-    margin: 10px 10px 0px 10px;
+    margin: 20px 10px 0px 10px;
   }
 
   .card-header {
