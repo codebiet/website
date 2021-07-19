@@ -37,6 +37,7 @@ const initialState = {
   profileImg: "",
   sendingVerificationEmail: false,
   redirectToVerifyEmail: false,
+  signupRequested:false,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -75,7 +76,8 @@ const authReducer = (state = initialState, action) => {
     case SIGNUP_SUCCESS:
       return {
         ...state,
-        token: action.payload.token,
+        token:null,
+        signupRequested:true,
         userLoggedIn: false,
         emailVerified: false,
         callingVerified: false,
@@ -85,7 +87,7 @@ const authReducer = (state = initialState, action) => {
         loginError: "",
         signupError: "",
         recoverError: "",
-        isAdmin: action.payload.isAdmin || false,
+        isAdmin: false,
       };
     case LOGIN_SUCCESS:
       return {

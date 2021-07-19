@@ -38,7 +38,7 @@ const SentVerifyEmail = (props) => {
   };
   return (
     <React.Fragment>
-      {auth.state.token ? (
+      {auth.state.signupRequested ? (
         auth.state.emailVerified ? (
           <Redirect to="/" />
         ) : (
