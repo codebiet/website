@@ -15,6 +15,9 @@ module.exports = async (req, res) => {
     return res
       .status(400)
       .send({ errorMsg: "This email is already registered!" });
+  else if(existingUser){
+    await User.findByIdAndRemove(existingUser._id);
+  }
   userData = {
     name: userData.name,
     email: userData.email,
@@ -31,8 +34,12 @@ module.exports = async (req, res) => {
         savedUser = await user.save();
       }catch(err){
         console.log(err);
-        return res.status(500).send({errorMsg:"Status-Code: 500, Internal Server Error!"})
+        return res.status(500).send({errorMsg:"Status-Code: 500, Internal Server Error!"});
       }
+      res.cookie("email", userData.email, {
+        expires: new Date(Date.now() + 1000 * 60 * 60),
+        httpOnly: false,
+      });
       return res.status(200).send({});
     });
   });
