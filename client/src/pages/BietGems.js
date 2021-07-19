@@ -1,6 +1,6 @@
 import React, { lazy, Suspense,useEffect } from "react";
 const Hero = lazy(() => import("../components/BietGems/Hero"));
-const Card = lazy(() => import("../components/BietGems/Card"));
+const GemCard = lazy(() => import("../components/BietGems/GemsCard"));
 const Pagination = lazy(() => import("../components/Pagination/Pagination"));
 const Nav = lazy(() => import("../components/Navbar/Nav"));
 const Footer = lazy(() => import("../components/Footer/Footer"));
@@ -15,7 +15,7 @@ const BietGems = (props) => {
       <Nav />
       <main className="biet-gems-main">
         <Hero />
-        <Card />
+        <GemCard />
 
       </main>
       <Footer />

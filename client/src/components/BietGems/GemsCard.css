@@ -1,0 +1,94 @@
+.gemprofile-card{
+    height: 320px;
+    width: 300px;
+    max-width: 300px;
+    max-height: 320px;
+    /* padding: 20px; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    align-items: center;
+    text-align: center;
+    position: relative;
+
+    
+    margin: 30px;
+    
+
+}
+.gemcard-header{
+    position: absolute;
+    top: 50;
+    left: 50;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+   
+}
+.gempic{
+    
+    display: inline-block;
+    margin: auto;
+    /* width: 100%; */
+    border-radius: 100%;
+}
+
+.GemImg{
+    /* height: 200px;
+    width: 200px;
+    border-radius: 200px; */
+    border: 1px solid rgb(255, 255, 255);
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.gemname{
+    font-size: 21px;
+    color: #ec7c2d;
+    font-weight: 600;
+    margin: 10px 0;
+    text-transform: uppercase;
+
+}
+
+.gemdesc{
+    font-size: 18px;
+    color: #87431D;
+}
+
+.gemcard_main_cot{
+    height: auto;
+  margin: 10px auto;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+
+  display: block;
+}
+
+.gemcard_cot{
+    display: flex;
+    margin: 0 auto;
+    margin-top: 70px;
+}
+
+.c{
+    position: relative;
+}
+
+.gemcard_wrapper{
+    height: auto;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 800px) {
+    .gemcard_wrapper {
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+  }
+

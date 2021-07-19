@@ -130,11 +130,12 @@
   }
 
   .year {
-    padding: 6px;
+    padding: 3px;
     border-radius: 3px;
     font-size: 12px;
     background-color: #290001;
     color: white;
+    margin: 8px 10px;
   }
 
   .cot {
@@ -210,6 +211,26 @@
     }
   }
 
+  @media  screen and (max-width: 570px) {
+    .year {
+      padding: 1px 2px !important;
+      font-size: 8px;
+    }
+
+    .round-tab_h{
+      font-size: 14px;
+      padding: 4px 8px;
+      border-radius: 15px;
+    }
+
+    h5{
+      font-size: 16px !important;
+
+
+    }
+    
+  }
+
   @media only screen and (max-width: 428px) {
     .ll {
       width: 100%;
@@ -227,6 +248,24 @@
       width: 100%;
       margin-left: 18px;
       margin-right: 20px;
+    }
+
+    .year {
+      padding: 1px 2px !important;
+      font-size: 6px;
+      
+    }
+
+    .round-tab_h{
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 15px;
+    }
+
+    h5{
+      font-size: 14px !important;
+
+
     }
   }
 }

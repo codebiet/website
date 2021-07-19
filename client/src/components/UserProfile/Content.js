@@ -9,10 +9,10 @@ const Content = (props) => {
             {props.user.about && props.user.about.length > 0 && (
               <div className="common">
                 <div className="mainHeading">
-                  <h1>
+                  <h2>
                     <i className="fas icon fa-user"></i>
                     About me
-                  </h1>
+                  </h2>
                 </div>
                 <hr />
 
@@ -24,10 +24,10 @@ const Content = (props) => {
             {props.user.academics && props.user.academics.length > 0 && (
               <div className="common education">
                 <div className="mainHeading">
-                  <h1>
+                  <h2>
                     <i className="fas fa-university icon"></i>
                     Education
-                  </h1>
+                  </h2>
                 </div>
 
                 <hr />
@@ -35,25 +35,25 @@ const Content = (props) => {
 
                 <div className="vtl">
                   <div className="event">
-                    <h4>
-                      <span style={{ float: "left" }}>
+                    <h5>
+                      <span style={{ float: "left" , alignItems: "center" }}>
                         {props.user.academics &&
                           props.user.academics.length > 0 &&
                           props.user.academics[0].college}
                       </span>{" "}
-                      <span className="year" style={{ float: "right" }}>
+                      <span className="year" style={{ float: "right" , alignItems: "center"}}>
                         {props.user.academics &&
                           props.user.academics.length > 0 &&
                           props.user.academics[0].year}
                       </span>
-                    </h4>
+                    </h5>
                     <br />
                     <div className="post">
-                      <h4>
+                      <h5>
                         {props.user.academics &&
                           props.user.academics.length > 0 &&
                           props.user.academics[0].degree}
-                      </h4>
+                      </h5>
                     </div>
                     {/*<p className="etxt">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. In
@@ -62,18 +62,18 @@ const Content = (props) => {
                       </p>*/}
                   </div>
                   <div className="event">
-                    <h4>
-                      <span style={{ float: "left" }}>
+                    <h5>
+                      <span style={{ float: "left"}}>
                         {props.user.academics &&
                           props.user.academics.length > 0 &&
                           props.user.academics[1].college}
                       </span>{" "}
-                      <span className="year" style={{ float: "right" }}>
+                      <span className="year" style={{ float: "right"} }>
                         {props.user.academics &&
                           props.user.academics.length > 0 &&
                           props.user.academics[1].year}
                       </span>
-                    </h4>
+                    </h5>
                     <br />
                     <div className="post">
                       <h5>
@@ -91,18 +91,18 @@ const Content = (props) => {
                     </p>
                   </div>
                   <div className="event">
-                    <h4>
-                      <span style={{ float: "left" }}>
+                    <h5>
+                      <span style={{ float: "left" , alignItems: "center"}}>
                         {props.user.academics &&
                           props.user.academics.length > 0 &&
                           props.user.academics[2].college}
                       </span>{" "}
-                      <span className="year" style={{ float: "right" }}>
+                      <span className="year" style={{ float: "right" , alignItems: "center" }}>
                         {props.user.academics &&
                           props.user.academics.length > 0 &&
                           props.user.academics[2].year}
                       </span>
-                    </h4>
+                    </h5>
                     <br />
                     <div className="post">
                       <h5>
@@ -128,10 +128,10 @@ const Content = (props) => {
             {props.user.interest && props.user.interest.preference1.length > 0 && (
               <div className="common hobbies">
                 <div className="mainHeading">
-                  <h1>
+                  <h2>
                     <i class="fas fa-star icon"></i>
                     hobbies & interest
-                  </h1>
+                  </h2>
                 </div>
 
                 <hr />
@@ -141,21 +141,21 @@ const Content = (props) => {
                     {props.user.interest.preference1 &&
                       props.user.interest.preference1.length > 0 && (
                         <li>
-                          <h3>{props.user.interest.preference1}</h3>
+                          <h5>{props.user.interest.preference1}</h5>
                         </li>
                       )}
 
                     {props.user.interest.preference2 &&
                       props.user.interest.preference2.length > 0 && (
                         <li>
-                          <h3>{props.user.interest.preference2}</h3>
+                          <h5>{props.user.interest.preference2}</h5>
                         </li>
                       )}
 
                     {props.user.interest.preference3 &&
                       props.user.interest.preference3.length > 0 && (
                         <li>
-                          <h3>{props.user.interest.preference3}</h3>
+                          <h5>{props.user.interest.preference3}</h5>
                         </li>
                       )}
                   </ul>
@@ -171,10 +171,10 @@ const Content = (props) => {
                 {/* skills */}
                 <div className="common Skills">
                   <div className="mainHeading ">
-                    <h1>
+                    <h2>
                       <i className="fas icon fa-chart-bar"></i>
                       Skills
-                    </h1>
+                    </h2>
                   </div>
 
                   <hr />
@@ -210,30 +210,30 @@ const Content = (props) => {
                 {props.user.internships && props.user.internships.length > 0 && (
                   <div className="common experience">
                     <div className="mainHeading">
-                      <h1>
+                      <h2>
                         <i class="fas fa-tools icon"></i>
                         experience
-                      </h1>
+                      </h2>
                     </div>
                     <hr />
                     {/* timeline */}
 
                     <div className="vtl">
                       <div className="event">
-                        <h4>
+                        <h5>
                           {props.user.internships &&
                             props.user.internships.map((da) => (
-                              <span style={{ float: "left" }}>
+                              <span style={{ float: "left" , alignItems: "center"}}>
                                 {da.title}
                                 <span
                                   className="year"
-                                  style={{ float: "right" }}
+                                  style={{ float: "right" , alignItems: "center"}}
                                 >
                                   {da.type}
                                 </span>
                               </span>
                             ))}
-                        </h4>
+                        </h5>
                         <br />
                       </div>
                     </div>
@@ -242,10 +242,10 @@ const Content = (props) => {
                 {props.user.projects && props.user.projects.length > 0 && (
                   <div className="common experience">
                     <div className="mainHeading">
-                      <h1>
+                      <h2>
                         <i class="fas fa-tools icon"></i>
                         Projects
-                      </h1>
+                      </h2>
                     </div>
 
                     <hr />
@@ -253,20 +253,20 @@ const Content = (props) => {
 
                     <div className="vtl">
                       <div className="event">
-                        <h4>
+                        <h5>
                           {props.user.projects &&
                             props.user.projects.map((da) => (
-                              <span style={{ float: "left" }}>
+                              <span style={{ float: "left" , alignItems: "center" }}>
                                 {da.name}
                                 <span
                                   className="year"
-                                  style={{ float: "right" }}
+                                  style={{ float: "right" , alignItems: "center" }}
                                 >
                                   {da.type}
                                 </span>
                               </span>
                             ))}
-                        </h4>
+                        </h5>
                         <br />
                       </div>
                     </div>
@@ -275,30 +275,30 @@ const Content = (props) => {
                 {props.user.trainings && props.user.trainings.length > 0 && (
                   <div className="common experience">
                     <div className="mainHeading">
-                      <h1>
+                      <h2>
                         <i class="fas fa-tools icon"></i>
                         Trainings
-                      </h1>
+                      </h2>
                     </div>
                     <hr />
                     {/* timeline */}
 
                     <div className="vtl">
                       <div className="event">
-                        <h4>
+                        <h5>
                           {props.user.trainings &&
                             props.user.trainings.map((da) => (
-                              <span style={{ float: "left" }}>
+                              <span style={{ float: "left" , alignItems: "center"}}>
                                 {da.name}
                                 <span
                                   className="year"
-                                  style={{ float: "right" }}
+                                  style={{ float: "right", alignItems: "center" }}
                                 >
                                   {da.credentials}
                                 </span>
                               </span>
                             ))}
-                        </h4>
+                        </h5>
                         <br />
                       </div>
                     </div>
@@ -310,11 +310,11 @@ const Content = (props) => {
                   props.user.achievements[0].length > 0 && (
                     <div className="common awards">
                       <div className="mainHeading">
-                        <h1>
+                        <h2>
                           {" "}
                           <i className="fas icon trophy fa-trophy"></i>
                           Awards
-                        </h1>
+                        </h2>
                       </div>
 
                       <hr />

@@ -1,0 +1,100 @@
+
+.UserProfileHeaderContainer{
+    width: 100%;
+    padding: 20px 10vw;
+.UserProfile-header{
+
+    display: inline-flex;
+    width: 100%;
+    background-color: #FFE8D6;   
+    padding: 30px;
+    justify-content: space-around;
+    align-items: center;
+    color: #000;
+    border-bottom: 0.5px solid #CF7500;
+}
+
+    .HeaderleftSec{
+        display: inline-flex;
+        // width: 50%;
+    }
+
+    .UserProfilePhoto{
+        display: inline-block;
+    margin: auto;
+    /* width: 100%; */
+    border-radius: 100%;
+        // height: 150px;
+        // width: 150px;
+    }
+
+    .head_image{
+        border: 1px solid rgb(255, 255, 255);
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    object-fit: cover;
+        // height: 150px;
+        // width: 150px;
+        // margin: 30px;
+    }
+
+    .User-Name{
+        font-size: 40px;
+        font-weight: 800;
+        text-transform: uppercase;
+    }
+
+    .User-Role{
+        font-size: 30px;
+        color: #CF7500;
+        
+        font-weight: 500;
+    }
+
+    table{
+       font-size: 18px;
+        font-weight: 500;
+        color: #CF7500;
+
+        // color: #ec7c2d;
+
+    }
+
+    .headerIcon{
+        margin-right: 10px;
+
+    }
+
+    @media only screen and (max-width: 725px) {
+        .UserProfile-header{
+            display: block;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        table{
+            text-align: center;
+        }
+        
+        .User-ContactInfo{
+            display: flex;
+            justify-content: space-around;
+            text-align: left;
+        }
+    }
+
+    @media  screen and (min-width: 1600px) {
+            padding: 20px 15vw;
+        }
+
+        @media  screen and (min-width: 1900px) {
+                padding: 20px 20vw;
+        
+        }
+    
+    }
+
+

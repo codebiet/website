@@ -1,0 +1,320 @@
+.UserProfileContentContainer{
+    width: 100%;
+    padding: 20px 10vw;
+
+    h6{
+        color: #ec7c2d;
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    i{
+        margin: 0 10px;
+    }
+
+    hr{
+        border: 0.5px solid #ec7c2d;
+        height: 0;
+        background-color: #ec7c2d;
+    }
+
+    p{
+        font-size: 18px;
+        line-height: 1.7;
+    }
+
+    .ContentSection{
+        display: inline-flex;
+        width: 100%;
+        padding-top: 20px;
+
+        .timeline{
+            position: relative;
+    // width: 500px;
+        }
+
+        .timeline::after{
+            content: '';
+          position: absolute;
+    width: 2px;
+    background-color: #FFE8D6;
+    top:0;
+    bottom: 0;
+    left: 10px;
+    margin-left: -3px;
+        }
+
+        .timelineCnt{
+            padding: 10px 40px;
+    position: relative;
+    width:100%;
+    box-sizing: border-box;
+    margin: 20px 0;
+        }
+
+        .timelineCnt::after{
+            content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color:#CF7500;
+    top:15px;
+    left: 0;
+    border-radius: 50%;
+    z-index: 1;
+        }
+
+        .timelinemainCnt{
+            background-color: #FFE8D6;
+            padding: 20px;
+            width: 100%;
+            // border-radius: 5px;
+            display: inline-flex;
+            justify-content: space-between;
+            align-items: center;
+
+            span{
+                font-size: 15px;
+                color: #CF7500;
+            }
+
+            .timelineSubHd{
+                font-size: 24px;
+            }
+
+            .timelineDate{
+                font-size: 20px;
+                color: #fff;
+                background-color: #CF7500;
+                font-weight: 500;
+                padding: 10px;
+                height: auto;
+                text-align: center;
+                // padding: 10px;
+                // border-radius: 4px;
+                border: 0.3px solid #CF7500;
+
+            }
+            
+        }
+
+        .timelineHd{
+            font-size: 35px;
+            font-weight: 700;
+        }
+
+       
+
+        .LeftSection{
+            width: 35%;
+            padding-right: 20px;
+
+            .SkillSec{
+                padding-bottom: 20px;
+            }
+
+            .skillTabs{
+                height: auto;
+                line-height: 2.5;
+                // width: 100%;
+                width: 100%;
+                display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+                .Tab{
+                    font-size: 14px;
+                    padding: 0 10px;
+                    background-color: #FFE8D6;
+                    margin: 5px;
+                    color: #CF7500;
+                    text-align: center;
+                    border-radius: 5px;
+                }
+            }
+
+            .HobbiesSec{
+
+                padding-bottom: 20px;
+                ul{
+                    list-style: none;
+
+                    li{
+                        margin-bottom: 10px;
+                        font-size: 18px;
+                    }
+
+                    .hobbyIco{
+                        color:#ec7c2d;
+                    width: 15px;
+                    margin: 10px;
+
+                    }
+
+                }
+               
+            }
+
+            
+        }
+
+        .RightSection{
+            width: 65%;
+            padding-left: 20px;
+
+            .TrainingSec{
+                margin-top: 20px;
+                ul{
+                    list-style: none;
+
+                    li{
+                        margin-bottom: 10px;
+                        font-size: 18px;
+
+                        .TrainingLink{
+                            width: 90%;
+                            max-width: 90%;
+                        }
+                    }
+
+                    a:link{
+                       color: #51cbce;
+                    }
+
+                    a:visited{
+                        color: #51cbce !important ;
+                    }
+                     
+                    a:active{
+                        color: #51cbce;
+                    }
+                    
+                    a:clicked{
+                        color: #51cbce;
+                    }
+                }
+
+                
+
+                .trainingIco{
+                    color:#ec7c2d;
+                    width: 15px;
+                    margin: 10px;
+
+                }
+            }
+
+            .ProjectsSec{
+                margin-bottom: 20px;
+                ul{
+                    list-style: none;
+
+                    li{
+                        margin-bottom: 10px;
+                        font-size: 18px;
+                    }
+
+                    .ProjectIco{
+                        color:#ec7c2d;
+                        width: 15px;
+                        margin: 10px;
+
+                    }
+
+                    .Tab{
+                        font-size: 14px;
+                        padding: 5px 10px;
+                        background-color: #FFE8D6;
+                        margin: 5px;
+                        color: #CF7500;
+                        text-align: center;
+                        border-radius: 5px;
+                    }
+                }
+            }
+
+            .ExperienceSec{
+                margin-top: 20px;
+                ul{
+
+                    li{
+                        margin-bottom: 10px;
+                        font-size: 18px;
+                    }
+
+                    list-style: none;
+
+                    .expIco{
+                        color:#ec7c2d;
+                    width: 15px;
+                    margin: 10px;
+
+                    }
+
+                    .Tab{
+                        font-size: 14px;
+                    padding: 5px 10px;
+                    background-color: #FFE8D6;
+                    margin: 5px;
+                    color: #CF7500;
+                    text-align: center;
+                    border-radius: 5px;
+                    }
+                }
+            }
+
+
+        }
+
+        .VerticalLine{
+            height: auto;
+            border-left: 0.8px solid #ec7c2d;
+        }
+    }
+   
+    @media  screen and (max-width: 1000px) {
+        .ContentSection{
+            display: block;
+
+            .LeftSection{
+                width: 100%;
+                padding-right: 0;
+
+            }
+
+            .RightSection{
+                width: 100%;
+                padding-left: 0;
+
+                .TrainingSec{
+                    max-width: 100%;
+                }
+            }
+
+            .VerticalLine{
+                visibility: hidden;
+            }
+
+            .timelinemainCnt{
+                display: block;
+            }
+
+        }
+    }
+
+   
+
+}
+
+@media  screen and (min-width: 1600px) {
+    .UserProfileContentContainer{
+        padding: 20px 15vw;
+    }
+
+}
+
+@media  screen and (min-width: 1900px) {
+    .UserProfileContentContainer{
+        padding: 20px 20vw;
+    }
+
+}

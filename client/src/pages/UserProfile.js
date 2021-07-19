@@ -1,8 +1,12 @@
 import React, { lazy, Suspense, useEffect, useState } from "react";
 const Nav = lazy(() => import("../components/Navbar/Nav"));
 const Footer = lazy(() => import("../components/Footer/Footer"));
-const Content = lazy(() => import("../components/UserProfile/Content"));
-const Header = lazy(() => import("../components/UserProfile/Header"));
+// const Content = lazy(() => import("../components/UserProfile/Content"));
+// const Header = lazy(() => import("../components/UserProfile/Header"));
+const Header = lazy(() => import("../components/UserProfile/UserProfileHeader"));
+const Content = lazy(() => import("../components/UserProfile/UserProfileContent"));
+
+
 import axios from "axios";
 // import Nav from "../components/Navbar/Nav";
 // import Footer from "../components/Footer/Footer";
