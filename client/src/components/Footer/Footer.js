@@ -173,7 +173,7 @@ function Footer() {
                     >
                       <span style={{ display: "none" }}>telegram</span>
                       <img
-                        src="https://img.icons8.com/color/48/000000/telegram-app.png"
+                        src="https://img.icons8.com/color/40/000000/telegram-app.png"
                         alt=""
                       />
                     </a>
@@ -185,7 +185,19 @@ function Footer() {
                     >
                       <span style={{ display: "none" }}>whatsapp</span>
                       <img
-                        src="https://img.icons8.com/color/40/000000/whatsapp--v1.png"
+                        src="https://img.icons8.com/color/44/000000/whatsapp--v1.png"
+                        alt=""
+                      />
+                    </a>
+                    <a
+                      href="https://github.com/codebiet"
+                      target="_blank"
+                      rel="noopener"
+                      className="socialIcon"
+                    >
+                      <span style={{ display: "none" }}>github</span>
+                      <img
+                        src="https://img.icons8.com/material-rounded/40/000000/github.png"
                         alt=""
                       />
                     </a>
@@ -210,18 +222,6 @@ function Footer() {
                       <span style={{ display: "none" }}>Youtube</span>
                       <img
                         src="https://img.icons8.com/fluent/40/000000/youtube-play.png"
-                        alt=""
-                      />
-                    </a>
-                    <a
-                      href="https://github.com/codebiet"
-                      target="_blank"
-                      rel="noopener"
-                      className="socialIcon"
-                    >
-                      <span style={{ display: "none" }}>github</span>
-                      <img
-                        src="https://img.icons8.com/material-rounded/48/000000/github.png"
                         alt=""
                       />
                     </a>
