@@ -21,23 +21,23 @@ const UserProfileContent=(props)=>{
                     {props.user.programmingLanguages &&
                       props.user.programmingLanguages.map((da) => (
                         <span className="Tab">{da.name}</span>
-                      ))}<br/>
+                      ))}
                     {props.user.webTechnologies &&
                       props.user.webTechnologies.map((da) => (
                         <span className="Tab">{da.name}</span>
-                      ))}<br/>
+                      ))}
                     {props.user.webFrameworks &&
                       props.user.webFrameworks.map((da) => (
                         <span className="Tab">{da.name}</span>
-                      ))}<br/>
+                      ))}
                     {props.user.dbms &&
                       props.user.dbms.map((da) => (
                         <span className="Tab">{da.name}</span>
-                      ))}<br/>
+                      ))}
                     {props.user.technologies &&
                       props.user.technologies.map((da) => (
                         <span className="Tab">{da.name}</span>
-                      ))}<br/>
+                      ))}
                     {props.user.operatingSystem &&
                       props.user.operatingSystem.map((da) => (
                         <span className="Tab">{da.name}</span>
