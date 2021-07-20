@@ -14,7 +14,7 @@ const Hero = () => {
             <h2 className="hero-heading">
               Join Our Team At <span>CODE</span>
             </h2>
-            <p>Work at the most dynamic and successful club of BIET.</p>
+            <p>Get a chance to become a part of a dynamic and successful club and work with some brightest minds of the industry.</p>
           </div>
           <div class="col-sm-6 col-12">
             <img src={HeroImg} style={{ width: "100%" }} alt="" />
