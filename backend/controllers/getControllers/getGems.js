@@ -8,16 +8,30 @@ module.exports = async (req, res) => {
   try {
     let queryObj = {};
 
-    if (req.query.profession) {
-      queryObj.role = req.query.profession;
+    if (
+      req.query.year == "1" ||
+      req.query.year == "2" ||
+      req.query.year == "3" ||
+      req.query.year == "4"
+    ) {
+      queryObj.role = "Student";
+      queryObj.year = parseInt(req.query.year);
+    } else if (
+      req.query.year == "Passout" ||
+      req.query.profession == "Professional"
+    ) {
+      queryObj.role = "Professional";
     }
-    if (req.query.year) {
-      if (req.query.year == "Passout") {
-        queryObj.role = "Professional";
-      } else {
-        queryObj.year = parseInt(req.query.year);
-      }
-    }
+    //   if (req.query.profession) {
+    //     queryObj.role = req.query.profession;
+    //   }
+    // if (req.query.year) {
+    //   if (req.query.year == "Passout") {
+    //     queryObj.role = "Professional";
+    //   } else {
+    //     queryObj.year = parseInt(req.query.year);
+    //   }
+    // }
 
     if (req.query.branch) {
       queryObj.branch = req.query.branch;
