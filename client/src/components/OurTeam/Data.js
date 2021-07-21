@@ -88,17 +88,6 @@ export default [
   },
 
   {
-    id: 7,
-    name: "Simran Singh",
-    image: Simran,
-    post: "",
-    category: "Operating Member",
-    mail: "mailto:sj5695624@gmail.com",
-    fb_link: "",
-    lnkdin_link: "https://www.linkedin.com/in/simran-singh-bb225b214",
-  },
-
-  {
     id: 8,
     name: "Vaibhav Dixit",
     image: Vaibhav,
@@ -213,17 +202,6 @@ export default [
     mail: "mailto:shuklaayushkumar27@gmail.com",
     fb_link: "https://www.facebook.com/profile.php?id=100045303995156",
     lnkdin_link: "https://www.linkedin.com/in/ayush-kumar-shukla-20589a19a/",
-  },
-
-  {
-    id: 18,
-    name: "Shubham Pathak",
-    image: Shubham,
-
-    category: "Assistance Team",
-    mail: "mailto:pathaks879@gmail.com",
-    fb_link: "https://www.facebook.com/profile.php?id=100011375678258",
-    lnkdin_link: "https://www.linkedin.com/in/shubham-pathak-030295212/",
   },
 
   {
