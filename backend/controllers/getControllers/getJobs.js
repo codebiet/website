@@ -31,6 +31,9 @@ module.exports = async (req, res) => {
     statQuery = "$gt";
     date = new Date();
   }
+  if (req.query.name) {
+    queryObj.title = { $regex: req.query.name, $options: "i" };
+  }
 
   try {
     let { page, size } = req.query;
