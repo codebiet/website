@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AOS from "aos";
-import { Form, FormControl, InputGroup } from "react-bootstrap";
+import { Form, FormControl, InputGroup, Button } from "react-bootstrap";
 import axios from "axios";
 
 const months = [
@@ -26,6 +26,7 @@ const JobOpenings = () => {
   }, []);
 
   const [jobs, setJobs] = useState([]);
+  const [jobByName, setJobByName] = useState('')
   const [loading, setLoading] = useState(false);
   const [domain, setDomain] = useState("All");
   const [workType, setWorkType] = useState("All");
@@ -43,6 +44,7 @@ const JobOpenings = () => {
       })
       .catch((err) => {
         setLoading(false);
+        console.log(err)
       });
   }, [domain, workType, remoteOnly]);
 
@@ -59,6 +61,22 @@ const JobOpenings = () => {
     return date + " " + month + " " + year;
   };
 
+  function handleSearchByName() {
+    setLoading(true);
+    axios
+      .get(
+        `/api/jobs?filter=${domain}&workType=${workType}&name=${jobByName}&remoteOnly=${remoteOnly}&size=10000&status=Active`
+      )
+      .then((res) => {
+        setJobs(res.data.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log(err)
+      });
+  }
+  
   return (
     <section data-aos="fade-up" class="jobs-available">
       <div class="container">
@@ -67,14 +85,18 @@ const JobOpenings = () => {
             Job Openings
           </h2>
           <div class="container">
-            {/* <InputGroup size="lg">
+            <InputGroup size="lg" style={{ border: "1px solid #ddd" }}>
               <FormControl
-                style={{ border: "1px solid #ddd", position: "relative", top: ".1rem" }}
+                style={{ border: "none", position: "relative" }}
+                placeholder="Search By Name"
                 aria-label="Large"
                 aria-describedby="inputGroup-sizing-sm"
-                placeholder="Search"
+                onChange={(e)=>setJobByName(e.target.value)}
               />
-            </InputGroup> */}
+              <button className="job-search-btn" onClick={handleSearchByName}>
+                <i class="fa fa-search"></i>
+              </button>
+            </InputGroup>
             <br />
           </div>
           <div class="container">
