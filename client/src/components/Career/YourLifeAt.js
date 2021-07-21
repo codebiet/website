@@ -87,7 +87,7 @@ const YourLife = () => {
             </h2>
             <p>
               At CODE we believe in working together and working hard. we are
-              looking for dynamic and ceative induviduels who are willing to
+              looking for dynamic and creative individuals who are willing to
               dedicate themselves to providing innovative products and servies
               for our clients.
             </p>

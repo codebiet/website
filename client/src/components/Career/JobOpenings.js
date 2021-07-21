@@ -67,18 +67,14 @@ const JobOpenings = () => {
             Job Openings
           </h2>
           <div class="container">
-            <InputGroup size="lg" style={{ border: "1px solid #ddd" }}>
-              <InputGroup.Prepend>
-                <InputGroup.Text style={{ border: "none" }}>
-                  Search
-                </InputGroup.Text>
-              </InputGroup.Prepend>
+            {/* <InputGroup size="lg">
               <FormControl
-                style={{ border: "none", position: "relative", top: ".1rem" }}
+                style={{ border: "1px solid #ddd", position: "relative", top: ".1rem" }}
                 aria-label="Large"
                 aria-describedby="inputGroup-sizing-sm"
+                placeholder="Search"
               />
-            </InputGroup>
+            </InputGroup> */}
             <br />
           </div>
           <div class="container">

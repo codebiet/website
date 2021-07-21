@@ -43,7 +43,7 @@ const RecruitmentProcess = () => {
               <Image src={ip3} alt="" />
               <h2>Skill Assessment</h2>
               <p>
-                You will be invited at our head office to take a skills and
+                You will be invited to a meeting to take a skills and
                 knowledge assessment.
               </p>
             </div>
