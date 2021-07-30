@@ -1388,8 +1388,10 @@ const Dashboard = (props) => {
   const deleteThingWithOptions = (setThing, setThingOptions, index) => {
     setThing((prev) => {
       const deleted = prev.splice(index, 1);
+      console.log(deleted);
       setThingOptions((optns) => {
         optns.push(deleted.name);
+        console.log(optns);
         return [...optns];
       });
       return [...prev];

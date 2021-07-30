@@ -239,6 +239,14 @@ function Footer() {
           </p>
         </div>
       </div>
+      <a href="https://www.hitwebcounter.com" target="_blank">
+        <img
+          src="https://hitwebcounter.com/counter/counter.php?page=7846005&style=0028&nbdigits=4&type=ip&initCount=0"
+          title="Free Counter"
+          Alt="web counter"
+          border="0"
+        />
+      </a>
     </footer>
   );
 }
