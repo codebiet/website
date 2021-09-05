@@ -159,6 +159,18 @@ function Header(props) {
             </NavItem>
             <NavItem className="pr-3">
               <Link
+                to="/admin/roadmaps/add"
+                style={{
+                  color: "#111",
+                  fontWeight: 600,
+                  textDecoration: "none",
+                }}
+              >
+              Roadmaps
+              </Link>
+            </NavItem>
+            <NavItem className="pr-3">
+              <Link
                 to="/admin/feedbacks"
                 style={{
                   color: "#111",
