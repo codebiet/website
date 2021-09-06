@@ -72,6 +72,9 @@ router
   .route("/admin/addEvent")
   .post(require("../controllers/postControllers/admin/addEvent"));
 router
+  .route("/admin/addRoadmap")
+  .post(require("../controllers/postControllers/admin/addRoadmap"));
+router
   .route("/admin/events/:id/registrations/sendMsg")
   .post(require("../controllers/postControllers/admin/sendMsg"));
 router

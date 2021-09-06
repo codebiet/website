@@ -50,18 +50,18 @@ const AddRoadmap = (props) => {
       object[key] = value;
     });
 
-    // axios
-    //   .post("/post/admin/addroadmap", { roadmap: object })
-    //   .then((res) => {
-    //     setLoading(false);
-    //     info.dispatch(generateSuccess("roadmap Added Successfull!"));
-    //   })
-    //   .catch((err) => {
-    //     setLoading(false);
-    //     if (err.response && err.response.data)
-    //       info.dispatch(generateError(err.response.data.errorMsg));
-    //     else info.dispatch(generateError("Something went wrong!"));
-    //   });
+    axios
+      .post("/post/admin/addRoadmap", { roadmap: object })
+      .then((res) => {
+        setLoading(false);
+        info.dispatch(generateSuccess("roadmap Added Successfull!"));
+      })
+      .catch((err) => {
+        setLoading(false);
+        if (err.response && err.response.data)
+          info.dispatch(generateError(err.response.data.errorMsg));
+        else info.dispatch(generateError("Something went wrong!"));
+      });
   };
   const state = {
     roadmapTitle,
