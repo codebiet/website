@@ -70,6 +70,7 @@ const UserProfile = lazy(() => import("../../pages/UserProfile"));
 const Blogs = lazy(() => import("../../pages/Blogs"));
 const OurTeam = lazy(() => import("../../pages/OurTeam"));
 const Career = lazy(() => import("../../pages/Career"));
+const Roadmaps = lazy(() => import("../../pages/Roadmaps"));
 const Discussion = lazy(() => import("../../pages/Discussion"));
 const ReviewBlog = lazy(() => import("../../pages/ReviewBlog"));
 const JobDetails = lazy(() => import("../../pages/Job_Individual"));
@@ -167,6 +168,7 @@ function App() {
               <Route path="/about" component={About} />
               <Route path="/ourTeam" component={OurTeam} />
               <Route path="/careers" component={Career} />
+              <Route path="/roadmaps" component={Roadmaps} />
               <Route
                 exact
                 path="/events/:id"

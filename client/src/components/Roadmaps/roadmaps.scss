@@ -1,0 +1,24 @@
+$color-primary: rgb(236, 124, 45);
+
+.roadmap-main-container {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.2rem;
+  @media (max-width: 500px) {
+    font-size: 1rem;
+  }
+  .menu-head {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0em;
+    font-size: 2em;
+    margin-top: 0px;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 1rem;
+    font-weight: bolder;
+  }
+  .desc {
+    font-family: "Nunito", sans-serif;
+    text-align: center;
+    font-weight: 600;
+  }
+}

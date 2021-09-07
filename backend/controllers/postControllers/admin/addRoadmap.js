@@ -1,4 +1,4 @@
-const Events = require("../../../models/projectModal");
+const roadmaps = require("../../../models/roadmapModal");
 const uploadS3 = require("../../../utils/uploadS3");
 const { v4: uuid } = require("uuid");
 const invalidFileType = (file) => {
@@ -23,55 +23,45 @@ const getParams = (file) => {
   };
 };
 const addRoadmap = async (req, res) => {
-  const { name, type, shortDescription } = req.body;
+  const { roadmapTitle, type,roadmapDescription } = req.body;
+
+  //console.log(roadmapTitle, type, roadmapDescription)
+  console.log(req.files.roadmapImg)
   //---------------------------------------------------------------------------
   //data verification
-  if (!name || !type || !shortDescription)
+  if (!roadmapTitle || !type || !roadmapDescription)
     return res.status(400).send({ errorMsg: "All the fields are required!" });
-  if (!req.files || !req.files.banner)
-    return res.status(400).send({ errorMsg: "Banner is required!" });
-  if (!req.files || !req.files.cardImg)
-    return res.status(400).send({ cardImg: "Card Image is required!" });
+  if (!req.files || !req.files.roadmapImg)
+    return res.status(400).send({ errorMsg: "Roadmap Image is required!" });
   //-----------------------------------------------------------------------------
   //data verification end
   //------------------------------------------------------------------------------
   //file upload to s3
-  let bannerUrl = "",
-    cardImgUrl = "";
-  const banner = req.files.banner;
-  const cardImg = req.files.cardImg;
+  let roadmapImgUrl = "https://roadmap.sh/roadmaps/react.png"
+  const roadmapImg = req.files.roadmapImg;
   //file type verification -- start
-  if (invalidFileType(banner))
-    return res.status(400).send({ errorMsg: "Invalid file type for banner!" });
-  if (invalidFileType(cardImg))
-    return res
-      .status(400)
-      .send({ errorMsg: "Invalid file type for card Image!" });
+  if (invalidFileType(roadmapImg))
+    return res.status(400).send({ errorMsg: "Invalid file type for Image!" });
   //file type verification -- end
-  const cardImgParams = getParams(cardImg);
-  try {
-    cardImgUrl = await uploadS3(cardImgParams);
-  } catch (err) {
-    return res
-      .status(500)
-      .send({ errorMsg: "Error while uploading card Image!" });
-  }
-  const bannerParams = getParams(banner);
-  try {
-    bannerUrl = await uploadS3(bannerParams);
-  } catch (err) {
-    return res.status(500).send({ errorMsg: "Error while uploading banner!" });
-  }
+
+  // const roadmapImgParams = getParams(roadmapImg);
+  // try {
+  //   roadmapImgUrl = await uploadS3(roadmapImgParams);
+  // } catch (err) {
+  //   console.log(err)
+  //   return res.status(500).send({ errorMsg: "Error while uploading Roadmap image!" });
+  // }
   //end file upload to s3
   //------------------------------------------------------------------------------
-  const event = new Events({
-    name,
+  const event = new roadmaps({
+    roadmapTitle,
     type,
-    shortDescription,
+    roadmapDescription,
+    roadmapImg: roadmapImgUrl
   });
   try {
     await event.save();
-    return res.send({ msg: "Event Added Successfully" });
+    return res.send({ msg: "Roadmap Added Successfully" });
   } catch (err) {
     console.log(err);
     return res
