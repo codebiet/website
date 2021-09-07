@@ -59,19 +59,6 @@ let roadmaps = [
   ]},
 ]
 
-// const hello = () => {
-//   console.log('hello brother this is me')
-//   for(let i =0 ; i<roadmaps.length ;i++) {
-//     for(let j=0;j<roadmaps[i].topics.length;j++) {
-//       roadmaps[i].topics[j].icon = require(`../../../public/icons/${roadmaps[i].topics[j].title}.svg`);
-//       //console.log(roadmaps[i].topics[j].title)
-//       //require(`../../../public/icons/${roadmaps[i].topics[j].title}.svg`)
-//     }
-//   }
-//   console.log(roadmaps)
-// }
-// hello()
-
 const Roadmap = () => {
   // useEffect(() => {
   //   setLoading(true);
