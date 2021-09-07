@@ -1,0 +1,91 @@
+.cardRoadmap {
+  margin: 0 auto;
+  color: inherit;
+  padding: 2rem;
+  text-decoration: none;
+  box-sizing: border-box;
+  width: 80%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  background-color: rgb(237,237,237);
+  border-radius: 30px;
+  overflow: hidden;
+  margin-bottom: 3%;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+  a {
+    cursor: pointer;
+    color:black;
+    &:hover,
+    &:active,
+    &:visited {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+  .cardHeader {
+    position: relative;
+    margin-bottom: 1rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+  .cardDesc {
+    font-size: 0.9em;  
+  }
+  .cardMain {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: space-between;
+    box-sizing: border-box;
+  }
+  @media only screen and (max-width: 550px) {
+    width: 90%;
+  }
+}
+
+.miniCard {
+  width: 15%;
+  height: 12rem;
+  min-height: fit-content;
+  margin: 0.5rem;
+  padding: 2rem 1rem;
+  padding-bottom: 1rem;
+  background-color: rgb(225,224,222);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 0.9em;
+  text-align: center;
+  text-transform: capitalize;
+  border-radius: 18px;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+  }
+  @media only screen and (max-width: 1350px) {
+    width: 30%;
+  }
+  @media only screen and (max-width: 750px) {
+    width: 45%;
+  }
+  @media only screen and (max-width: 550px) {
+    width: 90%;
+  }
+
+  .titleHolder {
+    display: block;
+    width: 100%;
+  }
+  .circleIcon {
+    border-radius: 50%;
+    box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    border-radius: 60px;
+    box-shadow: 0px 2px 5px #888;
+    padding: 0.5em 0.6em;
+    margin-bottom: 1rem;
+  }
+}
