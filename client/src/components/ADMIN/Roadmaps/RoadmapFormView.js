@@ -19,16 +19,19 @@ import {
   Col,
   Form,
 } from "reactstrap";
-const RoadmapFormView = ({
-  roadmapTitle,
-  setRoadmapTitle,
-  type,
-  setType,
-  handleSubmit,
-  editorState,
-  setEditorState,
-  ...props
-}) => {
+const RoadmapFormView = React.forwardRef(
+  (
+    {
+      roadmapTitle,
+      setRoadmapTitle,
+      type,
+      setType,
+      handleSubmit,
+      editorState,
+      setEditorState,
+      ...props},
+    {roadmapImgRef}
+  ) => {
   return (
     <DashboardLayout routes={roadmapRoutes}>
       <Card className="add-events-card">
@@ -84,7 +87,20 @@ const RoadmapFormView = ({
                   </select>
                 </FormGroup>
               </Col>
-
+                <Col md="4">
+                  <FormGroup>
+                    <label className="fontType" htmlFor="roadmapImgFile">
+                      Roadmap Image
+                    </label>
+                    <input
+                      type="file"
+                      className="form-control"
+                      ref={roadmapImgRef}
+                      id="roadmapImgFile"
+                    />
+                   
+                  </FormGroup>
+                </Col>
             </Row>
            
             <Row style={{ width: "100%", marginLeft: 0 }}>
@@ -109,10 +125,12 @@ const RoadmapFormView = ({
                 </FormGroup>
               </Col>
             </Row>
+            
           </Form>
         </CardBody>
       </Card>
     </DashboardLayout>
   );
-};
+}
+);
 export default RoadmapFormView;

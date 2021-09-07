@@ -16,6 +16,7 @@ const AddRoadmap = (props) => {
   const info = useContext(InfoContext);
   const [roadmapTitle, setRoadmapTitle] = useState("");
   const [type, setType] = useState("");
+  const roadmapImgRef = React.createRef();
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const [loading, setLoading] = useState(false);
 
@@ -32,7 +33,7 @@ const AddRoadmap = (props) => {
     const data = new FormData();
     if (
       !roadmapTitle ||
-      !type ||
+      !type ||  
       !JSON.stringify(convertToRaw(editorState.getCurrentContent()))
     )
       return info.dispatch(
@@ -40,25 +41,25 @@ const AddRoadmap = (props) => {
           "All the fields are required. Please fill in the fields!"
         )
       );
-
-    data.append("title", roadmapTitle);
+    if (!roadmapImgRef.current.files[0]) {
+        return info.dispatch(
+          generateWarning("Roadmap Image is required to be uploaded!")
+        );
+    }
+    data.append("roadmapTitle", roadmapTitle);
     data.append("type", type);
     data.append(
       "roadmapDescription",
       JSON.stringify(convertToRaw(editorState.getCurrentContent()))
     );
+    data.append("roadmapImg", roadmapImgRef.current.files[0]);
     setLoading(true);
 
-    let object = {};
-    data.forEach(function (value, key) {
-      object[key] = value;
-    });
-
     axios
-      .post("/post/admin/addRoadmap", { roadmap: object })
+      .post("/post/admin/addRoadmap", data)
       .then((res) => {
         setLoading(false);
-        info.dispatch(generateSuccess("roadmap Added Successfull!"));
+        info.dispatch(generateSuccess("Roadmap Added Successfull!"));
       })
       .catch((err) => {
         setLoading(false);
@@ -78,7 +79,10 @@ const AddRoadmap = (props) => {
   };
   return (
     <>
-      <AddRoadmapView {...state} action="Add Roadmap" />
+      <AddRoadmapView 
+      ref={{ roadmapImgRef}}
+      {...state} 
+      action="Add Roadmap" />
       {loading && <Loader />}
     </>
   );
