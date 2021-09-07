@@ -25,6 +25,10 @@ const AddRoadmap = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(type);
+    console.log(roadmapTitle);
+    // console.log(roadmapTitle);
+    // console.log(roadmapTitle);
     const data = new FormData();
     if (
       !roadmapTitle ||
