@@ -13,7 +13,7 @@ const Resource = (props) => {
         </div>
         <div className="rightr">
           <div className="title">
-            <h1>Learn react from scratch</h1>
+            <h3>Learn react from scratch</h3>
           </div>
           <div className="desc">
             <p>

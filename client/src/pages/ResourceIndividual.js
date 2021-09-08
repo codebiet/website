@@ -1,10 +1,12 @@
 import React, { Suspense, lazy } from "react";
 import Loader from "../components/Loader/Loader";
-import "../components/Roadmaps/MainPage.scss"
+import "../components/Roadmaps/MainPage.scss";
+
 // const Resource = lazy(() => import("./Resource"));
 
 const Nav = lazy(() => import("../components/Navbar/Nav"));
 const Footer = lazy(() => import("../components/Footer/Footer"));
+const MainTab = lazy(() => import("../components/Roadmaps/MainTab"));
 
 // import { Tab, Tabs } from "react-bootstrap";
 
@@ -12,75 +14,96 @@ const Footer = lazy(() => import("../components/Footer/Footer"));
 // import MainTab from "./MainTab";
 
 const ResourceIndividual = () => {
+  const download = (e) => {
+    console.log(e);
+    fetch(e, {
+      method: "GET",
+      headers: {},
+    })
+      .then((response) => {
+        response.arrayBuffer().then(function (buffer) {
+          const url = window.URL.createObjectURL(new Blob([buffer]));
+          const link = document.createElement("a");
+          link.href = url;
+          link.setAttribute("download", "image.png");
+          document.body.appendChild(link);
+          link.click();
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <Suspense fallback={<Loader />}>
-    <Nav />
-    <section>
-      <div className="main-content">
-        <div className="headings">
-          <h1>APP DEVELOPMENT</h1>
-        </div>
-        <div className="sub-heading">
-          <h3>
-            Everything that is there to learn about React and the ecosystem in
-            2021.
-          </h3>
-        </div>
-        <div className="info">
-          <div className="left">
-            <a href="#" class="fa fa-facebook"></a>
-            <a href="#" class="fa fa-twitter"></a>
-            <a href="#" class="fa fa-linkedin"></a>
-            <a href="#" class="fa fa-instagram"></a>
-            <a href="#" class="fa fa-whatsapp"></a>
+      <Nav />
+      <section>
+        <div className="main-content">
+          <div className="headings">
+            {/* fetch data from backend */}
+            <h1>APP DEVELOPMENT</h1>
           </div>
-          <div className="right">
-            <p className="right-content">
-              There are multiple ways to develop applications for the android;
-              you can go down the path of hybrid application development where
-              flutter, react-native, or NativeScript are the most common
-              contenders. Flutter uses Dart, whereas React Native and Native
-              Script rely on JavaScript. Answering the question of hybrid vs
-              native is out of the scope of this roadmap. This roadmap is
-              focused on the native Android apps development but if you are
-              interested in learning any hybrid framework, my personal
-              preference is react-native and I would recommend you to checkout
-              the Frontend Developer Roadmap.
-            </p>
-            <div className="btns">
-              <button className="outline-warning">Other Roadmaps</button>
-              <button className="outline-warning">Send me Updates</button>
-              <button className="outline-warning">Suggest Changes</button>
+          <div className="sub-heading">
+            <h3>
+              Everything that is there to learn about React and the ecosystem in
+              2021.
+            </h3>
+          </div>
+          <div className="info">
+            <div className="left">
+              <a href="#" class="fa fa-facebook"></a>
+              <a href="#" class="fa fa-twitter"></a>
+              <a href="#" class="fa fa-linkedin"></a>
+              <a href="#" class="fa fa-instagram"></a>
+              <a href="#" class="fa fa-whatsapp"></a>
+            </div>
+            <div className="right">
+              <p className="right-content">
+                There are multiple ways to develop applications for the android;
+                you can go down the path of hybrid application development where
+                flutter, react-native, or NativeScript are the most common
+                contenders. Flutter uses Dart, whereas React Native and Native
+                Script rely on JavaScript. Answering the question of hybrid vs
+                native is out of the scope of this roadmap. This roadmap is
+                focused on the native Android apps development but if you are
+                interested in learning any hybrid framework, my personal
+                preference is react-native and I would recommend you to checkout
+                the Frontend Developer Roadmap.
+              </p>
+              <div className="btns">
+                {/* <Link to="/roadmaps" /> */}
+                <button className="outline-warning">Other Roadmaps</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="changeble-content">
-        {/* <MainTab /> */}
-        {/* pass link and resource description as props */}
-        {/* <Resource /> */}
-        <img
-          className="roadmapimg"
-          src="https://image.shutterstock.com/image-vector/vertical-timeline-infographic-design-template-600w-1278150034.jpg"
-          alt="rdmp"
-        ></img>{" "}
-      </div>
+        <div className="changeble-content">
+          <MainTab />
+        </div>
 
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          margin: "20px 20px",
-          borderRadius: "50px",
-        }}
-      >
-        <button className="outline-warning"> Download</button>
-      </div>
-    </section>
-    <Footer />
-  </Suspense>
-   
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            margin: "20px 20px",
+            borderRadius: "50px",
+          }}
+        >
+          <button
+            className="outline-warning"
+            onClick={(e) =>
+              download(
+                "https://image.shutterstock.com/image-vector/vertical-timeline-infographic-design-template-600w-1278150034.jpg"
+              )
+            }
+          >
+            Download
+          </button>
+        </div>
+      </section>
+      <Footer />
+    </Suspense>
   );
 };
 
