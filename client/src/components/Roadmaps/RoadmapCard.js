@@ -1,12 +1,22 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import './roadmapCard.scss'
 
-const miniCard = (title) => {
+import htmllogo from '../../../public/icons/HTML.svg'
+
+const miniCard = (title,icon) => {
   return (
-    <div className='miniCard'>
-      <div className='circleIcon'><img src={require(`../../../public/icons/HTML.svg`)} alt="html"/></div>
-      <div className='titleHolder'>{title}</div>
-    </div>
+    
+      <div className='miniCard'>
+        <Link to='/roadmaps/html'>
+        <div className='circleIcon'>
+        {!icon && <img src={htmllogo} alt={title}/>}
+        {icon && <img src={icon} alt={title}/>}
+        </div>
+        <div className='titleHolder'>{title}</div>
+        </Link>
+      </div>
+    
   )
 }
 
@@ -24,7 +34,7 @@ export default function RoadmapCard(props) {
 
         <div className="cardMain">
           {props.topics.map((topic)=>{
-            return miniCard(topic.title)
+            return miniCard(topic.title,topic.icon)
           })}
         </div> 
     </div>

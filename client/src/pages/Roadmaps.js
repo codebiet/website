@@ -3,7 +3,6 @@ import Loader from "../components/Loader/Loader";
 const Nav = lazy(() => import("../components/Navbar/Nav"));
 const Footer = lazy(() => import("../components/Footer/Footer"));
 const Roadmap = lazy(() => import("../components/Roadmaps/roadmap"));
-const MainPage = lazy(() => import("../components/Roadmaps/MainPage"));
 
 function Roadmaps() {
   useEffect(() => {
@@ -13,7 +12,6 @@ function Roadmaps() {
     <Suspense fallback={<Loader />}>
       <Nav />
       <Roadmap />
-      {/* <MainPage /> */}
       <Footer />
     </Suspense>
   );
