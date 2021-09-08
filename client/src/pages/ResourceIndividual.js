@@ -1,15 +1,20 @@
-import React, { lazy } from "react";
+import React, { Suspense, lazy } from "react";
+import Loader from "../components/Loader/Loader";
+import "../components/Roadmaps/MainPage.scss"
+// const Resource = lazy(() => import("./Resource"));
 
-import "./MainPage.scss";
-const Resource = lazy(() => import("./Resource"));
+const Nav = lazy(() => import("../components/Navbar/Nav"));
+const Footer = lazy(() => import("../components/Footer/Footer"));
 
 // import { Tab, Tabs } from "react-bootstrap";
 
 // import Resource from "./Resource";
 // import MainTab from "./MainTab";
 
-const MainPage = () => {
+const ResourceIndividual = () => {
   return (
+    <Suspense fallback={<Loader />}>
+    <Nav />
     <section>
       <div className="main-content">
         <div className="headings">
@@ -53,7 +58,7 @@ const MainPage = () => {
       <div className="changeble-content">
         {/* <MainTab /> */}
         {/* pass link and resource description as props */}
-        <Resource />
+        {/* <Resource /> */}
         <img
           className="roadmapimg"
           src="https://image.shutterstock.com/image-vector/vertical-timeline-infographic-design-template-600w-1278150034.jpg"
@@ -73,7 +78,10 @@ const MainPage = () => {
         <button className="outline-warning"> Download</button>
       </div>
     </section>
+    <Footer />
+  </Suspense>
+   
   );
 };
 
-export default MainPage;
+export default ResourceIndividual;
