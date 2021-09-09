@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import classnames from "classnames";
 import "./MainTab.scss";
+import HTMLCSSR from "../../../public/icons/HTML and CSS Roadmap.svg";
 
 import {
   TabContent,
@@ -52,11 +53,12 @@ const MainTab = (props) => {
         <TabPane tabId="1">
           <img
             className="roadmapimg"
-            src="https://image.shutterstock.com/image-vector/vertical-timeline-infographic-design-template-600w-1278150034.jpg"
+            src={HTMLCSSR}
             alt="rdmp"
           ></img>
         </TabPane>
         <TabPane tabId="2">
+          {/* pass props here */}
           <Resource />
           <Resource />
           <Resource />
