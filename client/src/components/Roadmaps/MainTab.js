@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import classnames from "classnames";
 import "./MainTab.scss";
@@ -25,6 +25,11 @@ const MainTab = (props) => {
   const toggle = (tab) => {
     if (activeTab !== tab) setActiveTab(tab);
   };
+
+  useEffect(()=>{
+    console.log('props are',props)
+  },[])
+
   return (
     <Container className="event-container-main">
       <Nav tabs className="event-primary-tab">
@@ -53,8 +58,8 @@ const MainTab = (props) => {
         <TabPane tabId="1">
           <img
             className="roadmapimg"
-            src={HTMLCSSR}
-            alt="rdmp"
+            src={props.roadmapImg}
+            alt={props.roadmapTitle}
           ></img>
         </TabPane>
         <TabPane tabId="2">

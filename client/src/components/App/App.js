@@ -74,7 +74,7 @@ const Roadmaps = lazy(() => import("../../pages/Roadmaps"));
 const Discussion = lazy(() => import("../../pages/Discussion"));
 const ReviewBlog = lazy(() => import("../../pages/ReviewBlog"));
 const JobDetails = lazy(() => import("../../pages/Job_Individual"));
-const ResourceIndividual = lazy(() => import("../../pages/ResourceIndividual"));
+const RoadmapIndividual = lazy(() => import("../../pages/RoadmapIndividual"));
 const Logout = lazy(() => import("../../pages/Logout"));
 function App() {
   const auth = useContext(AuthContext);
@@ -207,8 +207,8 @@ function App() {
               />
                <Route
                 exact
-                path="/roadmaps/html"
-                render={(props) => <ResourceIndividual {...props} />}
+                path="/roadmaps/:url"
+                render={(props) => <RoadmapIndividual {...props} />}
               />
               <Route
                 exact

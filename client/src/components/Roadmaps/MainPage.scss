@@ -5,9 +5,16 @@
 
 .main-content {
     width: 100%;
+    text-align: center;
+    
 }
 .right-content{
-font-size: 3vh;
+    width: inherit;
+    margin: 10px 10%;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    font-size: 3vh;
 }
 
 .main-content .headings h1 {
@@ -37,11 +44,11 @@ font-size: 3vh;
 }
 
 .right {
-    width: inherit;
-    margin: 10px 10px;
-    padding: 20px 20px;
-    display: flex;
-    flex-direction: column;
+    // width: inherit;
+    // margin: 10px 10px;
+    // padding: 20px 20px;
+    // display: flex;
+    // flex-direction: column;
 }
 
 .left {
