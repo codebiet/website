@@ -24,9 +24,6 @@ const getParams = (file) => {
 };
 const addRoadmap = async (req, res) => {
   const { roadmapTitle, type,roadmapDescription } = req.body;
-
-  //console.log(roadmapTitle, type, roadmapDescription)
-  console.log(req.files.roadmapImg)
   //---------------------------------------------------------------------------
   //data verification
   if (!roadmapTitle || !type || !roadmapDescription)
@@ -36,6 +33,7 @@ const addRoadmap = async (req, res) => {
   //-----------------------------------------------------------------------------
   //data verification end
   //------------------------------------------------------------------------------
+
   //file upload to s3
   let roadmapImgUrl = "https://roadmap.sh/roadmaps/react.png"
   const roadmapImg = req.files.roadmapImg;
@@ -54,7 +52,7 @@ const addRoadmap = async (req, res) => {
   //end file upload to s3
   //------------------------------------------------------------------------------
   const event = new roadmaps({
-    roadmapTitle,
+    roadmapTitle:roadmapTitle.toUpperCase(),
     type,
     roadmapDescription,
     roadmapImg: roadmapImgUrl

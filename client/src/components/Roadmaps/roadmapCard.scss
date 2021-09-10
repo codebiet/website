@@ -81,10 +81,10 @@
   }
   .circleIcon {
     border-radius: 50%;
-    box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.2);
     display: inline-block;
     border-radius: 60px;
     box-shadow: 0px 2px 5px #888;
+    background-color: rgba($color: #fff, $alpha: 0.2);
     padding: 0.5em 0.6em;
     margin-bottom: 1rem;
   }
