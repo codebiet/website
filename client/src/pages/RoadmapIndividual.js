@@ -69,10 +69,6 @@ const RoadmapIndividual = (props) => {
             <h1>{roadmap.roadmapTitle}</h1>
           </div>
           <div className="sub-heading">
-            <h3>
-              Everything that is there to learn about React and the ecosystem in
-              2021.
-            </h3>
           </div>
           <div className="info">
             <div className="right-content"
@@ -112,12 +108,7 @@ const RoadmapIndividual = (props) => {
           </button>
           </Link>
         </div>
-        {/* <div className="other-content">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto,
-            reprehenderit?
-          </p>
-        </div> */}
+
       </section>
       <Footer />
     </Suspense>
