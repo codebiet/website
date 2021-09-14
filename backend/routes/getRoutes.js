@@ -65,6 +65,8 @@ router
   .route("/gems/:id")
   .get(require("../controllers/getControllers/gemsById"));
 router.route("/jobs").get(require("../controllers/getControllers/getJobs"));
+router.route("/roadmaps").get(require("../controllers/getControllers/getAvailableRoadmaps"));
+router.route("/roadmaps/:url").get(require("../controllers/getControllers/getIndividualRoadmap"));
 router
   .route("/jobs/:id")
   .get(require("../controllers/getControllers/getJobsbyID"));

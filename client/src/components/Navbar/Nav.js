@@ -96,6 +96,16 @@ function Nav() {
                       </NavLink>
                     </li>
                     <li>
+                      <NavLink to="/roadmaps">
+                        <img
+                          src="https://img.icons8.com/metro/26/000000/sort-down.png"
+                          className="elevated"
+                          alt=""
+                        />{" "}
+                        Roadmaps
+                      </NavLink>
+                    </li>
+                    <li>
                       <NavLink to="/ourTeam">
                         <img
                           src="https://img.icons8.com/metro/26/000000/sort-down.png"

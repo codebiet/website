@@ -19,16 +19,19 @@ import {
   Col,
   Form,
 } from "reactstrap";
-const RoadmapFormView = ({
-  roadmapTitle,
-  setRoadmapTitle,
-  type,
-  setType,
-  handleSubmit,
-  editorState,
-  setEditorState,
-  ...props
-}) => {
+const RoadmapFormView = React.forwardRef(
+  (
+    {
+      roadmapTitle,
+      setRoadmapTitle,
+      type,
+      setType,
+      handleSubmit,
+      editorState,
+      setEditorState,
+      ...props},
+    {roadmapImgRef}
+  ) => {
   return (
     <DashboardLayout routes={roadmapRoutes}>
       <Card className="add-events-card">
@@ -68,23 +71,32 @@ const RoadmapFormView = ({
                     id="type"
                   >
                     <option value="">Type</option>
-                    <option value="Android">Android</option>
-                    <option value="Blockchain">Blockchain</option>
-                    <option value="Content Writing">Content Writing</option>
-                    <option value="Graphics Designing">
-                      Graphics Designing
-                    </option>
-                    <option value="Cyber Security">Cyber Security</option>
-                    <option value="IOT">IOT</option>
-                    <option value="ML/AI">ML/AI</option>
-                    <option value="Software Development">
-                      Software Development
-                    </option>
-                    <option value="Web Development">Web Development</option>
+                    <option value="Front End Development">Front End Development</option>
+                    <option value="Back End Development">Back End Development</option>
+                    <option value="Database Development">Database Development</option>
+                    <option value="Data Structures And Algorithm">Data Structures And Algorithm</option>
+                    <option value="Programming Language">Programming Language</option>
+                    <option value="Android Development">Android Development</option>
+                    <option value="Machine Learning">Machine Learning</option>
+                    <option value="Dev - Ops">Dev - Ops</option>
+                    <option value="Cloud Technologies">Cloud Technologies</option>
                   </select>
                 </FormGroup>
               </Col>
-
+                <Col md="4">
+                  <FormGroup>
+                    <label className="fontType" htmlFor="roadmapImgFile">
+                      Roadmap Image
+                    </label>
+                    <input
+                      type="file"
+                      className="form-control"
+                      ref={roadmapImgRef}
+                      id="roadmapImgFile"
+                    />
+                   
+                  </FormGroup>
+                </Col>
             </Row>
            
             <Row style={{ width: "100%", marginLeft: 0 }}>
@@ -109,10 +121,12 @@ const RoadmapFormView = ({
                 </FormGroup>
               </Col>
             </Row>
+            
           </Form>
         </CardBody>
       </Card>
     </DashboardLayout>
   );
-};
+}
+);
 export default RoadmapFormView;

@@ -16,6 +16,7 @@ const AddRoadmap = (props) => {
   const info = useContext(InfoContext);
   const [roadmapTitle, setRoadmapTitle] = useState("");
   const [type, setType] = useState("");
+  const roadmapImgRef = React.createRef();
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const [loading, setLoading] = useState(false);
 
@@ -25,10 +26,14 @@ const AddRoadmap = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(type);
+    console.log(roadmapTitle);
+    // console.log(roadmapTitle);
+    // console.log(roadmapTitle);
     const data = new FormData();
     if (
       !roadmapTitle ||
-      !type ||
+      !type ||  
       !JSON.stringify(convertToRaw(editorState.getCurrentContent()))
     )
       return info.dispatch(
@@ -36,32 +41,32 @@ const AddRoadmap = (props) => {
           "All the fields are required. Please fill in the fields!"
         )
       );
-
-    data.append("title", roadmapTitle);
+    if (!roadmapImgRef.current.files[0]) {
+        return info.dispatch(
+          generateWarning("Roadmap Image is required to be uploaded!")
+        );
+    }
+    data.append("roadmapTitle", roadmapTitle);
     data.append("type", type);
     data.append(
       "roadmapDescription",
       JSON.stringify(convertToRaw(editorState.getCurrentContent()))
     );
+    data.append("roadmapImg", roadmapImgRef.current.files[0]);
     setLoading(true);
 
-    let object = {};
-    data.forEach(function (value, key) {
-      object[key] = value;
-    });
-
-    // axios
-    //   .post("/post/admin/addroadmap", { roadmap: object })
-    //   .then((res) => {
-    //     setLoading(false);
-    //     info.dispatch(generateSuccess("roadmap Added Successfull!"));
-    //   })
-    //   .catch((err) => {
-    //     setLoading(false);
-    //     if (err.response && err.response.data)
-    //       info.dispatch(generateError(err.response.data.errorMsg));
-    //     else info.dispatch(generateError("Something went wrong!"));
-    //   });
+    axios
+      .post("/post/admin/addRoadmap", data)
+      .then((res) => {
+        setLoading(false);
+        info.dispatch(generateSuccess("Roadmap Added Successfull!"));
+      })
+      .catch((err) => {
+        setLoading(false);
+        if (err.response && err.response.data)
+          info.dispatch(generateError(err.response.data.errorMsg));
+        else info.dispatch(generateError("Something went wrong!"));
+      });
   };
   const state = {
     roadmapTitle,
@@ -74,7 +79,10 @@ const AddRoadmap = (props) => {
   };
   return (
     <>
-      <AddRoadmapView {...state} action="Add Roadmap" />
+      <AddRoadmapView 
+      ref={{ roadmapImgRef}}
+      {...state} 
+      action="Add Roadmap" />
       {loading && <Loader />}
     </>
   );

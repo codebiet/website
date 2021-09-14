@@ -22,11 +22,6 @@ import {
   generateError,
 } from "../../../state/info/infoActions";
 import roadmapRoutes from "./roadmapRoutes";
-// import JobCard from "../../JobCards/JobCard";
-// import DashboardLayout from "../Dashboard/DashboardLayout";
-// import ContentLoaderSvg from "../../EventCard/EventCardLoader";
-// import Pagination from "../../Pagination/Pagination";
-// import ConfirmDeletion from "./ConfirmDeletion";
 const JobCard = lazy(() => import("../../JobCards/JobCard"));
 const DashboardLayout = lazy(() => import("../Dashboard/DashboardLayout"));
 const ContentLoaderSvg = lazy(() => import("../../EventCard/EventCardLoader"));
