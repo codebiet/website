@@ -42,13 +42,13 @@ const addRoadmap = async (req, res) => {
     return res.status(400).send({ errorMsg: "Invalid file type for Image!" });
   //file type verification -- end
 
-  // const roadmapImgParams = getParams(roadmapImg);
-  // try {
-  //   roadmapImgUrl = await uploadS3(roadmapImgParams);
-  // } catch (err) {
-  //   console.log(err)
-  //   return res.status(500).send({ errorMsg: "Error while uploading Roadmap image!" });
-  // }
+  const roadmapImgParams = getParams(roadmapImg);
+  try {
+    roadmapImgUrl = await uploadS3(roadmapImgParams);
+  } catch (err) {
+    console.log(err)
+    return res.status(500).send({ errorMsg: "Error while uploading Roadmap image!" });
+  }
   //end file upload to s3
   //------------------------------------------------------------------------------
   const event = new roadmaps({
