@@ -14,7 +14,7 @@ Star the repo by pressing the topmost-right button to start your wonderful journ
 
 ### 1. Fork the repo :fork_and_knife:
 
-You can get your own fork/copy of <a href="https://github.com/codebiet/website.git"> UILib </a> by using the <kbd><b>Fork</b></kbd> button at top-right of your screen.
+You can get your own fork/copy of <a href="https://github.com/codebiet/website.git"> Website repo </a> by using the <kbd><b>Fork</b></kbd> button at top-right of your screen.
 
 
 ### 2. Clone it to your local machine :busts_in_silhouette:
