@@ -18,7 +18,7 @@ const usertestimonialsData = [
     userImg: shivank,
     name: "Shivank",
     branch: "CSE",
-    year: 3,
+    year: 4,
   },
   {
     heading: "Recommended for Everyone",
@@ -27,7 +27,7 @@ const usertestimonialsData = [
     userImg: vikas,
     name: "Vikas Singh Patel",
     branch: "CSE",
-    year: 3,
+    year: 4,
   },
   {
     heading: "Straightforward Learning Platform",
@@ -36,7 +36,7 @@ const usertestimonialsData = [
     userImg: abhinayDubey,
     name: "Abhinay Dubey",
     branch: "ECE",
-    year: 2,
+    year: 3,
   },
   {
     heading: "Learner to Earner",
@@ -45,7 +45,7 @@ const usertestimonialsData = [
     userImg: prakhar,
     name: "Prakhar Singh",
     branch: "ECE",
-    year: 2,
+    year: 3,
   },
   {
     heading: "Great Learning Opportunity",
@@ -54,7 +54,7 @@ const usertestimonialsData = [
     userImg: kshitiz,
     name: "Kshitij Sharma",
     branch: "ECE",
-    year: 2,
+    year: 3,
   },
   {
     heading: "Place to learn and Explore",
@@ -63,7 +63,7 @@ const usertestimonialsData = [
     userImg: ashirvad,
     name: "Ashirvad Pathak",
     branch: "CSE",
-    year: 2,
+    year: 3,
   },
   {
     heading: "A Platform for Beginers",
@@ -72,7 +72,7 @@ const usertestimonialsData = [
     userImg: siddhantMishra,
     name: "Siddhant Mishra",
     branch: "ECE",
-    year: 1,
+    year: 2,
   },
   {
     heading: "Tool For A Developer",
@@ -81,7 +81,7 @@ const usertestimonialsData = [
     userImg: aman,
     name: "Aman Gangwani",
     branch: "ECE",
-    year: 1,
+    year: 2,
   },
 ];
 const UserTestimonial = ({ heading, content, userImg, name, branch, year }) => {
@@ -107,7 +107,7 @@ const UserTestimonial = ({ heading, content, userImg, name, branch, year }) => {
             <p className="identity">
               {branch + " - " + year}
               <sup>
-                {year == 1 ? "st" : year == 2 ? "nd" : year == 3 ? "rd" : ""}
+                {year == 1 ? "st " : year == 2 ? "nd " : year == 3 ? "rd " : year == 4 ? 'th ' : ''}
               </sup>
               Year
             </p>

@@ -23,68 +23,6 @@ $box-shadow-map: rgba(0, 0, 0, 0.06);
 $heading-color-2: #fff;
 .main-container-home {
   font-family: "Nunito", sans-serif;
-  // :root {
-  //   --primary: #ff4c4c;
-  //   --secondary: #e71d36;
-  //   --success: #28a745;
-  //   --info: #17a2b8;
-  //   --warning: #ffc107;
-  //   --danger: #dc3545;
-  //   --light: #f8f9fa;
-  //   --dark: #343a40;
-  //   --breakpoint-xs: 0;
-  //   --breakpoint-sm: 576px;
-  //   --breakpoint-md: 768px;
-  //   --breakpoint-lg: 992px;
-  //   --breakpoint-xl: 1200px;
-  //   --font-family-sans-serif: "Nunito", sans-serif;
-  //   --font-family-monospace: "Roboto Mono", SFMono-Regular, Consolas, monospace;
-  // }
-  // :root {
-  //   --theme-color: #fbbb3b;
-  //   --primary-color: #ec8c24;
-  //   --secondary-color: #222222;
-  //   --font-color: #707070;
-  //   --bg-color: #fff;
-  //   --heading-color: #060606;
-  //   --footer-color: #f7f7f7;
-  //   --footer-cpy-color: #040a17;
-  //   --border-radius: 30px;
-  //   --border-radius-full: 15px;
-  //   --border-color-light: #eee;
-  //   --iframe-filter: grayscale(0%);
-  //   --bg-grey: #f9f9f9;
-  //   --bg-light: #fbfbfb;
-  //   --bg-dark-color: #fff;
-  //   --footer-sub-color: #333;
-  //   --disable-color: #d8d6d6;
-  //   --box-shadow-color: rgba(0, 0, 0, 0.07);
-  //   --box-shadow-color-2: rgba(0, 0, 0, 0.03);
-  //   --box-shadow-map: rgba(0, 0, 0, 0.06);
-  //   --heading-color-2: #fff;
-  // }
-
-  // [data-theme="dark"] {
-  //   --theme-color: #e40000;
-  //   --primary-color: #f9580e;
-  //   --secondary-color: #fff;
-  //   --font-color: #b7b7b7;
-  //   --bg-color: #171717;
-  //   --heading-color: #fdfffc;
-  //   --footer-color: #0e0e0e;
-  //   --footer-cpy-color: #060606;
-  //   --border-color-light: rgba(255, 255, 255, 0.2);
-  //   --iframe-filter: grayscale(100%);
-  //   --bg-grey: #0b0d0e;
-  //   --bg-light: #0c0b0b;
-  //   --bg-dark-color: #27282b;
-  //   --footer-sub-color: #b7b7b7;
-  //   --disable-color: #5d5d5d;
-  //   --box-shadow-color: rgb(16, 14, 14);
-  //   --box-shadow-color-2: rgb(23, 19, 19);
-  //   --box-shadow-map: rgb(14, 12, 12);
-  //   --heading-color-2: #060606;
-  // }
   *,
   *::before,
   *::after {
@@ -108,18 +46,6 @@ $heading-color-2: #fff;
   main,
   section {
     display: block;
-  }
-
-  body {
-    margin: 0;
-    font-family: $font-family-sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
-    text-align: left;
-    background-color: #fff;
-    overflow-x: hidden;
   }
 
   [tabindex="-1"]:focus:not(:focus-visible) {
@@ -349,24 +275,6 @@ $heading-color-2: #fff;
   [type="submit"]::-moz-focus-inner {
     padding: 0;
     border-style: none;
-  }
-
-  input[type="radio"],
-  input[type="checkbox"] {
-    box-sizing: border-box;
-    padding: 0;
-  }
-
-  input[type="date"],
-  input[type="time"],
-  input[type="datetime-local"],
-  input[type="month"] {
-    -webkit-appearance: listbox;
-  }
-
-  textarea {
-    overflow: auto;
-    resize: vertical;
   }
 
   fieldset {
@@ -13210,7 +13118,7 @@ $heading-color-2: #fff;
   }
 
   .w3l-clients.w3l-test blockquote q::before {
-    font-size: 50px;
+    font-size: 32px;
     color: $primary-color;
     display: inline-block;
     font-family: $font-family-monospace;
@@ -14475,6 +14383,9 @@ $heading-color-2: #fff;
 ----------------------------------------------------------*/
   .subscribe-area {
     background-image: linear-gradient(225deg, #ddd, #f5f5f5);
+    input{
+      cursor: text!important;
+    }
   }
   .subcontainer {
     display: flex;
