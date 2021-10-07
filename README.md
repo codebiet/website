@@ -24,7 +24,7 @@ You can get your own fork/copy of <a href="https://github.com/codebiet/website.g
 You need to clone (download) it to local machine using
 
 ```sh
-$ git clone https://github.com/codebiet/website.git
+$ git clone https://github.com/{yourUserName}/website.git
 ```
 
 > This makes a local copy of the repository in your machine.
