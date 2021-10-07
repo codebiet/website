@@ -106,11 +106,13 @@ const Login = (props) => {
     placeholder: "Email",
     id: "login-email",
   });
+  const [passhs, setpasshs] = useState(false);
   const [password, passwordInput] = useInput({
-    type: "password",
+    type: passhs ? "text" : "password",
     placeholder: "Password",
     id: "login-password",
   });
+
   //used to clear warning and info logs when the component is unmounted;
   useEffect(() => {
     const clearLogs = () => {
@@ -173,6 +175,11 @@ const Login = (props) => {
     }
     e.preventDefault();
   };
+
+  const showAndHide = (e) => {
+    e.preventDefault();
+    setpasshs(!passhs);
+  };
   //handles Messages while recovering password
   useEffect(() => {
     if (auth.state.recoverError)
@@ -226,9 +233,26 @@ const Login = (props) => {
                     </div>
                     <div className="input-container">
                       <label htmlFor="login-password">Password:</label>
+
                       {passwordInput}
                       <img src={lock} alt="" />
+                      {/* button for hide and show the password accordingly */}
+                      {passhs && (
+                        <div className="passwordhide">
+                          <button className="hidebtn" onClick={showAndHide}>
+                            <i class="far fa-eye"></i>
+                          </button>
+                        </div>
+                      )}
+                      {!passhs && (
+                        <div className="passwordhide">
+                          <button className="hidebtn" onClick={showAndHide}>
+                            <i class="fas fa-eye-slash"></i>
+                          </button>
+                        </div>
+                      )}
                     </div>
+
                     <div className="button-container">
                       <button type="submit" className="default-btn">
                         LOGIN

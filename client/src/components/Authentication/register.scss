@@ -44,15 +44,28 @@
       margin-top: -10%;
     }
   }
+  .passwordhide {
+    position: absolute;
+    background: none;
+    right: 7px;
+    bottom: 20px;
+  }
+  .hidebtn {
+    border: none;
+    background: none;
+    // position: relative;
+    // top: -44px;
+    // left: -7px;
+  }
   .form-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 50%;
-    @media (min-width:600px){
-      min-width:380px;
-      .login-form{
+    @media (min-width: 600px) {
+      min-width: 380px;
+      .login-form {
         min-width: 380px;
       }
     }
@@ -63,7 +76,7 @@
       margin-bottom: 4rem;
       @media (max-width: 599px) {
         margin-bottom: 2rem;
-        display:none;
+        display: none;
       }
       font-size: 1.3rem;
       text-decoration: underline;
@@ -76,7 +89,7 @@
       text-align: left;
       width: 75%;
       max-width: unset;
-      padding:0;
+      padding: 0;
       @media (max-width: 599px) {
         width: 95%;
       }
@@ -99,13 +112,13 @@
         border: none;
         border-bottom: 1.5px solid grey;
         background: none;
-        padding:.05rem 0 .2rem 2rem;
+        padding: 0.05rem 0 0.2rem 2rem;
         font-size: 1rem;
         outline: none;
         width: 100%;
         margin: 1.2rem 0;
         border-radius: 0;
-        color:black;
+        color: black;
       }
       select {
         cursor: pointer;
@@ -147,12 +160,12 @@
       }
     }
   }
-  span{
+  span {
     font-size: 1.1rem;
     font-weight: 600;
-    display:inline-block;
-    padding:0;
-    margin:0 .5rem 0 0;
-    width:unset;
+    display: inline-block;
+    padding: 0;
+    margin: 0 0.5rem 0 0;
+    width: unset;
   }
 }

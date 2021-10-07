@@ -205,7 +205,7 @@ function App() {
                 path="/userProfile/:id"
                 render={(props) => <UserProfile {...props} />}
               />
-               <Route
+              <Route
                 exact
                 path="/roadmaps/:url"
                 render={(props) => <RoadmapIndividual {...props} />}
