@@ -117,34 +117,46 @@ const AskBar = ({
                   </p>
                 )}
                 <div className="form-group">
+                  <label htmlFor="" style={{ marginBottom: "-2px" }}>
+                    Add an interesting title
+                  </label>
                   <textarea
                     className="form-control"
                     id="ques-title"
                     rows="3"
-                    placeholder="Add an interesting title"
                     value={queryTitle}
                     onChange={(e) => setQueryTitle(e.target.value)}
                   ></textarea>
-                  <small id="quesHelpBlock" className="form-text text-muted">
+                  <small
+                    id="quesHelpBlock"
+                    className="form-text text-muted"
+                    style={{ fontSize: "13px" }}
+                  >
                     Short but descriptive
                   </small>
                 </div>
                 <div className="form-group">
+                  <label htmlFor="" style={{ marginBottom: "-2px" }}>
+                    Your text post (optional)
+                  </label>
                   <textarea
                     className="form-control"
                     id="ques-content"
                     rows="4"
-                    placeholder="Your text post (optional)"
                     value={queryDescription}
                     onChange={(e) => setQueryDescription(e.target.value)}
                   ></textarea>
-                  <small id="contentHelpBlock" className="form-text text-muted">
+                  <small
+                    id="contentHelpBlock"
+                    className="form-text text-muted"
+                    style={{ fontSize: "13px" }}
+                  >
                     Provide a detailed description to make it easier for others
                     to reply.
                   </small>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="category" className="form-text text-muted">
+                  <label htmlFor="category" style={{ marginBottom: "-2px" }}>
                     Choose a Category
                   </label>
                   <select
@@ -176,15 +188,22 @@ const AskBar = ({
                   </select>
                 </div>
                 <div className="form-group">
+                  <label htmlFor="" style={{ marginBottom: "-2px" }}>
+                    Enter tag and press enter
+                  </label>
                   <Tags
-                    placeholder="Enter tag and press enter"
+                    // placeholder="Enter tag and press enter"
                     className="form-control"
                     whitelist={whiteList}
                     showDropdown={true}
                     value={tags.join(", ")}
                     onChange={(e) => handleTagChange(e.detail.value)}
                   />
-                  <small id="tagsHelpBlock" className="form-text text-muted">
+                  <small
+                    id="tagsHelpBlock"
+                    className="form-text text-muted"
+                    style={{ fontSize: "13px" }}
+                  >
                     To help people quicly see what you posted about
                   </small>
                 </div>
