@@ -9,8 +9,8 @@ function OurTeam() {
   const operatingdiv = "Operating Member";
   const assistancediv = "Assistance Team";
   useEffect(() => {
-    window.scrollTo(0,0);
-  },[])
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Suspense fallback={<Loader />}>
       <Nav />
@@ -21,14 +21,14 @@ function OurTeam() {
           </header>
           <div className="member operatingdiv">
             <h2>
-              Operating Team
+              Leading Team
               <hr className="mid-hr" />
             </h2>
             <Members post={operatingdiv} />
           </div>
           <div className="member assitancediv">
             <h2>
-              Assistance Team
+              Operating Team
               <hr className="mid-hr" />
             </h2>
             <Members post={assistancediv} />

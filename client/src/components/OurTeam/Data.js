@@ -4,11 +4,12 @@ import Sooraj from "../assets/operating/Sooraj Shukla.png";
 import Sharad from "../assets/operating/Sharad.jpg";
 import Raveet from "../assets/operating/Raveet.png";
 import Sweety from "../assets/operating/Sweety.jpg";
-import Simran from '../assets/operating/Simran.png';
+import Simran from "../assets/operating/Simran.png";
 import Vaibhav from "../assets/operating/Vaibhav Dixit.png";
 import Prabhat from "../assets/operating/Prabhat.png";
 import Rishi from "../assets/operating/rishi.png";
-import Arun from "../assets/operating/Arun.png"
+import Arun from "../assets/operating/Arun.png";
+import Preeti from "../assets/operating/Preeti.jpg";
 
 import ShivangiSingh from "../assets/Assistance/Shivangi_Singh.png";
 import Jeenesh from "../assets/Assistance/JeeneshKumar.png";
@@ -118,15 +119,27 @@ export default [
     mail: "mailto:rrb24397@gmail.com",
     fb_link: "",
     lnkdin_link: "linkedin.com/in/rishi-bajpai",
-  },{
-  id: 11,
-  name: "Arun kumar Rajput",
-  image:Arun,
-  post: "Developer",
-  category: "Operating Member",
-  mail: "mailto:Ar1445942@gmail.com",
-  fb_link: "https://m.facebook.com/arap.rajput",
-  lnkdin_link: "https://www.linkedin.com/in/arun-kumar-rajput-697076170/",},
+  },
+  {
+    id: 11,
+    name: "Arun kumar Rajput",
+    image: Arun,
+    post: "Developer",
+    category: "Operating Member",
+    mail: "mailto:Ar1445942@gmail.com",
+    fb_link: "https://m.facebook.com/arap.rajput",
+    lnkdin_link: "https://www.linkedin.com/in/arun-kumar-rajput-697076170/",
+  },
+  {
+    id: 11,
+    name: "Preeti Gupta",
+    image: Preeti,
+    post: "Developer",
+    category: "Operating Member",
+    mail: "mailto:preetija34@gmail.com",
+    fb_link: "https://www.facebook.com/profile.php?id=100028223058247",
+    lnkdin_link: "https://www.linkedin.com/in/preeti-gupta-1759931ba/",
+  },
   {
     id: 11,
     name: "Shivangi Singh",
@@ -149,16 +162,16 @@ export default [
       "https://www.linkedin.com/in/jeenesh-kumar-chaudhary-340b5a1a6",
   },
 
-  {
-    id: 13,
-    name: "Arnika Kaithwas",
-    image: Arnika,
+  // {
+  //   id: 13,
+  //   name: "Arnika Kaithwas",
+  //   image: Arnika,
 
-    category: "Assistance Team",
-    mail: "mailto:arnikakaithwas114@gmail.com",
-    fb_link: "https://www.facebook.com/arnika.kaithwas",
-    lnkdin_link: "https://www.linkedin.com/in/arnika-kaithwas-339a551b0/",
-  },
+  //   category: "Assistance Team",
+  //   mail: "mailto:arnikakaithwas114@gmail.com",
+  //   fb_link: "https://www.facebook.com/arnika.kaithwas",
+  //   lnkdin_link: "https://www.linkedin.com/in/arnika-kaithwas-339a551b0/",
+  // },
 
   {
     id: 14,
@@ -171,38 +184,38 @@ export default [
     lnkdin_link: "https://www.linkedin.com/in/adarsh-srivastava-277b471b2",
   },
 
-  {
-    id: 15,
-    name: "Shivangi Shukla",
-    image: ShivangiShukla,
+  // {
+  //   id: 15,
+  //   name: "Shivangi Shukla",
+  //   image: ShivangiShukla,
 
-    category: "Assistance Team",
-    mail: "mailto:shivangis2208@gmail.com",
-    fb_link: "",
-    lnkdin_link: "https://www.linkedin.com/in/shivangi-shukla-a17683196",
-  },
+  //   category: "Assistance Team",
+  //   mail: "mailto:shivangis2208@gmail.com",
+  //   fb_link: "",
+  //   lnkdin_link: "https://www.linkedin.com/in/shivangi-shukla-a17683196",
+  // },
 
-  {
-    id: 16,
-    name: "Sumit Kumar Singh",
-    image: Sumit,
+  // {
+  //   id: 16,
+  //   name: "Sumit Kumar Singh",
+  //   image: Sumit,
 
-    category: "Assistance Team",
-    mail: "mailto:sumitks866@gmail.com",
-    fb_link: "",
-    lnkdin_link: "https://www.linkedin.com/in/sumit-singh-3148106a/",
-  },
+  //   category: "Assistance Team",
+  //   mail: "mailto:sumitks866@gmail.com",
+  //   fb_link: "",
+  //   lnkdin_link: "https://www.linkedin.com/in/sumit-singh-3148106a/",
+  // },
 
-  {
-    id: 17,
-    name: "Ayush Kumar Shukla ",
-    image: Ayush,
+  // {
+  //   id: 17,
+  //   name: "Ayush Kumar Shukla ",
+  //   image: Ayush,
 
-    category: "Assistance Team",
-    mail: "mailto:shuklaayushkumar27@gmail.com",
-    fb_link: "https://www.facebook.com/profile.php?id=100045303995156",
-    lnkdin_link: "https://www.linkedin.com/in/ayush-kumar-shukla-20589a19a/",
-  },
+  //   category: "Assistance Team",
+  //   mail: "mailto:shuklaayushkumar27@gmail.com",
+  //   fb_link: "https://www.facebook.com/profile.php?id=100045303995156",
+  //   lnkdin_link: "https://www.linkedin.com/in/ayush-kumar-shukla-20589a19a/",
+  // },
 
   {
     id: 19,
