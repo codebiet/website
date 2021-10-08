@@ -142,13 +142,23 @@ export default [
   },
   {
     id: 11,
-    name: "Shivangi Singh",
-    image: ShivangiSingh,
+    name: "Shivangi Shukla",
+    image: ShivangiShukla,
+
     category: "Assistance Team",
-    mail: "mailto:me.shivasingh.0987@gmail.com",
+    mail: "mailto:shivangis2208@gmail.com",
     fb_link: "",
-    lnkdin_link: "https://www.linkedin.com/in/shivangi-singh-305751192",
+    lnkdin_link: "https://www.linkedin.com/in/shivangi-shukla-a17683196",
   },
+  // {
+  //   id: 11,
+  //   name: "Shivangi Singh",
+  //   image: ShivangiSingh,
+  //   category: "Assistance Team",
+  //   mail: "mailto:me.shivasingh.0987@gmail.com",
+  //   fb_link: "",
+  //   lnkdin_link: "https://www.linkedin.com/in/shivangi-singh-305751192",
+  // },
 
   {
     id: 12,
