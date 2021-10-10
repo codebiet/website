@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
         "name profilePhoto",
         Users
       );
-    console.log(blogComments);
+    // console.log(blogComments);
     return res.send({ comments: blogComments.comments });
   } catch (err) {
     return res

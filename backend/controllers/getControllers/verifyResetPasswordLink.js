@@ -13,7 +13,7 @@ const verifyResetPasswordLink = async (req, res) => {
     //decrypt ID and Time
     const decryptedID = decrypt(encryptedID);
     const decryptedTime = decrypt(encryptedTime);
-    console.log("decryptedID : ",decryptedID," decryptedTime : ",decryptedTime);
+    // console.log("decryptedID : ",decryptedID," decryptedTime : ",decryptedTime);
     let user;
     try{
         user = await User.findById(decryptedID).exec();
@@ -22,18 +22,18 @@ const verifyResetPasswordLink = async (req, res) => {
     }
     if (user) {
       const timeElapsed = (Date.now() - decryptedTime) / (1000 * 60); //in minutes;
-      console.log(user);
+      // console.log(user);
       if (timeElapsed < process.env.EMAIL_LINK_VALIDITY) {
         //email link is clicked in valid time duration
         res.send({msg:"success"});
       } else {
         //link not clicked in valid time duration
-        console.log("the link is click after it gets disabled");
+        // console.log("the link is click after it gets disabled");
         res.status(400).send({errorMsg:"Invalid Link"});
         // res.render("sentEmailLinkAgain");
       }
     } else {
-        console.log("invalid userId while verify reset password link");
+        // console.log("invalid userId while verify reset password link");
       res.status(400).send({ errorMsg: "Invalid request!" });
     }
   // } else {

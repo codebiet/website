@@ -49,7 +49,7 @@ const updateProfile = async (req, res) => {
       };
     academics = JSON.parse(academics);
     achievements = JSON.parse(achievements);
-    console.log(higherStudy);
+    // console.log(higherStudy);
     if (!degree || !college || !city || academics.length < 3 || !objective)
       return res.status(400).send({
         errorMsg:
@@ -113,12 +113,12 @@ const updateProfile = async (req, res) => {
       projects,
       trainings,
     } = req.body;
-    console.log("role is ", role);
+    // console.log("role is ", role);
     if (role == "Professional") companiesWorked = JSON.parse(companiesWorked);
     else companiesWorked = [];
-    console.log(companiesWorked);
+    // console.log(companiesWorked);
     programmingLanguages = JSON.parse(programmingLanguages);
-    console.log(webTechnologies);
+    // console.log(webTechnologies);
     webTechnologies = JSON.parse(webTechnologies);
     webFrameworks = JSON.parse(webFrameworks);
     dbms = JSON.parse(dbms);
@@ -197,7 +197,7 @@ const updateProfile = async (req, res) => {
         };
         try {
           profileUrl = await uploadS3(profileParams);
-          console.log(profileUrl);
+          // console.log(profileUrl);
         } catch (err) {
           if (!errorMsg) errorMsg = "Error while uploading Profile Photo";
           else errorMsg = "Error while uploading Resume and Profile Photo";

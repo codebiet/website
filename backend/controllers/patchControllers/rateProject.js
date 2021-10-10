@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
       _id: id,
       "ratings.rater": req.body.userId,
     });
-    console.log(project);
+    // console.log(project);
     let ratedProj;
     if (project) {
       ratedProj = await Project.findOneAndUpdate(
@@ -21,13 +21,13 @@ module.exports = async (req, res) => {
         { $set: { "ratings.$.rating": rating } },
         { new: true }
       );
-      console.log(ratedProj);
+      // console.log(ratedProj);
     } else {
       if (projectById.ratings)
         projectById.ratings.push({ rater: req.body.userId, rating: rating });
       else projectById.ratings.push({ rater: req.body.userId, rating: rating });
       ratedProj = await projectById.save();
-      console.log("else: ", ratedProj);
+      // console.log("else: ", ratedProj);
     }
     let avgRating = 0;
     let ratings = ratedProj.ratings;

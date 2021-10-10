@@ -28,7 +28,7 @@ module.exports = async (req, res) => {
     limit: parseInt(req.query.limit) || 1000,
   };
   if (req.query.pickedBy) filters.pickedBy = req.query.pickedBy;
-  console.log(filters);
+  // console.log(filters);
   let dbFilters = {
     suggestedAt: { $gt: filters.suggestedAtGt, $lt: filters.suggestedAtLt },
     state: { $in: filters.state },
@@ -44,7 +44,7 @@ module.exports = async (req, res) => {
       .sort({ suggestedAt: -1 })
       .skip(filters.page * filters.limit) //pagination starts from 0
       .limit(filters.limit).populate('pickedBy', 'name email', Users); //getting suggestions;
-      console.log(suggestions);
+      // console.log(suggestions);
     return res.send({ totalItems, suggestions });
   } catch (err) {
     console.log(err);

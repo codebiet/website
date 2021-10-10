@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
   if (!req.body.isAdmin) dbFilters.postedBy = req.body.userId; //we'll get req.body.isAdmin and req.body.userId from middleware run on this route;
   try {
     const blog = await Blogs.findOne(dbFilters);
-    console.log(blog, "db filters are : ", dbFilters);
+    // console.log(blog, "db filters are : ", dbFilters);
     if (!blog) return res.status(404).send({ errorMsg: "Not Found!" });
     return res.send({ blog });
   } catch (err) {

@@ -11,8 +11,8 @@ const changePassword = async (req, res) => {
   //passwords matched
   const encryptedID = req.query.a; //since a = id
   const encryptedTime = req.query.b; //since b = time
-  console.log(encryptedID);
-  console.log(encryptedTime);
+  // console.log(encryptedID);
+  // console.log(encryptedTime);
   //decrypt ID and Time
   const decryptedID = decrypt(encryptedID);
   const decryptedTime = decrypt(encryptedTime);

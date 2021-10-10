@@ -4,7 +4,7 @@ const events = async (req, res) => {
   try {
     await Events.findByIdAndDelete(id).exec();
     const evnts = await Events.find({});
-    console.log(evnts);
+    // console.log(evnts);
     return res.send({ events: evnts });
   } catch (err) {
     console.log(err);

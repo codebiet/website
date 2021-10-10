@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const login = async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    console.log({ email, password }, "email or password empty!");
+    // console.log({ email, password }, "email or password empty!");
     return res
       .status(400)
       .send({ errorMsg: "Email and password are required!" });
@@ -19,11 +19,11 @@ const login = async (req, res) => {
       .send({ errorMsg: "Status Code:500, Internal Server Error!" });
   }
   if (!user) {
-    console.log("Invalid email!");
+    // console.log("Invalid email!");
     return res.status(400).send({ errorMsg: "This email is not registered!" });
   }
   bcrypt.compare(password, user.password).then((isMatch) => {
-    console.log(isMatch);
+    // console.log(isMatch);
     if (!isMatch)
       return res.status(401).send({ errorMsg: "Please Check your Password!" });
     jwt.sign(
