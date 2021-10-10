@@ -2,7 +2,7 @@ const Certificate = require('../../models/certificateModal');
 
 const verifyCertificate = async (req,res) => {
     const {certificateNumber} = req.body;
-    console.log(certificateNumber);
+    // console.log(certificateNumber);
     if(!certificateNumber) return res.status(400).send({errorMsg:"Certificate Number required!"});
     else if(certificateNumber.length != 24) return res.status(400).send({errorMsg:"Invalid Certificate Number"});
     let certificate;

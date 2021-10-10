@@ -15,9 +15,9 @@ const verifyOtp = async (req, res) => {
   }
   try {
     const result = await OTPService.verifyOtp(otpVerifyRequestId, otp);
-    console.log("result after verification", result);
+    // console.log("result after verification", result);
     if (result.status == 0) {
-      console.log("otp verified");
+      // console.log("otp verified");
       const user = await User.findById(decoded.id).exec();
       if(!user) return res.status(400).send({errorMsg:"User doesn't exist!"});
       if(type == 'calling'){
@@ -28,7 +28,7 @@ const verifyOtp = async (req, res) => {
       await user.save();
       return res.send({msg:"success"});
     } else {
-      console.log("otp error!");
+      // console.log("otp error!");
       return res.status(400).send({ errorMsg: "OTP Error!" });
     }
   } catch (err) {

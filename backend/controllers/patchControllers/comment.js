@@ -37,7 +37,7 @@ module.exports = async (req, res) => {
     }catch(err){
       console.log('error while sending the email ',err);
     }
-    console.log(blogComments);
+    // console.log(blogComments);
     return res.send({ comments: blogComments.comments });
   } catch (err) {
     return res

@@ -47,7 +47,7 @@ const getResumeData = async (req, res) => {
   ];
   resumeData.img = user.profilePhoto;
   resumeData.achievements = user.achievements;
-  console.log(resumeData);
+  // console.log(resumeData);
   res.set("Cache-Control", "no-store");
   return res.status(200).send(resumeData);
 };

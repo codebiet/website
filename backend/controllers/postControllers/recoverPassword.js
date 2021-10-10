@@ -1,16 +1,16 @@
 const User = require("../../models/userModal");
 const sendEmail = require("../../utils/passwordResetEmail");
 const recoverPassword = async (req, res) => {
-  console.log(req.body.email);
+  // console.log(req.body.email);
   const user = await User.findOne().findByEmail(req.body.email).exec();
-  console.log(user);
+  // console.log(user);
   if (!user)
     return res
       .status(400)
       .send({ errorMsg: "This email is not registered yet." });
   try {
     const response = await sendEmail(user._id, user.email);
-    console.log(response);
+    // console.log(response);
     res.set("Cache-Control", "no-store");
     return res
       .status(200)

@@ -1,7 +1,7 @@
 module.exports = (req, res) => {
   req.session.destroy(function (err) {
     if (!err) {
-        console.log("destroying");
+        // console.log("destroying");
       res.cookie("token", '' , {
         expires: new Date(0),
         httpOnly: false,

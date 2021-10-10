@@ -2,9 +2,9 @@ const User = require("../../models/userModal");
 const decrypt = require('../../utils/decrypt');
 const verifyEmail = async (req, res) => {
   const host = req.get("host");
-  console.log("req.get('host') : ",host," req.protocol : ", req.protocol);
-  console.log(`${req.protocol}://${host}`);
-  console.log(`${process.env.PROTOCOL}://${process.env.HOST}`);
+  // console.log("req.get('host') : ",host," req.protocol : ", req.protocol);
+  // console.log(`${req.protocol}://${host}`);
+  // console.log(`${process.env.PROTOCOL}://${process.env.HOST}`);
   // if (
   //   `${req.protocol}://${host}` ==
   //   `${process.env.PROTOCOL}://${process.env.HOST}`

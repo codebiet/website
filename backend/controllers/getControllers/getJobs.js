@@ -44,7 +44,7 @@ module.exports = async (req, res) => {
       size = 10;
     }
 
-    console.log(queryObj);
+    // console.log(queryObj);
     const limit = parseInt(size);
     const skip = (page - 1) * size;
     let totalItems = await Job.countDocuments({

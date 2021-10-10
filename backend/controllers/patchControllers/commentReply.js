@@ -38,7 +38,7 @@ module.exports = async (req, res) => {
     const commentUser = await Users.findById(commentUserId);
     try{
       notifyCommentReply(commentUser.email, `https://ourcode.in/blogs/${blog.url}`);
-      console.log('mail got send to ',commentUser.email);
+      // console.log('mail got send to ',commentUser.email);
     }catch(err){
       console.log('error while sending the notification of reply to commenter: ',err);
     }

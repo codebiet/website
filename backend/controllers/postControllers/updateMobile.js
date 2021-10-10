@@ -4,7 +4,7 @@ const OTPService = require("../../utils/otpService");
 module.exports = async (req, res) => {
   const token = req.cookies["token"];
   const { whatsAppPhoneNumber, callingPhoneNumber } = req.body;
-  console.log({whatsAppPhoneNumber,callingPhoneNumber});
+  // console.log({whatsAppPhoneNumber,callingPhoneNumber});
   const phoneRegex = /^[0-9]{10}/i;
   if (!token) return res.status(401).send({ errorMsg: "Unauthorized!" });
   if (

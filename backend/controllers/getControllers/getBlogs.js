@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
     page: req.query.page || 0,
     limit: parseInt(req.query.limit) || 10000,
   };
-  console.log(filters.limit);
+  // console.log(filters.limit);
   if (req.query.writing == "true") filters.state = ["PICKED", "DRAFT"]; //if getting blog detail at write-article page, then blog state will be PICKED
   let dbFilters = {
     postedAt: { $gt: filters.postedAtGt, $lt: filters.postedAtLt },
@@ -29,7 +29,7 @@ module.exports = async (req, res) => {
   }
   if (req.params.id) dbFilters._id = req.params.id;
   if (req.query.postedBy) dbFilters.postedBy = req.query.postedBy;
-  console.log(dbFilters);
+  // console.log(dbFilters);
   //if no filters applied will get all the blogs, in descending order by posted date and time, but will limit to get 1000 blogs if no pagination limit given
   try {
     const skip = (req.query.skip && parseInt(req.query.skip)) || 0; //skip will be given when querying for blogs page, since we need some(3) blogs for hero section, we need to skip some(3) more blogs in each pagination

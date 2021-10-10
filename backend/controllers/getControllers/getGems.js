@@ -53,7 +53,7 @@ module.exports = async (req, res) => {
     }
     const limit = parseInt(size);
     const skip = (page - 1) * size;
-    console.log(queryObj);
+    // console.log(queryObj);
     let totalItems = await User.countDocuments({ ...queryObj });
     let Users = await User.find(queryObj).limit(limit).skip(skip);
     // console.log(Users);

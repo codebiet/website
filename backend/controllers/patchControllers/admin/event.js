@@ -78,7 +78,7 @@ const events = async (req, res) => {
       { new: true }
     );
     // const evnts = await Events.find({});
-    console.log("update event is : ", e);
+    // console.log("update event is : ", e);
     if (!e) return res.status(404).send({ errorMsg: "Event Not Found!" });
     delete event.registered;
     return res.send({ event: e });
